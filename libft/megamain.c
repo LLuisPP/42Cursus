@@ -6,44 +6,56 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 09:11:10 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/18 08:30:42 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/09/18 13:34:47 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "libft.h"
-# include <unistd.h>
-# include <string.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <ctype.h>
+#include <unistd.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <ctype.h>
+
 
 int	main(void)
 {
 
+	/*IS STRCHR*/
+	printf("STRINGCHR----STRCHR---STRCHR---STRCHR----STRCHR----%c", '\n');
+	printf("ORIGINAL > strchr (holamundo, -1) ===> %s, %c", strchr("holamundo", -1), '\n');
+	printf("LIB   > ft_strchr (holamundo, -1) ===> %s, %c", ft_strchr("holamundo", -1), '\n');
+	printf("ORIGINAL > strchr (holamundo, 0) ===> %s, %c", strchr("holamundo", 0), '\n');
+	printf("LIB   > ft_strchr (holamundo, 0) ===> %s, %c", ft_strchr("holamundo", 0), '\n');
+	printf("ORIGINAL 	> strchr (holamundo, 9) ===> %s, %c", strchr("holamundo", 9), '\n');
+	printf("LIB      > ft_strchr (holamundo, 9) ===> %s, %c", ft_strchr("holamundo", 9), '\n');
+	printf("ORIGINAL > strchr (holamundo, 20) ===> %s, %c", strchr("holamundo", 20), '\n');
+	printf("LIB      > ft_strchr (holamundo, 20) ===> %s, %c", ft_strchr("holamundo", 20), '\n');
+	/*TO LOWER END */
 
-	/*IS ALPHA*/
-	printf("IS ALPHA------IS ALPHA-------IS ALPHA------IS ALPHA-----%c", '\n');
-	printf("ORIGINAL > isalpha (0 = null) ===> %d, %c", isalpha(0), '\n');
-	printf("LIB   > ft_isalpha (0 = null) ===> %d, %c", ft_isalpha(0), '\n');
-	printf("ORIGINAL > isalpha (62 = b) ===> %d, %c", isalpha(62), '\n');
-	printf("LIB   > ft_isalpha (62 = b) ===> %d, %c", ft_isalpha(62), '\n');
-	printf("ORIGINAL > ft_isalpha (29 = )) ===> %d, %c", isalpha(29), '\n');
-	printf("LIB      > ft_isalpha (29 = )) ===> %d, %c", ft_isalpha(29), '\n');
-	printf("ORIGINAL > ft_isalpha (300 = )) ===> %d, %c", isalpha(300), '\n');
-	printf("LIB      > ft_isalpha (300 = )) ===> %d, %c", ft_isalpha(300), '\n');
-	/*IS ALPHA END*/
-
-	/*TO UPPER*/
-	printf("TO UPPER -------TO UPPER--------TO UPPER--------TO UPPE---%c", '\n');
-	printf("ORIGINAL > toupper (0 = null) ===> %d, %c", toupper(0), '\n');
-	printf("LIB   > ft_itoupper (0 = null) ===> %d, %c", ft_toupper(0), '\n');
-	printf("ORIGINAL > toupper (62 = b) ===> %d, %c", toupper(62), '\n');
-	printf("LIB   > ft_toupper (62 = b) ===> %d, %c", ft_toupper(62), '\n');
-	printf("ORIGINAL > toupper (29 = )) ===> %d, %c", toupper(29), '\n');
-	printf("LIB      > ft_toupper (29 = )) ===> %d, %c", ft_toupper(29), '\n');
-	printf("ORIGINAL > toupper (300 = )) ===> %d, %c", toupper(300), '\n');
-	printf("LIB      > ft_toupper (300 = )) ===> %d, %c", ft_toupper(300), '\n');
-	/*TO UPPER END */
+	/*IS ASCII*/
+	printf("ISACII----ISACII---ISACII---ISACII----ISACII----%c", '\n');
+	printf("ORIGINAL > isascii (0 = null) ===> %d, %c", isascii('\0'), '\n');
+	printf("LIB   > ft_isascii (0 = null) ===> %d, %c", ft_isascii('\0'), '\n');
+	printf("ORIGINAL > isascii (62 = b) ===> %d, %c", isascii(62), '\n');
+	printf("LIB   > ft_isascii (62 = b) ===> %d, %c", ft_isascii(62), '\n');
+	printf("ORIGINAL > isascii (29 = )) ===> %d, %c", isascii(29), '\n');
+	printf("LIB      > ft_isascii (29 = )) ===> %d, %c", ft_isascii(29), '\n');
+	printf("ORIGINAL > isascii (300 = )) ===> %d, %c", isascii(300), '\n');
+	printf("LIB      > ft_isascii (300 = )) ===> %d, %c", ft_isascii(300), '\n');
+	/*TO LOWER END */
+	
+	/*TO LOWER*/
+	printf("TO LOWER----TO LOWER----TO LOWER----TO LOWER----TO LOWER%c", '\n');
+	printf("ORIGINAL > toupper (0 = null) ===> %d, %c", tolower(0), '\n');
+	printf("LIB   > ft_itoupper (0 = null) ===> %d, %c", ft_tolower(0), '\n');
+	printf("ORIGINAL > toupper (62 = b) ===> %d, %c", tolower(62), '\n');
+	printf("LIB   > ft_toupper (62 = b) ===> %d, %c", ft_tolower(62), '\n');
+	printf("ORIGINAL > toupper (29 = )) ===> %d, %c", tolower(29), '\n');
+	printf("LIB      > ft_toupper (29 = )) ===> %d, %c", ft_tolower(29), '\n');
+	printf("ORIGINAL > toupper (300 = )) ===> %d, %c", tolower(300), '\n');
+	printf("LIB      > ft_toupper (300 = )) ===> %d, %c", ft_tolower(300), '\n');
+	/*TO LOWER END */
 
 	/*IS DIGIT*/
 	printf("IS DIGIT-----IS DIGIT------IS DIGIT--------IS DIGIT-------%c", '\n');
@@ -56,6 +68,32 @@ int	main(void)
 	printf("ORIGINAL > isdigit (300 = )) ===> %d, %c", isdigit(300), '\n');
 	printf("LIB      > ft_isdigit (300 = )) ===> %d, %c", ft_isdigit(300), '\n');
 	/*IS DIGIT */
+	
+	/*TO UPPER*/
+	printf("TO UPPER -------TO UPPER--------TO UPPER--------TO UPPE---%c", '\n');
+	printf("ORIGINAL > toupper (0 = null) ===> %d, %c", toupper(0), '\n');
+	printf("LIB   > ft_itoupper (0 = null) ===> %d, %c", ft_toupper(0), '\n');
+	printf("ORIGINAL > toupper (62 = b) ===> %d, %c", toupper(62), '\n');
+	printf("LIB   > ft_toupper (62 = b) ===> %d, %c", ft_toupper(62), '\n');
+	printf("ORIGINAL > toupper (29 = )) ===> %d, %c", toupper(29), '\n');
+	printf("LIB      > ft_toupper (29 = )) ===> %d, %c", ft_toupper(29), '\n');
+	printf("ORIGINAL > toupper (300 = )) ===> %d, %c", toupper(300), '\n');
+	printf("LIB      > ft_toupper (300 = )) ===> %d, %c", ft_toupper(300), '\n');
+	/*TO UPPER END */
+
+	/*IS ALPHA*/
+	printf("IS ALPHA------IS ALPHA-------IS ALPHA------IS ALPHA----%c", '\n');
+	printf("ORIGINAL > isalpha (0 = null) ===> %d %c", isalpha(0), '\n');
+	printf("LIB   > ft_isalpha (0 = null) ===> %d %c", ft_isalpha(0), '\n');
+	printf("ORIGINAL > isalpha (62 = b) ===> %d, %c", isalpha(62), '\n');
+	printf("LIB   > ft_isalpha (62 = b) ===> %d, %c", ft_isalpha(62), '\n');
+	printf("ORIGINAL > ft_isalpha (29 = )) ===> %d, %c", isalpha(29), '\n');
+	printf("LIB      > ft_isalpha (29 = )) ===> %d, %c", ft_isalpha(29), '\n');
+	printf("ORIGINAL > ft_isalpha (300 = )) ===> %d, %c", isalpha(300), '\n');
+	printf("LIB      > ft_isalpha (300 = )) ===> %d, %c", ft_isalpha(300), '\n');
+	printf("ORIGINAL > ft_isalpha (-5 = )) ===> %d, %c", isalpha(300), '\n');
+	printf("LIB      > ft_isalpha (-5 = )) ===> %d, %c", ft_isalpha(300), '\n');
+	/*IS ALPHA END*/
 
 	return(0);
 }
