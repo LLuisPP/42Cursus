@@ -6,13 +6,13 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 10:57:10 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/14 12:33:29 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/09/18 11:15:30 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isascii(int c)
 {
-	if (c >= '\n' && c <= ('~' + 1))
+	if ((unsigned)  c >= 0 && (unsigned) c <= ('~' + 1))
 	{
 		return (1);
 	}

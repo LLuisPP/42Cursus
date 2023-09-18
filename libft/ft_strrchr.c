@@ -6,22 +6,20 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 09:26:41 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/15 10:05:49 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/09/18 11:47:16 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	int	l;
 
 	l = 0;
-	if (s[l] == c)
-		return ((char *) &s[l]);
 	while (s[l] != '\0')
 		l++;
-	while (s[l - 1] > 0)
+	while (l >= 0)
 	{
-		if (s[l -1] == c)
+		if (s[l] == (unsigned char) c)
 		{
 			return ((char *) &s[l]);
 		}
