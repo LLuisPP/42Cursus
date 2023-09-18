@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 19:14:45 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/18 19:15:38 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/09/18 21:33:55 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,5 @@ void	*ft_memset(void *b, int c, size_t len);
 char	*ft_strdup(char *str);
 char	*ft_strrchr(const char *s, int c);
 void	ft_bzero(void *s, size_t n);
+void	*ft_memchr(const void *s, int c, size_t n);
 #endif
