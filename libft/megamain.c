@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 09:11:10 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/18 13:34:47 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/09/18 19:52:46 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,30 @@
 
 int	main(void)
 {
+
+	/*BZERO*/
+	printf("BZERO----BZERO---BZERO---BZERO----BZERO----%c", '\n');
+	printf("ORIGINAL > bzero (holamundo, -1) ===> %s, %c", bzero("holamundo", -1), '\n');
+	printf("LIB   > ft_bzero (holamundo, -1) ===> %s, %c", ft_bzero("holamundo", -1), '\n');
+	printf("ORIGINAL > bzero (holamundo, 0) ===> %s, %c", bzero("holamundo", 0), '\n');
+	printf("LIB   > ft_bzero (holnmundo, 0) ===> %s, %c", ft_bzero("holamundo", 0), '\n');
+	printf("ORIGINAL 	> bzero (holamundo, 9) ===> %s, %c", bzero("holamundo", 9), '\n');
+	printf("LIB      > ft_bzero (holamundo, 9) ===> %s, %c", ft_bzero("holamundo", 9), '\n');
+	printf("ORIGINAL > bzero (holamundo, 20) ===> %s, %c", bzero("holamundo", 20), '\n');
+	printf("LIB      > ft_bzero (holamundo, 20) ===> %s, %c", ft_bzero("holamundo", 20), '\n');
+	/*BZERO END */
+
+	/*IS MEMSET*/
+	printf("MEMSET----MEMSET----MEMSET----MEMSET----MEMESET----MEMSET----%c", '\n');
+	printf("ORIGINAL > memset (holamundo, '*', 10) ===> %p, %c", memset("holamundo", 7, 9), '\n');
+	printf("LIB   > ft_memset (holamundo, '10', 10) ===> %p, %c", ft_memset("holamundo", 7, 9), '\n');
+	printf("ORIGINAL > memset (holamundo, 0) ===> %p, %c", memset("holamundo", 7, 9), '\n');
+	printf("LIB   > ft_memset (holamundo, 0) ===> %p, %c", ft_memset("holamundo", 7, 9), '\n');
+//	printf("ORIGINAL 	> memset (holamundo, 9) ===> %p, %c", memset("holamundo", 7, 19), '\n');
+//	printf("LIB      > ft_memset (holamundo, 9) ===> %p, %c", ft_memset("holamundo", 10, 19), '\n');
+//	printf("ORIGINAL > memset (holamundo, 20) ===> %p, %c", memset("holamundo", 7, -2), '\n');
+//	printf("LIB      > ft_memset (holamundo, 20) ===> %p, %c", ft_memset("holamundo", 10, -2), '\n');
+	/*TO MEMSET END*/
 
 	/*IS STRCHR*/
 	printf("STRINGCHR----STRCHR---STRCHR---STRCHR----STRCHR----%c", '\n');
