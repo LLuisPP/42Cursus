@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 21:26:49 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/18 21:32:56 by lprieto-         ###   ########.fr       */
+/*   Created: 2023/09/19 07:18:09 by lprieto-          #+#    #+#             */
+/*   Updated: 2023/09/19 08:56:55 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,24 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const	char *str;
-	size_t	i;
+	size_t			i;
+	unsigned char	*str;
 
 	i = 0;
-	str = (const char *)s;
-	while (i < n)
+	str = (unsigned char *) s;
+	if (n == 0)
+		return ((char *) 0);
+	while (i < n - 1)
 	{
-		if (str[i] == c)
-			return ((void *)(s + 1));
+		if (str[i] == (unsigned char) c)
+		{
+			return (&str[i]);
+		}
 		i++;
 	}
-	return (0);
+	if (str[i] == (unsigned char) c)
+	{
+		return (&str[i]);
+	}
+	return ((char *) 0);
 }
