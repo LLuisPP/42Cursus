@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:58:11 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/16 13:14:33 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/09/20 12:45:36 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,3 +20,23 @@ int	ft_toupper(int c)
 	}
 	return (c);
 }
+
+/*int main(int argc, char **argv)
+{
+	if (argc != 2)
+		return (0);
+	printf("ft_toupper:%d \n", ft_toupper(atoi(argv[1])));
+	printf("toupper:%d", toupper(atoi(argv[1])));
+	return(0);
+}*/
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * DESCRIPCION: la funcion convierte el caracter que recibe de mayus a min
+ * empleando un int como parametro de entrada.
+ * INPUT: integuer c
+ * MAKE: comprueba que esta dentro del rango de chars alfabeticos minusula
+ * y le resta 32 para pasar a su equivalente en mayuscula (ver man ascii)
+ * OUTPUT: si es un char alfabetico minuscula retorna la mayuscula y si se 
+ * sale del rango de minusculas, no hace nada
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ */
