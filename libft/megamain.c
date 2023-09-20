@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 09:11:10 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/20 13:23:34 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/09/20 20:02:59 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,118 +21,178 @@
 int	main(void)
 {
 
-	/*MEMCPY*/
-	printf("MEMCPY----MEMCPY---MEMCPY---MEMCPY----MEMCPY----%c", '\n');
-	printf("ORIGINAL > memcpy (NULL NULL, 3) ===> %p, %c", memcpy(NULL, NULL, 3), '\n');
-	printf("LIB   > ft_memcpy (NULL, NULL, 3) ===> %p, %c", ft_memcpy(NULL, NULL, 3), '\n');
-//	printf("ORIGINAL > strchr (holamundo, 0) ===> %s, %c", strchr("holamundo", 0), '\n');
-//	printf("LIB   > ft_strchr (holamundo, 0) ===> %s, %c", ft_strchr("holamundo", 0), '\n');
-//	printf("ORIGINAL 	> strchr (holamundo, 9) ===> %s, %c", strchr("holamundo", 9), '\n');
-//	printf("LIB      > ft_strchr (holamundo, 9) ===> %s, %c", ft_strchr("holamundo", 9), '\n');
-//	printf("ORIGINAL > strchr (holamundo, 20) ===> %s, %c", strchr("holamundo", 20), '\n');
-//	printf("LIB      > ft_strchr (holamundo, 20) ===> %s, %c", ft_strchr("holamundo", 20), '\n');
-	/*TO LOWER END*/
+/*BZERO ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
+void ft_bzero(void *s, size_t n);*
 
-	/*BZERO
-	printf("BZERO----BZERO---BZERO---BZERO----BZERO----%c", '\n');
-	printf("ORIGINAL > bzero (holamundo, -1) ===> %s, %c", bzero("holamundo", -1), '\n');
-	printf("LIB   > ft_bzero (holamundo, -1) ===> %s, %c", ft_bzero("holamundo", -1), '\n');
-	printf("ORIGINAL > bzero (holamundo, 0) ===> %s, %c", bzero("holamundo", 0), '\n');
-	printf("LIB   > ft_bzero (holnmundo, 0) ===> %s, %c", ft_bzero("holamundo", 0), '\n');
-	printf("ORIGINAL 	> bzero (holamundo, 9) ===> %s, %c", bzero("holamundo", 9), '\n');
-	printf("LIB      > ft_bzero (holamundo, 9) ===> %s, %c", ft_bzero("holamundo", 9), '\n');
-	printf("ORIGINAL > bzero (holamundo, 20) ===> %s, %c", bzero("holamundo", 20), '\n');
-	printf("LIB      > ft_bzero (holamundo, 20) ===> %s, %c", ft_bzero("holamundo", 20), '\n');
-	BZERO END */
+	printf("BZERO----BZERO----BZERO----BZERO----%c", '\n');
+	printf("ORIGINAL >  (holamundo, -1) ===> %s, %c", bzero("holamundo", -1), '\n');
+	printf("LIB  	 >  (holamundo, -1) ===> %s, %c", ft_bzero("holamundo", -1), '\n');
+	* * * * * * * * * * * * * * * * * *
 
-	/*IS MEMSET
-	printf("MEMSET----MEMSET----MEMSET----MEMSET----MEMESET----MEMSET----%c", '\n');
-	printf("ORIGINAL > memset (holamundo, '*', 10) ===> %p, %c", memset("holamundo", 7, 9), '\n');
-	printf("LIB   > ft_memset (holamundo, '10', 10) ===> %p, %c", ft_memset("holamundo", 7, 9), '\n');
-	printf("ORIGINAL > memset (holamundo, 0) ===> %p, %c", memset("holamundo", 7, 9), '\n');
-	printf("LIB   > ft_memset (holamundo, 0) ===> %p, %c", ft_memset("holamundo", 7, 9), '\n');
-//	printf("ORIGINAL 	> memset (holamundo, 9) ===> %p, %c", memset("holamundo", 7, 19), '\n');
-//	printf("LIB      > ft_memset (holamundo, 9) ===> %p, %c", ft_memset("holamundo", 10, 19), '\n');
-//	printf("ORIGINAL > memset (holamundo, 20) ===> %p, %c", memset("holamundo", 7, -2), '\n');
-//	printf("LIB      > ft_memset (holamundo, 20) ===> %p, %c", ft_memset("holamundo", 10, -2), '\n');
-	TO MEMSET END*/
+*BZERO END ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*/
+----
+/*IS MEMSET ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
+void *ft_memset(void *b, int c, size_t len);*
 
-	/*IS STRCHR
-	printf("STRNGCHR----STRCHR---STRCHR---STRCHR----STRCHR----%c", '\n');
-	printf("ORIGINAL > strchr (holamundo, -1) ===> %s, %c", strchr("holamundo", -1), '\n');
-	printf("LIB   > ft_strchr (holamundo, -1) ===> %s, %c", ft_strchr("holamundo", -1), '\n');
-	printf("ORIGINAL > strchr (holamundo, 0) ===> %s, %c", strchr("holamundo", 0), '\n');
-	printf("LIB   > ft_strchr (holamundo, 0) ===> %s, %c", ft_strchr("holamundo", 0), '\n');
-	printf("ORIGINAL 	> strchr (holamundo, 9) ===> %s, %c", strchr("holamundo", 9), '\n');
-	printf("LIB      > ft_strchr (holamundo, 9) ===> %s, %c", ft_strchr("holamundo", 9), '\n');
-	printf("ORIGINAL > strchr (holamundo, 20) ===> %s, %c", strchr("holamundo", 20), '\n');
-	printf("LIB      > ft_strchr (holamundo, 20) ===> %s, %c", ft_strchr("holamundo", 20), '\n');
-	TO LOWER END */
+	printf("MEMSET----MEMSET----MEMSET----MEMSET----%c", '\n');
+	printf("ORIGINAL >  (holamundo, '*', 10) ===> %p, %c", memset("holamundo", 7, 9), '\n');
+	printf("LIB 	 >  (holamundo, '10', 10) ===> %p, %c", ft_memset("holamundo", 7, 9), '\n');
+	* * * * * * * * * * * * * * * * * *i
+	int main(int argc, char **argv)
+	{
+		if (argc != 4)
+			return (0);
+		char *resultado_ft_memset = ft_memset(argv[1], atoi(argv[2]), atoi(argv[3]));
+		char *resultado_memset = ft_memset(argv[1], atoi(argv[2]), atoi(argv[3]));
+		printf("ft_memset:%s \n", resultado_ft_memset);
+		printf("memset:%s", resultado_memset);
+		return(0);
+	}
+*TO MEMSET END ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*/
 
-/* STRCHR
+/* STRNCMP ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
+int ft_strncmp(const char *s1, const char *s2, size_t n);*
+
+	printf("STRNCMP----STRNCMP----STRNCMP----STRNCMP----%c", '\n');
+	printf("ORIGINAL >  (holamundo, -1) ===> %s, %c", strncmp("holamundo", -1), '\n');
+	printf("LIB  	 >  (holamundo, -1) ===> %s, %c", ft_strncmp("holamundo", -1), '\n');
+	* * * * * * * * * * * * * * * * * *
+	int main(int argc, char **argv)
+	{
+		if (argc != 4)
+			return (0);
+		printf("ft_strncmp:%d \n", ft_strncmp(argv[1], argv[2], atoi(argv[3])));
+		printf("strncmp:%d", strncmp(argv[1], argv[2], atoi(argv[3])));
+		return(0);
+	}
+*STRCHR END ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*/
+
+/* STRLEN ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
+size_t	ft_strlen(const char *s);*
+
+	printf("STRLEN----STRLEN----STRLEN----STRLEN----%c", '\n');
+	printf("ORIGINAL >  (holamundo, -1) ===> %s, %c", strlen("holamundo", -1), '\n');
+	printf("LIB  	 >  (holamundo, -1) ===> %s, %c", ft_strlen("holamundo", -1), '\n');
+	* * * * * * * * * * * * * * * * * *
 	int main(int argc, char **argv)
 	{
 		if (argc != 2)
 			return (0);
-		printf("ft_isalnum:%d \n", ft_isalnum(atoi(argv[1])));
-		printf("isalnum:%d", isalnum(atoi(argv[1])));
+		printf("ft_strlen:%zu \n", ft_strlen(argv[1]));
+		printf("strlen:%zu", strlen(argv[1]));
 		return(0);
 	}
-STRCHR END */
+*STRLEN END ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*/
 
-/*IS ALNUM
-	printf("ISACII----ISACII---ISACII---ISACII----ISACII----%c", '\n');
-	printf("ORIGINAL > isascii (0 = null) ===> %d, %c", isascii('\0'), '\n');
-	printf("LIB   > ft_isascii (0 = null) ===> %d, %c", ft_isascii('\0'), '\n');
-	printf("ORIGINAL > isascii (62 = b) ===> %d, %c", isascii(62), '\n');
-	printf("LIB   > ft_isascii (62 = b) ===> %d, %c", ft_isascii(62), '\n');
-	printf("ORIGINAL > isascii (29 = )) ===> %d, %c", isascii(29), '\n');
-	printf("LIB      > ft_isascii (29 = )) ===> %d, %c", ft_isascii(29), '\n');
-	printf("ORIGINAL > isascii (300 = )) ===> %d, %c", isascii(300), '\n');
-	printf("LIB      > ft_isascii (300 = )) ===> %d, %c", ft_isascii(300), '\n');
-	* * * * * * * * * * * * * * * * * * * 
+/* STRRCHR ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
+char	*ft_strrchr(const char *s, int c);*
+
+	printf("STRRCHR----STRRCHR----STRRCHR----STRRCHR----%c", '\n');
+	printf("ORIGINAL >  (holamundo, -1) ===> %s, %c", strrchr("holamundo", -1), '\n');
+	printf("LIB  	 >  (holamundo, -1) ===> %s, %c", ft_strrchr("holamundo", -1), '\n');
+	* * * * * * * * * * * * * * * * * *
+	int main(int argc, char **argv)
+	{
+		if (argc != 3)
+			return (0);
+		printf("ft_strrchr:%s \n", ft_strrchr(argv[1], atoi(argv[2])));
+		printf("strrchr:%s", strrchr(argv[1], atoi(argv[2])));
+		return(0);
+	}
+*STRCHR END ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*/
+
+/* IS PRINT ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
+int ft_isprint(int c);*
+
+	printf("IS PRINT----IS PRINT----IS PRINT----IS PRINT----%c", '\n');
+	printf("ORIGINAL >  (3) ===> %p, %c", isprint(3), '\n');
+	printf("LIB  	 >  (3) ===> %p, %c", ft_isprint(3), '\n');
+	* * * * * * * * * * * * * * * * * *
 	int main(int argc, char **argv)
 	{
 		if (argc != 2)
 			return (0);
+		printf("ft_isprint:%d \n", ft_isprint(atoi(argv[1])));
+		printf("isprint:%d", isprint(atoi(argv[1])));
+		return(0);
+	}	
+*IS PRINT END ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*/
+
+/* IS ASCII ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
+int ft_isascii(int c);*
+
+	printf("IS ASCII----IS ASCII----IS ASCII----IS ASCII----%c", '\n');	
+	printf("ORIGINAL > (holamundo, -1) ===> %s, %c", isascii(-1), '\n');
+	printf("LIB 	 > (-1) ===> %s, %c", ft_isascii(-1), '\n');
+	* * * * * * * * * * * * * * * * * *
+	int main(int argc, char **argv)
+	{
+		if (argc != 2)
+			return (0);
+		printf("ft_isascii:%d \n", ft_isascii(atoi(argv[1])));
+		printf("isascii:%d", isascii(atoi(argv[1])));
+		return(0);
+	}
+*IS ASCII END ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*/
+
+/* STRCHR ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
+char *ft_strchr(const char *s, int c);*
+
+	printf("STRCHR----STRCHR----STRCHR----STRCHR----%c", '\n');
+	printf("ORIGINAL >  (holamundo, -1) ===> %s, %c", strchr("holamundo", -1), '\n');
+	printf("LIB  	 >  (holamundo, -1) ===> %s, %c", ft_strchr("holamundo", -1), '\n');
+	* * * * * * * * * * * * * * * * * *
+	int main(int argc, char **argv)
+	{
+		if (argc != 3)
+			return (0);
+		printf("ft_strchr:%s \n", ft_strchr(argv[1], atoi(argv[2])));
+		printf("strchr:%s", strchr(argv[1], atoi(argv[2])));
+		return(0);
+	}
+*STRCHR END ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*/
+
+/* IS ALNUM ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
+int ft_isalnum(int c);*
+
+	printf("IS ALNUM----IS ALNUM----IS ALNUM----IS ALNUM----%c", '\n');
+	printf("ORIGINAL >  (0 = null) ===> %d, %c", isalnum('\0'), '\n');
+	printf("LIB	 >  (0 = null) ===> %d, %c", ft_isalnum('\0'), '\n');
+	* * * * * * * * * * * * * * * * * *
+	int main(int argc, char **argv)
+	{
+		if (argc != 2)
+			return (0);`
 		printf("ft_isalnum:%d \n", ft_isalnum(atoi(argv[1])));
 		printf("isalnum:%d", isalnum(atoi(argv[1])));
 		return(0);
 	}
-IS ALNUM END */
+*IS ALNUM END ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*/
 	
-/*TO LOWER
-	printf("TO LOWER----TO LOWER----TO LOWER----TO LOWER----TO LOWER%c", '\n');
-	printf("ORIGINAL > toupper (0 = null) ===> %d, %c", tolower(0), '\n');
-	printf("LIB   > ft_itoupper (0 = null) ===> %d, %c", ft_tolower(0), '\n');
-	printf("ORIGINAL > toupper (62 = b) ===> %d, %c", tolower(62), '\n');
-	printf("LIB   > ft_toupper (62 = b) ===> %d, %c", ft_tolower(62), '\n');
-	printf("ORIGINAL > toupper (29 = )) ===> %d, %c", tolower(29), '\n');
-	printf("LIB      > ft_toupper (29 = )) ===> %d, %c", ft_tolower(29), '\n');
-	printf("ORIGINAL > toupper (300 = )) ===> %d, %c", tolower(300), '\n');
-	printf("LIB      > ft_toupper (300 = )) ===> %d, %c", ft_tolower(300), '\n');
-	* * * * * * * * * * * * * * * * * * * *
+/* TO LOWER ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
+int ft_tolower(int c);*
+
+	printf("TO LOWER----TO LOWER----TO LOWER----TO LOWER----%c", '\n');
+	printf("ORIGINAL >  (0 = null) ===> %d, %c", tolower(0), '\n');
+	printf("LIB  	 >  (0 = null) ===> %d, %c", ft_tolower(0), '\n');
+	* * * * * * * * * * * * * * * * * *
 	int main(int argc, char **argv)
 	{
 		if (argc != 2)
 			return (0);
-		printf("ft_toupper:%d \n", ft_toupper(atoi(argv[1])));
-		printf("toupper:%d", toupper(atoi(argv[1])));
+		printf("ft_tolower:%d \n", ft_tolower(atoi(argv[1])));
+		printf("tolower:%d", tolower(atoi(argv[1])));
 		return(0);
 	}
-TO LOWER END */
+*TO LOWER END  ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*/
 
-/*IS DIGIT
-	printf("IS DIGIT-----IS DIGIT------IS DIGIT--------IS DIGIT-------%c", '\n');
-	printf("ORIGINAL > isdigit (0 = null) ===> %d, %c", isdigit(0), '\n');
-	printf("LIB   > ft_isdigit (0 = null) ===> %d, %c", ft_isdigit(0), '\n');
-	printf("ORIGINAL > isdigit (62 = b) ===> %d, %c", isdigit(62), '\n');
-	printf("LIB   > ft_isdigit (62 = b) ===> %d, %c", ft_isdigit(62), '\n');
-	printf("ORIGINAL > isdigit (29 = )) ===> %d, %c", isdigit(29), '\n');
-	printf("LIB      > ft_isdigit (29 = )) ===> %d, %c", ft_isdigit(29), '\n');
-	printf("ORIGINAL > isdigit (300 = )) ===> %d, %c", isdigit(300), '\n');
-	printf("LIB      > ft_isdigit (300 = )) ===> %d, %c", ft_isdigit(300), '\n');
-	* * * * * * * * * * * * * * * * * * * * * 
+/* IS DIGIT ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
+int ft_isdigit(int c);*
+
+	printf("IS DIGIT----IS DIGIT----IS DIGIT----IS DIGIT----%c", '\n');
+	printf("ORIGINAL >  (0 = null) ===> %d, %c", isdigit(0), '\n');
+	printf("LIB  	 >  (0 = null) ===> %d, %c", ft_isdigit(0), '\n');
+	* * * * * * * * * * * * * * * * * *
 	int main(int argc, char **argv)
 	{
 		if (argc != 2)
@@ -141,19 +201,15 @@ TO LOWER END */
 		printf("isdigit:%d", isdigit(atoi(argv[1])));
 		return(0);
 	}
-IS DIGIT END */
+*IS DIGIT END ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*/
 	
-/*TO UPPER*
-	printf("TO UPPER -------TO UPPER--------TO UPPER--------TO UPPE---%c", '\n');
-	printf("ORIGINAL > toupper (0 = null) ===> %d, %c", toupper(0), '\n');
-	printf("LIB   > ft_itoupper (0 = null) ===> %d, %c", ft_toupper(0), '\n');
-	printf("ORIGINAL > toupper (62 = b) ===> %d, %c", toupper(62), '\n');
-	printf("LIB   > ft_toupper (62 = b) ===> %d, %c", ft_toupper(62), '\n');
-	printf("ORIGINAL > toupper (29 = )) ===> %d, %c", toupper(29), '\n');
-	printf("LIB      > ft_toupper (29 = )) ===> %d, %c", ft_toupper(29), '\n');
-	printf("ORIGINAL > toupper (300 = )) ===> %d, %c", toupper(300), '\n');
-	printf("LIB      > ft_toupper (300 = )) ===> %d, %c", ft_toupper(300), '\n');
-	* * * * * * * * * * * * * * * * * * * * * *
+/* TO UPPER ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
+int ft_toupper(int c);*
+
+	printf("TO UPPER----TO UPPER----TO UPPER----TO UPPER----%c", '\n');
+	printf("ORIGINAL >  (0 = null) ===> %d, %c", toupper(0), '\n');
+	printf("LIB 	 >  (0 = null) ===> %d, %c", ft_toupper(0), '\n');
+	* * * * * * * * * * * * * * * * * *
 	int main(int argc, char **argv)
 	{
 		if (argc != 2)
@@ -162,21 +218,15 @@ IS DIGIT END */
 		printf("toupper:%d", toupper(atoi(argv[1])));
 		return(0);
 	}	
-TO UPPER END */
+*TO UPPER END ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*/
 
-/*IS ALPHA* 
-	printf("IS ALPHA------IS ALPHA-------IS ALPHA------IS ALPHA----%c", '\n');
-	printf("ORIGINAL > isalpha (0 = null) ===> %d %c", isalpha(0), '\n');
-	printf("LIB   > ft_isalpha (0 = null) ===> %d %c", ft_isalpha(0), '\n');
-	printf("ORIGINAL > isalpha (62 = b) ===> %d, %c", isalpha(62), '\n');
-	printf("LIB   > ft_isalpha (62 = b) ===> %d, %c", ft_isalpha(62), '\n');
-	printf("ORIGINAL > ft_isalpha (29 = )) ===> %d, %c", isalpha(29), '\n');
-	printf("LIB      > ft_isalpha (29 = )) ===> %d, %c", ft_isalpha(29), '\n');
-	printf("ORIGINAL > ft_isalpha (300 = )) ===> %d, %c", isalpha(300), '\n');
-	printf("LIB      > ft_isalpha (300 = )) ===> %d, %c", ft_isalpha(300), '\n');
-	printf("ORIGINAL > ft_isalpha (-5 = )) ===> %d, %c", isalpha(300), '\n');
-	printf("LIB      > ft_isalpha (-5 = )) ===> %d, %c", ft_isalpha(300), '\n');
-	* * * * * * * * * * * * * * * * * * * * * 	
+/* IS ALPHA ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
+int ft_isalpha(int c);* 
+
+	printf("IS ALPHA----IS ALPHA----IS ALPHA----IS ALPHA----%c", '\n');
+	printf("ORIGINAL >  (0 = null) ===> %d %c", isalpha(0), '\n');
+	printf("LIB 	 >  (0 = null) ===> %d %c", ft_isalpha(0), '\n');
+	* * * * * * * * * * * * * * * * * *
 	int main(int argc, char **argv)
 	{
 		if (argc != 2)
@@ -185,7 +235,7 @@ TO UPPER END */
 		printf("isalpha:%d", isalpha(atoi(argv[1])));
 		return(0);
 	}
-IS ALPHA END */
+*IS ALPHA END ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*/
 
 	return(0);
 }

@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 10:49:36 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/20 13:01:55 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/09/20 15:22:03 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	ft_isalnum(int c)
 }*/
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * DESCRIPCION: la funcion convierte determina si el caracter que recibe
- * como parametro de entrada es alfabetico o numerico.
+ * DESCRIPCION: la funcion determina si el caracter que recibe como
+ *  parametro de entrada es alfabetico o numerico.
  * INPUT: integuer c
  * MAKE: comprueba que esta dentro del rango de chars alfabeticos minusula
  * alfabeticos mayuscula o numeros (ver man ascii)
