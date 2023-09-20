@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 09:11:10 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/20 20:02:59 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/09/20 20:25:59 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,38 @@ void ft_bzero(void *s, size_t n);*
 	printf("ORIGINAL >  (holamundo, -1) ===> %s, %c", bzero("holamundo", -1), '\n');
 	printf("LIB  	 >  (holamundo, -1) ===> %s, %c", ft_bzero("holamundo", -1), '\n');
 	* * * * * * * * * * * * * * * * * *
+	int main(int argc, char **argv)
+	{
+		if (argc != 4)
+			return (0);
+		char *resultado_ft_memchr = ft_memchr(argv[1], atoi(argv[2]), atoi(argv[3]));
+		char *resultado_memchr = ft_memchr(argv[1], atoi(argv[2]), atoi(argv[3]));
+		printf("ft_memchr:%s \n", resultado_ft_memchr);
+		printf("memchr:%s", resultado_memchr);
+		return(0);
+	}
 
 *BZERO END ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*/
 ----
+/*MEMCHR ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
+void *ft_memchr(const void *s, int c, size_t n);*
+
+	printf("BZERO----BZERO----BZERO----BZERO----%c", '\n');
+	printf("ORIGINAL >  (holamundo, -1) ===> %s, %c", bzero("holamundo", -1), '\n');
+	printf("LIB  	 >  (holamundo, -1) ===> %s, %c", ft_bzero("holamundo", -1), '\n');
+	* * * * * * * * * * * * * * * * * *
+	int main(int argc, char **argv)
+	{
+		if (argc != 4)
+		return (0);
+		char *resultado_ft_memchr = ft_memchr(argv[1], atoi(argv[2]), atoi(argv[3]));
+		char *resultado_memchr = ft_memchr(argv[1], atoi(argv[2]), atoi(argv[3]));
+		printf("ft_memchr:%s \n", resultado_ft_memchr);
+		printf("memchr:%s", resultado_memchr);
+		return(0);
+	}
+*BZERO END ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*/
+
 /*IS MEMSET ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
 void *ft_memset(void *b, int c, size_t len);*
 
