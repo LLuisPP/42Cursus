@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 09:11:10 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/19 12:26:03 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/09/20 13:23:34 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,18 @@ int	main(void)
 	printf("LIB      > ft_strchr (holamundo, 20) ===> %s, %c", ft_strchr("holamundo", 20), '\n');
 	TO LOWER END */
 
-	/*IS ASCII
+/* STRCHR
+	int main(int argc, char **argv)
+	{
+		if (argc != 2)
+			return (0);
+		printf("ft_isalnum:%d \n", ft_isalnum(atoi(argv[1])));
+		printf("isalnum:%d", isalnum(atoi(argv[1])));
+		return(0);
+	}
+STRCHR END */
+
+/*IS ALNUM
 	printf("ISACII----ISACII---ISACII---ISACII----ISACII----%c", '\n');
 	printf("ORIGINAL > isascii (0 = null) ===> %d, %c", isascii('\0'), '\n');
 	printf("LIB   > ft_isascii (0 = null) ===> %d, %c", ft_isascii('\0'), '\n');
@@ -79,9 +90,18 @@ int	main(void)
 	printf("LIB      > ft_isascii (29 = )) ===> %d, %c", ft_isascii(29), '\n');
 	printf("ORIGINAL > isascii (300 = )) ===> %d, %c", isascii(300), '\n');
 	printf("LIB      > ft_isascii (300 = )) ===> %d, %c", ft_isascii(300), '\n');
-	TO LOWER END */
+	* * * * * * * * * * * * * * * * * * * 
+	int main(int argc, char **argv)
+	{
+		if (argc != 2)
+			return (0);
+		printf("ft_isalnum:%d \n", ft_isalnum(atoi(argv[1])));
+		printf("isalnum:%d", isalnum(atoi(argv[1])));
+		return(0);
+	}
+IS ALNUM END */
 	
-	/*TO LOWER
+/*TO LOWER
 	printf("TO LOWER----TO LOWER----TO LOWER----TO LOWER----TO LOWER%c", '\n');
 	printf("ORIGINAL > toupper (0 = null) ===> %d, %c", tolower(0), '\n');
 	printf("LIB   > ft_itoupper (0 = null) ===> %d, %c", ft_tolower(0), '\n');
@@ -91,9 +111,18 @@ int	main(void)
 	printf("LIB      > ft_toupper (29 = )) ===> %d, %c", ft_tolower(29), '\n');
 	printf("ORIGINAL > toupper (300 = )) ===> %d, %c", tolower(300), '\n');
 	printf("LIB      > ft_toupper (300 = )) ===> %d, %c", ft_tolower(300), '\n');
-	TO LOWER END */
+	* * * * * * * * * * * * * * * * * * * *
+	int main(int argc, char **argv)
+	{
+		if (argc != 2)
+			return (0);
+		printf("ft_toupper:%d \n", ft_toupper(atoi(argv[1])));
+		printf("toupper:%d", toupper(atoi(argv[1])));
+		return(0);
+	}
+TO LOWER END */
 
-	/*IS DIGIT
+/*IS DIGIT
 	printf("IS DIGIT-----IS DIGIT------IS DIGIT--------IS DIGIT-------%c", '\n');
 	printf("ORIGINAL > isdigit (0 = null) ===> %d, %c", isdigit(0), '\n');
 	printf("LIB   > ft_isdigit (0 = null) ===> %d, %c", ft_isdigit(0), '\n');
@@ -103,9 +132,18 @@ int	main(void)
 	printf("LIB      > ft_isdigit (29 = )) ===> %d, %c", ft_isdigit(29), '\n');
 	printf("ORIGINAL > isdigit (300 = )) ===> %d, %c", isdigit(300), '\n');
 	printf("LIB      > ft_isdigit (300 = )) ===> %d, %c", ft_isdigit(300), '\n');
-	 DIGIT */
+	* * * * * * * * * * * * * * * * * * * * * 
+	int main(int argc, char **argv)
+	{
+		if (argc != 2)
+			return (0);
+		printf("ft_isdigit:%d \n", ft_isdigit(atoi(argv[1])));
+		printf("isdigit:%d", isdigit(atoi(argv[1])));
+		return(0);
+	}
+IS DIGIT END */
 	
-	/*TO UPPER
+/*TO UPPER*
 	printf("TO UPPER -------TO UPPER--------TO UPPER--------TO UPPE---%c", '\n');
 	printf("ORIGINAL > toupper (0 = null) ===> %d, %c", toupper(0), '\n');
 	printf("LIB   > ft_itoupper (0 = null) ===> %d, %c", ft_toupper(0), '\n');
@@ -115,9 +153,18 @@ int	main(void)
 	printf("LIB      > ft_toupper (29 = )) ===> %d, %c", ft_toupper(29), '\n');
 	printf("ORIGINAL > toupper (300 = )) ===> %d, %c", toupper(300), '\n');
 	printf("LIB      > ft_toupper (300 = )) ===> %d, %c", ft_toupper(300), '\n');
-	TO UPPER END */
+	* * * * * * * * * * * * * * * * * * * * * *
+	int main(int argc, char **argv)
+	{
+		if (argc != 2)
+			return (0);
+		printf("ft_toupper:%d \n", ft_toupper(atoi(argv[1])));
+		printf("toupper:%d", toupper(atoi(argv[1])));
+		return(0);
+	}	
+TO UPPER END */
 
-	/*IS ALPHA
+/*IS ALPHA* 
 	printf("IS ALPHA------IS ALPHA-------IS ALPHA------IS ALPHA----%c", '\n');
 	printf("ORIGINAL > isalpha (0 = null) ===> %d %c", isalpha(0), '\n');
 	printf("LIB   > ft_isalpha (0 = null) ===> %d %c", ft_isalpha(0), '\n');
@@ -129,9 +176,16 @@ int	main(void)
 	printf("LIB      > ft_isalpha (300 = )) ===> %d, %c", ft_isalpha(300), '\n');
 	printf("ORIGINAL > ft_isalpha (-5 = )) ===> %d, %c", isalpha(300), '\n');
 	printf("LIB      > ft_isalpha (-5 = )) ===> %d, %c", ft_isalpha(300), '\n');
-	IS ALPHA END*/
+	* * * * * * * * * * * * * * * * * * * * * 	
+	int main(int argc, char **argv)
+	{
+		if (argc != 2)
+			return (0);
+		printf("ft_isalpha:%d \n", ft_isalpha(atoi(argv[1])));
+		printf("isalpha:%d", isalpha(atoi(argv[1])));
+		return(0);
+	}
+IS ALPHA END */
 
 	return(0);
 }
-
-/* int main(int argc, char argv**)*/
