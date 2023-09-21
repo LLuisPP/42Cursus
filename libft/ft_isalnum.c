@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 10:49:36 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/20 15:22:03 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/09/21 07:08:08 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int	ft_isalnum(int c)
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * DESCRIPCION: la funcion determina si el caracter que recibe como
- *  parametro de entrada es alfabetico o numerico.
+ * parametro de entrada es alfabetico o numerico.
  * INPUT: integuer c
- * MAKE: comprueba que esta dentro del rango de chars alfabeticos minusula
+ * MAKE: comprueba que esta dentro del rango de chars alfabeticos minusula,
  * alfabeticos mayuscula o numeros (ver man ascii)
  * OUTPUT: si es un char alfabetico minuscula, mayuscula o numero retorna
  * 1, si se sale de dicho rango retorna 0

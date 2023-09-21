@@ -6,11 +6,11 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 10:17:05 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/20 19:29:07 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/09/21 07:24:15 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
@@ -40,7 +40,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * DESCRIPCION: la funcion compara que los strings sean iguales hasta el
  * numero de posiciones integuer que recibe.
- * INPUT: dos strings y un integuer c.
+ * INPUT: dos char punteros (strings) y un integuer c.
  * MAKE: comprueba caracteres a pares de los strings hasta encontrar la
  * diferencia.
  * OUTPUT: la diferencia de valor entre caracteres una vez que encuentre un par

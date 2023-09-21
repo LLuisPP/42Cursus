@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 07:18:09 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/20 20:24:53 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/09/21 10:23:27 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	if (argc != 4)
 		return (0);
 	char *resultado_ft_memchr = ft_memchr(argv[1], atoi(argv[2]), atoi(argv[3]));
-	char *resultado_memchr = ft_memchr(argv[1], atoi(argv[2]), atoi(argv[3]));
+	char *resultado_memchr = memchr(argv[1], atoi(argv[2]), atoi(argv[3]));
 	printf("ft_memchr:%s \n", resultado_ft_memchr);
 	printf("memchr:%s", resultado_memchr);
 	return(0);
@@ -54,7 +54,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
  * el puntero sin tipo a esa posicion y como consecuencia escribe el resto del
  * string que se analiza hasta la posicion que le hemos indicado con el int.
  * OUTPUT: devuelve un puntero sin tipo apuntando a la posicion siguiente al
- * char que ha encontrado y dibujamos el string que resta hasta la posicion
+ * char que ha encontrado. Podemos dibujar el string que resta desde la posicion
  * indicada por el integuer que recibe como parametro.
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  */

@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 13:06:05 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/20 13:21:20 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/09/21 07:12:03 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ char	*ft_strchr(const char *s, int c)
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * DESCRIPCION: la funcion busca la primera ocurrencia del caracter que
- *  recibe como parametro de entrada dentro del string.
- * INPUT: integuer c
+ * recibe como parametro de entrada dentro del string.
+ * INPUT: un char puntero (string) y un integuer c
  * MAKE: recorre el arrai de entrada y omprueba si aparece el caracter
  * OUTPUT: si aparece el caracter de entrada en el string de entrada, 
  * retorna el puntero a la posicion de dicha ocurrencia.

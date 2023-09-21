@@ -6,11 +6,9 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:04:31 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/20 15:09:18 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/09/21 07:01:46 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_tolower(int c)
 {
@@ -21,14 +19,14 @@ int	ft_tolower(int c)
 	return (c);
 }
 
-int main(int argc, char **argv)
+/*int main(int argc, char **argv)
 {
 	if (argc != 2)
 		return (0);
 	printf("ft_tolower:%d \n", ft_tolower(atoi(argv[1])));
 	printf("tolower:%d", tolower(atoi(argv[1])));
 	return(0);
-}
+}*/
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * DESCRIPCION: la funcion convierte el caracter que recibe de mayus a min

@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 13:08:14 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/20 18:54:24 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/09/21 09:57:51 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ size_t	ft_strlen(const char *s)
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * DESCRIPCION: la funcion recorre el array que recibe como parametro de
  *  entrada y genera un contador que nos indica la longitud del mismo.
- * INPUT: string
+ * INPUT: un char puntero (string)
  * MAKE: recorre el arrai de entrada y almacena la longitud de este.
  * OUTPUT: contador con la logitud el array introducido.
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
