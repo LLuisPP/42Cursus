@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 09:11:10 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/21 12:11:16 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:16:49 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,33 +17,74 @@
 #include <stdio.h>
 #include <ctype.h>
 
+/* MEMCMP ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
+void	*ft_memcpy(void *dst, const void *src, size_t n);*
+	
+ 	* * * * * * * * * * * * * * * * * *
+	int main(int argc, char **argv)
+	{
+		if (argc != 4)
+			return (0);
+		printf("ft_memcmp:%d \n", ft_memcmp(argv[1], argv[2], atoi(argv[3])));
+		printf("memcmp:%d", memcmp(argv[1], argv[2], atoi(argv[3])));
+	//	printf("memcmp:%d", memcmp(NULL, NULL, 0));
+		return(0);
+	}
+*MEMCMP END ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*/
 
-/*BZERO ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
-void ft_bzero(void *s, size_t n);*
+/* MEMCPY ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
+void	*ft_memcpy(void *dst, const void *src, size_t n);*
 
-	printf("BZERO----BZERO----BZERO----BZERO----%c", '\n');
-	printf("ORIGINAL >  (holamundo, 3) ===> %s, %c", bzero("holamundo", 3), '\n');
-	printf("LIB  	 >  (holamundo, 3) ===> %s, %c", ft_bzero("holamundo", 3), '\n');
 	* * * * * * * * * * * * * * * * * *
 	int main(int argc, char **argv)
 	{
 		if (argc != 4)
 			return (0);
-		char *resultado_ft_memchr = ft_memchr(argv[1], atoi(argv[2]), atoi(argv[3]));
-		char *resultado_memchr = ft_memchr(argv[1], atoi(argv[2]), atoi(argv[3]));
-		printf("ft_memchr:%s \n", resultado_ft_memchr);
-		printf("memchr:%s", resultado_memchr);
+		char *resultado_ft_memcpy = ft_memcpy(argv[1], argv[2], atoi(argv[3]));
+		char *resultado_memcpy = memcpy(argv[1], argv[2], atoi(argv[3]));
+		printf("ft_memcpy:%s \n", resultado_ft_memcpy);
+		printf("memcpy:%s", resultado_memcpy);
 		return(0);
 	}
+*MEMCPY END ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*/
 
+/*BZERO ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
+void ft_bzero(void *s, size_t n);*
+
+	* * * * * * * * * * * * * * * *
+	int main(int argc, char **argv)
+	{
+		if (argc != 3)
+			return (0);
+		char *ft_bzeroSTR;
+		char *bzeroSTR;
+
+		ft_bzeroSTR = argv[2];
+		bzeroSTR = argv[1];
+		printf("ANTES (string de entrada): %s %c", argv[1],'\n');
+		printf("poisciones de memoria del string completo: %c", '\n');
+		print_mem(bzeroSTR, (size_t)sizeof(argv[2]));
+
+		printf("String mem Pos before:%p %c", argv[1],'\n');
+		ft_bzero(bzeroSTR, atoi(argv[2]));
+		bzero(bzeroSTR, atoi(argv[2]));
+		print_mem(bzeroSTR, (size_t)sizeof(argv[2]));
+		printf("poisciones de memoria del string borradas: %c", '\n');
+		print_mem(bzeroSTR, atoi(argv[2]));
+		printf("String mem Pos after:%p %c",
+ 		ft_bzero(bzeroSTR, atoi(argv[2])),'\n');
+		printf("DESPUES (lleno de zeros): %s<---nada por que cuando
+   		encuentra null printf para %c", argv[1],'\n');
+		return(0);
+	}
 *BZERO END ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*/
 
 /*MEMCHR ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
 void *ft_memchr(const void *s, int c, size_t n);*
 
 	printf("MEMCHR----MEMCHR----MEMCHR----MEMCHR----%c", '\n');
-	printf("ORIGINAL >  (hola, 2, 1) ===> %s, %c", memchr("hola", 2, 1), '\n');
-	printf("LIB  	 >  (hola, 2, 1) ===> %s, %c", ft_memchr("hola",2, 1), '\n');
+	printf("ORIGINAL >  (hola, 2, 1) ===> %s, %c", memchr("hola", 97, 1), '\n');
+	printf("LIB  	 >  (hola, 2, 1) ===> %s, %c", ft_memchr("hola", 97, 1), '\n');
 	* * * * * * * * * * * * * * * * * *
 	int main(int argc, char **argv)
 	{
