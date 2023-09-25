@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 09:11:10 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/22 12:16:49 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/09/24 12:39:14 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,51 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
+
+/* STRNSTR ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len);*
+
+	* * * * * * * * * * * * * * * * * *
+	int main(int argc, char **argv)
+	{
+		if (argc != 4)
+			return (0);
+		printf("ft_strnsrt:%s \n", ft_strnstr(argv[1], argv[2], atoi(argv[3])));
+		printf("strnstr:%s", strnstr(argv[1], argv[2], atoi(argv[3])));
+		return(0);
+	}
+* STRNSTR ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*/
+
+/* STRLCPY ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
+size_t	ft_strlcpy(char *dst, char *src, size_t destsize);
+
+
+	* * * * * * * * * * * * * * * * * *
+	int main(int argc, char **argv)
+	{
+		if (argc != 4)
+			return (0);
+		printf("ft_strlcpy:%zu \n", ft_strlcpy(argv[1], argv[2], atoi(argv[3])));
+		printf("strlcpy:%zu", strlcpy(argv[1], argv[2], atoi(argv[3])));
+		return(0);
+	}
+*STRLCPY END ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*/
+
+/* MEMMOVE ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
+void	*ft_memmove(void *dst, const void *src, size_t len);*
+
+ 	* * * * * * * * * * * * * * * * * *
+	int main(int argc, char **argv)
+{
+	if (argc != 4)
+		return (0);
+	char *res_ft_memmove = ft_memmove(argv[1], argv[2], atoi(argv[3]));
+	char *resultado_memmove = memmove(argv[1], argv[2], atoi(argv[3]));
+	printf("ft_memmove:%s \n", res_ft_memmove);
+	printf("memmove:%s", resultado_memmove);
+	return(0);
+}*MEMMOVE END ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*/
+
 
 /* MEMCMP ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~*
 void	*ft_memcpy(void *dst, const void *src, size_t n);*
