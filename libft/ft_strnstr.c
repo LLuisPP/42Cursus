@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 11:36:42 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/24 13:21:57 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/09/25 09:09:09 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,25 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		return ((char *)haystack);
 	while (haystack[i] != 0 && i < len)
 	{
-		
-		while (haystack[comp + i] != '\0' && needle[comp + i] != '\0' 
+		while (haystack[comp + i] != '\0' && needle[comp + i] != '\0'
 			&& haystack[comp + i] == needle[comp + i])
-		comp++;
+			comp++;
 		if (comp == len)
 			return ((char *)(haystack + i));
 		i++;
 		comp = 0;
 	}
-	return (NULL);	
+	return (NULL);
 }
 
-int main(int argc, char **argv)
+/*int main(int argc, char **argv)
 {
 	if (argc != 4)
 		return (0);
 	printf("ft_strnsrt:%s \n", ft_strnstr(argv[1], argv[2], atoi(argv[3])));
 	printf("strnstr:%s", strnstr(argv[1], argv[2], atoi(argv[3])));
 	return(0);
-}
+}*/
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * DESCRIPCION: copia n bytes del array source en el array destino. Si se

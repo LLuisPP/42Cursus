@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 15:58:25 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/21 09:48:15 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/09/25 08:18:08 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	*ft_memset(void *b, int c, size_t len)
 	while (i < len)
 	{
 		*p = (unsigned char)c;
-		i++;
 		p++;
+		i++;
 	}
 	return (b);
 }
