@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:31:00 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/26 15:36:13 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/09/27 12:02:27 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,14 @@ print_mem(argv[1], atoi(argv[3]));
 }*/
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * DESCRIPCION: copia n bytes del array source en el array destino. Si se
- * superponen.
+ * DESCRIPCION: copia dstsize bytes del array source a partir de la posicion
+ * en el array destino hasta que encuentre el nulo de src o los contadores de
+ * inicio y escritura sean iguales a dstsize -1, posicion que se reserva
+ * para dstsize -1.
  * INPUT: string destino, string origen y un entero que indica el no de bytes.
- * MAKE: recorre el array de destino, escribiendo en cada posicion los bytes
- * que estan contenidos en destino.
+ * MAKE: recorre el array de destino hasta la posicion en la que debe
+ * comenzar a escribir dstsize bytes sin llegar al null de src o longitud de
+ * dst + src sean iguales a dstsize.
  * OUTPUT: devuelve el array de destino modificado o no segun los inputs.
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
  */

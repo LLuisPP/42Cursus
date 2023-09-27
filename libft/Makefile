@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/13 12:01:56 by lprieto-          #+#    #+#              #
-#    Updated: 2023/09/25 09:54:34 by lprieto-         ###   ########.fr        #
+#    Updated: 2023/09/27 11:52:55 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,8 @@ SRCS = ft_strlen.c \
 	   ft_strnstr.c \
 	   ft_atoi.c \
 	   ft_calloc.c \
-	   ft_strlcat.c
+	   ft_strlcat.c \
+	   ft_substr.c
 
 #SRCSBONUS = ft_test_bonus.c
 
