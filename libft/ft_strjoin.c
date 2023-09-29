@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 12:58:20 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/27 13:37:09 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/09/29 07:08:21 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,38 +16,45 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		x;
 	int		y;
-	int 	i;
+	int		i;
 	char	*str;
 
-	s = 0;
-	l = 0;
+	x = 0;
+	y = 0;
+	i = 0;
+	if (!s1 || !s2)
+		return (0);
 	while (s1[x] != '\0')
-		s++;
+		x++;
 	while (s2[y] != '\0')
-		l++;
-	str = (char *)malloc((sizeof(*s1) + sizeof(*s2)) + 1);
+		y++;
+	str = (char *)malloc(sizeof(*s1) * (x + y + 1));
 	if (!str)
-		return ((char *) 0);
-	while (i < (x + y))
+		return (NULL);
+	while (s1[i])
 	{
-		if (i < x)
-		{
-			str[i] = s1[0];
-			i++;
-		}
-		else if (i < (s + l))
-		{
-			str[i] = s2[0]
-		}
+		str[i] = s1[i];
+		i++;
 	}
+	y = 0;
+	while (s2[y])
+	{
+		str[i] = s2[y];
+		i++;
+		y++;
+	}
+	str[x + y] = '\0';
+	return (str);
 }
 
 /*int	main(int argc, char **argv)
 {
+	char	*resultado;
+
 	if (argc != 3)
-	   return (0);
+		return (0);
+	resultado = ft_strjoin(argv[1], argv[2]);
 	ft_strjoin(argv[1], argv[2]);
-	char *resultado_ft_strjoin = ft_strjoin(argv[1], atoi(argv[2]), atoi(argv[3]));
-	printf("ft_memset:%s \n", resultado_ft_strjoin);
+	printf("ft_strjoin: %s \n", resultado);
 	return (0);
 }*/

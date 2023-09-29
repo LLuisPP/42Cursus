@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 11:36:42 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/27 11:56:37 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/09/29 10:12:35 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,25 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	i;
 	size_t	nlen;
 	size_t	comp;
+	size_t	hlen;
 
 	i = 0;
 	nlen = 0;
-	comp = 0;
-	if (*needle == 0)
-		return ((char *) haystack);
-	while (*needle != '\0')
+	hlen = 0;
+	while (needle[nlen] != '\0')
 		nlen++;
-	if (nlen == 0)
-		return ((char *)haystack);
-	while (haystack[i] != 0 && i < len)
+	while (haystack[hlen] != '\0')
+		hlen++;
+	if (nlen == '\0')
+		return ((char *) haystack);
+	while (haystack[i] != '\0' && i < len && (i + nlen) <= hlen)
 	{
-		while (haystack[comp + i] != '\0' && needle[comp + i] != '\0'
-			&& haystack[comp + i] == needle[comp + i])
+		comp = 0;
+		while (comp < nlen && haystack[comp + i] == needle[comp])
 			comp++;
-		if (comp == len)
+		if (comp == nlen && comp + i <= len)
 			return ((char *)(haystack + i));
 		i++;
-		comp = 0;
 	}
 	return (NULL);
 }
