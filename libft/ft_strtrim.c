@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 06:33:40 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/03 12:12:39 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/03 12:44:59 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,20 @@ int	static	fend(char const *s1, char const *set)
 		f++;
 	while (s1[f] != '\0' && f > 0)
 	{
-		printf("1");
+		printf("1\n");
 		while (*set != '\0')
 		{
-			printf("2");
+			printf("2\n");
 			if (s1[f] == *set)
 			{
 				f--;
-				printf("3");
+				printf("3\n");
 			}
 			else
-				printf("4");
+			{
+				printf("4\n");
 				return (f);
+			}
 			set++;
 		}
 		f--;
@@ -47,11 +49,15 @@ int static	fstart(char const *s1, char const *set)
 	i = 0;
 	while (s1[i] != '\0' && *set != '\0')
 	{
-		printf("A"
+		printf("A\n");
 		while (*set != '\0')
 		{
+			printf("B\n");
 			if (s1[i] == *set)
+			{
 				i++;
+				printf("C\n");
+			}
 			else
 				return (i);
 			set++;
@@ -70,9 +76,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	c = 0;
 	f = fend(s1, set);
-	printf("F %d:", f);
+	printf("F: %d\n", f);
 	i = fstart(s1, set);
-	printf("I %d:", i);
+	printf("I: %d\n", i);
+
 	if (!s1 || !set)
 		return (0);
 	ret = (char *)malloc(sizeof(char) * (f - i) + 1);
