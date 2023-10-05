@@ -1,44 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 06:39:22 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/05 08:47:06 by lprieto-         ###   ########.fr       */
+/*   Created: 2023/10/04 07:28:36 by lprieto-          #+#    #+#             */
+/*   Updated: 2023/10/05 08:42:09 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
-	int	i;
-	int	len;
+	int		i;
+	char	nulo;
 
 	i = 0;
-	while (s[i] != 0)
+	nulo = '\n';
+	if (!s)
+		return ;
+	while (s[i] != '\0')
 		i++;
-	len = i;
-	i = 0;
-	while (s[i] != 0)
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
+	write(fd, s, i);
+	write(fd, &nulo, 1);
 }
 
 /*int	main()
 {
 	int	fd;
+	char *test;
 
+	test = "ol";
 	fd = open("archivo.txt", O_WRONLY);
 	printf("%d", fd);
-	ft_putstr_fd("hola mon", fd);
+	ft_putendl_fd(&test[1], fd);
 	return (0);
-}*/
-/*
-#include <stdio.h>
+}
+
 #include <fcntl.h>
+#include <stdio.h>
+
 */

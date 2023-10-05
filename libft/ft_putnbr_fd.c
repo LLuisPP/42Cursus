@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 06:39:22 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/05 08:47:06 by lprieto-         ###   ########.fr       */
+/*   Created: 2023/10/04 07:37:57 by lprieto-          #+#    #+#             */
+/*   Updated: 2023/10/05 08:45:59 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	i;
-	int	len;
-
-	i = 0;
-	while (s[i] != 0)
-		i++;
-	len = i;
-	i = 0;
-	while (s[i] != 0)
+	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
+	else
 	{
-		write(fd, &s[i], 1);
-		i++;
+		if (n < 0)
+		{
+			ft_putchar_fd('-', fd);
+			n = n * -1;
+		}
+		if (n >= 9)
+		{
+			ft_putnbr_fd(n / 10, fd);
+		}
+		ft_putchar_fd((n % 10) + '0', fd);
 	}
 }
 
@@ -35,10 +37,10 @@ void	ft_putstr_fd(char *s, int fd)
 
 	fd = open("archivo.txt", O_WRONLY);
 	printf("%d", fd);
-	ft_putstr_fd("hola mon", fd);
+	ft_putnbr_fd(3, fd);
 	return (0);
 }*/
 /*
-#include <stdio.h>
 #include <fcntl.h>
+#include <stdio.h>
 */

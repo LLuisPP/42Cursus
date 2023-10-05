@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 10:08:05 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/30 13:04:50 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/02 09:11:29 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,19 +48,19 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 
 int main(int argc, char **argv)
 {
-	if (argc != 6)
+	if (argc != 4)
 		return (0);
 //argv[1]: dst ft
 //argv[2]: dst std
 //argv[3]: src both 
 //argv[4]: dstsize
 //argv[5]: len strlcpy
-print_mem(argv[1], atoi(argv[5]));
-print_mem(argv[2], atoi(argv[5]));
-ft_strlcpy(argv[1], argv[3], atoi(argv[4]));
-strlcpy(argv[2], argv[3], atoi(argv[4]));
-print_mem(argv[1], atoi(argv[5]));
-print_mem(argv[2], atoi(argv[5]));
+print_mem(argv[1], atoi(argv[3]));
+print_mem(argv[1], atoi(argv[3]));
+ft_strlcpy(argv[1], argv[2], atoi(argv[3]));
+strlcpy(argv[1], argv[2], atoi(argv[3]));
+print_mem(argv[1], atoi(argv[3]));
+print_mem(argv[2], atoi(argv[3]));
 
 //print_mem(argv[1], sizeof((char *)argv[2]));
 //	ft_strlcpy(argv[1], argv[2], atoi(argv[3]));

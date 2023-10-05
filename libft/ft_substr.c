@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 15:56:49 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/30 06:31:27 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/02 07:25:14 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return ((char *) 0);
-	while (s[i])
+	while (s[i] != '\0')
 	{
 		if (i >= start && j < len)
 		{
