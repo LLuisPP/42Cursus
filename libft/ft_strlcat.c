@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:31:00 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/27 12:02:27 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/06 10:53:21 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,11 @@ int main(int argc, char **argv)
 {
 	if (argc != 4)
 		return (0);
-//argv[1]: dst ft
-//argv[2]: dst std
-//argv[3]: src both
-//argv[4]: dstsize
-//argv[5]: len strlcpy
-//print_mem(argv[1], atoi(argv[4]));
-//print_mem(argv[2], atoi(argv[4]));
 	printf("strlcat:%zu \n", strlcat(argv[1], argv[2], atoi(argv[3])));
 //	printf("ft_strlcat:%lu \n", ft_strlcat(argv[1], argv[2], atoi(argv[3])));
 //ft_strlcat(argv[1], argv[2], atoi(argv[3]));
-//strlcat(argv[1], argv[2], atoi(argv[3]));
 print_mem(argv[1], atoi(argv[3]));
+strlcat(argv[1], argv[2], atoi(argv[3]));
 print_mem(argv[1], atoi(argv[3]));
 
 //print_mem(argv[1], sizeof((char *)argv[2]));

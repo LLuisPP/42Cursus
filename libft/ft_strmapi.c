@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fs.d                                    :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 06:45:42 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/06 12:51:52 by lprieto-         ###   ########.fr       */
+/*   Created: 2023/10/06 10:57:32 by lprieto-          #+#    #+#             */
+/*   Updated: 2023/10/06 10:59:50 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <fcntl.h>
-#include <stdio.h>
 
-void	ft_putchar_fd(char c, int fd)
+char	*ft_strmapi(char const *s, char (*f)(unsigned in, char))
 {
-	write(fd, &c, 1);
+	unsigned int	i;
+	char			*str;
+
+	if (!s)
+		return (NULL);
+	i = 0;
+	str = (char)malloc(sizeof(char)
 }
-
-/*int	main()
-{
-	int	fd;
-
-	//fd = open("archivo.txt", O_WRONLY);
-	//printf("%d", fd);
-	char	tmp[10];
-	
-
-	//read fd = 0 sin abrir antes un archivo,
-	//almacena a tmp la cantidad de 10 en este caso
-	read(0, &tmp, 10);
-	fd = open("archivo.txt", O_WRONLY);
-	write(fd, tmp, 10);
-	//ft_putchar_fd(tmp, fd);
-	return (0);
-}*/
