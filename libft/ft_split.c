@@ -6,25 +6,45 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 10:15:07 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/06 13:15:20 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/10 09:19:16 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	word_len(char *s, char c)
+static	int	wcount(char	const *s1, char	const set)
 {
-	int	len;
 	int	i;
+	int	j;
+	int	start;
+	int	b;
 
-	len = 0;
+	b = 0;
 	i = 0;
-	while (s[i] != '\0' && s[i] != c)
+	start = 0;
+	while (s1[i] != '\0' && b == 0)
 	{
-		len++;
+		j = 0;
+		while (s1[i] != set[j] && set[j] != '\0')
+		{
+			b = 1;
+			j++;
+		}
+		if (s1[i] == set[j])
+		{
+			start++;
+			b = 0;
+		}
 		i++;
 	}
-	return (len);
+	return (start);
+}
+
+void	bucle(start, s1)
+{
+	while (wcount())
+		wcount (start)
+		fwriteword(start)
 }
 
 char	**ft_split(char const *s, char c)
