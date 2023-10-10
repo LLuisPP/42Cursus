@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 06:45:42 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/09 10:41:38 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/10 11:54:59 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	ft_putchar_fd(char c, int fd)
 {
 	int	fd;
 
-	//fd = open("archivo.txt", O_WRONLY);
-	//printf("%d", fd);
-	char	tmp[10];
+	fd = open("archivo.txt", O_WRONLY);
+	printf("%d", fd);
+//	char	tmp[10];
 	
 
 	//read fd = 0 sin abrir antes un archivo,
@@ -34,5 +34,6 @@ void	ft_putchar_fd(char c, int fd)
 	fd = open("archivo.txt", O_WRONLY);
 	write(fd, tmp, 10);
 	//ft_putchar_fd(tmp, fd);
+	ft_putchar_fd('6', fd);
 	return (0);
 }*/

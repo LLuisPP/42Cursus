@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 06:33:40 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/06 12:41:59 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/10 12:47:34 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,10 @@ char	*fill(int f, int i, char const *s1)
 	int		c;
 	char	*ret;
 
-	c = 0;
 	ret = (char *)malloc(sizeof(char) * (f - i) + 2);
 	if (!ret)
 		return (NULL);
+	c = 0;
 	while (i <= f)
 	{
 		ret[c] = s1[i];
@@ -92,17 +92,18 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		f;
 	int		p;
 
-	p = 0;
-	f = 0;
 	if (!s1 || !set)
 		return (0);
+	p = 0;
+	f = 0;
 	while (set[p] != '\0')
 		p++;
-	if (p == 0)
+	if (p == 0 || s1[0] == '\0')
 	{
 		i = 0;
 		while (s1[f] != '\0')
 			f++;
+		return (fill((f - 1), 0, s1));
 	}
 	else
 	{
@@ -114,8 +115,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 /*int	main(int argc, char **argv)
 {
+	char	*str;
+
 	if (argc != 3)
 		return (0);
-	printf("ft_strtim array output:'%s' \n", ft_strtrim(argv[1], argv[2]));
+	str = ft_strtrim(argv[1], argv[2]);
+	printf("ft_strtim array output:'%s' \n", str);
+	free(str);
 	return (0);
 }*/

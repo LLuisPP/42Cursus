@@ -6,13 +6,13 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 10:15:07 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/10 09:19:16 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/10 13:03:55 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	wcount(char	const *s1, char	const set)
+static	int	wcount(char	const *s1, char	set)
 {
 	int	i;
 	int	j;
@@ -40,12 +40,12 @@ static	int	wcount(char	const *s1, char	const set)
 	return (start);
 }
 
-void	bucle(start, s1)
+/*void	bucle(start, s1)
 {
 	while (wcount())
 		wcount (start)
-		fwriteword(start)
-}
+	fwriteword(start)
+}*/
 
 char	**ft_split(char const *s, char c)
 {
@@ -60,10 +60,10 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 }
 
-int	main(int argc, char **argv)
+/*int	main(int argc, char **argv)
 {
 	if (argc != 3)
 		return (0);
 	printf("splitted strings %p", ft_split(argv[1], argv[2]));
 	return (0);
-}
+}*/

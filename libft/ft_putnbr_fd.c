@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 07:37:57 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/05 08:45:59 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/10 12:11:53 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_putnbr_fd(int n, int fd)
 			ft_putchar_fd('-', fd);
 			n = n * -1;
 		}
-		if (n >= 9)
+		if (n > 9)
 		{
 			ft_putnbr_fd(n / 10, fd);
 		}
@@ -37,10 +37,9 @@ void	ft_putnbr_fd(int n, int fd)
 
 	fd = open("archivo.txt", O_WRONLY);
 	printf("%d", fd);
-	ft_putnbr_fd(3, fd);
+	ft_putnbr_fd(-987441, fd);
 	return (0);
-}*/
-/*
+}
 #include <fcntl.h>
 #include <stdio.h>
 */
