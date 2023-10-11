@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/13 12:01:56 by lprieto-          #+#    #+#              #
-#    Updated: 2023/10/10 11:44:24 by lprieto-         ###   ########.fr        #
+#    Updated: 2023/10/11 13:22:42 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ SRCS = ft_strlen.c \
 	   ft_substr.c \
 	   ft_strjoin.c \
 	   ft_strtrim.c \
+	   ft_split.c \
 	   ft_itoa.c \
 	   ft_strmapi.c \
 	   ft_striteri.c \
