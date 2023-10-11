@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 06:09:50 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/26 14:28:28 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:35:09 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,11 @@ int	ft_atoi(const char *str)
 		return (-nbr);
 	return (nbr);
 }
+
+/*int	main(int argc, char **argv)
+{
+	if (argc != 2)
+		return (0);
+	printf("%s", ft_atoi(argv[1]))
+	return (0);	
+}*/
