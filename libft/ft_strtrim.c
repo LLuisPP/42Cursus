@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 06:33:40 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/10 12:47:34 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/12 07:03:48 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,3 +124,21 @@ char	*ft_strtrim(char const *s1, char const *set)
 	free(str);
 	return (0);
 }*/
+/* ************************************************************************** *
+ *								FT_STRTRIM
+ *
+ * DESCRIPCION: se utiliza para eliminar los caracteres especificados al
+ * principio y al final de una cadena de texto
+ *
+ * INPUT:	char const *s1, char const *set
+ *
+ * MAKE:	fstart se utiliza para encontrar la posición del primer carácter
+ * que no está presente en el conjunto de caracteres especificado, y fend se
+ * utiliza para encontrar la posición del último carácter. Por ultimo fill se
+ * utiliza para crear una nueva cadena de texto que contiene solo los
+ * caracteres entre las posiciones f y i de la cadena de texto original s1
+ *
+ * OUTPUT:	una nueva cadena de texto modificada que contiene los caracteres
+ * del string original que estan entre la posicion final y la inicial
+ *
+ * ***************************************************************************/

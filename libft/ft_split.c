@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 13:31:18 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/11 15:37:34 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/12 07:09:54 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,3 +133,19 @@ char 	**test;
 
 	return (0);
 }*/
+/* ************************************************************************** *
+ *								FT_SPLIT
+ *
+ * DESCRIPCION:	se utiliza para cortar un string en "palabras" separadas por
+ * un caracter dado 'c' y las aloja en un char ** donde cada posicion de mem
+ * aloja una palabra de las cortadas.
+ * 
+ * INPUT:	char const *s, char c
+ * 
+ * MAKE:	recorre el array de origen y compara el caracter con los del array
+ *  
+ * OUTPUT:	devuelve un char ** que contiene tantas posiciones como palabras
+ * haya contado, siendo cada una de esas posiciones la ubicacion de cada una
+ * de las palabras "cortadas.
+ * 
+ * ***************************************************************************/

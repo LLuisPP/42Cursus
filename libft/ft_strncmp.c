@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 10:17:05 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/21 07:24:15 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/12 07:18:24 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
@@ -37,13 +37,19 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return(0);
 }*/
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * DESCRIPCION: la funcion compara que los strings sean iguales hasta el
- * numero de posiciones integuer que recibe.
- * INPUT: dos char punteros (strings) y un integuer c.
- * MAKE: comprueba caracteres a pares de los strings hasta encontrar la
- * diferencia.
- * OUTPUT: la diferencia de valor entre caracteres una vez que encuentre un par
- *  que sean diferentes. Si es 0 la cantidad a comprar devuelve null.
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- */
+/* ************************************************************************** *
+ *								FT_STRNCMP
+ *
+ * DESCRIPCION:	se utiliza para comparar dos cadenas de caracteres hasta un
+ * número determinado de caracteres o hasta que se encuentre un carácter nulo
+ * en alguna de las cadenas
+ *
+ * INPUT:	const char *s1, const char *s2, size_t n
+ *
+ * MAKE:	comprueba caracteres por pares, en valor, de los strings hasta
+ * encontrar la diferencia
+ *
+ * OUTPUT:	la diferencia de valor entre caracteres una vez que encuentre un
+ * par que sean diferentes. Si es 0 la cantidad a comprar devuelve null
+ *
+ * ***************************************************************************/

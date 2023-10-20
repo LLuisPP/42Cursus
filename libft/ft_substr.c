@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 15:56:49 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/05 11:47:34 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/12 07:02:39 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,3 +49,18 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	free(resultado_ft_substr);
 	return (0);	
 }*/
+/* ************************************************************************** *
+ *								FT_SUBSTR
+ *
+ * DESCRIPCION: se utiliza para extraer una subcadena de una cadena dada,
+ * comenzando desde una posición específica y con una longitud determinada
+ *
+ * INPUT:	char const *s, unsigned int start, size_t len
+ *
+ * MAKE:	se declara una cadena de caracteres str con el valor dado, luego
+ * se toma el tamano del string a extraer en la nueva subcadena que tiene una
+ * longitud de i - start caracteres y se almacena en la variable str
+ *
+ * OUTPUT:	un puntero a la subcadena extraída. Hay que liberarla una vez usada
+ *
+ * ***************************************************************************/

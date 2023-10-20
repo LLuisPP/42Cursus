@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 12:58:20 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/29 11:09:56 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/12 07:07:34 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,3 +65,18 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	printf("ft_strjoin: %s \n", resultado);
 	return (0);
 }*/
+/* ************************************************************************** *
+ *								FT_STRJOIN
+ *
+ * DESCRIPCION:	se utiliza para combinar dos cadenas en una nueva cadena
+ *
+ * INPUT:	const char *s1, const char *s2, char *str
+ *
+ * MAKE:	recorre ambos arrays para obtener las longitudes de ambos, esto
+ * se emplea para crear un malloc que contenga a ambos strings consecutivos
+ * mas una posicion mas para el '\0'
+ *
+ * OUTPUT:	devuelve un nuevo array que contiene los dos iniciales mas el '\0'
+ * final.
+ *
+ * ***************************************************************************/

@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 11:36:42 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/29 10:12:35 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/12 07:04:46 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,20 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	return(0);
 }*/
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * DESCRIPCION: copia n bytes del array source en el array destino. Si se
- * superponen.
- * INPUT: string destino, string origen y un entero que indica el no de bytes.
- * MAKE: recorre el array de destino, escribiendo en cada posicion los bytes
- * que estan contenidos en destino.
- * OUTPUT: devuelve el array de destino modificado o no segun los inputs.
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- */
+/* ************************************************************************** *
+ *								FT_STRNSTR
+ *
+ * DESCRIPCION:	se utiliza para buscar una subcadena en una cadena dada, con 
+ * una longitud máxima on una longitud máxima igual a la longitud de la 
+ * cadena principal
+ * 
+ * INPUT:	const char *haystack, const char *needle, size_t len
+ * 
+ * MAKE:	recorre el array de destino, escribiendo en cada posicion los bytes
+ * que estan contenidos en destino
+ * 
+ * OUTPUT:	si la funcion tiene exito devuelve un puntero a la ultima pocicion
+ * de la ocurrencia del needle en el haystack original. Si no tiene exito
+ * devuelve NULL
+ * 
+ * ***************************************************************************/

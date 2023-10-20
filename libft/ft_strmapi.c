@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 10:57:32 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/11 16:36:31 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/12 07:05:38 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,3 +61,19 @@ int	main(void)
 	free(result);
 	return (0);
 }*/
+/* ************************************************************************** *
+ *								FT_STRMAPI
+ *
+ * DESCRIPCION:	se utiliza para aplicar una función a cada carácter de una
+ * cadena de caracteres y devolver una nueva cadena con los resultados de la
+ * aplicación de la función
+ *
+ * INPUT:	char const *s, char (*f)(unsigned int, char)
+ *
+ * MAKE:	comprueba caracteres por pares, en valor, de los strings hasta
+ * encontrar la diferencia
+ *
+ * OUTPUT:	devuelve un char * al 'str' guardado que lo modifica en funcion de
+ * la funcion aplicada. Si la funcion no tiene exito devuelve null
+ *
+ * ***************************************************************************/

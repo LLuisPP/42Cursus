@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 06:39:22 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/11 15:44:17 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/12 07:10:25 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,3 +45,19 @@ void	ft_putstr_fd(char *s, int fd)
 #include <stdio.h>
 #include <fcntl.h>
 */
+/* ************************************************************************** *
+ *								FT_PUTSTR_FD
+ *
+ * DESCRIPCION:	se utiliza para escribir en un fd (file descriptor) un string
+ *
+ * INPUT:	char *s, int fd
+ *
+ * MAKE:	recorre el array de origen enviando cada caracter a un write en
+ * un bucle
+ *
+ * OUTPUT:	no devuelve nada por que el output de esta funcion tiene salida
+ * por el file descriptor. Se puede comprobar la funcionalidad si se define
+ * el fd como un archivo donde escribir para luego visualizar el contenido
+ * del mismo
+ *
+ * ***************************************************************************/

@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 13:08:14 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/21 09:57:51 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/12 07:06:04 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,15 @@ size_t	ft_strlen(const char *s)
 	return(0);
 }*/
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * DESCRIPCION: la funcion recorre el array que recibe como parametro de
- *  entrada y genera un contador que nos indica la longitud del mismo.
- * INPUT: un char puntero (string)
- * MAKE: recorre el arrai de entrada y almacena la longitud de este.
- * OUTPUT: contador con la logitud el array introducido.
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- */
+/* ************************************************************************** *
+ *								FT_STRLEN
+ *
+ * DESCRIPCION:	se utiliza para saber la longitud de una cadena de caracteres
+ * 
+ * INPUT:	const char *s
+ * 
+ * MAKE:	recorre el string y almacena la longitud de este en un conrador
+ * 
+ * OUTPUT:	devuelve un contador con la longitud del string
+ * 
+ * ***************************************************************************/

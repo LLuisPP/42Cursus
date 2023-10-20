@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:31:00 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/06 10:53:21 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/12 07:07:08 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,15 +72,18 @@ print_mem(argv[1], atoi(argv[3]));
 	return(0);
 }*/
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * DESCRIPCION: copia dstsize bytes del array source a partir de la posicion
- * en el array destino hasta que encuentre el nulo de src o los contadores de
- * inicio y escritura sean iguales a dstsize -1, posicion que se reserva
- * para dstsize -1.
- * INPUT: string destino, string origen y un entero que indica el no de bytes.
- * MAKE: recorre el array de destino hasta la posicion en la que debe
- * comenzar a escribir dstsize bytes sin llegar al null de src o longitud de
- * dst + src sean iguales a dstsize.
- * OUTPUT: devuelve el array de destino modificado o no segun los inputs.
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
- */
+/* ************************************************************************** *
+ *								FT_STRLCAT
+ *
+ * DESCRIPCION:	se utiliza para concatenar dos cadenas de caracteres de 
+ * manera segura, evitando desbordamientos de búfer
+ * 
+ * INPUT:	char *dst, const char *src, size_t dstsize
+ * 
+ * MAKE:	recorre el array de destino hasta la posicion en la que debe
+ * comenzar a escribir la cantidad 'dstsize' de bytes sin llegar al null 
+ * de src o longitud de dst + src sean iguales a dstsize
+ * 
+ * OUTPUT:	devuelve el array de destino modificado o no segun los inputs
+ * 
+ * ***************************************************************************/

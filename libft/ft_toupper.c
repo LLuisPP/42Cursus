@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:58:11 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/21 06:55:19 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/12 07:01:24 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,18 @@ int	ft_toupper(int c)
 	return(0);
 }*/
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * DESCRIPCION: la funcion convierte el caracter que recibe de mayusculas
- * a minusculas empleando un int como parametro de entrada.
- * INPUT: integuer c
- * MAKE: comprueba que esta dentro del rango de chars alfabeticos minusula
+/* ************************************************************************** *
+ *								FT_TOUPPER
+ *
+ * DESCRIPCION: la funcion convierte el caracter que recibe de mayusculas a 
+ * minusculas empleando un int como parametro de entrada
+ * 
+ * INPUT:	integuer c
+ * 
+ * MAKE:	comprueba que esta dentro del rango de chars alfabeticos minusula 
  * y le resta 32 para pasar a su equivalente en mayuscula (ver man ascii)
- * OUTPUT: si es un char alfabetico minuscula retorna la mayuscula y si se 
+ * 
+ * OUTPUT:	si es un char alfabetico en minuscula, retorna la mayuscula y si se 
  * sale del rango de minusculas, no hace nada
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- */
+ * 
+ * ***************************************************************************/

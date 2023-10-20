@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 07:37:57 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/11 15:45:04 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/12 07:10:52 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,3 +46,20 @@ void	ft_putnbr_fd(int n, int fd)
 #include <fcntl.h>
 #include <stdio.h>
 */
+/* ************************************************************************** *
+ *								FT_PUTNBR_FD
+ *
+ * DESCRIPCION:	se utiliza para imprimir un número entero en un archivo de
+ * salida especificado por el descriptor de archivo fd
+ *
+ * INPUT:	int n, int fd
+ *
+ * MAKE:	recorre el array de origen enviando cada caracter a un write en
+ * un bucle
+ *
+ * OUTPUT:	no devuelve nada por que el output de esta funcion tiene salida
+ * por el file descriptor. Se puede comprobar la funcionalidad si se define
+ * el fd como un archivo donde escribir para luego visualizar el contenido
+ * del mismo
+ *
+ * ***************************************************************************/

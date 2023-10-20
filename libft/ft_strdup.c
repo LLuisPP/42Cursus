@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:09:34 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/26 15:30:37 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/12 07:09:03 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,21 @@ char	*ft_strdup(char *str)
 	return(0);
 }*/
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * DESCRIPCION: duplica un string en una posicion de memoria reservada
- * de antemano para duplicarlo sobre dicha memoria. 
- * INPUT: un string.
- * MAKE: reserva una cantidad de memoria igual a la longuitud del string
- * original + 1, posicion que se reserva para poner el '\0' final.
- * OUTPUT: devuelve un string identico al primero pero ubicado en una
- * posicion de memoria determinada por el malloc definido.
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* ************************************************************************** *
+ *								FT_STRDUP
+ *
+ * DESCRIPCION:	se utiliza para duplicar un string en una posicion de memoria 
+ * reservada de antemano. Eimportante tener en cuenta la asignación y 
+ * liberación adecuada de memoria al utilizar esta función para evitar 
+ * fugas de memoria
+ * 
+ * INPUT:	char *str
+ * 
+ * MAKE:	recorre el array de origen para saber la longitud, despues reserva
+ * una cantidad de memoria igual a la longitud + 1 para el '\0' final y aplica
+ * lo llena de los mismos caractetres que el string original.
+ *  
+ * OUTPUT:	devuelve un string identido al original pero en una posicion de 
+ * memoria diferente
+ * 
+ * ***************************************************************************/

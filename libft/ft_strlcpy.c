@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 10:08:05 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/02 09:11:29 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/12 07:06:41 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,17 @@ print_mem(argv[2], atoi(argv[3]));
 	return(0);
 }*/
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * DESCRIPCION: copia n bytes del array source en el array destino. Si se
- * superponen.
- * INPUT: string destino, string origen y un entero que indica el no de bytes.
- * MAKE: recorre el array de destino, escribiendo en cada posicion los bytes
- * que estan contenidos en destino.
- * OUTPUT: devuelve el array de destino modificado o no segun los inputs.
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- */
+/* ************************************************************************** *
+ *								FT_STRLCPY
+ *
+ * DESCRIPCION:	se utiliza para copiar una cadena de caracteres (src) en un 
+ * array de destino (dst) si son superponibles.
+ * 
+ * INPUT:	char *dst, const char *src, size_t dstsize
+ * 
+ * MAKE:	recorre el array de destino, escribiendo en cada posicion los bytes
+ * que estan contenidos en destino
+ * 
+ * OUTPUT:	devuelve el array de destino modificado o no segun los inputs
+ * 
+ * ***************************************************************************/
