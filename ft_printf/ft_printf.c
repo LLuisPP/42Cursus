@@ -6,47 +6,48 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 10:28:39 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/23 11:56:16 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/23 13:02:54 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_putcharacter(char c)
-{
-	write(1, &c, 1);
-}
+// static void	ft_putchar(char c)
+// {
+// 	write(1, &c, 1);
+// }
 
-static void	ft_putstr(char *s)
-{
-	int	len;
-	int	i;
+// static void	ft_putstr(char *s)
+// {
+// 	int	len;
+// 	int	i;
 
-	i = 0;
-	if (s)
-	{
-		while (s[i] != 0)
-			i++;
-		len = i;
-		i = 0;
-		while (s[i] != 0)
-		{
-			ft_putcharacter(s[i]);
-			i++;
-		}
-	}
-}
+// 	i = 0;
+// 	if (s)
+// 	{
+// 		while (s[i] != 0)
 
-static int	ft_next_pholder(char const *str, va_list args, int i, int j)
-{
-	if (str[j] == 'c')
-		ft_putcharacter(va_arg(args, int));
-	if (str[j] == 's')
-		ft_putstr(va_arg(args, char *));
-	// if (str[j] == 'p')
-	// 	ft_ptr(va_arg(args, char *));
-	return (i);
-}
+// 			i++;
+// 		len = i;
+// 		i = 0;
+// 		while (s[i] != 0)
+// 		{
+// 			ft_putchar(s[i]);
+// 			i++;
+// 		}
+// 	}
+// }
+
+// static int	ft_pholder(char const *str, va_list args, int i, int j)
+// {
+// 	if (str[j] == 'c')
+// 		ft_putchar(va_arg(args, int));
+// 	if (str[j] == 's')
+// 		ft_putstr(va_arg(args, char *));
+// 	// if (str[j] == 'p')
+// 	// 	ft_ptr(va_arg(args, char *));
+// 	return (i);
+// }
 
 int	ft_printf(char const *str, ...)
 {
@@ -61,27 +62,27 @@ int	ft_printf(char const *str, ...)
 	{
 		if (str[j] == '%')
 		{
-			ft_next_pholder(str, args, i, ++j);
+			ft_pholder(str, args, i, ++j);
 			j++;
 		}
 		else
 		{
 			i++;
-			ft_putcharacter(str[j]);
+			ft_putchar(str[j]);
 			j++;
 		}
 	}
 	va_end(args);
 	return (i);
 }
-int	main()
+/*int	main()
 {
 	ft_printf("MY -->hola mon! c: %c, s: %s\n", 'a', "hola");
 	ft_printf(" ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱ \n");
 	printf("OG -->hola mon! c: %c, s: %s\n", 'a', "hola");
 
 	return (0);
-}
+}*/
 /*	if (str[j] == 'p')	//puntero
 		write (1, 'p', 1);
 	if (str[j] == 'd')	//decimal

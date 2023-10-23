@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 10:54:43 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/23 08:40:03 by lprieto-         ###   ########.fr       */
+/*   Created: 2023/10/23 08:34:40 by lprieto-          #+#    #+#             */
+/*   Updated: 2023/10/23 08:38:42 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdio.h>
+void	ft_putstr(char *s)
+{
+	int	len;
+	int	i;
 
-int     ft_printf(char const *str, ...);
-void    ft_putchar(char c);
-void	ft_putstr(char *s);
-int     ft_pholder(char const *str, va_list args, int i, int j);
+	i = 0;
+	if (s)
+	{
+		while (s[i] != 0)
 
-#endif
+			i++;
+		len = i;
+		i = 0;
+		while (s[i] != 0)
+		{
+			ft_putchar(s[i]);
+			i++;
+		}
+	}
+}

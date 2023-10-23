@@ -15,7 +15,7 @@ HEADER = ft_printf.h
 RM = rm -f
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = ft_printf.c
+SRCS = ft_printf.c ft_putchar.c ft_putstr.c ft_pholder.c
 
 OBJS = $(SRCS:.c=.o)
 
