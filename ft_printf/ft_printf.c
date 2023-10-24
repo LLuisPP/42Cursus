@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 10:28:39 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/24 11:31:24 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/10/24 12:05:52 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,58 @@ int	ft_printf(char const *str, ...)
 }
 // int	main()
 // {
-// 	// int mine;
-// 	// int pro;
-
-// 	// mine = ft_printf("mine%s", "");
-// 	// pro = printf("orig%s", "");
-
-// 	// printf("m%d / p%d", mine, pro);
-// 	ft_printf("MY --> hola mon! char: %c, str: %s, digit: %d, int: %i, uint: %u hex: %x\n", 'a', "hola", -3407, 204, 24233, 0);
-// 	ft_printf(" ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱ \n");
-// 	printf("OG --> hola mon! char: %c, str: %s, digit: %d, int: %i, uint: %u hex: %x\n", 'a', "hola", -3407, 204, 24233, 0);
+// 	ft_printf("> -  -  -  -  -  -  -  -  -  -  -  -  -  -  - <\n");
+// 	ft_printf("MYOWNED --> char: %c\n", 'a');
+// 	ft_printf(" ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  \n");
+// 	printf("ORIGINAL --> char: %c\n", 'a');
 // 	ft_printf("> -  -  -  -  -  -  -  -  -  -  -  -  -  -  - <\n");
 
+// 	ft_printf("> -  -  -  -  -  -  -  -  -  -  -  -  -  -  - <\n");
+// 	ft_printf("MYOWNED --> str: %s, "hola");
+// 	ft_printf(" ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  \n");
+// 	printf("ORIGINAL --> str: %s, "hola");
+// 	ft_printf("> -  -  -  -  -  -  -  -  -  -  -  -  -  -  - <\n");
+
+// 	ft_printf("> -  -  -  -  -  -  -  -  -  -  -  -  -  -  - <\n");
+// 	ft_printf("MYOWNED --> ptr %p, 0x1345204);
+// 	ft_printf(" ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  \n");
+// 	printf("ORIGINAL --> ptr %p, 0x1345204);
+// 	ft_printf("> -  -  -  -  -  -  -  -  -  -  -  -  -  -  - <\n");
+
+// 	ft_printf("> -  -  -  -  -  -  -  -  -  -  -  -  -  -  - <\n");
+// 	ft_printf("MYOWNED --> digit: %d, -3407);
+// 	ft_printf(" ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  \n");
+// 	printf("ORIGINAL --> digit: %d, -3407);
+// 	ft_printf("> -  -  -  -  -  -  -  -  -  -  -  -  -  -  - <\n");
+
+// 	ft_printf("> -  -  -  -  -  -  -  -  -  -  -  -  -  -  - <\n");
+// 	ft_printf("MYOWNED --> int: %i, 204);
+// 	ft_printf(" ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  \n");
+// 	printf("ORIGINAL --> int: %i, 204);
+// 	ft_printf("> -  -  -  -  -  -  -  -  -  -  -  -  -  -  - <\n");
+
+// 	ft_printf("> -  -  -  -  -  -  -  -  -  -  -  -  -  -  - <\n");
+// 	ft_printf("MYOWNED --> uint: %u 24233);
+// 	ft_printf(" ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  \n");
+// 	printf("ORIGINAL --> uint: %u, 242330);
+// 	ft_printf("> -  -  -  -  -  -  -  -  -  -  -  -  -  -  - <\n");
+
+// 	ft_printf("> -  -  -  -  -  -  -  -  -  -  -  -  -  -  - <\n");
+// 	ft_printf("MYOWNED --> hex: %x\n" 2423333);
+// 	ft_printf(" ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  \n");
+// 	printf("ORIGINAL --> hex: %x\n", 2423333);
+// 	ft_printf("> -  -  -  -  -  -  -  -  -  -  -  -  -  -  - <\n");
+
+// 	ft_printf("> -  -  -  -  -  -  -  -  -  -  -  -  -  -  - <\n");
+// 	ft_printf("MYOWNED --> HEX: %X\n", 2423333);
+// 	ft_printf(" ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  \n");
+// 	printf("ORIGINAL -->  HEX: %X\n", 2423333, 0);
+// 	ft_printf("> -  -  -  -  -  -  -  -  -  -  -  -  -  -  - <\n");
+
+// 	ft_printf("> -  -  -  -  -  -  -  -  -  -  -  -  -  -  - <\n");
+// 	ft_printf("MYOWNED --> PERC: %%\n", %);
+// 	ft_printf(" ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  ⟱  \n");
+// 	printf("ORIGINAL --> PERC: %%\n", %);
+// 	ft_printf("> -  -  -  -  -  -  -  -  -  -  -  -  -  -  - <\n");
 // 	return (0);
 // }
-
-
-/*	ft_printf("MY -->hola mon! c: %c, s: %s, p: %p, d: %d, i: %i, u: %u,
- *	x: %x, X: %X, %: %%", "7", "hola", 0.25, 10, 0.30, '61', '41', "%"  \n); */
