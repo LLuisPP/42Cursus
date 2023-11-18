@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 13:12:48 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/11/15 16:10:44 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/11/18 12:32:37 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_read(int fd, char *str)
 	free(buffer);
 	if (nb_read < 0)
 		return (free(str), str = NULL, NULL);
-	return (0);
+	return (str);
 }
 
 char *get_next_line(int fd)
@@ -43,7 +43,11 @@ char *get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
+	str = 0;
 	str = ft_read(fd, str);
+	line = ft_read(fd, str);
+	if (!str)
+		return (free(str), str = NULL, NULL);
 	if (!str)
 		return (free(str), str = NULL, NULL);
 	str = ft_new_line(str);
@@ -52,9 +56,17 @@ char *get_next_line(int fd)
 
 int main (void)
 {
- int fd = open("punkmanifesto.txt", O_RDONLY);
- char *line;
- while ((line = get_next_line(fd)) != NULL)
-     printf("%s", line);
- return (0);
+	int		fd;
+	char	*line;
+
+	fd = open("punkmanifesto.txt", O_RDONLY);
+	if (fd < 0)
+		return (0);
+	while ((line = get_next_line(fd)) != NULL)
+	{
+		printf("%s", line);
+		free(line);
+	}
+	close(fd);
+	return (0);
 }
