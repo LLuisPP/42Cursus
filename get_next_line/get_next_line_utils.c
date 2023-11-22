@@ -6,33 +6,12 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 11:29:54 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/11/18 12:40:04 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/11/22 11:52:02 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(char *str)
-{
-	size_t	len;
-
-	if(!str)
-		return (0);
-	len = 0;
-	while (str[len] != '\0')
-		len++;
-	return (len);
-}
-
-char	*ft_malloc(size_t len1, int len2)
-{
-	char	*mallocated;
-
-	mallocated = (char *)malloc(sizeof(len1 + len2) + 1);
-	if (!mallocated)
-		return (0);
-	return (mallocated);
-}
 
 char	*ft_strchr(char *str, int c)
 {
@@ -62,7 +41,7 @@ char	*ft_strjoin(char *str, char *buffer)
 	y = 0;
 	if (!str)
 	{
-		str = ft_malloc(0, 0);
+		str = ft_malloc(1, 0);
 		if (!str)
 			return (free(str), str = NULL, NULL);
 		str[0] = '\0';
@@ -76,8 +55,8 @@ char	*ft_strjoin(char *str, char *buffer)
 		new_str[x] = str [x];
 	while (buffer[y] != '\0')
 		new_str[++x] = buffer[y++];
+	free(str);
 	new_str[x] = '\0';
-	free (str);
 	return (new_str);
 }
 
