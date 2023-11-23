@@ -1,0 +1,8 @@
+En esta linea, esta la linea uno.
+Ahora viene la linea dos.
+Esta es probablemente la que va a ser la linea mas larga de todas las que tenga, es deicr, la linea 3.
+Cuarta linea que sera la penultima.
+Y por ultimo la quinta y final, buen trabajo !.otra frase mas.
+
+
+Otra frase mas, y van seis. Frase encabronada con\n simbolos\n raros \n en medio\n.

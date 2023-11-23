@@ -6,97 +6,113 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 11:29:54 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/11/22 13:51:15 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/11/23 21:34:54 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+static size_t	ft_strlen(char *str)
+{
+	size_t	len;
 
-char	*ft_strchr(char *str, int c)
+	if (!str)
+		return (free(str), str = NULL, 0);
+	len = 0;
+	while (str[len] != '\0')
+		len++;
+	return (len);
+}
+
+char	*ft_strchr(char *buffer, int c)
 {
 	int	i;
-
+	
 	i = 0;
-	if(!str)
-		return (NULL);
-	while (str[i] != '\0')
+	if(!buffer)
+		return (free(buffer), buffer = NULL, NULL);
+	while (buffer[i] != '\0')
 	{
-		if (str[i] == (char)c)
-			return ((char *) &str[i]);
+		if (buffer[i] == (char)c)
+			return ((char *)&buffer[i]);
 		i++;
 	}
-	if (str[i] == (unsigned char) c)
-		return ((char *) &str[i]);
+	if (buffer[i] == (unsigned char) c)
+		return((char *)&buffer[i]);
 	return (0);
 }
-
-char    *ft_strjoin(char *str, char *buffer)
+char    *ft_strjoin(char *buffer, char *new_buffer)
 {
-    int        x;
-    int        y;
-    char    *new_str;
+    size_t	i;
+    size_t	j;
+    char	*join_buffer;
 
-    x = 0;
-    y = 0;
-    if (!str)
+    if (!buffer)
     {
-        str = ft_malloc(1, 0);
-        str[0] = '\0';
+        buffer = malloc(sizeof(char));
+		if (!buffer)
+			return (free(buffer), buffer = NULL, NULL);
+        buffer[0] = '\0';
     }
-    new_str = ft_malloc(ft_strlen(str), ft_strlen(buffer));
-    while (str[x] != '\0')
-      {
-        new_str[x] = str [x];
-      x++;
-      }
-    while (buffer[y] != '\0')
-        new_str[x++] = buffer[y++];
-    new_str[x] = '\0';
-    free(str);
-    printf("%s", new_str);
-    return (new_str);
+	if (!new_buffer)
+		return (free(new_buffer), new_buffer = NULL, NULL);
+    join_buffer = malloc(sizeof(char) * ((ft_strlen(buffer) + ft_strlen(new_buffer)) + 1));
+	if (!join_buffer)
+		return (free(buffer), buffer = NULL, NULL);
+    i = -1;
+    j = 0;
+    while (buffer[++i] != '\0')
+		join_buffer[i] = buffer [i];
+    while (new_buffer[j] != '\0')
+        join_buffer[i++] = new_buffer[j++];
+	join_buffer[i] = '\0';
+	free(buffer);
+    return (join_buffer);
 }
 
-char	*ft_read_line(char *str)
+char	*ft_read_line(char *buffer)
 {
 	size_t	i;
-	char	*new_str;
+	char	*new_buffer;
 
-	if (!str[0])
+	if (!buffer[0])
 		return (NULL);
 	i = 0;
-	while (str[i] != '\0')
+	while (buffer[i] != '\0')
 	{
-		if (str[i] != '\0')
+		if (buffer[i++] == '\n')
 			break ;
 	}
-	new_str = ft_malloc(i, 0);
+	new_buffer = malloc(sizeof(char) * (i + 1));
+	if (!new_buffer)
+			return (NULL);
 	i = -1;
-	while (str[++i] != '\0' && str[i] != '\n')
-		new_str[i] = str[i];
-	if (str[i] == '\n')
-		new_str[i++] = '\n';
-	new_str[i] = '\0';
-	return (new_str);
+	while (buffer[++i] != '\0' && buffer[i] != '\n')
+		new_buffer[i] = buffer[i];
+	if (buffer[i] == '\n')
+		new_buffer[i++] = '\n';
+	new_buffer[i] = '\0';
+	return (new_buffer);
 }
 
-char	*ft_new_line(char *str)
+char	*ft_new_line(char *buffer)
 {
 	size_t	i;
 	size_t	j;
-	char	*new_str;
-printf("VALOR STRNEW LINE>%s", str);
-	i = 0;
-	while ((str && str[i] != '\n') || (str[i] != '\0'))
-		i++;
-	new_str = ft_malloc(i + 1, 0);
+	char	*new_buffer;
 
 	i = 0;
+	while (buffer && buffer[i] != '\n')
+		i++;
+	if (!buffer[i])
+			return (free(buffer), buffer = NULL, NULL);
+	new_buffer = malloc(sizeof(char) * (ft_strlen(buffer) + 1));
+	if (!new_buffer)
+			return (free(buffer), buffer = NULL, NULL);
+	i++;
 	j = 0;
-	while (str[i] != '\n')
-		new_str[j++] = str[i++];
-	new_str[j + 1] = '\0';
-printf("VALOR NEW_STRNEW LINE>%s", new_str);
-	return (new_str);
+	while (buffer[i] != '\0')
+		new_buffer[j++] = buffer[i++];
+	new_buffer[j] = '\0';
+	return (free(buffer), buffer = NULL, new_buffer);
 }
