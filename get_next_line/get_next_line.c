@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 13:12:48 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/11/23 21:39:09 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/11/24 09:22:21 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_read_fd(int fd, char *buffer)
 {
 	char	*new_buffer;
 	int		nb_read;
-	
+
 	new_buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	nb_read = 1;
 	if (!new_buffer)
@@ -38,10 +38,10 @@ char	*ft_read_fd(int fd, char *buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer;
+	static char	*buffer = NULL;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE < 1)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buffer = ft_read_fd(fd, buffer);
 	if (!buffer)
@@ -56,40 +56,18 @@ char	*get_next_line(int fd)
 // int	main(void)
 // {
 // 	int		fd;
-// 	int		count;
 // 	char	*line;
+// 	int		count;
 
 // 	fd = open("text.txt", O_RDONLY);
 // 	if (fd < 0)
 // 		return (0);
-// 	line = get_next_line(fd);
 // 	count = 0;
-// 	if(line)
-// 		free(line);
+// 	line = get_next_line(fd);
+
 // 	while (line)
 // 	{
 // 		line = get_next_line(fd);
-// 		printf("LINE [%d] - %s\n", count, line);
-// 		free(line);
-// 		count++;
-// 	}
-// 	close(fd);
-// 	return (0);
-// }
-
-// int	main(void)
-// {
-// 	int		fd;
-// 	int		count;
-// 	char	*line;
-
-// 	fd = open("text.txt", O_RDONLY);
-// 	if (fd < 0)
-// 		return (0);
-// 	line = get_next_line(fd);
-// 	count = 0;
-// 	while (line)
-// 	{
 // 		printf("LINE [%d] - %s", count, line);
 // 		count++;
 // 		free(line);
@@ -97,26 +75,3 @@ char	*get_next_line(int fd)
 // 	close(fd);
 // 	return (0);
 // }
-
-int	main(void)
-{
-	int		fd;
-	char	*line;
-	int		count;
-
-	fd = open("text.txt", O_RDONLY);
-	if (fd < 0)
-		return (0);
-	count = 1;
-	line = get_next_line(fd);
-
-	while (line != NULL)
-	{
-		line = get_next_line(fd);
-		printf("LINE [%d] - %s\n", count, line);
-		count++;
-		free(line);
-	}
-	close(fd);
-	return (0);
-}

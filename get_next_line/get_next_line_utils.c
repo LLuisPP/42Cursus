@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 11:29:54 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/11/23 21:34:54 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/11/24 09:44:54 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ static size_t	ft_strlen(char *str)
 char	*ft_strchr(char *buffer, int c)
 {
 	int	i;
-	
+
 	i = 0;
-	if(!buffer)
+	if (!buffer)
 		return (free(buffer), buffer = NULL, NULL);
 	while (buffer[i] != '\0')
 	{
@@ -38,36 +38,36 @@ char	*ft_strchr(char *buffer, int c)
 		i++;
 	}
 	if (buffer[i] == (unsigned char) c)
-		return((char *)&buffer[i]);
+		return ((char *) &buffer[i]);
 	return (0);
 }
-char    *ft_strjoin(char *buffer, char *new_buffer)
-{
-    size_t	i;
-    size_t	j;
-    char	*join_buffer;
 
-    if (!buffer)
-    {
-        buffer = malloc(sizeof(char));
+char	*ft_strjoin(char *buffer, char *new_buffer)
+{
+	size_t	i;
+	size_t	j;
+	char	*join_buffer;
+
+	if (!buffer)
+	{
+		buffer = malloc(sizeof(char));
 		if (!buffer)
 			return (free(buffer), buffer = NULL, NULL);
-        buffer[0] = '\0';
-    }
+		buffer[0] = '\0';
+	}
 	if (!new_buffer)
 		return (free(new_buffer), new_buffer = NULL, NULL);
-    join_buffer = malloc(sizeof(char) * ((ft_strlen(buffer) + ft_strlen(new_buffer)) + 1));
+	i = ft_strlen(buffer) + ft_strlen(new_buffer);
+	join_buffer = malloc(sizeof(char) * (i + 1));
 	if (!join_buffer)
 		return (free(buffer), buffer = NULL, NULL);
-    i = -1;
-    j = 0;
-    while (buffer[++i] != '\0')
+	i = -1;
+	j = 0;
+	while (buffer[++i] != '\0')
 		join_buffer[i] = buffer [i];
-    while (new_buffer[j] != '\0')
-        join_buffer[i++] = new_buffer[j++];
-	join_buffer[i] = '\0';
-	free(buffer);
-    return (join_buffer);
+	while (new_buffer[j] != '\0')
+		join_buffer[i++] = new_buffer[j++];
+	return (join_buffer[i] = '\0', free(buffer), join_buffer);
 }
 
 char	*ft_read_line(char *buffer)
@@ -85,7 +85,7 @@ char	*ft_read_line(char *buffer)
 	}
 	new_buffer = malloc(sizeof(char) * (i + 1));
 	if (!new_buffer)
-			return (NULL);
+		return (NULL);
 	i = -1;
 	while (buffer[++i] != '\0' && buffer[i] != '\n')
 		new_buffer[i] = buffer[i];
@@ -102,13 +102,13 @@ char	*ft_new_line(char *buffer)
 	char	*new_buffer;
 
 	i = 0;
-	while (buffer && buffer[i] != '\n')
+	while (buffer[i] != '\0' && buffer[i] != '\n')
 		i++;
 	if (!buffer[i])
-			return (free(buffer), buffer = NULL, NULL);
+		return (free(buffer), buffer = NULL, NULL);
 	new_buffer = malloc(sizeof(char) * (ft_strlen(buffer) + 1));
 	if (!new_buffer)
-			return (free(buffer), buffer = NULL, NULL);
+		return (free(buffer), buffer = NULL, NULL);
 	i++;
 	j = 0;
 	while (buffer[i] != '\0')
