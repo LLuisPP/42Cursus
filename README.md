@@ -5,9 +5,9 @@
 This are all the porjects i've passed as a 42 Barcelona student:
 
 # 1st circle:
-- libft:............................................ ✅ Bonus: ❌
+- libft:............................................Project: ✅ .... Bonus: ❌
 # 2nd Circle:
-- ft_printf:...................................... ✅ Bonus: ❌
-- Born2beroot:............................... ✅ Bonus: ❌
-- ft_get_next_line:......................... ✅ Bonus: ❌
+- ft_printf:......................................Project ✅ Bonus: ❌
+- Born2beroot:...............................Project ✅ Bonus: ❌
+- ft_get_next_line:.........................Project ✅ Bonus: ❌
 # 3rd circle
