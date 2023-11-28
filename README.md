@@ -5,7 +5,7 @@
 This are all the porjects i've passed as a 42 Barcelona student:
 
 # 1st circle:
-- libft:.......................................... ✅ Bonus: ❌
+- libft:............................................ ✅ Bonus: ❌
 # 2nd Circle:
 - ft_printf:...................................... ✅ Bonus: ❌
 - Born2beroot:............................... ✅ Bonus: ❌
