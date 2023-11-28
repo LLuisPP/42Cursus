@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 13:31:18 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/12 07:09:54 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/11/28 10:53:09 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,11 @@ static int	cleaning(char **outp)
 
 static int	run_string(char const *s,	char sep, char **outp)
 {
-	int	i;
 	int	in_word;
 	int	cage;
 
 	cage = 0;
 	in_word = 0;
-	i = 0;
 	while (*s)
 	{
 		if (*s != sep && in_word == 0)
@@ -148,4 +146,4 @@ char 	**test;
  * haya contado, siendo cada una de esas posiciones la ubicacion de cada una
  * de las palabras "cortadas.
  * 
- * ***************************************************************************/
+ * ************************************************************************** */

@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 06:39:22 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/12 07:10:25 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/11/28 11:23:44 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,12 @@
 void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
-	int	len;
 
 	i = 0;
 	if (fd >= 0)
 	{
 		while (s[i] != 0)
 			i++;
-		len = i;
 		i = 0;
 		while (s[i] != 0)
 		{
