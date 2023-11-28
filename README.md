@@ -11,3 +11,4 @@ This are all the porjects i've passed as a 42 Barcelona student:
 - Born2beroot:...............................Project ✅ Bonus: ❌
 - ft_get_next_line:.........................Project ✅ Bonus: ❌
 # 3rd circle
+- push_swap:.......................................Project ❌ Bonus: ❌
