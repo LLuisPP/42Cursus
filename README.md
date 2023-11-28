@@ -8,6 +8,6 @@ This are all the porjects i've passed as a 42 Barcelona student:
 - libft:.......................................... ✅ Bonus: ❌
 # 2nd Circle:
 - ft_printf:...................................... ✅ Bonus: ❌
-- Born2beroot:................................. ✅ Bonus: ❌
-- ft_get_next_line:........................ ✅ Bonus: ❌
+- Born2beroot:............................... ✅ Bonus: ❌
+- ft_get_next_line:......................... ✅ Bonus: ❌
 # 3rd circle
