@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:45:28 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/11/29 14:06:20 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/11/29 15:12:11 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ struct s_stack_node
     
 };
 
-int num_check(char *stackA);
-
+int     num_check(char *stackA);
+void    print_error(char *msg);
 
 #endif
