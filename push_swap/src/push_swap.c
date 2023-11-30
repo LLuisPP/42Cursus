@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:37:09 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/11/29 15:23:50 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/11/30 12:42:49 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,28 @@
 #include "ft_printf.h"
 #include "push_swap.h"
 
-void    print_error(char *msg)
+int	main(int argc, char **argv)
 {
-    ft_putstr_fd(msg, 2);
-    ft_putchar('\n');
-    exit(0);
-}
+	// t_stack	*stack_a = NULL;
+	// t_stack	*stack_b = NULL;
+	int		stack_size;
 
-int num_check(char *stackA)
-{
-    int i;
-
-    i = 0;
-    while ((stackA[i]))
-    {
-        if (ft_isdigit(stackA[i]) == -1)
-            print_error("There is at least one non digit in the stack");
-        i++;
-    }
-    return (1);
-}
-char    push_swap(int argc, char **argv)
-{
-    if (argc <= 0)
-        return (0);
-    num_check(*argv);
-    ft_printf("test de ejecución");
-    
-    return (0);
+	if (argc < 2)
+		error_exit("Too few arguments");
+	
+	stack_size = (argc - 1);
+	checkers(argc, argv);
+	ft_printf("hola \n");
+	// if (i == 1)
+	// {
+	
+	// 	while (i < argc)
+	// 	{
+	// 		i++;
+	// 		checkers(argc, argv);
+	// 		ft_printf("%d\n", argv);
+	// 	}
+	// }
+	/*LIBERAR LOS STAKCS AQUI*/
+	return (0);
 }

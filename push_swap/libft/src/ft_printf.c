@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 10:28:39 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/26 09:49:56 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/11/30 11:04:02 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_printf(char const *str, ...)
 	printf("Esto es un string pasada por argumento: %p\n", octet);
 	ft_printf("Esto es un string pasada por argumento: %x\n", octet);
 	printf("Esto es un string pasada por argumento: %x\n", *octet);
-	ft_printf("Esto es la direccion del string pasada por argumento: %p\n", octet);
+	ft_printf("Esto es la direccion del string pasada por arg: %p\n", octet);
 	printf("Esto es la direccion del string pasada por argumento: %p\n", octet);
 }*/
 

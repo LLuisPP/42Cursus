@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:45:28 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/11/29 15:12:11 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/11/30 13:40:03 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,21 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <limits.h>
 # include <fcntl.h>
 # include "libft.h"
 
-struct s_stack_node
+typedef struct s_stack
 {
-    int data;
-    int index;
-    int length;
-    
-};
+	int	data;
+	int	index;
+	int	stack_size;
+}	t_stack;
 
-int     num_check(char *stackA);
-void    print_error(char *msg);
+int checkers(int argc, char **argv);
+void	error_exit(char *msg);
+int		arg_duplicate(int argc, char **argv);
+int		arg_range(int argc, char **argv);
+int		arg_is_int(int argc, char **argv);
 
 #endif
