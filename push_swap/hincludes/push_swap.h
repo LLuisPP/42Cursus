@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:45:28 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/11/30 13:40:03 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/12/04 09:26:18 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,32 @@
 
 typedef struct s_stack
 {
-	int	data;
-	int	index;
-	int	stack_size;
+	int				data;
+	int				index;
+	int				prev;
+	struct s_stack	*next;
 }	t_stack;
 
-int checkers(int argc, char **argv);
-void	error_exit(char *msg);
+/* * * * * * * * * * * * * * * * MAIN * * * * * * * * * * * * * * * * */
+void	push_swap(t_stack **stack_a, int stack_size);
+
+/* * * * * * * * * * * * * * * * CHECKERS * * * * * * * * * * * * * * * * */
+int 	checkers(int argc, char **argv); /* solo hace falta este */
 int		arg_duplicate(int argc, char **argv);
 int		arg_range(int argc, char **argv);
 int		arg_is_int(int argc, char **argv);
+
+/* * * * * * * * * * * * * * * * ERROR * * * * * * * * * * * * * * * * */
+void	error_end(char *msg);
+
+/* * * * * * * * * * * * * * * * UTILS * * * * * * * * * * * * * * * * */
+void    free_stack(t_stack **stack);
+
+/* * * * * * * * * * * * * * * * STACKS * * * * * * * * * * * * * * * * */
+int 	get_stack_size(t_stack *stack);
+void	stack_add(t_stack **stack, t_stack *new);
+t_stack	*get_bottom(t_stack *stack);
+void	get_numbers(char *argv, t_stack *stack_a);
+t_stack *stack_new( int data);
 
 #endif

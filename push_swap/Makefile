@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 16:34:33 by lprieto-          #+#    #+#              #
-#    Updated: 2023/11/30 12:20:20 by lprieto-         ###   ########.fr        #
+#    Updated: 2023/12/02 01:11:56 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar -rcs
 RM = rm -rf
 
-SRCS = push_swap.c main.c checkers.c
+SRCS = push_swap.c ps_checkers.c ps_utils.c ps_stacks.c 
 
 SRC_PATH = ./src/
 OBJ_PATH = ./tmp/
@@ -83,31 +83,37 @@ WHITE = \033[0;97m
 
 COUNT_SRCS := $(words $(SRCS))
 COUNT_OBJS := $(words $(OBJS))
-BAR_LEN := 30
+BAR_LEN := 40
 
 # **************************************************************************** #
 
 
 define show_progress
 	echo; \
+	printf " eeeee e   e eeeee e   e       eeeee e   e  e eeeee eeeee \n \
+8   8 8   8 8   8 8   8       8   8 8   8  8 8   8 8   8 \n \
+8eee8 8e  8 8eeee 8eee8       8eeee 8e  8  8 8eee8 8eee8 \n \
+88    88  8    88 88  8          88 88  8  8 88  8 88    \n \
+88    88ee8 8ee88 88  8       8ee88 88ee8ee8 88  8 88    \n \
+.                       eeeee\n\n"; \
 	((i = 0)); \
 	while [[ $$i -le $(COUNT_SRCS) ]] ; do \
-		printf "$(BCIAN)➜ Compiling $(basename $(NAME)) $(BBLUE)["; \
+		printf "$(BBLUE)["; \
 		progress=$$((i * $(BAR_LEN) / $(COUNT_SRCS))); \
 		((j = 1));\
 		while [[ $$j -le $(BAR_LEN) ]]; do \
 			if [[ $$j -le $$progress ]]; then \
 				printf "$(BGREEN)▒"; \
 			else \
-				printf " "; \
+				printf "$(GRAY)░"; \
 			fi; \
 			((j = j + 1)); \
 		done; \
 		printf "$(BBLUE)] [$(CIAN)$$i/$(COUNT_SRCS)$(BBLUE)] \
 		[$(BWHITE)$$((i * 100 / $(COUNT_SRCS)))%%$(BBLUE)]$(WHITE)\r"; \
 		((i = i + 1)); \
-		sleep 0.05; \
+		sleep 0.10; \
 	done; \
 	echo; \
-	printf "\n\n                  ▒▒▒▒▒▒▒▒▒    ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n                ▒▒▒▒▒▒▒▒▒      ▒▒▒▒▒▒▒  ▒▒▒▒▒▒▒\n              ▒▒▒▒▒▒▒▒▒        ▒▒▒▒     ▒▒▒▒▒▒▒\n            ▒▒▒▒▒▒▒▒▒          ▒▒      ▒▒▒▒▒▒▒▒\n          ▒▒▒▒▒▒▒▒▒                  ▒▒▒▒▒▒▒▒\n        ▒▒▒▒▒▒▒▒▒     $(WHITE)$$(whoami)     $(WHITE)▒▒▒▒▒▒▒▒\n      ▒▒▒▒▒▒▒▒▒                  ▒▒▒▒▒▒▒▒\n     ▒▒▒▒▒▒▒▒                   ▒▒▒▒▒▒▒      ▒▒\n     ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒   ▒▒▒▒▒▒▒     ▒▒▒▒\n     ▒▒▒▒▒▒ Barcelona ▒▒▒▒▒▒   ▒▒▒▒▒▒▒   ▒▒▒▒▒▒\n     ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒   ▒▒▒▒▒▒▒  ▒▒▒▒▒▒▒\n                    ▒▒▒▒▒▒▒▒   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n          $(RED)░░░░░     $(WHITE)▒▒▒▒▒▒▒▒      |\n         $(RED)░$(WHITE)▄ $(RED)░$(WHITE)▄ $(RED)░    $(WHITE)▒▒▒▒▒▒▒▒      ╰┈➤$(GREEN)$(NAME) \n         $(RED)░░░░░░░    $(WHITE)▒▒▒▒▒▒▒▒\n         $(RED)░ ░ ░ ░    $(WHITE)▒▒▒▒▒▒▒▒\n";
+	printf "\n\n                  ▒▒▒▒▒▒▒▒▒    ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n                ▒▒▒▒▒▒▒▒▒      ▒▒▒▒▒▒▒  ▒▒▒▒▒▒▒\n              ▒▒▒▒▒▒▒▒▒        ▒▒▒▒     ▒▒▒▒▒▒▒\n            ▒▒▒▒▒▒▒▒▒          ▒▒      ▒▒▒▒▒▒▒▒\n          ▒▒▒▒▒▒▒▒▒                  ▒▒▒▒▒▒▒▒\n        ▒▒▒▒▒▒▒▒▒     $(WHITE)$$(whoami)     $(WHITE)▒▒▒▒▒▒▒▒\n      ▒▒▒▒▒▒▒▒▒                  ▒▒▒▒▒▒▒▒\n     ▒▒▒▒▒▒▒▒                   ▒▒▒▒▒▒▒      ▒▒\n     ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒   ▒▒▒▒▒▒▒     ▒▒▒▒\n     ▒▒▒▒▒▒ Barcelona ▒▒▒▒▒▒   ▒▒▒▒▒▒▒   ▒▒▒▒▒▒\n     ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒   ▒▒▒▒▒▒▒  ▒▒▒▒▒▒▒\n                    ▒▒▒▒▒▒▒▒   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n          $(RED)░░░░░     $(WHITE)▒▒▒▒▒▒▒▒      |\n         $(RED)░$(WHITE)▄ $(RED)░$(WHITE)▄ $(RED)░    $(WHITE)▒▒▒▒▒▒▒▒      ╰┈➤$(GREEN)$(NAME) \n         $(RED)░░░░░░░    $(WHITE)▒▒▒▒▒▒▒▒\n         $(RED)░ ░ ░ ░    $(WHITE)▒▒▒▒▒▒▒▒\n\n\n";
 endef

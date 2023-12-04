@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 16:34:33 by lprieto-          #+#    #+#              #
-#    Updated: 2023/11/29 12:12:59 by lprieto-         ###   ########.fr        #
+#    Updated: 2023/12/02 01:10:13 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,29 +97,34 @@ WHITE = \033[0;97m
 
 COUNT_SRCS := $(words $(SRCS))
 COUNT_OBJS := $(words $(OBJS))
-BAR_LEN := 30
+BAR_LEN := 40
 
 # **************************************************************************** #
 
 define show_progress
 	echo; \
+		printf " e     e  eeeee  eeee eeeee \n \
+8     8  8   8  8      8   \n \
+8e    8e 8eee8e 8eee   8e  \n \
+88    88 88   8 88     88  \n \
+88eee 88 88eee8 88     88  \n\n"; \
 	((i = 0)); \
 	while [[ $$i -le $(COUNT_SRCS) ]] ; do \
-		printf "$(BCIAN)➜ Compiling $(basename $(NAME)) $(BBLUE)["; \
+		printf "$(BBLUE)["; \
 		progress=$$((i * $(BAR_LEN) / $(COUNT_SRCS))); \
 		((j = 1));\
 		while [[ $$j -le $(BAR_LEN) ]]; do \
 			if [[ $$j -le $$progress ]]; then \
-				printf "$(BGREEN)░"; \
+				printf "$(BGREEN)▒"; \
 			else \
-				printf " "; \
+				printf "$(GRAY)░"; \
 			fi; \
 			((j = j + 1)); \
 		done; \
 		printf "$(BBLUE)] [$(CIAN)$$i/$(COUNT_SRCS)$(BBLUE)] \
 		[$(BWHITE)$$((i * 100 / $(COUNT_SRCS)))%%$(BBLUE)]$(WHITE)\r"; \
 		((i = i + 1)); \
-		sleep 0.05; \
+		sleep 0.03; \
 	done; \
 	echo
 endef
