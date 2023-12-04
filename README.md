@@ -4,11 +4,11 @@
 42 Cursus:
 this are all the porjects i've passed as a 42 Barcelona student:
 
-# 1st circle:
+<p><h4 align="left">1st circle</h4>
 - libft:............................................Project: ✅ .... Bonus: ❌
-# 2nd Circle:
+<p><h4 align="left">2nd circle</h4>
 - ft_printf:......................................Project ✅ Bonus: ❌
 - Born2beroot:...............................Project ✅ Bonus: ❌
 - ft_get_next_line:.........................Project ✅ Bonus: ❌
-# 3rd circle
+<p><h4 align="left">3rd circle</h4>
 - push_swap:.................................Project ❌ Bonus: ❌
