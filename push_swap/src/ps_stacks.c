@@ -6,91 +6,83 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:21:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/04 09:36:20 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/12/06 20:02:34 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../hincludes/push_swap.h"
-
-/* creates nodes (elements) in the stack with input values */
-
-t_stack *stack_new(int data)
-{
-    t_stack *new;
-
-    new = (t_stack *)malloc(sizeof(t_stack));
-    if(!new)
-        return(NULL);
-    new->data = data,
-    new->index = 0;
-    new->prev = -1;
-    new->next = NULL;
-    return (new);
-}
+#include "push_swap.h"
+#include "libft.h"
+#include "ft_printf.h"
 
 /* stack_add adds new values to a stack */
 
-void	stack_add(t_stack **stack, t_stack *new)
+void	stack_add(t_stack **stack, t_stack *new_node)
 {
-	t_stack	*bottom;
-
-	if (!new)
+	if (!new_node)
 		return ;
 	if (!*stack)
+		*stack = new_node;
+	else
 	{
-		*stack = new;
-		return ;
+		t_stack *current = *stack;
+		while (current->next != NULL)
+		{
+			current = current->next;
+		}
+		current->next = new_node;
+		new_node->prev = current;
 	}
-	bottom = get_bottom(*stack);
-	bottom->next = new;
 }
 
-/* get_bottom puts the pointer in last pos of the stack */
+/* print_stack to print complete stack to identify problems */
 
-t_stack	*get_bottom(t_stack *stack)
+void print_stack(t_stack *stack)
 {
-	while (stack && stack->next != NULL)
-		stack = stack->next;
-	return (stack);
+    while (stack != NULL)
+    {
+        printf("%d ", stack->value);
+        stack = stack->next;
+    }
+    printf("\n");
 }
 
 /* get_numbers fill the stack and checks if its correct */
 
-void	get_numbers(char *argv, t_stack *stack_a)
+void	get_numbers(int argc, char **argv, t_stack **stack)
 {
-	char		**param;
-	long int	n;
-	int			i;
+   	long	i;
+	int		value;
 
-	write(1,"4124\n", 5);
-	param = ft_split(argv, ' ');
-	i = 0;
-	while (param[i] != (void *)0)
-	{
-		write(1,"000\n", 5);
-		n = ft_atoi(param[i]);
-		stack_add(&stack_a, stack_new(n));
+	i = 1;
+	while (i < argc)
+    {	
+		value = atoi(argv[i]);
+    	t_stack *new_node = malloc(sizeof(t_stack));
+    	if (!new_node)
+        	error_end("Error - Memory allocation failed\n");
+		new_node->value = value;
+    	new_node->next = NULL;
+		// ft_printf("%d ADDED to -> new_node\n", new_node->value);
+		stack_add(stack, new_node);
 		i++;
-	}
-	write(1,"2\n", 2);
-	free(param[i]);
-	write(1,"3\n", 2);
-	free(param);
+	}	
 }
+
 
 /* get_stack_size counts elements in a stack */
 
 int get_stack_size(t_stack *stack)
 {
     int stack_size;
+	t_stack *temp = stack;
 
     stack_size = 0;
-    if (!stack)
+    if (!temp)
         return (0);
-    while (stack)
+    while (temp)
     {
-        stack = stack->next;
         stack_size++;
+        temp = temp->next;
     }
     return (stack_size);
 }
