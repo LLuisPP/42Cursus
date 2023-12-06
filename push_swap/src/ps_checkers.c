@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 10:03:25 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/04 09:47:37 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/12/06 10:44:15 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ int	arg_is_int(int argc, char **argv)
 		j = 0;
 		if (argv[i] == NULL || !argv[i] || argv[i][j] == '\0')
 			return (0);
-		// if (argv[i][j] != '0' && ft_atoi(argv[i]) == 0)
-		// 	return (0);
 		if (argv[i][j] == '-' && (ft_isdigit(argv[i][j + 1]) == 1))
 			j++;
 		while (ft_isdigit(argv[i][j]) == 1 && argv[i][j] != '\0')
@@ -55,6 +53,8 @@ int	arg_range(int argc, char **argv)
 	i = 0;
 	while (i < argc)
 	{
+		if (argv[i] && ft_strlen(argv[i]) > 12)
+			return (0);
 		if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN)
 			return (0);
 
