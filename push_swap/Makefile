@@ -3,15 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
+#    By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 16:34:33 by lprieto-          #+#    #+#              #
-#    Updated: 2023/12/04 19:55:55 by user             ###   ########.fr        #
+#    Updated: 2023/12/07 09:15:59 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# -------- NOMBRE
-NAME = PUSH_SWAP
+NAME = push_swap
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -20,9 +19,9 @@ RM = rm -rf
 
 SRCS = push_swap.c ps_checkers.c ps_utils.c ps_stacks.c 
 
-SRC_PATH = ./src/
-OBJ_PATH = ./tmp/
-H_PATH = ./hincludes
+SRC_PATH := ./src/
+OBJ_PATH := ./tmp/
+H_PATH := ./hincludes
 HEADERS = -I$(H_PATH)
 DIRSRC = $(addprefix $(SRC_PATH), $(SRCS))
 OBJS = $(addprefix $(OBJ_PATH), $(SRCS:.c=.o))
@@ -38,7 +37,6 @@ $(OBJ_PATH):
 $(NAME): $(OBJS)
 	$(call show_progress)
 	$(CC) $(OBJS) libft/libft.a -o $(NAME)
-	echo
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c Makefile
 	mkdir -p $(dir $@)
@@ -52,7 +50,6 @@ clean :
 fclean :
 	$(RM) $(NAME) $(OBJ_PATH)
 	$(MAKE) --silent -C libft fclean
-# --silent a la linea de $MAKE #
 
 re :
 	$(RM) $(NAME) $(OBJS)
@@ -64,22 +61,21 @@ re :
 
 #========================================================================#
 
-BGRA =	\033[1;90m
-BR = \033[1;91m
-BG = \033[1;92m
-BY = \033[1;93m
-BB = \033[1;94m
-BC = \033[1;96m
-BW = \033[1;97m
-GRA =	\033[0;90m
-O = \033[0;33m
-P = \033[1;35m
-R = \033[0;91m
-G = \033[0;92m
-Y = \033[0;93m
-B = \033[0;94m
-C = \033[0;96m
-W = \033[0;97m
+BGRAY =	\033[1;90m
+BRED = \033[1;91m
+BGREEN = \033[1;92m
+BYELLOW = \033[1;33m
+BBLUE = \033[1;94m
+BCIAN = \033[1;96m
+BWHITE = \033[1;97m
+GRAY =	\033[0;90m
+RED = \033[0;91m
+GREEN = \033[0;92m
+YELLOW = \033[0;93m
+BLUE = \033[0;94m
+CIAN = \033[0;96m
+WHITE = \033[0;97m
+PURPLE = \033[0;95m
 
 # **************************************************************************** #
 
@@ -105,36 +101,36 @@ define show_progress
 		((j = 1));\
 		while [[ $$j -le $(BAR_LEN) ]]; do \
 			if [[ $$j -le $$progress ]]; then \
-				printf "$(BG)▒"; \
+				printf "$(BGREEN)▒"; \
 			else \
-				printf "$(GRA)░"; \
+				printf "$(GRAY)░"; \
 			fi; \
 			((j = j + 1)); \
 		done; \
-		printf "$(BB)] [$(C)$$i/$(COUNT_SRCS)$(BB)] \
-		[$(BW)$$((i * 100 / $(COUNT_SRCS)))%%$(BB)]$(W)\r"; \
+		printf "$(BBLUE)] [$(C)$$i/$(COUNT_SRCS)$(BBLUE)] \
+		[$(BWHITE)$$((i * 100 / $(COUNT_SRCS)))%%$(BBLUE)]$(WHITE)\r"; \
 		((i = i + 1)); \
 		sleep 0.10; \
 	done; \
 	echo; \
-	printf "\n\n $(BB)╔═════════════╦═════════  ════════╦══════════════╗ \n \
-	║$(W) • • • • • ● $(BB)║$(W) • P $(P)ᗣ $(Y)ᗧ$(W) - M $(G)ᗣ$(W) N • $(BB)║$(W) • • • 🍊 • • $(BB)║ \n \
-║$(W) • $(BB)╔═════╗$(W) • $(BB)║$(W)  $(W)▒▒▒▒▒▒▒▒▒$(BB)╗$(W) • ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ • $(BB)║\n \
-$(BB)║$(W) • $(BB)║$(W)🍒42 $(BB)║$(W) •  ▒▒▒▒▒▒▒▒▒• $(BB)║$(W) • ▒▒▒▒▒▒▒ $(BB)╔$(W)▒▒▒▒▒▒▒ • $(BB)║\n \
-$(W)  • $(BB)║$(W) BCN $(BB)║$(W)  ▒▒▒▒▒▒▒▒▒$(BB)════╝$(W) • ▒▒▒▒    $(BB)╚$(W)▒▒▒▒▒▒▒ • \n \
-$(BB)║$(W) • $(BB)╚═════╝$(W)▒▒▒▒▒▒▒▒▒  • • • • ▒▒• • • ▒▒▒▒▒▒▒  • $(BB)║\n \
-$(BB)║$(W) • • •  ▒▒▒▒▒▒▒▒▒ $(BB)╔════  ════╗$(W) • $(BB)╔═$(W)▒▒▒▒▒▒▒▒$(BB)═╗$(W) • $(BB)║\n \
-$(BB)║$(W) 🍊 $(BB)╔═$(W)▒▒▒▒▒▒▒▒▒ • $(BB)║$(W) $(W)$$(whoami) $(BB)║$(W) • ▒▒▒▒▒▒▒▒ $(C)ᗣ$(W) $(BB)║$(W) • $(BB)║\n \
-$(BB)║$(W) •  ▒▒▒▒▒▒▒▒▒$(BB)═╝$(W) • $(BB)╚══════════╝$(W) ▒▒▒▒▒▒▒▒$(BB)═════╝$(W) • $(BB)║\n \
-$(BB)║$(W) • ▒▒▒▒▒▒▒▒ • • • • ● • • •   ▒▒▒▒▒▒▒ • • •▒▒ • $(BB)║\n \
-$(BB)║$(W) • ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ • ▒▒▒▒▒▒▒• $(BB)╔══$(W)▒▒▒▒ • $(BB)║\n \
-$(BB)║$(W) • ▒▒▒▒▒▒ Barcelona ▒▒▒▒▒▒ • ▒▒▒▒▒▒▒• $(BB)║$(W)▒▒▒▒▒▒ • $(BB)║\n \
-$(BB)║$(W) • ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ • ▒▒▒▒▒▒▒• ▒▒▒▒▒▒▒ ● $(BB)║\n \
-$(BB)║$(W) • • • • • • • •  ▒▒▒▒▒▒▒▒ ● ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ • $(BB)║\n \
-$(BB)║$(C) ᗣ$(W) $(BB)╔═$(W) $(R)░░░░░$(W)• $(BB)╔══╗$(W) $(W)▒▒▒▒▒▒▒▒ • • • |  • • • • • • $(BB)║\n \
-$(W)  • $(BB)║$(W) $(R)░$(W)▄ $(R)░$(W)▄ $(R)░ $(BB)╚══╝$(W) $(W)▒▒▒▒▒▒▒▒ • $(BB)╔══$(W) ╰➤$(G) $(NAME)$(W) •\n \
-$(BB)║$(W) • $(BB)║$(W) $(R)░░░░░░░$(W) • •  $(W)▒▒▒▒▒▒▒▒ • $(BB)║$(W) • • • $(BB)╔══════╗$(W) • $(BB)║\n \
-$(BB)║$(W) • $(BB)╚$(R) ░ ░ ░ ░ $(BB)║$(W) 🍏 $(W)▒▒▒▒▒▒▒▒ $(BB)══╝$(W) • $(BB)║$(W) • $(BB)╚══════╝$(W) • $(BB)║\n \
-$(BB)║$(W) • • ● • • • $(BB)║$(W) • • • • $(R)ᗣ$(W) • • • • $(BB)║$(W) ● • • • • 🍓 $(BB)║ \n \
+	printf "\n\n $(BBLUE)╔═════════════╦═════════  ════════╦══════════════╗ \n \
+║$(WHITE) • • • • • ● $(BBLUE)║$(WHITE) • P $(PURPLE)ᗣ $(BYELLOW)ᗧ$(WHITE) - M $(GREEN)ᗣ$(WHITE) N • $(BBLUE)║$(W) • • • 🍊 • • $(BBLUE)║ \n \
+║$(WHITE) • $(BBLUE)╔═════╗$(WHITE) • $(BBLUE)║$(WHITE)  $(WHITE)▒▒▒▒▒▒▒▒▒$(BBLUE)╗$(WHITE) • ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ • $(BBLUE)║\n \
+$(BBLUE)║$(WHITE) • $(BBLUE)║$(WHITE)🍒42 $(BBLUE)║$(WHITE) •  ▒▒▒▒▒▒▒▒▒• $(BBLUE)║$(WHITE) • ▒▒▒▒▒▒▒ $(BBLUE)╔$(WHITE)▒▒▒▒▒▒▒ • $(BBLUE)║\n \
+$(WHITE)  • $(BBLUE)║$(WHITE) BCN $(BBLUE)║$(WHITE)  ▒▒▒▒▒▒▒▒▒$(BBLUE)════╝$(WHITE) • ▒▒▒▒    $(BBLUE)╚$(WHITE)▒▒▒▒▒▒▒ • \n \
+$(BBLUE)║$(WHITE) • $(BBLUE)╚═════╝$(WHITE)▒▒▒▒▒▒▒▒▒  • • • • ▒▒• • • ▒▒▒▒▒▒▒  • $(BBLUE)║\n \
+$(BBLUE)║$(WHITE) • • •  ▒▒▒▒▒▒▒▒▒ $(BBLUE)╔════  ════╗$(WHITE) • $(BBLUE)╔═$(WHITE)▒▒▒▒▒▒▒▒$(BBLUE)═╗$(W) • $(BBLUE)║\n \
+$(BBLUE)║$(WHITE) 🍊 $(BBLUE)╔═$(WHITE)▒▒▒▒▒▒▒▒▒ • $(BBLUE)║$(WHITE) $(W)$$(whoami) $(BBLUE)║$(WHITE) • ▒▒▒▒▒▒▒▒ $(CIAN)ᗣ$(WHITE) $(BBLUE)║$(WHITE) • $(BBLUE)║\n \
+$(BBLUE)║$(WHITE) •  ▒▒▒▒▒▒▒▒▒$(BBLUE)═╝$(WHITE) • $(BBLUE)╚══════════╝$(WHITE) ▒▒▒▒▒▒▒▒$(BBLUE)═════╝$(WHITE) • $(BBLUE)║\n \
+$(BBLUE)║$(WHITE) • ▒▒▒▒▒▒▒▒ • • • • ● • • •   ▒▒▒▒▒▒▒ • • •▒▒ • $(BBLUE)║\n \
+$(BBLUE)║$(WHITE) • ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ • ▒▒▒▒▒▒▒• $(BBLUE)╔══$(WHITE)▒▒▒▒ • $(BBLUE)║\n \
+$(BBLUE)║$(WHITE) • ▒▒▒▒▒▒ Barcelona ▒▒▒▒▒▒ • ▒▒▒▒▒▒▒• $(BBLUE)║$(WHITE)▒▒▒▒▒▒ • $(BBLUE)║\n \
+$(BBLUE)║$(WHITE) • ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ • ▒▒▒▒▒▒▒• ▒▒▒▒▒▒▒ ● $(BBLUE)║\n \
+$(BBLUE)║$(WHITE) • • • • • • • •  ▒▒▒▒▒▒▒▒ ● ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ • $(BBLUE)║\n \
+$(BBLUE)║$(CIAN) ᗣ$(WHITE) $(BBLUE)╔═ $(RED)█████$(WHITE)• $(BBLUE)╔══╗$(WHITE) $(WHITE)▒▒▒▒▒▒▒▒ • • • |  • • • • • • $(BBLUE)║\n \
+$(WHITE)  • $(BBLUE)║$(WHITE) $(RED)█$(WHITE)▄ $(RED)█$(WHITE)▄ $(RED)█ $(BBLUE)╚══╝$(WHITE) $(WHITE)▒▒▒▒▒▒▒▒ • $(BBLUE)╔══$(WHITE) ╰➤$(GREEN) $(NAME)$(WHITE) •\n \
+$(BBLUE)║$(WHITE) • $(BBLUE)║$(WHITE) $(RED)███████$(WHITE) • •  $(WHITE)▒▒▒▒▒▒▒▒ • $(BBLUE)║$(WHITE) • • • $(BBLUE)╔══════╗$(WHITE) • $(BBLUE)║\n \
+$(BBLUE)║$(WHITE) • $(BBLUE)╚$(RED) █ █ █ █ $(BBLUE)║$(WHITE) 🍏 $(WHITE)▒▒▒▒▒▒▒▒ $(BBLUE)══╝$(WHITE) • $(BBLUE)║$(WHITE) • $(BBLUE)╚══════╝$(WHITE) • $(BBLUE)║\n \
+$(BBLUE)║$(WHITE) • • ● • • • $(BBLUE)║$(WHITE) • • • • $(RED)ᗣ$(WHITE) • • • • $(BBLUE)║$(WHITE) ● • • • • 🍓 $(BBLUE)║ \n \
 ╚═════════════╩═════════  ════════╩══════════════╝ \n";
 endef

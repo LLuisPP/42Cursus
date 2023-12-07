@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 06:09:50 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/11/30 13:14:28 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/12/07 08:41:58 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ long	ft_atoi(const char *str)
 {
 	long	i;
 	long	nbr;
-	long		isneg;
+	long	isneg;
 
 	i = 0;
 	nbr = 0;

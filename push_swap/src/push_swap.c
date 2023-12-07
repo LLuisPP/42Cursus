@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:37:09 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/06 21:05:25 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/12/07 09:07:30 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 #include "ft_printf.h"
 #include "push_swap.h"
 
-void push_swap(t_stack **stack_a, int stack_size)
+void	push_swap(t_stack **stack_a, int stack_size)
 {
 	if (stack_a)
-		stack_size = stack_size + 1;
-		stack_size = stack_size - 1;
+		stack_a++;
+	ft_printf("%d\n", stack_size);
 }
-
 
 int	main(int argc, char **argv)
 {
@@ -38,5 +37,5 @@ int	main(int argc, char **argv)
 	push_swap(&stack_a, stack_size);
 	ft_printf("stack size -> %d\n", stack_size);
 	free_stack(&stack_a);
-return (0);
+	return (0);
 }
