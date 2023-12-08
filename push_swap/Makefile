@@ -6,10 +6,11 @@
 #    By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 16:34:33 by lprieto-          #+#    #+#              #
-#    Updated: 2023/12/07 09:15:59 by lprieto-         ###   ########.fr        #
+#    Updated: 2023/12/08 19:48:24 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# -------- NOMBRE
 NAME = push_swap
 
 CC = gcc
@@ -17,11 +18,11 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar -rcs
 RM = rm -rf
 
-SRCS = push_swap.c ps_checkers.c ps_utils.c ps_stacks.c 
+SRCS = push_swap.c ps_checkers.c ps_stacks.c ps_moves.c
 
-SRC_PATH := ./src/
-OBJ_PATH := ./tmp/
-H_PATH := ./hincludes
+SRC_PATH = ./src/
+OBJ_PATH = ./tmp/
+H_PATH = ./hincludes
 HEADERS = -I$(H_PATH)
 DIRSRC = $(addprefix $(SRC_PATH), $(SRCS))
 OBJS = $(addprefix $(OBJ_PATH), $(SRCS:.c=.o))
@@ -37,19 +38,20 @@ $(OBJ_PATH):
 $(NAME): $(OBJS)
 	$(call show_progress)
 	$(CC) $(OBJS) libft/libft.a -o $(NAME)
+	echo
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c Makefile
 	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
 clean :
-	$(call progress_remove)
 	$(RM) $(OBJ_PATH)
 	$(MAKE) --silent -C libft clean
 
 fclean :
 	$(RM) $(NAME) $(OBJ_PATH)
 	$(MAKE) --silent -C libft fclean
+# --silent a la linea de $MAKE #
 
 re :
 	$(RM) $(NAME) $(OBJS)
@@ -96,25 +98,25 @@ define show_progress
 .                       eeeee\n\n"; \
 	((i = 0)); \
 	while [[ $$i -le $(COUNT_SRCS) ]] ; do \
-		printf "$(BB)["; \
+		printf "$(BBLUE)["; \
 		progress=$$((i * $(BAR_LEN) / $(COUNT_SRCS))); \
 		((j = 1));\
 		while [[ $$j -le $(BAR_LEN) ]]; do \
 			if [[ $$j -le $$progress ]]; then \
-				printf "$(BGREEN)▒"; \
+				printf "$(GREEN)▒"; \
 			else \
-				printf "$(GRAY)░"; \
+				printf "$(BGRAY)░"; \
 			fi; \
 			((j = j + 1)); \
 		done; \
-		printf "$(BBLUE)] [$(C)$$i/$(COUNT_SRCS)$(BBLUE)] \
+		printf "$(BBLUE)] [$(CIAN)$$i/$(COUNT_SRCS)$(BBLUE)] \
 		[$(BWHITE)$$((i * 100 / $(COUNT_SRCS)))%%$(BBLUE)]$(WHITE)\r"; \
 		((i = i + 1)); \
 		sleep 0.10; \
 	done; \
 	echo; \
 	printf "\n\n $(BBLUE)╔═════════════╦═════════  ════════╦══════════════╗ \n \
-║$(WHITE) • • • • • ● $(BBLUE)║$(WHITE) • P $(PURPLE)ᗣ $(BYELLOW)ᗧ$(WHITE) - M $(GREEN)ᗣ$(WHITE) N • $(BBLUE)║$(W) • • • 🍊 • • $(BBLUE)║ \n \
+	║$(WHITE) • • • • • ● $(BBLUE)║$(WHITE) • P $(PURPLE)ᗣ $(BYELLOW)ᗧ$(WHITE) - M $(GREEN)ᗣ$(WHITE) N • $(BBLUE)║$(W) • • • 🍊 • • $(BBLUE)║ \n \
 ║$(WHITE) • $(BBLUE)╔═════╗$(WHITE) • $(BBLUE)║$(WHITE)  $(WHITE)▒▒▒▒▒▒▒▒▒$(BBLUE)╗$(WHITE) • ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ • $(BBLUE)║\n \
 $(BBLUE)║$(WHITE) • $(BBLUE)║$(WHITE)🍒42 $(BBLUE)║$(WHITE) •  ▒▒▒▒▒▒▒▒▒• $(BBLUE)║$(WHITE) • ▒▒▒▒▒▒▒ $(BBLUE)╔$(WHITE)▒▒▒▒▒▒▒ • $(BBLUE)║\n \
 $(WHITE)  • $(BBLUE)║$(WHITE) BCN $(BBLUE)║$(WHITE)  ▒▒▒▒▒▒▒▒▒$(BBLUE)════╝$(WHITE) • ▒▒▒▒    $(BBLUE)╚$(WHITE)▒▒▒▒▒▒▒ • \n \
