@@ -6,11 +6,28 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:21:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/07 09:03:40 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/12/08 19:01:51 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../hincludes/push_swap.h"
+#include "push_swap.h"
+
+/* free_stack frees every element and set the pointer to NULL */
+
+void	free_stack(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	if (!stack || !(*stack))
+		return ;
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+	*stack = NULL;
+}
 
 /* stack_add adds new values to a stack */
 
@@ -38,12 +55,13 @@ void	stack_add(t_stack **stack, t_stack *new_node)
 
 void	print_stack(t_stack *stack)
 {
+	ft_printf("Stack: ");
 	while (stack != NULL)
 	{
-		printf("%d ", stack->value);
+		ft_printf("%d ", stack->value);
 		stack = stack->next;
 	}
-	printf("\n");
+	ft_printf("\n");
 }
 
 /* get_numbers fill the stack and checks if its correct */

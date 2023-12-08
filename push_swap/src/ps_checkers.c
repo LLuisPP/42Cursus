@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 10:03:25 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/07 09:05:43 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/12/08 19:47:18 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,21 @@ void	error_end(char *msg)
 {
 	ft_putstr_fd(msg, 2);
 	exit(0);
+}
+
+int	arg_order(int argc, char **argv)
+{
+	int	i;
+
+	i = 1;
+	while (i < argc -1)
+	{
+		if (ft_atoi(argv[i]) < ft_atoi(argv[i + 1]))
+			++i;
+		else
+			return (1);
+	}
+	return (0);
 }
 
 /* arg_is_int checks input values are ints (-,+) & diff from NULL or '\0' */
@@ -94,5 +109,7 @@ int	checkers(int argc, char **argv)
 		error_end(">  Error - (Out of range)\n");
 	if (arg_duplicate(argc, argv) != 1)
 		error_end(">  Error - (Duplicated Values)\n");
+	if (arg_order(argc, argv) != 1)
+		error_end("> Error - (Alredy in order)\n");
 	return (1);
 }

@@ -6,53 +6,11 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 21:55:31 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/07 09:10:52 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/12/08 15:20:52 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-
-typedef struct s_stack
-{
-	int				value;
-	struct s_stack	*prev;
-	struct s_stack	*next;
-} t_stack;
-
-/* print_stack prints the pile content */
-
-void print_stack(t_stack *stack)
-{
-    while (stack != NULL)
-    {
-        printf("%d ", stack->value);
-        stack = stack->next;
-    }
-    printf("\n");
-}
-
-/*stack_add adds a node at end of the stack */
-
-void	stack_add(t_stack **stack, t_stack *new_node)
-{
-	if (!new_node)
-		return ;
-
-	if (!*stack)
-		*stack = new_node;
-    else
-    {
-        t_stack *current = *stack;
-        while (current->next != NULL)
-        {
-            current = current->next;
-        }
-        current->next = new_node;
-        new_node->prev = current;
-    }
-}
+#include "push_swap.h"
 
 // Función para clonar un nodo
 t_stack *stack_clone_node(t_stack *source)
@@ -103,7 +61,7 @@ void swap_both(t_stack **stack_a, t_stack **stack_b)
     swap_b(stack_b);
 }
 
-// Funciónpara hacer push de la pila b a la pila a (pa)
+// Función para hacer push de la pila b a la pila a (pa)
 void push_a(t_stack **stack_a, t_stack **stack_b)
 {
     if (*stack_b)
@@ -189,7 +147,7 @@ void reverse_rotate_a(t_stack **stack_a)
     {
         t_stack *current = *stack_a;
         while (current->next != NULL)
-           current = current->next;
+            current = current->next;
 
         t_stack *temp = current;
         current = current->prev;
@@ -225,3 +183,4 @@ void reverse_rotate_both(t_stack **stack_a, t_stack **stack_b)
 {
     reverse_rotate_a(stack_a);
     reverse_rotate_b(stack_b);
+}
