@@ -1,0 +1,66 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mv_swap.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/09 10:10:01 by lprieto-          #+#    #+#             */
+/*   Updated: 2023/12/09 11:59:17 by lprieto-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+/* stack_clone_node clones a node from a pile */
+t_stack	*stack_clone_node(t_stack *source)
+{
+	t_stack	*new_node;
+
+	new_node = malloc(sizeof(t_stack));
+	if (!new_node)
+		exit(0);
+	new_node->value = source->value;
+	new_node->prev = NULL;
+	new_node->next = NULL;
+	return (new_node);
+}
+
+/* swap_a (sa) swaps 2 first elements in pile a */
+void	swap_a(t_stack **stack_a)
+{
+	t_stack	*temp;
+
+	if (*stack_a && (*stack_a)->next)
+	{
+		temp = (*stack_a)->next;
+		(*stack_a)->next = temp->next;
+		temp->prev = NULL;
+		temp->next = *stack_a;
+		(*stack_a)->prev = temp;
+		*stack_a = temp;
+	}
+}
+
+/* swap_b (sb) swaps 2 first elements in pile b */
+void	swap_b(t_stack **stack_b)
+{
+	t_stack	*temp;
+
+	if (*stack_b && (*stack_b)->next)
+	{
+		temp = (*stack_b)->next;
+		(*stack_b)->next = temp->next;
+		temp->prev = NULL;
+		temp->next = *stack_b;
+		(*stack_b)->prev = temp;
+		*stack_b = temp;
+	}
+}
+
+/* swap_both (ss) swaps 2 first elements in pile a & b */
+void	swap_both(t_stack **stack_a, t_stack **stack_b)
+{
+	swap_a(stack_a);
+	swap_b(stack_b);
+}

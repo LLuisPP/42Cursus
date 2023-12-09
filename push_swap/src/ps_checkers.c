@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 10:03:25 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/08 19:59:58 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/12/09 08:54:40 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,6 @@ void	error_end(char *msg)
 {
 	ft_putstr_fd(msg, 2);
 	exit(0);
-}
-
-int	arg_order(int argc, char **argv)
-{
-	int	i;
-
-	i = 1;
-	while (i < argc -1)
-	{
-		if (ft_atoi(argv[i]) < ft_atoi(argv[i + 1]))
-			++i;
-		else
-			return (1);
-	}
-	return (0);
 }
 
 /* arg_is_int checks input values are ints (-,+) & diff from NULL or '\0' */
@@ -101,7 +86,24 @@ int	arg_duplicate(int argc, char **argv)
 	return (1);
 }
 
-/* handle de result of checkers and return desired error */
+/* arg_order checks if inputs are alredy in order */
+
+int	arg_order(int argc, char **argv)
+{
+	int	i;
+
+	i = 1;
+	while (i < argc -1)
+	{
+		if (ft_atoi(argv[i]) < ft_atoi(argv[i + 1]))
+			++i;
+		else
+			return (1);
+	}
+	return (0);
+}
+
+/* checkers handle de result of checkers and return desired error */
 
 int	checkers(int argc, char **argv)
 {
