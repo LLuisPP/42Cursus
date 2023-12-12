@@ -6,21 +6,44 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 12:03:28 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/09 12:48:31 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/12/12 17:00:39 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    push_smallest(t_stack **stack_a, t_stack **stack_b)
+/* find_smallest find the lowest value in a stack */
+int    find_lowest(t_stack *stack_a)
 {
-    t_stack *temp;
+    int min_value;
 
-    temp = *stack_a;
-    while (*stack_a && (*stack_a)->value < temp->value)
+    if (stack_a == NULL)
+        return INT_MIN;
+    min_value = INT_MAX;
+    while (stack_a != NULL)
     {
-        swap_a(stack_a);
-        temp = temp->next;
+        if (stack_a->value < min_value)
+            min_value = stack_a->value;
+        stack_a = stack_a->next;
     }
-    push_a(stack_a, stack_b);
+    ft_printf("lowest in A %d\n", min_value);
+    return (min_value);
+}
+
+/* find_highest find the highest value in a stack */
+int find_highest(t_stack *stack_a)
+{
+    int max_value;
+
+    if (stack_a == NULL)
+        return INT_MAX;
+    max_value = INT_MIN;
+    while (stack_a != NULL)
+    {
+        if (stack_a->value > max_value)
+            max_value = stack_a->value;
+        stack_a = stack_a->next;
+    }
+    ft_printf("highest in A %d\n", max_value);
+    return (max_value);
 }

@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 10:16:59 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/09 11:58:42 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/12/12 16:59:01 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	rotate_a(t_stack **stack_a)
 		temp->next = NULL;
 		current->next = temp;
 	}
+	ft_printf("ra\n");
 }
 
 /* rotate_a (rb) rot one position upwards all nodes from pile b */
@@ -50,6 +51,7 @@ void	rotate_b(t_stack **stack_b)
 		temp->next = NULL;
 		current->next = temp;
 	}
+	ft_printf("rb\n");
 }
 
 /* rotate_both (rr) rot one position upwards all nodes from pile a and b */
@@ -57,4 +59,5 @@ void	rotate_both(t_stack **stack_a, t_stack **stack_b)
 {
 	rotate_a(stack_a);
 	rotate_b(stack_b);
+	ft_printf("rr\n");
 }

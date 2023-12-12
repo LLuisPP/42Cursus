@@ -6,22 +6,20 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 10:03:25 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/09 08:54:40 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/12/12 16:58:21 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* error_end output msg error after checking all stacks are clearead */
-
 void	error_end(char *msg)
 {
-	ft_putstr_fd(msg, 2);
+	ft_putstr_fd(msg, STDERR_FILENO);
 	exit(0);
 }
 
 /* arg_is_int checks input values are ints (-,+) & diff from NULL or '\0' */
-
 int	arg_is_int(int argc, char **argv)
 {
 	long	i;
@@ -47,7 +45,6 @@ int	arg_is_int(int argc, char **argv)
 }
 
 /* arg_range checks if input is inside the max and min C handle values */
-
 int	arg_range(int argc, char **argv)
 {
 	int	i;
@@ -55,8 +52,8 @@ int	arg_range(int argc, char **argv)
 	i = 0;
 	while (i < argc)
 	{
-		if (argv[i] && ft_strlen(argv[i]) > 12)
-			return (0);
+		if (ft_atoi(argv[i]) && ft_strlen(argv[i]) > 12)
+				return (0);
 		if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN)
 			return (0);
 		i++;
@@ -65,7 +62,6 @@ int	arg_range(int argc, char **argv)
 }
 
 /* arg_duplicate checks if input has any duplicate value */
-
 int	arg_duplicate(int argc, char **argv)
 {
 	int	i;
@@ -87,7 +83,6 @@ int	arg_duplicate(int argc, char **argv)
 }
 
 /* arg_order checks if inputs are alredy in order */
-
 int	arg_order(int argc, char **argv)
 {
 	int	i;
@@ -103,8 +98,23 @@ int	arg_order(int argc, char **argv)
 	return (0);
 }
 
-/* checkers handle de result of checkers and return desired error */
+/* arg_rev_order checks if inputs are alredy in order */
+int	arg_rev_order(int argc, char **argv)
+{
+	int	i;
 
+	i = 1;
+	while (i < argc -1)
+	{
+		if (ft_atoi(argv[i]) > ft_atoi(argv[i + 1]))
+			++i;
+		else
+			return (1);
+	}
+	return (0);
+}
+
+/* checkers handle de result of checkers and return desired error */
 int	checkers(int argc, char **argv)
 {
 	if (arg_is_int(argc, argv) != 1)
@@ -114,6 +124,11 @@ int	checkers(int argc, char **argv)
 	if (arg_duplicate(argc, argv) != 1)
 		error_end(">  Error - (Duplicated Values)\n");
 	if (arg_order(argc, argv) != 1)
-		error_end("> Error - (Alredy in order)\n");
+		error_end(">  \n");
+	if (arg_rev_order(argc, argv) != 1)
+	{
+		ft_printf("reverse order numbers\n");
+		return (1);
+	}
 	return (1);
 }

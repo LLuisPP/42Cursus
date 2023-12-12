@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 10:10:01 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/09 11:59:17 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/12/12 16:36:27 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	swap_a(t_stack **stack_a)
 		(*stack_a)->prev = temp;
 		*stack_a = temp;
 	}
+	ft_printf("sa\n");
 }
 
 /* swap_b (sb) swaps 2 first elements in pile b */
@@ -56,6 +57,7 @@ void	swap_b(t_stack **stack_b)
 		(*stack_b)->prev = temp;
 		*stack_b = temp;
 	}
+	ft_printf("sb\n");
 }
 
 /* swap_both (ss) swaps 2 first elements in pile a & b */
@@ -63,4 +65,5 @@ void	swap_both(t_stack **stack_a, t_stack **stack_b)
 {
 	swap_a(stack_a);
 	swap_b(stack_b);
+	ft_printf("ss\n");
 }

@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:21:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/08 19:01:51 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/12/12 13:28:58 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,10 @@ void	get_numbers(int argc, char **argv, t_stack **stack)
 	}
 }
 
-/* get_stack_size counts elements in a stack */
+/*Tenemos para index que hemos iniciado a 0 buscar en valor mas peque
+y asignar un index y asi consecitivo*/
 
+/* get_stack_size counts elements in a stack */
 int	get_stack_size(t_stack *stack)
 {
 	int		stack_size;
