@@ -6,14 +6,13 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:21:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/12 13:28:58 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/12/20 10:56:59 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* free_stack frees every element and set the pointer to NULL */
-
 void	free_stack(t_stack **stack)
 {
 	t_stack	*tmp;
@@ -30,7 +29,6 @@ void	free_stack(t_stack **stack)
 }
 
 /* stack_add adds new values to a stack */
-
 void	stack_add(t_stack **stack, t_stack *new_node)
 {
 	t_stack	*current;
@@ -51,21 +49,7 @@ void	stack_add(t_stack **stack, t_stack *new_node)
 	}
 }
 
-/* print_stack to print complete stack to identify problems */
-
-void	print_stack(t_stack *stack)
-{
-	ft_printf("Stack: ");
-	while (stack != NULL)
-	{
-		ft_printf("%d ", stack->value);
-		stack = stack->next;
-	}
-	ft_printf("\n");
-}
-
 /* get_numbers fill the stack and checks if its correct */
-
 void	get_numbers(int argc, char **argv, t_stack **stack)
 {
 	long	i;
@@ -75,7 +59,7 @@ void	get_numbers(int argc, char **argv, t_stack **stack)
 	i = 1;
 	while (i < argc)
 	{
-		value = atoi(argv[i]);
+		value = ft_atoi(argv[i]);
 		new_node = malloc(sizeof(t_stack));
 		if (!new_node)
 			error_end("Error - Memory allocation failed\n");
@@ -85,9 +69,6 @@ void	get_numbers(int argc, char **argv, t_stack **stack)
 		i++;
 	}
 }
-
-/*Tenemos para index que hemos iniciado a 0 buscar en valor mas peque
-y asignar un index y asi consecitivo*/
 
 /* get_stack_size counts elements in a stack */
 int	get_stack_size(t_stack *stack)

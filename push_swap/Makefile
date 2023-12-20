@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 16:34:33 by lprieto-          #+#    #+#              #
-#    Updated: 2023/12/09 12:38:26 by lprieto-         ###   ########.fr        #
+#    Updated: 2023/12/20 07:55:58 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ AR = ar -rcs
 RM = rm -rf
 
 SRCS = push_swap.c ps_checkers.c ps_stacks.c mv_swap.c mv_push.c mv_rotate.c \
- mv_rev_rotate.c ps_algorithm.c
+ mv_rev_rotate.c ps_range.c ps_algorithm.c ps_clock.c validators.c \
+ ps_print_tools.c
 
 SRC_PATH := ./src/
 OBJ_PATH := ./tmp/
@@ -39,12 +40,11 @@ $(NAME): $(OBJS)
 	$(call show_progress)
 	$(CC) $(OBJS) libft/libft.a -o $(NAME)
 
-$(OBJ_PATH)%.o: $(SRC_PATH)%.c Makefile
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c Makefile ./hincludes
 	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
 clean :
-	$(call progress_remove)
 	$(RM) $(OBJ_PATH)
 	$(MAKE) --silent -C libft clean
 

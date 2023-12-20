@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   mv_rev_rotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 10:27:19 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/12 16:59:25 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/12/20 10:43:14 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* reverse_rotate_a (rra) rot one position downwards all nodes from pile a */
+
 void	reverse_rotate_a(t_stack **stack_a)
 {
 	t_stack	*current;

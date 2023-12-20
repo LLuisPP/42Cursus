@@ -6,44 +6,80 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 12:03:28 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/12 17:00:39 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/12/20 12:28:10 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* find_smallest find the lowest value in a stack */
-int    find_lowest(t_stack *stack_a)
+void	alg_selector(t_stack **stack_a, t_stack **stack_b, int stack_size)
 {
-    int min_value;
-
-    if (stack_a == NULL)
-        return INT_MIN;
-    min_value = INT_MAX;
-    while (stack_a != NULL)
-    {
-        if (stack_a->value < min_value)
-            min_value = stack_a->value;
-        stack_a = stack_a->next;
-    }
-    ft_printf("lowest in A %d\n", min_value);
-    return (min_value);
+	if (stack_size <= 3)
+		alg_3(stack_a);
+	if (stack_size >= 4)
+		alg_4(stack_a, stack_b);
 }
 
-/* find_highest find the highest value in a stack */
-int find_highest(t_stack *stack_a)
+/* alg_3 hardcoded movements */
+void	alg_3(t_stack **stack_a)
 {
-    int max_value;
+	int	i;
 
-    if (stack_a == NULL)
-        return INT_MAX;
-    max_value = INT_MIN;
-    while (stack_a != NULL)
-    {
-        if (stack_a->value > max_value)
-            max_value = stack_a->value;
-        stack_a = stack_a->next;
-    }
-    ft_printf("highest in A %d\n", max_value);
-    return (max_value);
+	i = get_stack_size(*stack_a);
+	while (((*stack_a)->next != NULL) && i > 1 && stack_order(*stack_a) != 1)
+	{
+		if ((*stack_a)->value == find_lowest(*stack_a))
+		{
+			swap_a(stack_a);
+			rotate_a(stack_a);
+		}
+		else if ((*stack_a)->value == find_highest(*stack_a))
+			rotate_a(stack_a);
+		else if ((*stack_a)->value != find_lowest(*stack_a)
+			&& (*stack_a)->next->value == find_highest(*stack_a))
+			reverse_rotate_a(stack_a);
+		else if ((*stack_a)->value != find_lowest(*stack_a)
+			&& (*stack_a)->value != find_highest(*stack_a))
+			swap_a(stack_a);
+		i--;
+	}
+}
+
+void	alg_4(t_stack **stack_a, t_stack **stack_b)
+{
+	if ((*stack_a)->value == find_lowest(*stack_a))
+	{
+		push_b(stack_a, stack_b);
+	}
+	else if (cheaper_mv(stack_a, (find_lowest(*stack_a))) == 1)
+		rotate_a(stack_a);
+	else if (cheaper_mv(stack_a, (find_lowest(*stack_a))) == 0)
+		reverse_rotate_a(stack_a);
+	if (stack_order(*stack_a) != 1 && get_stack_size(*stack_a) == 3)
+		alg_3(stack_a);
+	if (stack_order(*stack_a) == 1)
+		push_a(stack_a, stack_b);
+	return ;
+}
+
+int	stack_rev_order(t_stack *stack)
+{
+	while (stack != NULL && stack->next != NULL)
+	{
+		if (stack->value < stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}
+
+int	stack_order(t_stack *stack)
+{
+	while (stack != NULL && stack->next != NULL)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }
