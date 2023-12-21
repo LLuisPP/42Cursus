@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 16:34:33 by lprieto-          #+#    #+#              #
-#    Updated: 2023/12/20 07:55:58 by lprieto-         ###   ########.fr        #
+#    Updated: 2023/12/21 22:00:11 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,8 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar -rcs
 RM = rm -rf
 
-SRCS = push_swap.c ps_checkers.c ps_stacks.c mv_swap.c mv_push.c mv_rotate.c \
- mv_rev_rotate.c ps_range.c ps_algorithm.c ps_clock.c validators.c \
- ps_print_tools.c
+SRCS = push_swap.c ps_checkers.c ps_stacks.c ps_print_tools.c mv_swap.c \
+mv_push.c mv_rot.c mv_rev_rot.c ps_range.c ps_algorithm.c validators.c \
 
 SRC_PATH := ./src/
 OBJ_PATH := ./tmp/
@@ -27,6 +26,7 @@ H_PATH := ./hincludes
 HEADERS = -I$(H_PATH)
 DIRSRC = $(addprefix $(SRC_PATH), $(SRCS))
 OBJS = $(addprefix $(OBJ_PATH), $(SRCS:.c=.o))
+DEPS = $(OBJS:.o=.d)
 
 all: makelib $(OBJ_PATH) $(NAME)
 
@@ -42,7 +42,7 @@ $(NAME): $(OBJS)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c Makefile ./hincludes
 	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
+	$(CC) $(CFLAGS) $(HEADERS) -MMD -c $< -o $@
 
 clean :
 	$(RM) $(OBJ_PATH)
@@ -59,6 +59,8 @@ re :
 .PHONY: all, clean, fclean, re
 
 .SILENT:
+
+-include $(DEPS)
 
 #========================================================================#
 

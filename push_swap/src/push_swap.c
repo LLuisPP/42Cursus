@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:37:09 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/20 11:42:43 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/12/21 22:08:27 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,16 @@ int	main(int argc, char **argv)
 	}
 	checkers(argc, argv);
 	get_numbers(argc, argv, &stack_a);
-	ft_printf("║ STACK_A INPUT ══▶ ");
-	print_stack(stack_a);
-	ft_printf("╚═══════════════════════════════════════════════ INIT\n");
+	// ft_printf("║ STACK_A INPUT ══▶ ");
+	// print_stack(stack_a);
+	// ft_printf("╚═══════════════════════════════════════════════ INIT\n");
 	stack_size = get_stack_size(stack_a);
 	push_swap(&stack_a, &stack_b, stack_size);
-	ft_printf("\n╔═════════════════════════════════════════════ FINAL\n");
-	ft_printf("║ STACK_A OUTPUT -> ");
-	print_stack(stack_a);
-	ft_printf("║ STACK_B OUTPUT -> ");
-	print_stack(stack_b);
+	// ft_printf("\n╔═════════════════════════════════════════════ FINAL\n");
+	// ft_printf("║ STACK_A OUTPUT -> ");
+	// print_stack(stack_a);
+	// ft_printf("║ STACK_B OUTPUT -> ");
+	// print_stack(stack_b);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);

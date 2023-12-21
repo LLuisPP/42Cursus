@@ -6,13 +6,13 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 10:10:01 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/12 16:36:27 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/12/21 22:17:00 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* stack_clone_node clones a node from a pile */
+/* stack_clone_node clones the head node from a stack */
 t_stack	*stack_clone_node(t_stack *source)
 {
 	t_stack	*new_node;
@@ -26,7 +26,7 @@ t_stack	*stack_clone_node(t_stack *source)
 	return (new_node);
 }
 
-/* swap_a (sa) swaps 2 first elements in pile a */
+/* swap_a (sa) swaps 2 first nodes in pile a */
 void	swap_a(t_stack **stack_a)
 {
 	t_stack	*temp;
@@ -43,7 +43,7 @@ void	swap_a(t_stack **stack_a)
 	ft_printf("sa\n");
 }
 
-/* swap_b (sb) swaps 2 first elements in pile b */
+/* swap_b (sb) swaps 2 first nodes in pile b */
 void	swap_b(t_stack **stack_b)
 {
 	t_stack	*temp;
@@ -60,7 +60,7 @@ void	swap_b(t_stack **stack_b)
 	ft_printf("sb\n");
 }
 
-/* swap_both (ss) swaps 2 first elements in pile a & b */
+/* swap_both (ss) swaps 2 first nodes in pile a & b */
 void	swap_both(t_stack **stack_a, t_stack **stack_b)
 {
 	swap_a(stack_a);

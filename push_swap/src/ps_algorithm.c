@@ -6,21 +6,24 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 12:03:28 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/20 12:28:10 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/12/21 22:38:13 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* alg_selector choose better algorithm depending on stack_size */
 void	alg_selector(t_stack **stack_a, t_stack **stack_b, int stack_size)
 {
 	if (stack_size <= 3)
 		alg_3(stack_a);
-	if (stack_size >= 4)
+	if (stack_size == 4)
 		alg_4(stack_a, stack_b);
+	if (stack_size == 5)
+		alg_5(stack_a, stack_b);
 }
 
-/* alg_3 hardcoded movements */
+/* alg_3 hardcoded movements for three ints */
 void	alg_3(t_stack **stack_a)
 {
 	int	i;
@@ -31,55 +34,65 @@ void	alg_3(t_stack **stack_a)
 		if ((*stack_a)->value == find_lowest(*stack_a))
 		{
 			swap_a(stack_a);
-			rotate_a(stack_a);
+			rot_a(stack_a);
 		}
 		else if ((*stack_a)->value == find_highest(*stack_a))
-			rotate_a(stack_a);
+			rot_a(stack_a);
 		else if ((*stack_a)->value != find_lowest(*stack_a)
 			&& (*stack_a)->next->value == find_highest(*stack_a))
-			reverse_rotate_a(stack_a);
+			rev_rot_a(stack_a);
 		else if ((*stack_a)->value != find_lowest(*stack_a)
 			&& (*stack_a)->value != find_highest(*stack_a))
 			swap_a(stack_a);
 		i--;
 	}
 }
-
+/* alg_4 moves smaller to pile b and sort 3 rest in a before recover b */
 void	alg_4(t_stack **stack_a, t_stack **stack_b)
 {
-	if ((*stack_a)->value == find_lowest(*stack_a))
+	while (get_stack_size(*stack_b) < 1 && stack_order(*stack_a) != 1)
 	{
-		push_b(stack_a, stack_b);
+		if ((*stack_a)->value == find_lowest(*stack_a))
+			push_b(stack_a, stack_b);
+		if (cheaper_mv(stack_a, (find_lowest(*stack_a))) == 1)
+			rot_a(stack_a);
+		if (cheaper_mv(stack_a, (find_lowest(*stack_a))) != 1)
+			rev_rot_a(stack_a);
 	}
-	else if (cheaper_mv(stack_a, (find_lowest(*stack_a))) == 1)
-		rotate_a(stack_a);
-	else if (cheaper_mv(stack_a, (find_lowest(*stack_a))) == 0)
-		reverse_rotate_a(stack_a);
-	if (stack_order(*stack_a) != 1 && get_stack_size(*stack_a) == 3)
-		alg_3(stack_a);
 	if (stack_order(*stack_a) == 1)
+	{
 		push_a(stack_a, stack_b);
-	return ;
+		return ;
+	}
+	if (stack_order(*stack_a) != 1 && get_stack_size(*stack_a) == 3)
+	{
+		alg_3(stack_a);
+		push_a(stack_a, stack_b);
+	}
 }
 
-int	stack_rev_order(t_stack *stack)
+/* alg_5 moves 2 smaller to pile b and sort resting 3 before recover from b */
+void	alg_5(t_stack **stack_a, t_stack **stack_b)
 {
-	while (stack != NULL && stack->next != NULL)
+	while (get_stack_size(*stack_b) < 2 && stack_order(*stack_a) != 1)
 	{
-		if (stack->value < stack->next->value)
-			return (0);
-		stack = stack->next;
+		if ((*stack_a)->value == find_lowest(*stack_a))
+			push_b(stack_a, stack_b);
+		if (cheaper_mv(stack_a, (find_lowest(*stack_a))) == 1)
+			rot_a(stack_a);
+		if (cheaper_mv(stack_a, (find_lowest(*stack_a))) != 1)
+			rev_rot_a(stack_a);
 	}
-	return (1);
-}
-
-int	stack_order(t_stack *stack)
-{
-	while (stack != NULL && stack->next != NULL)
+	if (stack_order(*stack_a) == 1)
 	{
-		if (stack->value > stack->next->value)
-			return (0);
-		stack = stack->next;
+		push_a(stack_a, stack_b);
+		push_a(stack_a, stack_b);
+		return ;
 	}
-	return (1);
+	if (stack_order(*stack_a) != 1 && get_stack_size(*stack_a) == 3)
+	{
+		alg_3(stack_a);
+		push_a(stack_a, stack_b);
+		push_a(stack_a, stack_b);
+	}
 }

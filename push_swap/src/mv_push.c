@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 10:11:02 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/20 10:41:04 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/12/21 21:55:26 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	push_a(t_stack **stack_a, t_stack **stack_b)
 	if (*stack_b)
 	{
 		new_node = stack_clone_node(*stack_b);
-		stack_add(stack_a, new_node);
+		stack_add_top(stack_a, new_node);
 		temp = *stack_b;
 		*stack_b = (*stack_b)->next;
 		free(temp);
@@ -40,7 +40,7 @@ void	push_b(t_stack **stack_a, t_stack **stack_b)
 	if (*stack_a)
 	{
 		new_node = stack_clone_node(*stack_a);
-		stack_add(stack_b, new_node);
+		stack_add_top(stack_b, new_node);
 		temp = *stack_a;
 		*stack_a = (*stack_a)->next;
 		free(temp);

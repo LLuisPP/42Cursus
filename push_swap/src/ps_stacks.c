@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:21:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/20 10:56:59 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/12/21 21:21:57 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,19 @@ int	get_stack_size(t_stack *stack)
 		temp = temp->next;
 	}
 	return (stack_size);
+}
+
+/* stack_add adds new values to a stack */
+void	stack_add_top(t_stack **stack, t_stack *new_node)
+{
+	if (!new_node)
+		return ;
+	if (!*stack)
+		*stack = new_node;
+	else
+	{
+		new_node->next = *stack;
+		(*stack)->prev = new_node;
+		*stack = new_node;
+	}
 }
