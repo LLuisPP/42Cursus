@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:45:28 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/21 22:40:41 by lprieto-         ###   ########.fr       */
+/*   Updated: 2023/12/27 11:04:29 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ void	alg_selector(t_stack **stack_a, t_stack **stack_b, int stack_size);
 void	alg_3(t_stack **stack_a);
 void	alg_4(t_stack **stack_a, t_stack **stack_b);
 void	alg_5(t_stack **stack_a, t_stack **stack_b);
+void	alg_10(t_stack **stack_a, t_stack **stack_b);
+void	alg_100(t_stack **stack_a, t_stack **stack_b);
 
 /* * * * * * * * * * * * * * * * VALIDATIONS * * * * * * * * * * * * * * * * */
 int		stack_rev_order(t_stack *stack);
