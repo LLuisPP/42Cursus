@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 10:27:19 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/01/26 10:02:45 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/28 15:25:04 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	rev_rot_b(t_stack **stack_b)
 		*stack_b = temp;
 	}
 	ft_printf("rrb\n");
-	// print_stack(*stack_b);
+	print_stack(*stack_b);
 }
 
 /* rev_rot_both (rrr) rot one position downwards all nodes pile a & b */

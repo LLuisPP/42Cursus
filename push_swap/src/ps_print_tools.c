@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:01:15 by user              #+#    #+#             */
-/*   Updated: 2024/01/23 10:10:08 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/28 10:50:44 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	print_status(t_stack *stack_a, t_stack *stack_b)
 
 void	print_index_status(t_stack *stack)
 {
-	ft_printf("║ SORTED INDEX iiii -> ");
+	ft_printf("║ SORTED I-I-I-I iiii -> ");
 	while (stack != NULL)
 	{
 		ft_printf("%d ", stack->index);

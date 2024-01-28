@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 10:37:54 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/01/26 09:20:57 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/28 15:24:14 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /* alg_10 moves 2 smaller to pile b and sort resting 3 before recover from b */
 void	alg_100(t_stack **stack_a, t_stack **stack_b, int s_size)
 {
-	chnk_size(stack_a, stack_b, s_size, 10, 4);
+	chnk_size(stack_a, stack_b, s_size, 10, 6);
 
 	while ((stack_b != NULL && stack_size(*stack_b) != 0 && stack_a != NULL) || (stack_order(*stack_a) != 1 && stack_size(*stack_b) != 0))
 	{

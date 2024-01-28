@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:37:09 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/01/27 12:41:58 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/28 13:26:44 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ int	main(int argc, char **argv)
 	}
 	checkers(argc, argv);
 	get_numbers(argc, argv, &stack_a);
-		ft_printf("║ STACK_A INPUT (%d) ═▶", stack_size(stack_a));
-		print_stack(stack_a);
+		// ft_printf("║ STACK_A INPUT (%d) ═▶", stack_size(stack_a));
+		// print_stack(stack_a);
 		// print_index_status(stack_a);
 	index_s(stack_a, 1);
-		// // print_index_status(stack_a);
-		// ft_printf("╚═══════════════════════════════════════════════ INIT\n");
+		print_index_status(stack_a);
+		ft_printf("╚═══════════════════════════════════════════════ INIT\n");
 	s_size = stack_size(stack_a);
 	push_swap(&stack_a, &stack_b, s_size);
 		ft_printf("╔═════════════════════════════════════════════ FINAL\n");

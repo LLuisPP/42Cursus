@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 18:42:21 by user              #+#    #+#             */
-/*   Updated: 2024/01/26 09:50:16 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/28 15:21:31 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	cheaper_mv(t_stack **stack, int target)
 		r_count++;
 		rr_count--;
 	}
-	if (r_count < rr_count)
+	if (r_count <= rr_count)
 		return (1);
 	else
 		return (0);
@@ -63,7 +63,7 @@ int	f_chk_v(t_stack *stack, int i)
 	int index_value;
 	t_stack *current;
 
-	index_value = i;
+	index_value = 0;
 	if (!stack)
 		return (0);
 	current = stack;
@@ -85,7 +85,7 @@ int	f_chk_vr(t_stack *stack, int i)
 	int index_value;
 	t_stack *current;
 	
-	index_value = i;
+	index_value = 0;
 	if (!stack)
 		return (0);
 	current = stack;
@@ -101,7 +101,7 @@ int	f_chk_vr(t_stack *stack, int i)
 		else
 			current = current->prev;
 	}
-		return (index_value);
+	return (index_value);
 }
 
 int	final_order(t_stack *stack)
