@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 10:16:59 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/21 22:14:38 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/26 07:37:51 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	rot_a(t_stack **stack_a)
 		current->next = temp;
 	}
 	ft_printf("ra\n");
+	print_stack(*stack_a);
 }
 
 /* rot_a (rb) rot head node to the last node from pile b */
@@ -52,6 +53,7 @@ void	rot_b(t_stack **stack_b)
 		current->next = temp;
 	}
 	ft_printf("rb\n");
+	// print_stack(*stack_b);
 }
 
 /* rot_both (rr) rot head nodes to the last node from pile a and b */

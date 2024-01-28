@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:21:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/21 21:21:57 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/24 09:15:20 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,16 +62,18 @@ void	get_numbers(int argc, char **argv, t_stack **stack)
 		value = ft_atoi(argv[i]);
 		new_node = malloc(sizeof(t_stack));
 		if (!new_node)
-			error_end("Error - Memory allocation failed\n");
+			error_end("Error\n");
 		new_node->value = value;
+		new_node->index = 0;
 		new_node->next = NULL;
 		stack_add(stack, new_node);
 		i++;
+		// free(&new_node);
 	}
 }
 
 /* get_stack_size counts elements in a stack */
-int	get_stack_size(t_stack *stack)
+int	stack_size(t_stack *stack)
 {
 	int		stack_size;
 	t_stack	*temp;
@@ -80,7 +82,7 @@ int	get_stack_size(t_stack *stack)
 	stack_size = 0;
 	if (!temp)
 		return (0);
-	while (temp)
+	while (temp && temp != NULL)
 	{
 		stack_size++;
 		temp = temp->next;

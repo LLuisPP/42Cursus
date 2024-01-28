@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:01:15 by user              #+#    #+#             */
-/*   Updated: 2023/12/20 12:19:32 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/23 10:10:08 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	error_end(char *msg)
 /* print_stack to print complete stack to identify problems */
 void	print_stack(t_stack *stack)
 {
+	ft_printf("╰➤ ");
 	while (stack != NULL)
 	{
 		ft_printf("%d ", stack->value);
@@ -38,4 +39,15 @@ void	print_status(t_stack *stack_a, t_stack *stack_b)
 	ft_printf("║ stack b -> ");
 	print_stack(stack_b);
 	ft_printf("╚═══════ ═▶\n");
+}
+
+void	print_index_status(t_stack *stack)
+{
+	ft_printf("║ SORTED INDEX iiii -> ");
+	while (stack != NULL)
+	{
+		ft_printf("%d ", stack->index);
+		stack = stack->next;
+	}
+	ft_printf("\n");
 }

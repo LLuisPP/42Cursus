@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 10:27:19 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/21 22:08:17 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/26 10:02:45 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	rev_rot_a(t_stack **stack_a)
 	t_stack	*current;
 	t_stack	*temp;
 
-	if (*stack_a && (*stack_a)->next)
+	if (*stack_a && (*stack_a)->next != NULL)
 	{
 		current = *stack_a;
 		while (current->next != NULL)
@@ -32,6 +32,7 @@ void	rev_rot_a(t_stack **stack_a)
 		*stack_a = temp;
 	}
 	ft_printf("rra\n");
+	print_stack(*stack_a);
 }
 
 /* rev_rot_b (rrb) rot one position downwards all nodes from pile b */
@@ -40,7 +41,7 @@ void	rev_rot_b(t_stack **stack_b)
 	t_stack	*current;
 	t_stack	*temp;
 
-	if (*stack_b && (*stack_b)->next)
+	if (*stack_b && (*stack_b)->next != NULL)
 	{
 		current = *stack_b;
 		while (current->next != NULL)
@@ -54,6 +55,7 @@ void	rev_rot_b(t_stack **stack_b)
 		*stack_b = temp;
 	}
 	ft_printf("rrb\n");
+	// print_stack(*stack_b);
 }
 
 /* rev_rot_both (rrr) rot one position downwards all nodes pile a & b */

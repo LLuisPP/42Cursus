@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 19:14:45 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/12/07 08:37:00 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/23 11:43:45 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,6 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+int		abs_value(int value);
+int		range_value(int max_v, int min_v);
 #endif

@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 16:34:33 by lprieto-          #+#    #+#              #
-#    Updated: 2023/12/06 21:44:10 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/01/23 11:15:08 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ SRCS = ft_strlen.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 	   ft_unsignedint.c \
 	   ft_hex.c \
 	   get_next_line.c get_next_line_utils.c get_next_line_bonus.c \
-	   get_next_line_utils_bonus.c
+	   get_next_line_utils_bonus.c \
+	   ft_abs_val.c ft_range.c
 
 SRC_PATH = ./src/
 
@@ -117,9 +118,9 @@ define show_progress
 		((j = 1));\
 		while [[ $$j -le $(BAR_LEN) ]]; do \
 			if [[ $$j -le $$progress ]]; then \
-				printf "$(BGREEN)▒"; \
+				printf "$(BGREEN)▣"; \
 			else \
-				printf "$(GRAY)░"; \
+				printf "$(GRAY)▢"; \
 			fi; \
 			((j = j + 1)); \
 		done; \
