@@ -6,27 +6,27 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 10:15:19 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/01/23 10:41:17 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/28 17:47:01 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	alg_3(t_stack **stack_a)
+void	alg_3(t_s **s_a)
 {
-	while (stack_a != NULL && stack_order(*stack_a) != 1)
+	while (s_a != NULL && s_order(*s_a) != 1)
 	{
-		if ((*stack_a)->index == find_lowest(*stack_a))
+		if ((*s_a)->idx == find_lowest(*s_a))
 		{
-			swap_a(stack_a);
-			rot_a(stack_a);
+			swap_a(s_a);
+			rot_a(s_a);
 		}
-		else if ((*stack_a)->index == find_highest(*stack_a))
-			rot_a(stack_a);
-		else if ((*stack_a)->index != find_highest(*stack_a)
-			&& (*stack_a)->next->index == find_highest(*stack_a))
-			rev_rot_a(stack_a);
+		else if ((*s_a)->idx == find_highest(*s_a))
+			rot_a(s_a);
+		else if ((*s_a)->idx != find_highest(*s_a)
+			&& (*s_a)->nxt->idx == find_highest(*s_a))
+			rev_rot_a(s_a);
 		else
-			swap_a(stack_a);
+			swap_a(s_a);
 	}
 }

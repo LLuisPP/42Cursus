@@ -6,48 +6,48 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:01:15 by user              #+#    #+#             */
-/*   Updated: 2024/01/28 10:50:44 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/28 17:29:38 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* error_end output msg error after checking all stacks are clearead */
+/* error_end output msg error after checking all ss are clearead */
 void	error_end(char *msg)
 {
 	ft_putstr_fd(msg, STDERR_FILENO);
 	exit(0);
 }
 
-/* print_stack to print complete stack to identify problems */
-void	print_stack(t_stack *stack)
+/* print_s to print complete s to identify problems */
+void	print_s(t_s *s)
 {
 	ft_printf("╰➤ ");
-	while (stack != NULL)
+	while (s != NULL)
 	{
-		ft_printf("%d ", stack->value);
-		stack = stack->next;
+		ft_printf("%d ", s->val);
+		s = s->nxt;
 	}
 	ft_printf("\n");
 }
 
-void	print_status(t_stack *stack_a, t_stack *stack_b)
+void	print_status(t_s *s_a, t_s *s_b)
 {
 	ft_printf("╔═══════ ◀═\n");
-	ft_printf("║ stack a -> ");
-	print_stack(stack_a);
-	ft_printf("║ stack b -> ");
-	print_stack(stack_b);
+	ft_printf("║ s a -> ");
+	print_s(s_a);
+	ft_printf("║ s b -> ");
+	print_s(s_b);
 	ft_printf("╚═══════ ═▶\n");
 }
 
-void	print_index_status(t_stack *stack)
+void	print_idx_status(t_s *s)
 {
 	ft_printf("║ SORTED I-I-I-I iiii -> ");
-	while (stack != NULL)
+	while (s != NULL)
 	{
-		ft_printf("%d ", stack->index);
-		stack = stack->next;
+		ft_printf("%d ", s->idx);
+		s = s->nxt;
 	}
 	ft_printf("\n");
 }

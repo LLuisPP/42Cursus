@@ -6,60 +6,60 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 10:16:59 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/01/28 15:25:08 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/28 17:17:42 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* rot_a (ra) rot head node to the last node from pile a */
-void	rot_a(t_stack **stack_a)
+void	rot_a(t_s **s_a)
 {
-	t_stack	*current;
-	t_stack	*temp;
+	t_s	*curr;
+	t_s	*tmp;
 
-	if (*stack_a && (*stack_a)->next)
+	if (*s_a && (*s_a)->nxt)
 	{
-		temp = *stack_a;
-		*stack_a = (*stack_a)->next;
-		(*stack_a)->prev = NULL;
-		current = *stack_a;
-		while (current->next != NULL)
-			current = current->next;
-		temp->prev = current;
-		temp->next = NULL;
-		current->next = temp;
+		tmp = *s_a;
+		*s_a = (*s_a)->nxt;
+		(*s_a)->prv = NULL;
+		curr = *s_a;
+		while (curr->nxt != NULL)
+			curr = curr->nxt;
+		tmp->prv = curr;
+		tmp->nxt = NULL;
+		curr->nxt = tmp;
 	}
 	ft_printf("ra\n");
-	print_stack(*stack_a);
+	// print_s(*s_a);
 }
 
 /* rot_a (rb) rot head node to the last node from pile b */
-void	rot_b(t_stack **stack_b)
+void	rot_b(t_s **s_b)
 {
-	t_stack	*current;
-	t_stack	*temp;
+	t_s	*curr;
+	t_s	*tmp;
 
-	if (*stack_b && (*stack_b)->next)
+	if (*s_b && (*s_b)->nxt)
 	{
-		temp = *stack_b;
-		*stack_b = (*stack_b)->next;
-		(*stack_b)->prev = NULL;
-		current = *stack_b;
-		while (current->next != NULL)
-			current = current->next;
-		temp->prev = current;
-		temp->next = NULL;
-		current->next = temp;
+		tmp = *s_b;
+		*s_b = (*s_b)->nxt;
+		(*s_b)->prv = NULL;
+		curr = *s_b;
+		while (curr->nxt != NULL)
+			curr = curr->nxt;
+		tmp->prv = curr;
+		tmp->nxt = NULL;
+		curr->nxt = tmp;
 	}
 	ft_printf("rb\n");
-	print_stack(*stack_b);
+	// print_s(*s_b);
 }
 
 /* rot_both (rr) rot head nodes to the last node from pile a and b */
-void	rot_both(t_stack **stack_a, t_stack **stack_b)
+void	rot_both(t_s **s_a, t_s **s_b)
 {
-	rot_a(stack_a);
-	rot_b(stack_b);
+	rot_a(s_a);
+	rot_b(s_b);
 	ft_printf("rr\n");
 }

@@ -6,120 +6,120 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 19:24:09 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/01/24 12:45:18 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/28 17:30:38 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* find_h_i find the highest value with index != 0 in stack */
-int	find_h_i(t_stack *stack)
+/* find_h_i find the highest val with idx != 0 in s */
+int	find_h_i(t_s *s)
 {
-	int	max_value;
+	int	max_val;
 
-	if (stack == NULL)
+	if (s == NULL)
 		return (INT_MAX);
-	max_value = INT_MIN;
-	while (stack->next != NULL && stack->index == 0)
+	max_val = INT_MIN;
+	while (s->nxt != NULL && s->idx == 0)
 	{
-		if (stack->value > max_value)
-			max_value = stack->value;
-		stack = stack->next;
+		if (s->val > max_val)
+			max_val = s->val;
+		s = s->nxt;
 	}
-	return (max_value);
+	return (max_val);
 }
 
-/* find_l_i find the lowest value with index != 0 in a stack */
-int	find_l_i(t_stack **stack)
+/* find_l_i find the lowest val with idx != 0 in a s */
+int	find_l_i(t_s **s)
 {
-	int		min_value;
-	t_stack	*current;
+	int		min_val;
+	t_s	*curr;
 
-	min_value = INT_MAX;
-	if (!stack || !*stack)
-		return (min_value);
-	current = *stack;
-	while (current != NULL)
+	min_val = INT_MAX;
+	if (!s || !*s)
+		return (min_val);
+	curr = *s;
+	while (curr != NULL)
 	{
-		if (current->index == 0 && current->value <= min_value)
+		if (curr->idx == 0 && curr->val <= min_val)
 		{
-			min_value = current->value;
+			min_val = curr->val;
 		}
-		current = current->next;
+		curr = curr->nxt;
 	}
-	return (min_value);
+	return (min_val);
 }
 
-/* f_lowidx find the lowest value with index != 0 in a stack */
-int	f_lowidx(t_stack **stack)
+/* f_lowidx find the lowest val with idx != 0 in a s */
+int	f_lowidx(t_s **s)
 {
-	int		min_value;
-	t_stack	*current;
+	int		min_val;
+	t_s	*curr;
 
-	min_value = INT_MAX;
-	if (!stack || !*stack)
-		return (min_value);
-	current = *stack;
-	while (current != NULL)
+	min_val = INT_MAX;
+	if (!s || !*s)
+		return (min_val);
+	curr = *s;
+	while (curr != NULL)
 	{
-		if (current->index != 0 && current->index <= min_value)
+		if (curr->idx != 0 && curr->idx <= min_val)
 		{
-			min_value = current->index;
+			min_val = curr->idx;
 		}
-		current = current->next;
+		curr = curr->nxt;
 	}
-	return (min_value);
+	return (min_val);
 }
 
-/* find_highest find the highest value in a stack */
-int	find_highest(t_stack *stack)
+/* find_highest find the highest val in a s */
+int	find_highest(t_s *s)
 {
-	int	max_value;
+	int	max_val;
 
-	if (stack == NULL)
+	if (s == NULL)
 		return (INT_MAX);
-	max_value = INT_MIN;
-	while (stack != NULL)
+	max_val = INT_MIN;
+	while (s != NULL)
 	{
-		if (stack->index > max_value)
-			max_value = stack->index;
-		stack = stack->next;
+		if (s->idx > max_val)
+			max_val = s->idx;
+		s = s->nxt;
 	}
-	return (max_value);
+	return (max_val);
 }
 
-/* find_highest find the highest value in a stack */
-int	find_lowest(t_stack *stack)
+/* find_highest find the highest val in a s */
+int	find_lowest(t_s *s)
 {
-	int	min_value;
+	int	min_val;
 
-	if (stack == NULL)
+	if (s == NULL)
 		return (INT_MIN);
-	min_value = INT_MAX;
-	while (stack != NULL)
+	min_val = INT_MAX;
+	while (s != NULL)
 	{
-		if (stack->index < min_value)
-			min_value = stack->index;
-		stack = stack->next;
+		if (s->idx < min_val)
+			min_val = s->idx;
+		s = s->nxt;
 	}
-	return (min_value);
+	return (min_val);
 }
 
-/* f_last find the last index from a stack */
-int	f_last(t_stack *stack)
+/* f_last find the last idx from a s */
+int	f_last(t_s *s)
 {
-	int index_value;
-	t_stack *current;
+	int idx_val;
+	t_s *curr;
 	
-	index_value = 0;
-	if (!stack )
+	idx_val = 0;
+	if (!s )
 		return (0);
-	current = stack;
-	while (current && current->next != NULL)
+	curr = s;
+	while (curr && curr->nxt != NULL)
 	{
-		current = current->next;
+		curr = curr->nxt;
 	}
-	index_value = current->index;
-	// ft_printf("Final position index %d\n", index_value);
-	return (index_value);
+	idx_val = curr->idx;
+	// ft_printf("Final position idx %d\n", idx_val);
+	return (idx_val);
 }

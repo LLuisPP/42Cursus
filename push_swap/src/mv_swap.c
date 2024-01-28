@@ -6,68 +6,52 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 10:10:01 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/01/28 15:25:14 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/28 17:18:53 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// /* stack_clone_node clones the head node from a stack */
-// t_stack	*stack_clone_node(t_stack *source)
-// {
-// 	t_stack	*new_node;
-
-// 	new_node = malloc(sizeof(t_stack));
-// 	if (!new_node)
-// 		exit(0);
-// 	new_node->value = source->value;
-// 	new_node->index = source->index;
-// 	new_node->prev = NULL;
-// 	new_node->next = NULL;
-// 	return (new_node);
-// 	// free(&source);
-// }
-
 /* swap_a (sa) swaps 2 first nodes in pile a */
-void	swap_a(t_stack **stack_a)
+void	swap_a(t_s **s_a)
 {
-	t_stack	*temp;
+	t_s	*tmp;
 
-	if (*stack_a && (*stack_a)->next)
+	if (*s_a && (*s_a)->nxt)
 	{
-		temp = (*stack_a)->next;
-		(*stack_a)->next = temp->next;
-		temp->prev = NULL;
-		temp->next = *stack_a;
-		(*stack_a)->prev = temp;
-		*stack_a = temp;
+		tmp = (*s_a)->nxt;
+		(*s_a)->nxt = tmp->nxt;
+		tmp->prv = NULL;
+		tmp->nxt = *s_a;
+		(*s_a)->prv = tmp;
+		*s_a = tmp;
 	}
 	ft_printf("sa\n");
-	print_stack(*stack_a);
+	// print_s(*s_a);
 }
 
 /* swap_b (sb) swaps 2 first nodes in pile b */
-void	swap_b(t_stack **stack_b)
+void	swap_b(t_s **s_b)
 {
-	t_stack	*temp;
+	t_s	*tmp;
 
-	if (*stack_b && (*stack_b)->next)
+	if (*s_b && (*s_b)->nxt)
 	{
-		temp = (*stack_b)->next;
-		(*stack_b)->next = temp->next;
-		temp->prev = NULL;
-		temp->next = *stack_b;
-		(*stack_b)->prev = temp;
-		*stack_b = temp;
+		tmp = (*s_b)->nxt;
+		(*s_b)->nxt = tmp->nxt;
+		tmp->prv = NULL;
+		tmp->nxt = *s_b;
+		(*s_b)->prv = tmp;
+		*s_b = tmp;
 	}
 	ft_printf("sb\n");
-	print_stack(*stack_b);
+	// print_s(*s_b);
 }
 
 /* swap_both (ss) swaps 2 first nodes in pile a & b */
-void	swap_both(t_stack **stack_a, t_stack **stack_b)
+void	swap_both(t_s **s_a, t_s **s_b)
 {
-	swap_a(stack_a);
-	swap_b(stack_b);
+	swap_a(s_a);
+	swap_b(s_b);
 	ft_printf("ss\n");
 }

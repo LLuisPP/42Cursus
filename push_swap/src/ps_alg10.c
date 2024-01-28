@@ -6,47 +6,47 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 10:19:27 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/01/23 13:05:56 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/28 18:23:43 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* alg_10 moves 2 smaller to pile b and sort resting 3 before recover from b */
-void	alg_10(t_stack **stack_a, t_stack **stack_b, int s_size)
+void	alg_10(t_s **s_a, t_s **s_b, int size)
 {
-	while (stack_size(*stack_a) > 5 && stack_order(*stack_a) != 1)
+	while (s_size(*s_a) > 5 && s_order(*s_a) != 1)
 	{
-		if ((*stack_a)->index <= (find_lowest(*stack_a)) && (*stack_a)->index
-			<= (s_size / 2))
-			push_b(stack_a, stack_b);
+		if ((*s_a)->idx <= (find_lowest(*s_a)) && (*s_a)->idx
+			<= (size / 2))
+			push_b(s_a, s_b);
 		else
 		{
-			if (cheaper_mv(stack_a, (find_lowest(*stack_a))) == 1)
-				rot_a(stack_a);
-			else if (cheaper_mv(stack_a, (find_lowest(*stack_a))) != 1)
-				rev_rot_a(stack_a);
+			if (cheap_m(s_a, (find_lowest(*s_a))) == 1)
+				rot_a(s_a);
+			else if (cheap_m(s_a, (find_lowest(*s_a))) != 1)
+				rev_rot_a(s_a);
 		}
 	}
-	alg_5(stack_a, stack_b);
-	alg_10b(stack_a, stack_b);
+	alg_5(s_a, s_b);
+	alg_10b(s_a, s_b);
 }
 
-void	alg_10b(t_stack **stack_a, t_stack **stack_b)
+void	alg_10b(t_s **s_a, t_s **s_b)
 {
-	while ((stack_size(*stack_b) != 0 && stack_a != NULL)
-		|| (stack_order(*stack_a) != 1 && stack_size(*stack_b) != 0))
+	while ((s_size(*s_b) != 0 && s_a != NULL)
+		|| (s_order(*s_a) != 1 && s_size(*s_b) != 0))
 	{
-		if ((*stack_b)->index > (*stack_a)->index)
-			rot_a(stack_a);
-		else if ((*stack_b)->index > (*stack_a)->index)
+		if ((*s_b)->idx > (*s_a)->idx)
+			rot_a(s_a);
+		else if ((*s_b)->idx > (*s_a)->idx)
 		{
-			if ((*stack_b)->index > (*stack_a)->next->index)
-				rot_a(stack_a);
+			if ((*s_b)->idx > (*s_a)->nxt->idx)
+				rot_a(s_a);
 			else
-				rev_rot_a(stack_a);
+				rev_rot_a(s_a);
 		}
-		else if ((*stack_b)->index < (*stack_a)->index)
-			push_a(stack_a, stack_b);
+		else if ((*s_b)->idx < (*s_a)->idx)
+			push_a(s_a, s_b);
 	}
 }

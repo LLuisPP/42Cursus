@@ -6,58 +6,58 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:37:09 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/01/28 13:26:44 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/28 17:38:03 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* push_swap commands the algorithm to order the input stack */
-void	push_swap(t_stack **stack_a, t_stack **stack_b, int s_size)
+/* push_swap commands the algorithm to order the input s */
+void	push_swap(t_s **s_a, t_s **s_b, int size)
 {
-		alg_selector(stack_a, stack_b, s_size);
-		// chnk_size(stack_a, stack_b, s_size, 10, 4);
-		// ft_printf(">>>>  <> <> <> <> <>  >>>>>>%d\n", cheaper_mv(stack_a, (cheaper_fr(stack_a, f_chk_v(*stack_a, 10), f_chk_vr(*stack_a, 10)))));
-		// ft_printf(">>>>%d\n", s_size);
-		// print_stack(*stack_b);
+		alg_selector(s_a, s_b, size);
+		// chnk_size(s_a, s_b, size, 10, 4);
+		// ft_printf(">>>>  <> <> <> <> <>  >>>>>>%d\n", cheaper_mv(s_a, (cheaper_fr(s_a, f_chk_v(*s_a, 10), f_chk_vr(*s_a, 10)))));
+		// ft_printf(">>>>%d\n", size);
+		// print_s(*s_b);
 
 }
 
 /* main handles inputs, calls PS, prints and free memory */
 int	main(int argc, char **argv)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	int		s_size;
+	t_s	*s_a;
+	t_s	*s_b;
+	int		size;
 
-	stack_a = NULL;
-	stack_b = NULL;
+	s_a = NULL;
+	s_b = NULL;
 	if (argc < 2)
 		error_end("");
 	else if (argc == 2 && (checkers(argc, argv) == 1))
 	{
-		get_numbers(argc, argv, &stack_a);
+		get_nbrs(argc, argv, &s_a);
 		error_end("Error\n");
 	}
 	checkers(argc, argv);
-	get_numbers(argc, argv, &stack_a);
-		// ft_printf("║ STACK_A INPUT (%d) ═▶", stack_size(stack_a));
-		// print_stack(stack_a);
-		// print_index_status(stack_a);
-	index_s(stack_a, 1);
-		print_index_status(stack_a);
-		ft_printf("╚═══════════════════════════════════════════════ INIT\n");
-	s_size = stack_size(stack_a);
-	push_swap(&stack_a, &stack_b, s_size);
+	get_nbrs(argc, argv, &s_a);
+		// ft_printf("║ s_a INPUT (%d) ═▶", s_size(s_a));
+		// print_s(s_a);
+		// print_idx_status(s_a);
+	idx_s(s_a, 1);
+		// print_idx_status(s_a);
+		// ft_printf("╚═══════════════════════════════════════════════ INIT\n");
+	size = s_size(s_a);
+	push_swap(&s_a, &s_b, size);
 		ft_printf("╔═════════════════════════════════════════════ FINAL\n");
-		ft_printf("║ STACK_A OUTPUT (%d)-> ", stack_size(stack_a));
-		print_stack(stack_a);
-		// print_index_status(stack_a);
-		ft_printf("║ STACK_B OUTPUT (%d)-> ", stack_size(stack_b));
-		print_stack(stack_b);
-		// print_index_status(stack_b);
-	free_stack(&stack_a);
-	free_stack(&stack_b);
+		ft_printf("║ s_a OUTPUT (%d)-> ", s_size(s_a));
+		print_s(s_a);
+		// print_idx_status(s_a);
+		ft_printf("║ s_b OUTPUT (%d)-> ", s_size(s_b));
+		print_s(s_b);
+		// print_idx_status(s_b);
+	free_s(&s_a);
+	free_s(&s_b);
 	return (0);
 }
  

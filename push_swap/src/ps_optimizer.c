@@ -6,62 +6,62 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 15:59:07 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/01/28 15:23:33 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/28 18:25:29 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	cheaper_fr(t_stack **stack, int targetA, int targetB)
+int	cheap_val(t_s **s, int trgtA, int trgetB)
 {
 	int		F_count;
     int		R_count;
-	t_stack	*current;
-	if (targetA == 0 && targetB != 0)
-		return (targetB);
-	if (targetB == 0 && targetA != 0)
-		return (targetA);
-	if (targetA == targetB)
+	t_s	*curr;
+	if (trgtA == 0 && trgetB != 0)
+		return (trgetB);
+	if (trgetB == 0 && trgtA != 0)
+		return (trgtA);
+	if (trgtA == trgetB)
 	{
-		ft_printf("\n[[[[[[%d]]]]]]\n", targetA);
-		return (targetA);
+		// ft_printf("\n[[[[[[%d]]]]]]\n", trgtA);
+		return (trgtA);
 	}
-	ft_printf("Wich one is closer, F:%d vs R:%d ? ", targetA, targetB);
+	// ft_printf("Wich one is closer, F:%d vs R:%d ? ", trgtA, trgetB);
 	F_count = 0;
     R_count = 0;
-	current = *stack;
-	while (current->index != targetA)
+	curr = *s;
+	while (curr->idx != trgtA)
 	{
-		current = current->next;
+		curr = curr->nxt;
 		F_count++;
 	}
-    current = *stack;
-    while (current && current->next != NULL)
-		current = current->next;
-    while (current->index != targetB)
+    curr = *s;
+    while (curr && curr->nxt != NULL)
+		curr = curr->nxt;
+    while (curr->idx != trgetB)
 	{
-		current = current->prev;
+		curr = curr->prv;
 		R_count++;
 	}
-    current = *stack;
-	if (F_count == stack_size(*stack) && R_count == stack_size(*stack))
+    curr = *s;
+	if (F_count == s_size(*s) && R_count == s_size(*s))
 		return (0);   
 	if (F_count == 0)
-		return (targetA);
+		return (trgtA);
 	else if (R_count == 0)
-		return (targetB);
+		return (trgetB);
 	if (F_count <= R_count)
 	{
 		{
-			ft_printf("L: [%d] <|", targetA);
-			ft_printf(" %d :R\n", targetB);
-			return (targetA);
+			// ft_printf("L: [%d] <|", trgtA);
+			// ft_printf(" %d :R\n", trgetB);
+			return (trgtA);
 		}
 	}
 	else
 	{
-			ft_printf("L: %d  |", targetA);
-			ft_printf("> [%d] :R\n", targetB);
-		return (targetB);
+			// ft_printf("L: %d  |", trgtA);
+			// ft_printf("> [%d] :R\n", trgetB);
+		return (trgetB);
 	}
 }

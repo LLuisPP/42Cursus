@@ -1,51 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_index.c                                         :+:      :+:    :+:   */
+/*   ps_idx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 14:39:34 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/01/23 10:09:07 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/28 17:25:19 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	index_s(t_stack *stack, int i)
+void	idx_s(t_s *s, int i)
 {
-	t_stack	*current;
+	t_s	*curr;
 
-	current = stack;
-	while (stack && all_indexed(&stack) == 0)
+	curr = s;
+	while (s && all_idxed(&s) == 0)
 	{
-		if (stack->index == 0)
+		if (s->idx == 0)
 		{
-			if (stack->value == find_l_i(&stack))
+			if (s->val == find_l_i(&s))
 			{
-				stack->index = i;
+				s->idx = i;
 				i++;
-				index_s(current, i);
+				idx_s(curr, i);
 			}
 		}
-		stack = stack->next;
+		s = s->nxt;
 	}
-	stack = current;
+	s = curr;
 }
 
-int	all_indexed(t_stack **stack)
+int	all_idxed(t_s **s)
 {
-	int	s_size;
+	int	size;
 	int	i;
 
 	i = 0;
-	s_size = stack_size(*stack);
-	while (i < s_size)
+	size = s_size(*s);
+	while (i < size)
 	{
-		if ((*stack)->index == 0)
+		if ((*s)->idx == 0)
 			return (0);
 		i++;
-		*stack = (*stack)->next;
+		*s = (*s)->nxt;
 	}
 	return (1);
 }

@@ -1,106 +1,106 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_stacks.c                                        :+:      :+:    :+:   */
+/*   ps_ss.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:21:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/01/24 09:15:20 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/28 17:31:26 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* free_stack frees every element and set the pointer to NULL */
-void	free_stack(t_stack **stack)
+/* free_s frees every element and set the pointer to NULL */
+void	free_s(t_s **s)
 {
-	t_stack	*tmp;
+	t_s	*tmp;
 
-	if (!stack || !(*stack))
+	if (!s || !(*s))
 		return ;
-	while (*stack)
+	while (*s)
 	{
-		tmp = (*stack)->next;
-		free(*stack);
-		*stack = tmp;
+		tmp = (*s)->nxt;
+		free(*s);
+		*s = tmp;
 	}
-	*stack = NULL;
+	*s = NULL;
 }
 
-/* stack_add adds new values to a stack */
-void	stack_add(t_stack **stack, t_stack *new_node)
+/* s_add adds new vals to a s */
+void	s_add(t_s **s, t_s *new_nd)
 {
-	t_stack	*current;
+	t_s	*curr;
 
-	if (!new_node)
+	if (!new_nd)
 		return ;
-	if (!*stack)
-		*stack = new_node;
+	if (!*s)
+		*s = new_nd;
 	else
 	{
-		current = *stack;
-		while (current->next != NULL)
+		curr = *s;
+		while (curr->nxt != NULL)
 		{
-			current = current->next;
+			curr = curr->nxt;
 		}
-		current->next = new_node;
-		new_node->prev = current;
+		curr->nxt = new_nd;
+		new_nd->prv = curr;
 	}
 }
 
-/* get_numbers fill the stack and checks if its correct */
-void	get_numbers(int argc, char **argv, t_stack **stack)
+/* get_nbrs fill the s and checks if its correct */
+void	get_nbrs(int argc, char **argv, t_s **s)
 {
 	long	i;
-	int		value;
-	t_stack	*new_node;
+	int		val;
+	t_s	*new_nd;
 
 	i = 1;
 	while (i < argc)
 	{
-		value = ft_atoi(argv[i]);
-		new_node = malloc(sizeof(t_stack));
-		if (!new_node)
+		val = ft_atoi(argv[i]);
+		new_nd = malloc(sizeof(t_s));
+		if (!new_nd)
 			error_end("Error\n");
-		new_node->value = value;
-		new_node->index = 0;
-		new_node->next = NULL;
-		stack_add(stack, new_node);
+		new_nd->val = val;
+		new_nd->idx = 0;
+		new_nd->nxt = NULL;
+		s_add(s, new_nd);
 		i++;
-		// free(&new_node);
+		// free(&new_nd);
 	}
 }
 
-/* get_stack_size counts elements in a stack */
-int	stack_size(t_stack *stack)
+/* get_size counts elements in a s */
+int	s_size(t_s *s)
 {
-	int		stack_size;
-	t_stack	*temp;
+	int		size;
+	t_s	*temp;
 
-	temp = stack;
-	stack_size = 0;
+	temp = s;
+	size = 0;
 	if (!temp)
 		return (0);
 	while (temp && temp != NULL)
 	{
-		stack_size++;
-		temp = temp->next;
+		size++;
+		temp = temp->nxt;
 	}
-	return (stack_size);
+	return (size);
 }
 
-/* stack_add adds new values to a stack */
-void	stack_add_top(t_stack **stack, t_stack *new_node)
+/* s_add adds new vals to a s */
+void	s_add_top(t_s **s, t_s *new_nd)
 {
-	if (!new_node)
+	if (!new_nd)
 		return ;
-	if (!*stack)
-		*stack = new_node;
+	if (!*s)
+		*s = new_nd;
 	else
 	{
-		new_node->next = *stack;
-		(*stack)->prev = new_node;
-		*stack = new_node;
+		new_nd->nxt = *s;
+		(*s)->prv = new_nd;
+		*s = new_nd;
 	}
 }

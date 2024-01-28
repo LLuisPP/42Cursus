@@ -6,49 +6,49 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 18:42:21 by user              #+#    #+#             */
-/*   Updated: 2024/01/28 15:21:31 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/28 18:25:12 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* stack_rev_order checks if stack is alredy in reverse order */
-int	stack_rev_order(t_stack *stack)
+/* s_rev_order checks if s is alredy in reverse order */
+int	s_rev_order(t_s *s)
 {
-	while (stack && stack->next != NULL)
+	while (s && s->nxt != NULL)
 	{
-		if (stack->index < stack->next->index)
+		if (s->idx < s->nxt->idx)
 			return (0);
-		stack = stack->next;
+		s = s->nxt;
 	}
 	return (1);
 }
 
-/* stack_rev_order checks if stack is alredy in order */
-int	stack_order(t_stack *stack)
+/* s_rev_order checks if s is alredy in order */
+int	s_order(t_s *s)
 {
-	while (stack && stack->next != NULL)
+	while (s && s->nxt != NULL)
 	{
-		if (stack->index > stack->next->index)
+		if (s->idx > s->nxt->idx)
 			return (0);
-		stack = stack->next;
+		s = s->nxt;
 	}
 	return (1);
 }
 
-/* cheaper_mv checks distance from head our target value */
-int	cheaper_mv(t_stack **stack, int target)
+/* cheaper_mv checks distance from head our trgt value */
+int	cheap_m(t_s **s, int trgt)
 {
 	int		r_count;
 	int		rr_count;
-	t_stack	*current;
+	t_s	*curr;
 
 	r_count = 0;
-	rr_count = stack_size(*stack);
-	current = *stack;
-	while (current->index != target)
+	rr_count = s_size(*s);
+	curr = *s;
+	while (curr->idx != trgt)
 	{
-		current = current->next;
+		curr = curr->nxt;
 		r_count++;
 		rr_count--;
 	}
@@ -58,59 +58,59 @@ int	cheaper_mv(t_stack **stack, int target)
 		return (0);
 }
 
-int	f_chk_v(t_stack *stack, int i)
+int	f_chk_v(t_s *s, int i)
 {
-	int index_value;
-	t_stack *current;
+	int idx_value;
+	t_s *curr;
 
-	index_value = 0;
-	if (!stack)
+	idx_value = 0;
+	if (!s)
 		return (0);
-	current = stack;
-	while (current && current->next != NULL)
+	curr = s;
+	while (curr && curr->nxt != NULL)
 	{
-		if (current->index <= i)
+		if (curr->idx <= i)
 		{
-			index_value = current->index;
-			return (index_value);
+			idx_value = curr->idx;
+			return (idx_value);
 		}
 		else
-			current = current->next;
+			curr = curr->nxt;
 	}
-		return (index_value);
+	return (idx_value);
 }
 
-int	f_chk_vr(t_stack *stack, int i)
+int	f_chk_vr(t_s *s, int i)
 {
-	int index_value;
-	t_stack *current;
+	int idx_value;
+	t_s *curr;
 	
-	index_value = 0;
-	if (!stack)
+	idx_value = 0;
+	if (!s)
 		return (0);
-	current = stack;
-	while (current && current->next != NULL)
-		current = current->next;
-	while (current && current->prev != NULL)
+	curr = s;
+	while (curr && curr->nxt != NULL)
+		curr = curr->nxt;
+	while (curr && curr->prv != NULL)
 	{
-		if (current->index <= i)
+		if (curr->idx <= i)
 		{
-			index_value = current->index;
-			return (index_value);
+			idx_value = curr->idx;
+			return (idx_value);
 		}
 		else
-			current = current->prev;
+			curr = curr->prv;
 	}
-	return (index_value);
+	return (idx_value);
 }
 
-int	final_order(t_stack *stack)
+int	final_order(t_s *s)
 {
-	while (stack && stack->next != NULL)
+	while (s && s->nxt != NULL)
 	{
-		if (stack->index != stack->next->index + 1)
+		if (s->idx != s->nxt->idx + 1)
 			return (0);
-		stack = stack->next;
+		s = s->nxt;
 	}
 	return (1);
 }

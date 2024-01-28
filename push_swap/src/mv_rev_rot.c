@@ -6,62 +6,62 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 10:27:19 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/01/28 15:25:04 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/28 17:16:37 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* rev_rot_a (rra) rot one position downwards all nodes from pile a */
-void	rev_rot_a(t_stack **stack_a)
+void	rev_rot_a(t_s **s_a)
 {
-	t_stack	*current;
-	t_stack	*temp;
+	t_s	*curr;
+	t_s	*tmp;
 
-	if (*stack_a && (*stack_a)->next != NULL)
+	if (*s_a && (*s_a)->nxt != NULL)
 	{
-		current = *stack_a;
-		while (current->next != NULL)
-			current = current->next;
-		temp = current;
-		current = current->prev;
-		current->next = NULL;
-		temp->prev = NULL;
-		temp->next = *stack_a;
-		(*stack_a)->prev = temp;
-		*stack_a = temp;
+		curr = *s_a;
+		while (curr->nxt != NULL)
+			curr = curr->nxt;
+		tmp = curr;
+		curr = curr->prv;
+		curr->nxt = NULL;
+		tmp->prv = NULL;
+		tmp->nxt = *s_a;
+		(*s_a)->prv = tmp;
+		*s_a = tmp;
 	}
 	ft_printf("rra\n");
-	print_stack(*stack_a);
+	// print_s(*s_a);
 }
 
 /* rev_rot_b (rrb) rot one position downwards all nodes from pile b */
-void	rev_rot_b(t_stack **stack_b)
+void	rev_rot_b(t_s **s_b)
 {
-	t_stack	*current;
-	t_stack	*temp;
+	t_s	*curr;
+	t_s	*tmp;
 
-	if (*stack_b && (*stack_b)->next != NULL)
+	if (*s_b && (*s_b)->nxt != NULL)
 	{
-		current = *stack_b;
-		while (current->next != NULL)
-			current = current->next;
-		temp = current;
-		current = current->prev;
-		current->next = NULL;
-		temp->prev = NULL;
-		temp->next = *stack_b;
-		(*stack_b)->prev = temp;
-		*stack_b = temp;
+		curr = *s_b;
+		while (curr->nxt != NULL)
+			curr = curr->nxt;
+		tmp = curr;
+		curr = curr->prv;
+		curr->nxt = NULL;
+		tmp->prv = NULL;
+		tmp->nxt = *s_b;
+		(*s_b)->prv = tmp;
+		*s_b = tmp;
 	}
 	ft_printf("rrb\n");
-	print_stack(*stack_b);
+	// print_s(*s_b);
 }
 
 /* rev_rot_both (rrr) rot one position downwards all nodes pile a & b */
-void	rev_rot_both(t_stack **stack_a, t_stack **stack_b)
+void	rev_rot_both(t_s **s_a, t_s **s_b)
 {
-	rev_rot_a(stack_a);
-	rev_rot_b(stack_b);
+	rev_rot_a(s_a);
+	rev_rot_b(s_b);
 	ft_printf("rra\n");
 }
