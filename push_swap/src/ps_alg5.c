@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 10:18:09 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/01/28 18:23:55 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:18:16 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	alg_5(t_s **s_a, t_s **s_b)
 	{
 		if ((*s_a)->idx == find_lowest(*s_a))
 			push_b(s_a, s_b);
-		else if (cheap_m(s_a, (find_lowest(*s_a))) == 1)
+		else if (chp_m(s_a, (find_lowest(*s_a))) == 1)
 			rot_a(s_a);
-		else if (cheap_m(s_a, (find_lowest(*s_a))) != 1)
+		else if (chp_m(s_a, (find_lowest(*s_a))) != 1)
 			rev_rot_a(s_a);
 	}
 	if (s_order(*s_a) == 1 && s_size(*s_a) != 5)

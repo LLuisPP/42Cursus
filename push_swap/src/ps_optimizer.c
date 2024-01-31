@@ -6,29 +6,26 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 15:59:07 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/01/28 18:25:29 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:13:52 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	cheap_val(t_s **s, int trgtA, int trgetB)
+int	chp_val(t_s **s, int trgtA, int trgetB)
 {
 	int		F_count;
     int		R_count;
-	t_s	*curr;
+	t_s		*curr;
+	
+	F_count = 0;
+    R_count = 0;
 	if (trgtA == 0 && trgetB != 0)
 		return (trgetB);
 	if (trgetB == 0 && trgtA != 0)
 		return (trgtA);
 	if (trgtA == trgetB)
-	{
-		// ft_printf("\n[[[[[[%d]]]]]]\n", trgtA);
 		return (trgtA);
-	}
-	// ft_printf("Wich one is closer, F:%d vs R:%d ? ", trgtA, trgetB);
-	F_count = 0;
-    R_count = 0;
 	curr = *s;
 	while (curr->idx != trgtA)
 	{
@@ -51,17 +48,7 @@ int	cheap_val(t_s **s, int trgtA, int trgetB)
 	else if (R_count == 0)
 		return (trgetB);
 	if (F_count <= R_count)
-	{
-		{
-			// ft_printf("L: [%d] <|", trgtA);
-			// ft_printf(" %d :R\n", trgetB);
-			return (trgtA);
-		}
-	}
+		return (trgtA);
 	else
-	{
-			// ft_printf("L: %d  |", trgtA);
-			// ft_printf("> [%d] :R\n", trgetB);
 		return (trgetB);
-	}
 }

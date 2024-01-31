@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 10:19:27 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/01/28 18:23:43 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/31 16:49:55 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	alg_10(t_s **s_a, t_s **s_b, int size)
 			push_b(s_a, s_b);
 		else
 		{
-			if (cheap_m(s_a, (find_lowest(*s_a))) == 1)
+			if (chp_m(s_a, (find_lowest(*s_a))) == 1)
 				rot_a(s_a);
-			else if (cheap_m(s_a, (find_lowest(*s_a))) != 1)
+			else if (chp_m(s_a, (find_lowest(*s_a))) != 1)
 				rev_rot_a(s_a);
 		}
 	}

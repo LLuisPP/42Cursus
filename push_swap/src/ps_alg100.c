@@ -6,55 +6,33 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 10:37:54 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/01/28 18:38:34 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:19:01 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* alg_10 moves 2 smaller to pile b and sort resting 3 before recover from b */
+/* alg_100 chop the stack values sending valids to stack b and recover them */
 void	alg_100(t_s **s_a, t_s **s_b, int size)
 {
-	chnk_size(s_a, s_b, size, 10, 8);
-	
-	while ((s_b != NULL && s_size(*s_b) != 0 && s_a != NULL) || (s_order(*s_a) != 1 && s_size(*s_b) != 0))
-	{
-		while (f_last(*s_a) == find_highest(*s_a) && s_size(*s_a) != size)
-		{
-			if ((*s_a)->idx < (*s_b)->idx && (*s_a)->idx < f_last(*s_a))/*Me3b1h*/
-			{
-				push_a(s_a, s_b);
-				swap_a(s_a);
-			}
-			if ((*s_a)->idx > (*s_b)->idx && (*s_a)->idx < f_last(*s_a))/*Me1b3h*/
-			{
-				push_a(s_a, s_b);
-			}
-		}
-		while (f_last(*s_a) != find_highest(*s_a))
-		{
-			print_status(*s_a, *s_b);
-			if ((*s_a)->idx < (*s_b)->idx && (*s_a)->idx < f_last(*s_a) && (*s_b)->idx < f_last(*s_a))/*5e3b1h*/
-			{
-				push_a(s_a, s_b);
-				swap_a(s_a);
-			}
-			else if ((*s_a)->idx < (*s_b)->idx && (*s_a)->idx < f_last(*s_a) && (*s_b)->idx > f_last(*s_a))/*5e6b1h*/
-			{
-				rev_rot_a(s_a);
-				push_a(s_a, s_b);
-			}
-			else if ((*s_a)->idx < (*s_b)->idx && (*s_a)->idx > f_last(*s_a) && (*s_b)->idx > f_last(*s_a))/*3e5b4h*/
-			{
-				push_a(s_a, s_b);
-				swap_a(s_a);
-			}
-			if ((*s_a)->idx > (*s_b)->idx && (*s_a)->idx > f_last(*s_a) && (*s_b)->idx > f_last(*s_a))/*1e3b5h*/
-				push_a(s_a, s_b);
-			if ((*s_a)->idx > (*s_b)->idx && (*s_a)->idx > f_last(*s_a) && (*s_b)->idx < f_last(*s_a))/*3e1b5h*/
-				push_a(s_a, s_b);
-			if ((*s_a)->idx > (*s_b)->idx && (*s_a)->idx < f_last(*s_a) && (*s_b)->idx < f_last(*s_a))/*6e1b5h*/
-				push_a(s_a, s_b);
-		}
-	}
+	chnk_size(s_a, s_b, size, 15, 15);
+    while ((s_b != NULL && s_size(*s_b) != 0 && s_a != NULL)
+        || (s_order(*s_a) != 1 && s_size(*s_b) != 0))
+    {
+        while (f_last(*s_a) == find_highest(*s_a) && s_size(*s_a) != size)
+        {
+            highatend(s_a, s_b);
+        }
+        while (f_last(*s_a) != find_highest(*s_a) && s_size(*s_a) != size)
+        {
+            nohighatend(s_a, s_b);
+        }
+        while (f_last(*s_a) != find_highest(*s_a))
+        {
+            if (chp_m(s_a, find_highest(*s_a)) == 1)
+                rot_a(s_a);
+            else if (chp_m(s_a, find_highest(*s_a)) != 1)
+                rev_rot_a(s_a);
+        }
+    }
 }

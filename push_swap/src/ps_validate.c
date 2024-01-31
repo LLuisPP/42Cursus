@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 18:42:21 by user              #+#    #+#             */
-/*   Updated: 2024/01/28 18:25:12 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:12:53 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	s_order(t_s *s)
 }
 
 /* cheaper_mv checks distance from head our trgt value */
-int	cheap_m(t_s **s, int trgt)
+int	chp_m(t_s **s, int trgt)
 {
 	int		r_count;
 	int		rr_count;
@@ -58,7 +58,7 @@ int	cheap_m(t_s **s, int trgt)
 		return (0);
 }
 
-int	f_chk_v(t_s *s, int i)
+int	chk_v(t_s *s, int i)
 {
 	int idx_value;
 	t_s *curr;
@@ -80,7 +80,7 @@ int	f_chk_v(t_s *s, int i)
 	return (idx_value);
 }
 
-int	f_chk_vr(t_s *s, int i)
+int	chk_vr(t_s *s, int i)
 {
 	int idx_value;
 	t_s *curr;
@@ -102,15 +102,4 @@ int	f_chk_vr(t_s *s, int i)
 			curr = curr->prv;
 	}
 	return (idx_value);
-}
-
-int	final_order(t_s *s)
-{
-	while (s && s->nxt != NULL)
-	{
-		if (s->idx != s->nxt->idx + 1)
-			return (0);
-		s = s->nxt;
-	}
-	return (1);
 }

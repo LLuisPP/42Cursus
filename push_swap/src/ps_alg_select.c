@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 12:03:28 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/01/28 18:23:20 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:15:02 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,44 +16,27 @@
 
 void	chnk_size(t_s **s_a, t_s **s_b, int size ,int strt, int chnk)
 {
-	int valor;
-
-	valor = 0;
 	while (strt <= (size - 5) && s_size(*s_a) > 5)
 	{
-		while (strt <= (size - 5) && s_size(*s_a) > 5)
+		if ((*s_a)->idx <= strt && s_size(*s_b) <= strt)
+			push_b(s_a, s_b);
+		if (s_size(*s_b) == strt)
+			strt = strt + chnk;
+		else
 		{
-			if ((*s_a)->idx <= strt && s_size(*s_b) <= strt)
+			if ((chk_v(*s_a, strt) != chk_vr(*s_a, strt)) && s_size(*s_b) < strt)
 			{
-				push_b(s_a, s_b);
-				if (s_size(*s_b) == strt)
-					strt = strt + chnk;
+				if (chp_m(s_a, chp_val(s_a, chk_v(*s_a, strt), chk_vr(*s_a, strt))) == 0)
+					rev_rot_a(s_a);
+				else if (chp_m(s_a, chp_val(s_a, chk_v(*s_a, strt), chk_vr(*s_a, strt))) == 1)
+					rot_a(s_a);
 			}
-			else
+			if ((chk_v(*s_a, strt) == chk_vr(*s_a, strt)) && s_size(*s_b) < strt)
 			{
-				if ((f_chk_v(*s_a, strt) != f_chk_vr(*s_a, strt)) && s_size(*s_b) < strt)
-				{
-					if (cheap_m(s_a, cheap_val(s_a, f_chk_v(*s_a, strt), f_chk_vr(*s_a, strt))) == 0)
-							rev_rot_a(s_a);
-					else if (cheap_m(s_a, cheap_val(s_a, f_chk_v(*s_a, strt), f_chk_vr(*s_a, strt))) == 1)
-							rot_a(s_a);
-				}
-				if ((f_chk_v(*s_a, strt) == f_chk_vr(*s_a, strt)) && s_size(*s_b) < strt)
-				{
-					valor = f_chk_v(*s_a, strt);
-					if (cheap_m(s_a, valor) == 0)
-						rev_rot_a(s_a);
-					else if (cheap_m(s_a, valor) != 0)
-						rot_a(s_a);
-					else if ((*s_a)->idx <= strt)
-					{
-						push_b(s_a, s_b);
-						if (s_size(*s_b) == strt)
-						{
-							strt = strt + chnk;
-						}
-					}
-				}
+				if (chp_m(s_a, chk_v(*s_a, strt)) == 0)
+					rev_rot_a(s_a);
+				else if (chp_m(s_a, chk_v(*s_a, strt)) != 0)
+					rot_a(s_a);
 			}
 		}
 	}
@@ -79,6 +62,6 @@ void	alg_selector(t_s **s_a, t_s **s_b, int size)
 		alg_100(s_a, s_b, size);
 	if (size > 50 && size <= 100)
 		alg_100(s_a, s_b, size);
-	if (size > 100 && size <= 500)
-		alg_100(s_a, s_b, size);
+	if (size > 100)
+		alg_500(s_a, s_b, size);
 }

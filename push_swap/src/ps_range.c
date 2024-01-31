@@ -6,49 +6,11 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 19:24:09 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/01/28 17:30:38 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:17:24 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/* find_h_i find the highest val with idx != 0 in s */
-int	find_h_i(t_s *s)
-{
-	int	max_val;
-
-	if (s == NULL)
-		return (INT_MAX);
-	max_val = INT_MIN;
-	while (s->nxt != NULL && s->idx == 0)
-	{
-		if (s->val > max_val)
-			max_val = s->val;
-		s = s->nxt;
-	}
-	return (max_val);
-}
-
-/* find_l_i find the lowest val with idx != 0 in a s */
-int	find_l_i(t_s **s)
-{
-	int		min_val;
-	t_s	*curr;
-
-	min_val = INT_MAX;
-	if (!s || !*s)
-		return (min_val);
-	curr = *s;
-	while (curr != NULL)
-	{
-		if (curr->idx == 0 && curr->val <= min_val)
-		{
-			min_val = curr->val;
-		}
-		curr = curr->nxt;
-	}
-	return (min_val);
-}
 
 /* f_lowidx find the lowest val with idx != 0 in a s */
 int	f_lowidx(t_s **s)
