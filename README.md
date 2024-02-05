@@ -22,5 +22,5 @@ this are all the porjects i've passed as a 42 Barcelona student:
 - push_swap:.................................Project 🎯 .... Bonus: ❌
 </p>
 <p>
-- fractol:.......................................Project 🎯 .... Bonus: ❌
+- fractol:.........................................Project 🎯 .... Bonus: ❌
 </p>
