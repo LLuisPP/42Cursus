@@ -6,14 +6,14 @@
 #    By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 16:34:33 by lprieto-          #+#    #+#              #
-#    Updated: 2024/01/23 11:15:08 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/02/02 11:33:12 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # -------- NOMBRE
 NAME = libft.a
 
-CC = gcc
+CC = gcc -g
 CFLAGS = -Wall -Wextra -Werror
 AR = ar -rcs
 RM = rm -rf
@@ -37,16 +37,15 @@ SRCS = ft_strlen.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 	   ft_abs_val.c ft_range.c
 
 SRC_PATH = ./src/
-
-DIRSRC = $(addprefix $(SRC_PATH), $(SRCS))
-
 OBJ_PATH = ./tmp/
 
+H_PATH = ../hincludes
+HEADERS = -I$(H_PATH)
+
+DIRSRC = $(addprefix $(SRC_PATH), $(SRCS))
 OBJS = $(addprefix $(OBJ_PATH), $(SRCS:.c=.o))
 
-H_PATH = ../hincludes
-
-HEADERS = -I$(H_PATH)
+DEPS = $(OBJS:.o=.d)
 
 all: $(OBJ_PATH) $(NAME)
 
@@ -55,14 +54,12 @@ $(OBJ_PATH):
 
 $(NAME): $(OBJS)
 	$(call show_progress)
-	ar -rcs $(NAME) $(OBJS)
-	echo
+	$(AR) $(NAME) $(OBJS)
 
-$(OBJ_PATH)%.o: $(SRC_PATH)%.c Makefile
-	$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c Makefile $(H_PATH)
+	$(CC) $(CFLAGS) $(HEADERS) -MMD -c $< -o $@
 
 clean :
-	$(call progress_remove)
 	$(RM) $(OBJ_PATH)
 
 fclean :
@@ -70,12 +67,13 @@ fclean :
 
 re :
 	$(RM) $(NAME) $(OBJS)
-	make all
+	make all --silent
 
 .PHONY: all, clean, fclean, re
 
 .SILENT:
 
+-include $(DEPS)
 
 #========================================================================#
 
@@ -106,11 +104,13 @@ BAR_LEN := 40
 
 define show_progress
 	echo; \
-		printf " e     e  eeeee  eeee eeeee \n \
-8     8  8   8  8      8   \n \
-8e    8e 8eee8e 8eee   8e  \n \
-88    88 88   8 88     88  \n \
-88eee 88 88eee8 88     88  \n\n"; \
+	printf "\n $(BBLUE)▄$(WHITE)█▀▀▀▀▀▀▀▄ ▄▀▀▀▀▀▀▀█$(BBLUE)▄$(WHITE)\n \
+$(BBLUE)█$(WHITE)█ ░▄░▄▄░▄ ░<░░/>░ █$(BBLUE)█$(WHITE)    e     e  eeeee  eeee eeeee \n \
+$(BBLUE)█$(WHITE)█ ░▄▄░▄░░ ░▄░░░▄░ █$(BBLUE)█$(WHITE)    8     8  8   8  8      8\n \
+$(BBLUE)█$(WHITE)█ $(NAME) ░▄░░▄▄░ █$(BBLUE)█$(WHITE)    8e    8e 8eee8e 8eee   8e\n \
+$(BBLUE)█$(WHITE)█ ░░░░░░░ ░░░░░░░ █$(BBLUE)█$(WHITE)    88    88 88   8 88     88\n \
+$(BBLUE)█$(WHITE)█▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄█$(BBLUE)█$(WHITE)    88eee 88 88eee8 88     88\n \
+$(BBLUE)▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀\n\n"; \
 	((i = 0)); \
 	while [[ $$i -le $(COUNT_SRCS) ]] ; do \
 		printf "$(BBLUE)["; \
@@ -127,7 +127,8 @@ define show_progress
 		printf "$(BBLUE)] [$(CIAN)$$i/$(COUNT_SRCS)$(BBLUE)] \
 		[$(BWHITE)$$((i * 100 / $(COUNT_SRCS)))%%$(BBLUE)]$(WHITE)\r"; \
 		((i = i + 1)); \
-		sleep 0.03; \
+		sleep 0.02; \
 	done; \
-	echo
+	echo;
 endef
+

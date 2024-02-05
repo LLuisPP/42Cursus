@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mv_push.c                                          :+:      :+:    :+:   */
+/*   ps_mv_push.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 10:11:02 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/01/30 15:25:31 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/01 09:29:16 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	push_a(t_s **s_a, t_s **s_b)
 		(*s_a) = tmp;
 	}
 	ft_printf("pa\n");
-	// print_status(*s_a, *s_b);
 }
 
 /* push_b (pb) push_a push at top a value from pile b to pile a */
@@ -41,5 +40,4 @@ void	push_b(t_s **s_a, t_s **s_b)
 		(*s_b) = tmp;
 	}
 	ft_printf("pb\n");
-	// print_status(*s_a, *s_b);
 }

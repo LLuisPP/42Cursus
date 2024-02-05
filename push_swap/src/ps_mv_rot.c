@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mv_rot.c                                           :+:      :+:    :+:   */
+/*   ps_mv_rot.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 10:16:59 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/01/30 10:04:51 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/01 09:29:39 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	rot_a(t_s **s_a)
 		curr->nxt = tmp;
 	}
 	ft_printf("ra\n");
-	// print_s(*s_a);
 }
 
 /* rot_a (rb) rot head node to the last node from pile b */
@@ -53,7 +52,6 @@ void	rot_b(t_s **s_b)
 		curr->nxt = tmp;
 	}
 	ft_printf("rb\n");
-	// print_s(*s_b);
 }
 
 /* rot_both (rr) rot head nodes to the last node from pile a and b */

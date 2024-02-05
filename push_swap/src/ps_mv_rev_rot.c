@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mv_rev_rot.c                                       :+:      :+:    :+:   */
+/*   ps_mv_rev_rot.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 10:27:19 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/01/30 10:04:43 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/01 09:29:29 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	rev_rot_a(t_s **s_a)
 		*s_a = tmp;
 	}
 	ft_printf("rra\n");
-	// print_s(*s_a);
 }
 
 /* rev_rot_b (rrb) rot one position downwards all nodes from pile b */
@@ -55,7 +54,6 @@ void	rev_rot_b(t_s **s_b)
 		*s_b = tmp;
 	}
 	ft_printf("rrb\n");
-	// print_s(*s_b);
 }
 
 /* rev_rot_both (rrr) rot one position downwards all nodes pile a & b */

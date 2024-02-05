@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mv_swap.c                                          :+:      :+:    :+:   */
+/*   ps_mv_swap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 10:10:01 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/01/30 19:06:47 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/01 09:29:47 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	swap_a(t_s **s_a)
 		*s_a = tmp;
 	}
 	ft_printf("sa\n");
-	// print_s(*s_a);
 }
 
 /* swap_b (sb) swaps 2 first nodes in pile b */
@@ -45,7 +44,6 @@ void	swap_b(t_s **s_b)
 		*s_b = tmp;
 	}
 	ft_printf("sb\n");
-	// print_s(*s_b);
 }
 
 /* swap_both (ss) swaps 2 first nodes in pile a & b */
