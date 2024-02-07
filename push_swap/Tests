@@ -1,0 +1,23 @@
+
+3:
+ARG=$(ruby -e "puts (0..2).to_a.shuffle.join(' ')"); ./push_swap $ARG
+
+5:
+ARG=$(ruby -e "puts (-2..2).to_a.shuffle.join(' ')"); ./push_swap $ARG
+
+10:
+ARG=$(ruby -e "puts (-5..4).to_a.shuffle.join(' ')"); ./push_swap $ARG
+
+50:
+ARG=$(ruby -e "puts (-35..14).to_a.shuffle.join(' ')"); ./push_swap $ARG
+
+100:
+ARG=$(ruby -e "puts (-9..90).to_a.shuffle.join(' ')"); ./push_swap $ARG
+
+500:
+ARG=$(ruby -e "puts (-99..400).to_a.shuffle.join(' ')"); ./push_swap $ARG
+
+500 amb log test
+ARG=$(ruby -e "puts (0..499).to_a.shuffle.join(' ')"); ./push_swap $ARG > log && cat log | ./checker_Mac $ARG && wc -l log
+
+while [ 1 ]; do ./push_swap $(ruby -e "puts (1..500).to_a.shuffle.join(' ')") | wc -l; contador=$((contador + 1)); done
