@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 12:03:28 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/01 09:55:10 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/07 10:29:25 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	alg_selector(t_s **s_a, t_s **s_b, int size)
 	if (size > 5 && size <= 10)
 		alg_10(s_a, s_b, size);
 	if (size > 10 && size <= 50)
-		alg_100(s_a, s_b, size);
+		alg_50(s_a, s_b, size);
 	if (size > 50 && size <= 100)
 		alg_100(s_a, s_b, size);
 	if (size > 100)

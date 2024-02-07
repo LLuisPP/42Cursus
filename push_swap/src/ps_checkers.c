@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 10:03:25 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/01 10:33:18 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/07 10:23:52 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,6 @@ int	checkers(int argc, char **argv)
 	if (arg_duplicate(argc, argv) != 1)
 		error_end("Error\n");
 	if (arg_order(argc, argv) != 1)
-		error_end("Error\n");
+		error_end("");
 	return (1);
 }
