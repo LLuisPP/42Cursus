@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 13:12:48 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/11/24 10:51:33 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/10 10:06:15 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ char	*ft_read_fd(int fd, char *buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer[INT_MAX];
+	static char	*buffer[OPEN_MAX];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > OPENN_MAX)
 		return (NULL);
 	buffer[fd] = ft_read_fd(fd, buffer[fd]);
 	if (!buffer[fd])
@@ -52,25 +52,32 @@ char	*get_next_line(int fd)
 	buffer[fd] = ft_new_line(buffer[fd]);
 	return (line);
 }
-// int	main(void)
-// {
-// 	int		fd[];
-// 	char	*line;
-// 	int		count;
 
-// 	fd = open("text.txt", O_RDONLY);
-// 	if (fd < 0)
-// 		return (0);
-// 	count = 0;
-// 	line = get_next_line(fd);
+int	main(void)
+{
+	int		fd[2];
+	char	*line;
+	int		count;
+	int		i;
 
-// 	while (line)
-// 	{
-// 		line = get_next_line(fd);
-// 		printf("LINE [%d] - %s", count, line);
-// 		count++;
-// 		free(line);
-// 	}
-// 	close(fd);
-// 	return (0);
-// }
+	i = 0;
+	fd[0] = open("archivo.txt", O_RDONLY);
+	fd[1] = open("archivo2.txt", O_RDONLY);
+	if (fd[i] < 0)
+		return (0);
+	count = 0;
+	while (i < 2)
+	{
+		line = "";
+		while (line)
+		{
+			line = get_next_line(fd[i]);
+			printf("LINE [%d] - %s", count, line);
+			count++;
+			free(line);
+		}
+		i++;
+	}
+	close(*fd);
+	return (0);
+}

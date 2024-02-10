@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 13:12:48 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/11/24 09:22:21 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/10 09:35:04 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,26 +52,24 @@ char	*get_next_line(int fd)
 	buffer = ft_new_line(buffer);
 	return (line);
 }
+int	main(void)
+{
+	int		fd;
+	char	*line;
+	int		count;
 
-// int	main(void)
-// {
-// 	int		fd;
-// 	char	*line;
-// 	int		count;
-
-// 	fd = open("text.txt", O_RDONLY);
-// 	if (fd < 0)
-// 		return (0);
-// 	count = 0;
-// 	line = get_next_line(fd);
-
-// 	while (line)
-// 	{
-// 		line = get_next_line(fd);
-// 		printf("LINE [%d] - %s", count, line);
-// 		count++;
-// 		free(line);
-// 	}
-// 	close(fd);
-// 	return (0);
-// }
+	fd = open("text.txt", O_RDONLY);
+	if (fd < 0)
+		return (0);
+	count = 0;
+	// line = get_next_line(fd);
+	while (line)
+	{
+		line = get_next_line(fd);
+		printf("LINE [%d] - %s", count, line);
+		count++;
+		free(line);
+	}
+	close(fd);
+	return (0);
+}

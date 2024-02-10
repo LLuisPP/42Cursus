@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_optimizer.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 15:59:07 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/01 10:35:28 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/06 21:41:17 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	chp_v(t_s **s, int trgeta, int trgetb)
 {
 	int	f_count;
 	int	r_count;
-	t_s	*curr;
+	// t_s	*curr;
 
 	if (trgeta == 0 && trgetb != 0)
 		return (trgetb);
@@ -25,7 +25,7 @@ int	chp_v(t_s **s, int trgeta, int trgetb)
 	if (trgeta == trgetb)
 		return (trgeta);
 	f_count = front_loop(s, trgeta);
-	curr = *s;
+	// curr = *s;
 	r_count = reverse_loop(s, trgetb);
 	if (f_count == s_size(*s) && r_count == s_size(*s))
 		return (0);

@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 16:34:33 by lprieto-          #+#    #+#              #
-#    Updated: 2024/02/05 08:10:09 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/02/07 22:01:06 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS = ft_strlen.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 	   ft_isprint.c ft_tolower.c ft_toupper.c ft_strncmp.c ft_strchr.c \
 	   ft_strdup.c ft_strrchr.c ft_strnstr.c ft_memset.c ft_bzero.c \
 	   ft_memchr.c ft_memcpy.c ft_memcmp.c ft_memmove.c ft_strlcpy.c \
-	   ft_atoi.c ft_calloc.c ft_strlcat.c ft_substr.c ft_strjoin.c \
+	   ft_atoi.c ft_atol.c ft_calloc.c ft_strlcat.c ft_substr.c ft_strjoin.c \
 	   ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
 	   ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 	   ft_printf.c \
@@ -38,7 +38,8 @@ SRCS = ft_strlen.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 	   push_swap.c ps_checkers.c ps_stacks.c ps_print_tools.c ps_range.c \
 	   ps_mv_swap.c ps_mv_push.c ps_mv_rot.c ps_mv_rev_rot.c \
 	   ps_alg_select.c ps_validate.c ps_index.c ps_optimizer.c ps_alg3.c \
-	   ps_alg4.c ps_alg5.c ps_alg10.c ps_alg50.c ps_alg100.c ps_alg500.c
+	   ps_alg4.c ps_alg5.c ps_alg10.c ps_alg50.c ps_alg100.c ps_alg500.c \
+	   ft_strcmp.c
 
 SRC_PATH = ./src/
 OBJ_PATH = ./tmp/
@@ -109,10 +110,10 @@ BAR_LEN := 40
 define show_progress
 	echo; \
 	printf "\n $(BBLUE)▄$(WHITE)█▀▀▀▀▀▀▀▄ ▄▀▀▀▀▀▀▀█$(BBLUE)▄$(WHITE)\n \
-$(BBLUE)█$(WHITE)█ ░▄░▄▄░▄ ░<░░/>░ █$(BBLUE)█$(WHITE)    e     e  eeeee  eeee eeeee \n \
-$(BBLUE)█$(WHITE)█ ░▄▄░▄░░ ░▄░░░▄░ █$(BBLUE)█$(WHITE)    8     8  8   8  8      8\n \
+$(BBLUE)█$(WHITE)█ ░▄░▄▄░░ ░<░░/>░ █$(BBLUE)█$(WHITE)    e     e  eeeee  eeee eeeee \n \
+$(BBLUE)█$(WHITE)█ ░▄░▄░▄░ ░▄░░░▄░ █$(BBLUE)█$(WHITE)    8     8  8   8  8      8\n \
 $(BBLUE)█$(WHITE)█ $(NAME) ░▄░░▄▄░ █$(BBLUE)█$(WHITE)    8e    8e 8eee8e 8eee   8e\n \
-$(BBLUE)█$(WHITE)█ ░░░░░░░ ░░░░░░░ █$(BBLUE)█$(WHITE)    88    88 88   8 88     88\n \
+$(BBLUE)█$(WHITE)█ ░▄▄░▄░░ ░░░▄▄░░ █$(BBLUE)█$(WHITE)    88    88 88   8 88     88\n \
 $(BBLUE)█$(WHITE)█▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄█$(BBLUE)█$(WHITE)    88eee 88 88eee8 88     88\n \
 $(BBLUE)▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀\n\n"; \
 	((i = 0)); \

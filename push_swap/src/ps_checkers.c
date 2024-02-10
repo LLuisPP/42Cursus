@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 10:03:25 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/07 10:23:52 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/09 12:31:38 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int	arg_range(int argc, char **argv)
 	i = 0;
 	while (i < argc)
 	{
-		if ((ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN)
-			|| (ft_strlen(argv[i]) > 12 && ft_atoi(argv[i]) == 0))
+		if ((ft_atol(argv[i]) > INT_MAX || ft_atol(argv[i]) < INT_MIN)
+			|| (ft_strlen(argv[i]) > 12 && ft_atol(argv[i]) == 0))
 			return (0);
 		i++;
 	}
@@ -65,7 +65,7 @@ int	arg_duplicate(int argc, char **argv)
 		j = i + 1;
 		while (j < argc)
 		{
-			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
+			if (ft_atol(argv[i]) == ft_atol(argv[j]))
 				return (0);
 			j++;
 		}
@@ -82,7 +82,7 @@ int	arg_order(int argc, char **argv)
 	i = 1;
 	while (i < argc -1)
 	{
-		if (ft_atoi(argv[i]) < ft_atoi(argv[i + 1]))
+		if (ft_atol(argv[i]) < ft_atol(argv[i + 1]))
 			++i;
 		else
 			return (1);

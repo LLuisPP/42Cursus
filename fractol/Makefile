@@ -6,18 +6,20 @@
 #    By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 16:34:33 by lprieto-          #+#    #+#              #
-#    Updated: 2024/02/05 12:29:57 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/02/10 11:28:28 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 
 CC = gcc -g
-CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CPPFLAGS =  -I minilibx #flags de preprocesador
+OPENGLFLAG = -framework OpenGL -framework AppKit
 AR = ar -rcs
 RM = rm -rf
 
-SRCS = main.c  
+SRCS = fractol.c frol_error.c frol_fractal.c frol_fractal_set.c frol_render.c
 
 SRC_PATH := ./src/
 OBJ_PATH := ./tmp/
@@ -36,7 +38,7 @@ makelib:
 	$(MAKE) --silent -C libft  --no-print-directory
 
 makelibx:
-	# $(call show_mlx)
+	$(call show_mlx)
 	$(MAKE) --silent -C minilibx --no-print-directory &> /dev/null
 
 $(OBJ_PATH):
@@ -44,11 +46,11 @@ $(OBJ_PATH):
 
 $(NAME): $(OBJS)
 	$(call show_progress)
-	$(CC) $(OBJS) libft/libft.a -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(OPENGLFLAG) -L libft -lft -L minilibx -lmlx -o $(NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c Makefile libft/libft.a
 	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(HEADERS) -MMD -c $< -o $@
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(HEADERS) -MMD -c $< -o $@
 
 clean :
 	$(RM) $(OBJ_PATH)
@@ -105,11 +107,11 @@ BAR_LEN := 40
 
 define show_progress
 	echo; \
-	printf " eeeee eeee  eeeee eeee eeee eeee e          __/\__\n \
-8e    8  8  8   8 8  8  8   8 88 8          \    /\n \
-88ee  8ee8e 8eee8 8e    8e  8  8 8e    __/\_/    \_/\__\n \
-88    88  8 88  8 88    88  8  8 88    \              /\n \
-88    88  8 88  8 88e8  88  8ee8 88eee /__          __\ \n\n"; \
+	printf " eeeee eeee  eeeee eeee eeee eeee e         __/\__\n \
+8e    8  8  8   8 8  8  8   8 88 8         \_\/_/\n \
+88ee  8ee8e 8eee8 8e    8e  8  8 8e   __/\_/_/\_\_/\__\n \
+88    88  8 88  8 88    88  8  8 88   \_\/_/    \_\/_/\n \
+88    88  8 88  8 88e8  88  8ee8 88ee /_/\_\    /_/\_\ \n\n"; \
 	((i = 0)); \
 	while [[ $$i -le $(COUNT_SRCS) ]] ; do \
 		printf "$(BBLUE)["; \
@@ -135,13 +137,13 @@ $(YELLOW)████▄     $(BBLUE)█${PHA}▀▄▀▄▀${BBLUE}█${RES}  
 $(YELLOW) ▀████▀   $(BBLUE)█▀█▀█▀█  ${RED}█ █ █ █             ${PURPLE}█ █ █ █  ${BCIAN}█ █ █ █\n\n";
 endef
 
-# define show_mlx
-# 	echo; \
-# 	printf "              ░░\n \
-# ░░░░░  ░░░   ░░ ░░      ░░\n \
-# ░░   ░░   ░░ ░░   ░░  ░░\n \
-# ░░   ░░   ░░ ░░     ░░\n \
-# ░░   ░░   ░░ ░░   ░░  ░░\n \
-# ░░   ░░   ░░ ░░ ░░      ░░\n\n";
-# endef
+define show_mlx
+	echo; \
+	printf "              ░░\n \
+░░░░░  ░░░   ░░ ░░      ░░\n \
+░░   ░░   ░░ ░░   ░░  ░░\n \
+░░   ░░   ░░ ░░     ░░\n \
+░░   ░░   ░░ ░░   ░░  ░░\n \
+░░   ░░   ░░ ░░ ░░      ░░\n\n";
+endef
 

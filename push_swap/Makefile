@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 16:34:33 by lprieto-          #+#    #+#              #
-#    Updated: 2024/02/02 09:12:36 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/02/09 09:02:30 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ $(OBJ_PATH):
 
 $(NAME): $(OBJS)
 	$(call show_progress)
-	$(CC) $(OBJS) libft/libft.a -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) libft/libft.a -o $(NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c Makefile libft/libft.a
 	mkdir -p $(dir $@)
