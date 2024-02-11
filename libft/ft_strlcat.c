@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:31:00 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/12 07:07:08 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/11 09:45:32 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
@@ -56,11 +57,11 @@ int main(int argc, char **argv)
 {
 	if (argc != 4)
 		return (0);
-	printf("strlcat:%zu \n", strlcat(argv[1], argv[2], atoi(argv[3])));
+	printf("strlcat:%zu \n", ft_strlcat(argv[1], argv[2], atoi(argv[3])));
 //	printf("ft_strlcat:%lu \n", ft_strlcat(argv[1], argv[2], atoi(argv[3])));
 //ft_strlcat(argv[1], argv[2], atoi(argv[3]));
 print_mem(argv[1], atoi(argv[3]));
-strlcat(argv[1], argv[2], atoi(argv[3]));
+ft_strlcat(argv[1], argv[2], atoi(argv[3]));
 print_mem(argv[1], atoi(argv[3]));
 
 //print_mem(argv[1], sizeof((char *)argv[2]));

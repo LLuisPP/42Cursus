@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 19:14:45 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/10 16:12:57 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/11 09:01:05 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 typedef struct s_list
 {
-    void            *content;
-    struct s_list   *next;
-}   t_list;
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);

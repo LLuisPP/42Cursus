@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
+#    By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/13 12:01:56 by lprieto-          #+#    #+#              #
-#    Updated: 2024/02/10 16:47:20 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/02/11 10:29:57 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-CC = gcc -g
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 AR = ar -rcs
 RM = rm -f
 
@@ -25,7 +25,7 @@ SRCS = ft_strlen.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 	   ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
 	   ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
-BONUS_OBJS =	ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c \
+B_SRCS =	ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c \
 				ft_lstclear_bonus.c	ft_lstdelone_bonus.c ft_lstiter_bonus.c \
 				ft_lstlast_bonus.c ft_lstmap_bonus.c ft_lstnew_bonus.c \
 				ft_lstsize_bonus.c
@@ -33,36 +33,39 @@ BONUS_OBJS =	ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c \
 HEADER = libft.h
 
 OBJS = $(SRCS:.c=.o)
-OBJS_BONUS = $(SRCS:.c=.o)
+B_OBJS = $(B_SRCS:.c=.o)
 
 DEPS = $(OBJS:.o=.d)
+B_DEPS = $(B_OBJS:.o=.d)
 
-all: $(NAME)
+all: $(NAME) 
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) libft.h
+	$(call show_progress)
 	$(AR) $(NAME) $(OBJS)
 
-%.o: %.c $(HEADER) Makefile libft.h
-	$(CC) $(CFLAGS) -I -MMD -c $< -o $@ 
-
+%.o: %.c $(HEADER) Makefile
+	$(CC) $(CFLAGS) -I$(HEADER) -MMD -c $< -o $@
+	
 clean :
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(B_OBJS) $(DEPS) $(B_DEPS)
 
 fclean :
-	$(RM) $(NAME) $(OBJS)
+	$(RM) $(NAME) $(OBJS) $(B_OBJS) $(DEPS) $(B_DEPS) 
 
 re :
 	$(RM) $(NAME) $(OBJS)
 	make all
 
-bonus :	$(OBJS)	$(OBJS_BONUS) libft_bonus.h
-	$(CC) $(NAME) $(OBJS) $(OBJS_BONUS)
+bonus :	$(OBJS) $(B_OBJS) libft.h
+	$(AR) $(NAME) $(OBJS) $(B_OBJS)
 
 .PHONY: all, clean, fclean, re, bonus
 
-.SILENT:
-
 -include $(DEPS)
+-include $(B_DEPS)
+
+.SILENT:
 
 #========================================================================#
 
@@ -124,7 +127,7 @@ $(BBLUE)▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀\n\n"; \
 	done; \
 	echo; \
 	printf "\n  $(YELLOW)▄████▄   $(BBLUE)▄█████▄  ${RED}▄█████▄             ${PURPLE}▄█████▄  $(BCIAN)▄█████▄\n \
-$(YELLOW)████▄███  $(BBLUE)██${PHA}▄$(BBLUE)█$(PHA)▄█$(BBLUE)█${RES}  ${RED}█$(WHITE)▄ ${RED}█$(WHITE)▄ ${RED}█ $(GREEN) ${BOLD}$(NAME)  ${PURPLE}█$(WHITE) ▀${PURPLE}█$(WHITE) ▀${PURPLE}█  ${BCIAN}█$(WHITE)▀ ${BCIAN}█$(WHITE)▀ ${BCIAN}█\n \
+$(YELLOW)████▄███  $(BBLUE)██${PHA}▄$(BBLUE)█$(PHA)▄█$(BBLUE)█${RES}  ${RED}█$(WHITE)▄ ${RED}█$(WHITE)▄ ${RED}█ $(GREEN) ${BOLD}$(NAME)    ${PURPLE}█$(WHITE) ▀${PURPLE}█$(WHITE) ▀${PURPLE}█  ${BCIAN}█$(WHITE)▀ ${BCIAN}█$(WHITE)▀ ${BCIAN}█\n \
 $(YELLOW)████▄     $(BBLUE)█${PHA}▀▄▀▄▀${BBLUE}█${RES}  ${RED}███████  $(WHITE)$$(whoami)   ${PURPLE}███████  ${BCIAN}███████ \n \
 $(YELLOW) ▀████▀   $(BBLUE)█▀█▀█▀█  ${RED}█ █ █ █             ${PURPLE}█ █ █ █  ${BCIAN}█ █ █ █\n\n";
 endef
