@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 13:12:48 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/10 09:35:04 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/12 08:43:11 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*get_next_line(int fd)
 	buffer = ft_new_line(buffer);
 	return (line);
 }
-int	main(void)
+/*int	main(void)
 {
 	int		fd;
 	char	*line;
@@ -72,4 +72,4 @@ int	main(void)
 	}
 	close(fd);
 	return (0);
-}
+}*/

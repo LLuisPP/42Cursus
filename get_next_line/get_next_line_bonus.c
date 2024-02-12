@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 13:12:48 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/10 10:06:15 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/12 08:42:45 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*get_next_line(int fd)
 	static char	*buffer[OPEN_MAX];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd > OPENN_MAX)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > OPEN_MAX)
 		return (NULL);
 	buffer[fd] = ft_read_fd(fd, buffer[fd]);
 	if (!buffer[fd])
@@ -53,7 +53,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	int		fd[2];
 	char	*line;
@@ -80,4 +80,4 @@ int	main(void)
 	}
 	close(*fd);
 	return (0);
-}
+}*/

@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 15:14:54 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/10 11:56:51 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/12 10:04:31 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	init_fractal(t_f *f)
 	f->win_ptr = mlx_new_window(f->mlx_ptr, WIDTH, HEIGHT, "Fractol");
 	f->img = mlx_new_image(f->mlx_ptr, WIDTH, HEIGHT);
 	f->prm.addr = mlx_get_data_addr(f->img, &f->prm.bpp, &f->prm.l_len, &f->prm.end);
-	f->prm.max_iter = 120;
+	f->prm.max_iter = 300;
 	f->prm.min_re = -2.0;
 	f->prm.max_re = 2.0;
 	f->prm.min_im = -2.0;

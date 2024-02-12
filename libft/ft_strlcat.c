@@ -6,12 +6,11 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:31:00 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/11 09:45:32 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/12 07:55:53 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {

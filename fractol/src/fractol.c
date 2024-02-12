@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:37:09 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/10 11:53:59 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/12 09:57:50 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	zoom(t_f *f, double zoom)
 
 	cen_re = f->prm.min_re - f->prm.max_re;
 	cen_im = f->prm.max_im - f->prm.min_im;
-	f->prm.max_re = f->prm.max_re + (cen_re - zoom * cen_re) / 2.3;
+	f->prm.max_re = f->prm.max_re + (cen_re - zoom * cen_re) / 2.29;
 	f->prm.min_re = f->prm.max_re + zoom * cen_re;
 	f->prm.min_im = f->prm.min_im + (cen_im - zoom * cen_im) / 2.9;
 	f->prm.max_im = f->prm.min_im + zoom * cen_im;
@@ -70,13 +70,13 @@ int	mouse(int key, int x, int y, t_f *f)
 
 	if (key == 4)
 	{
-		zoom(f, 1.1);
+		zoom(f, 1.4);
 		x -= WIDTH / 2;
 		y -= HEIGHT / 2;
 	}
 	if (key == 5)
 	{
-		zoom(f, 0.9);
+		zoom(f, 0.7);
 		x -= WIDTH / 2;
 		y -= HEIGHT / 2;
 	}
