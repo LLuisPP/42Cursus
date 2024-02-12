@@ -11,10 +11,10 @@ this are all the porjects i've passed as a 42 Barcelona student:
 - ft_printf:......................................Project ✅ .... Bonus: ❌
 </p>
 <p>
-- Born2beroot:...............................Project ✅ .... Bonus: ❌
+- born2beroot:...............................Project ✅ .... Bonus: ❌
 </p>
 <p>
-- ft_get_next_line:..........................Project ✅ .... Bonus: ✅
+- get_next_line:.............................Project ✅ .... Bonus: ✅
 </p>
 <p>
 <p><h4 align="left">3rd circle</h4>
