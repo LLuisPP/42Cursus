@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 08:13:12 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/13 09:30:53 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/13 12:09:18 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # include "ft_printf.h"
 # include "mlx.h"
 
-# define HEIGHT	750
-# define WIDTH	750
+# define HEIGHT	500
+# define WIDTH	500
 
 typedef struct s_frac_prm
 {
