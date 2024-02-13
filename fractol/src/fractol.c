@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:37:09 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/12 09:57:50 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/13 09:04:54 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,6 @@ int	p_key(int key, t_f *f)
 	return (0);
 }
 
-void	fill_pixels(t_f *f)
-{
-	int x;
-	int y;
-
-	y = 0;
-	while (y < HEIGHT)
-	{
-		x = 0;
-		while (x < WIDTH)
-		{
-			x++;
-			julia(x, y, f);
-		}
-		y++;
-	}
-	mlx_put_image_to_window(f->mlx_ptr, f->win_ptr,	f->img, 0, 0);
-}
-
 static void	zoom(t_f *f, double zoom)
 {
 	double	cen_re;
@@ -67,7 +48,6 @@ int	mouse(int key, int x, int y, t_f *f)
 	ft_printf("key %d pressed\n", key);
 	ft_printf("x: %d\n", x);
 	ft_printf("y: %d\n", y);
-
 	if (key == 4)
 	{
 		zoom(f, 1.4);
@@ -80,8 +60,6 @@ int	mouse(int key, int x, int y, t_f *f)
 		x -= WIDTH / 2;
 		y -= HEIGHT / 2;
 	}
-	
-
 	return (render(f, x, y));
 }
 
@@ -89,7 +67,7 @@ int	main(int argc, char **argv)
 {
 	t_f		*f;
 	void	*param;
-	
+
 	if (argc != 2)
 		err_end("[Error]: invalid number of arguments");
 	f = fr_match(argv[1]);
@@ -97,11 +75,10 @@ int	main(int argc, char **argv)
 	if (f->name == NULL)
 		err_end("[Error]: invalid fractal name");
 	render(f, -2, 2);
-	fill_pixels(f);
 	mlx_put_image_to_window(f->mlx_ptr, f->win_ptr, f->img, 0, 0);
-	mlx_hook (f->win_ptr, 17, 1L<<0, exit_click, f);
+	mlx_hook (f->win_ptr, 17, 1L << 0, exit_click, f);
 	mlx_key_hook(f->win_ptr, p_key, &param);
 	mlx_mouse_hook(f->win_ptr, mouse, f);
 	mlx_loop(f->mlx_ptr);
 	return (0);
-} 
+}

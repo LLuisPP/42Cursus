@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 15:14:54 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/12 10:04:31 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/13 09:07:22 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 t_f	*get_fractals(void)
 {
-	static	t_f	array[5];
-	// array = {{"", 0x0, 0x0, 0x0 }, {.name = "ede", .img = 0x8372487238}}
-	// ft_bzero(array, sizeof(t_f));
+	static t_f	array[5];
+
+	ft_bzero(array, sizeof(t_f));
 	array[0].name = "Mandelbrot";
 	array[1].name = "Julia";
 	array[2].name = "Tricorn";
@@ -49,10 +49,12 @@ void	init_fractal(t_f *f)
 	f->mlx_ptr = mlx_init();
 	f->win_ptr = mlx_new_window(f->mlx_ptr, WIDTH, HEIGHT, "Fractol");
 	f->img = mlx_new_image(f->mlx_ptr, WIDTH, HEIGHT);
-	f->prm.addr = mlx_get_data_addr(f->img, &f->prm.bpp, &f->prm.l_len, &f->prm.end);
-	f->prm.max_iter = 300;
+	f->prm.addr = mlx_get_data_addr(f->img, &f->prm.bpp, &f->prm.l_len,
+			&f->prm.end);
+	f->prm.max_iter = 150;
 	f->prm.min_re = -2.0;
 	f->prm.max_re = 2.0;
 	f->prm.min_im = -2.0;
-	f->prm.max_im = f->prm.min_re + (f->prm.max_re - (f->prm.min_re)) * WIDTH / HEIGHT;
+	f->prm.max_im = f->prm.min_re + (f->prm.max_re - (f->prm.min_re))
+		* WIDTH / HEIGHT;
 }
