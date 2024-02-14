@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 16:34:33 by lprieto-          #+#    #+#              #
-#    Updated: 2024/02/13 09:39:30 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/02/14 12:39:23 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SRCS = ft_strlen.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 	   ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 	   ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
 	   ft_lstclear_bonus.c	ft_lstdelone_bonus.c ft_lstiter_bonus.c \
-	   ft_lstlast_bonus.c ft_lstmap_bonus.c ft_lstnew_bonus.c \
+	   ft_lstlast_bonus.c ft_lstmap_bonus.c ft_lstnew_bonus.c ft_strcpsn.c \
 	   ft_printf.c \
 	   ft_pholder.c \
 	   ft_putchar.c \
