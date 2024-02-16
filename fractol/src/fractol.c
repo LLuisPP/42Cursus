@@ -6,29 +6,11 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:37:09 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/13 09:04:54 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/16 09:11:59 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-int	p_key(int key, t_f *f)
-{
-	ft_printf("key %d pressed\n", key);
-	if (key == 53)
-		exit (exit_click() * 0);
-	if (key == 4)
-	{
-		write(1, "Higher\n", 7);
-		f->prm.max_im *= 1.4;
-	}
-	if (key == 37)
-	{
-		write(1, "Lower\n", 6);
-		f->prm.max_im *= 0.7;
-	}
-	return (0);
-}
 
 static void	zoom(t_f *f, double zoom)
 {
@@ -43,19 +25,40 @@ static void	zoom(t_f *f, double zoom)
 	f->prm.max_im = f->prm.min_im + zoom * cen_im;
 }
 
+int	p_key(int key, t_f *f)
+{
+	(void)f;
+	// ft_printf("key %d pressed\n", key);
+	if (key == 53)
+		exit (exit_click() * 0);
+
+	if (key == 69)
+	{
+		write(1, "↑↑↑ .oO zoom In\n", 23);
+	}
+	if (key == 78)
+	{
+		write(1, "↓↓↓ Oo. zoom Out\n", 24);
+	}
+	return (0);
+}
+
+
 int	mouse(int key, int x, int y, t_f *f)
 {
-	ft_printf("key %d pressed\n", key);
-	ft_printf("x: %d\n", x);
-	ft_printf("y: %d\n", y);
+	// ft_printf("key %d pressed\n", key);
+	// ft_printf("x: %d\n", x);
+	// ft_printf("y: %d\n", y);
 	if (key == 4)
 	{
+		ft_printf("Oo. zoom Out\n", key);
 		zoom(f, 1.4);
 		x -= WIDTH / 2;
 		y -= HEIGHT / 2;
 	}
 	if (key == 5)
 	{
+		ft_printf(".oO zoom In\n", key);
 		zoom(f, 0.7);
 		x -= WIDTH / 2;
 		y -= HEIGHT / 2;
@@ -74,6 +77,9 @@ int	main(int argc, char **argv)
 	init_fractal(f);
 	if (f->name == NULL)
 		err_end("[Error]: invalid fractal name");
+	f->name = (argv[1]);
+	ft_printf("Este es el nombre que le entra: %s\n", argv[1]);
+	ft_printf("Este el que tiene: %s\n", f->name);
 	render(f, -2, 2);
 	mlx_put_image_to_window(f->mlx_ptr, f->win_ptr, f->img, 0, 0);
 	mlx_hook (f->win_ptr, 17, 1L << 0, exit_click, f);

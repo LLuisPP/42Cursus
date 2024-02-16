@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 16:16:02 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/13 09:20:10 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/16 09:20:59 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,30 @@ void	my_mlx_pixel_put(t_f *f, int x, int y, int color)
 		*(unsigned int *)dst = color;
 	}
 }
+
+int	picker(double re, double im, t_f *f)
+{
+	int	i;
+	int	len;
+
+	i = 0;
+	len = 0;
+	while (f->name[len])
+		len++;
+	f->name[len] = '\0';
+	if (!ft_strncmp(f->name, "Mandelbrot", -1))
+		i = mandelbrot(re, im, f);
+	else if (!ft_strncmp(f->name, "Julia", -1))
+		i = julia(re, im, f);
+	else if (!ft_strncmp(f->name, "Tricorn", -1))
+		i = tricorn(re, im, f);
+	else
+		err_end("No match name");
+	return (i);
+}
+
+
+
 
 int	render(t_f *f, int x, int y)
 {
@@ -41,8 +65,9 @@ int	render(t_f *f, int x, int y)
 				* (f->prm.min_im - f->prm.max_im) / HEIGHT;
 			if (f->name != 0)
 			{
+				i = picker(re, im, f);
 				// i = julia(re, im, f);
-				i = mandelbrot(re, im, f);
+				// i = mandelbrot(re, im, f);
 				// i = tricorn(re, im, f);
 				// // i = burningship(re, im, f);
 				if (i < f->prm.max_iter)

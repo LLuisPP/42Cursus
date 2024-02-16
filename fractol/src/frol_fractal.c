@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 15:14:54 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/13 09:07:22 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/16 09:07:45 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 t_f	*get_fractals(void)
 {
-	static t_f	array[5];
+	static t_f	f[4];
 
-	ft_bzero(array, sizeof(t_f));
-	array[0].name = "Mandelbrot";
-	array[1].name = "Julia";
-	array[2].name = "Tricorn";
-	array[3].name = "Burningship";
-	array[4].name = NULL;
-	return (array);
+	ft_bzero(f, sizeof(t_f));
+	f[0].name = "Mandelbrot";
+	f[1].name = "Julia";
+	f[2].name = "Tricorn";
+	f[3].name = NULL;
+	return (f);
 }
 
 t_f	*fr_match(char *str)
