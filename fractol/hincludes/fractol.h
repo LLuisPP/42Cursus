@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 08:13:12 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/16 09:27:52 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/16 09:53:01 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,12 @@
 # define HEIGHT	750
 # define WIDTH	750
 
-typedef struct s_frac_prm
+typedef struct s_fractal
 {
+	char	*name;
+	void	*mlx_ptr;
+	void	*win_ptr;
+	void	*img;
 	double	m_x;
 	double	m_y;
 	int		end;
@@ -40,15 +44,6 @@ typedef struct s_frac_prm
 	double	min_im;
 	double	min_re;
 	double	max_re;
-}	t_prm;
-
-typedef struct s_fractal
-{
-	char				*name;
-	void				*mlx_ptr;
-	void				*win_ptr;
-	void				*img;
-	struct s_frac_prm	prm;
 }	t_f;
 
 void	init_fractal(t_f *f);

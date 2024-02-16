@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 15:14:54 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/16 09:07:45 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/16 09:55:20 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,18 @@ t_f	*fr_match(char *str)
 
 void	init_fractal(t_f *f)
 {
-	f->prm.addr = NULL;
-	f->prm.l_len = 0;
-	f->prm.bpp = 0;
+	f->addr = NULL;
+	f->l_len = 0;
+	f->bpp = 0;
 	f->mlx_ptr = mlx_init();
 	f->win_ptr = mlx_new_window(f->mlx_ptr, WIDTH, HEIGHT, "Fractol");
 	f->img = mlx_new_image(f->mlx_ptr, WIDTH, HEIGHT);
-	f->prm.addr = mlx_get_data_addr(f->img, &f->prm.bpp, &f->prm.l_len,
-			&f->prm.end);
-	f->prm.max_iter = 150;
-	f->prm.min_re = -2.0;
-	f->prm.max_re = 2.0;
-	f->prm.min_im = -2.0;
-	f->prm.max_im = f->prm.min_re + (f->prm.max_re - (f->prm.min_re))
+	f->addr = mlx_get_data_addr(f->img, &f->bpp, &f->l_len,
+			&f->end);
+	f->max_iter = 150;
+	f->min_re = -2.0;
+	f->max_re = 2.0;
+	f->min_im = -2.0;
+	f->max_im = f->min_re + (f->max_re - (f->min_re))
 		* WIDTH / HEIGHT;
 }

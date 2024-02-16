@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 11:27:45 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/16 09:28:01 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/16 09:55:04 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	julia(double zx, double zy, t_f *f)
 
 	i = -1;
 	tmp = 0;
-	while (zx * zx + zy * zy <= 4.0 && ++i < f->prm.max_iter)
+	while (zx * zx + zy * zy <= 4.0 && ++i < f->max_iter)
 	{
-		tmp = 2 * zx * zy + f->prm.m_y;
-		zx = zx * zx - zy * zy + f->prm.m_x;
+		tmp = 2 * zx * zy + f->m_y;
+		zx = zx * zx - zy * zy + f->m_x;
 		zy = tmp;
 	}
 	return (i);
@@ -39,7 +39,7 @@ int	mandelbrot(double cr, double ci, t_f *f)
 	zx = 0;
 	zy = 0;
 	tmp = 0;
-	while (zx * zx + zy * zy <= 4.0 && ++i < f->prm.max_iter)
+	while (zx * zx + zy * zy <= 4.0 && ++i < f->max_iter)
 	{
 		tmp = zx * zx - zy * zy + cr;
 		zy = 2 * zx * zy + ci;
@@ -58,7 +58,7 @@ int	tricorn(double cr, double ci, t_f *f)
 	zx = cr;
 	zy = ci;
 	i = -1;
-	while (zx * zx + zy * zy < 4.0 && ++i < f->prm.max_iter)
+	while (zx * zx + zy * zy < 4.0 && ++i < f->max_iter)
 	{
 		tmp = -2 * zx * zy + ci;
 		zx = zx * zx - zy * zy + cr;

@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:37:09 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/16 09:11:59 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/16 09:54:44 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,19 @@ static void	zoom(t_f *f, double zoom)
 	double	cen_re;
 	double	cen_im;
 
-	cen_re = f->prm.min_re - f->prm.max_re;
-	cen_im = f->prm.max_im - f->prm.min_im;
-	f->prm.max_re = f->prm.max_re + (cen_re - zoom * cen_re) / 2.29;
-	f->prm.min_re = f->prm.max_re + zoom * cen_re;
-	f->prm.min_im = f->prm.min_im + (cen_im - zoom * cen_im) / 2.9;
-	f->prm.max_im = f->prm.min_im + zoom * cen_im;
+	cen_re = f->min_re - f->max_re;
+	cen_im = f->max_im - f->min_im;
+	f->max_re = f->max_re + (cen_re - zoom * cen_re) / 2.29;
+	f->min_re = f->max_re + zoom * cen_re;
+	f->min_im = f->min_im + (cen_im - zoom * cen_im) / 2.9;
+	f->max_im = f->min_im + zoom * cen_im;
 }
 
 int	p_key(int key, t_f *f)
 {
 	(void)f;
-	// ft_printf("key %d pressed\n", key);
 	if (key == 53)
 		exit (exit_click() * 0);
-
 	if (key == 69)
 	{
 		write(1, "↑↑↑ .oO zoom In\n", 23);
@@ -43,12 +41,8 @@ int	p_key(int key, t_f *f)
 	return (0);
 }
 
-
 int	mouse(int key, int x, int y, t_f *f)
 {
-	// ft_printf("key %d pressed\n", key);
-	// ft_printf("x: %d\n", x);
-	// ft_printf("y: %d\n", y);
 	if (key == 4)
 	{
 		ft_printf("Oo. zoom Out\n", key);

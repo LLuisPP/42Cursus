@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 16:16:02 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/16 09:20:59 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/16 09:55:51 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	my_mlx_pixel_put(t_f *f, int x, int y, int color)
 
 	if (x < WIDTH && x >= 0 && y < HEIGHT && y >= 0)
 	{
-		dst = f->prm.addr + (y * f->prm.l_len + x * (f->prm.bpp / 8));
+		dst = f->addr + (y * f->l_len + x * (f->bpp / 8));
 		*(unsigned int *)dst = color;
 	}
 }
@@ -44,9 +44,6 @@ int	picker(double re, double im, t_f *f)
 	return (i);
 }
 
-
-
-
 int	render(t_f *f, int x, int y)
 {
 	double	re;
@@ -59,18 +56,12 @@ int	render(t_f *f, int x, int y)
 		x = -1;
 		while (++x < WIDTH)
 		{
-			re = f->prm.min_re + (double)x
-				* (f->prm.max_re - (f->prm.min_re)) / WIDTH;
-			im = f->prm.max_im + (double)y
-				* (f->prm.min_im - f->prm.max_im) / HEIGHT;
+			re = f->min_re + (double)x * (f->max_re - (f->min_re)) / WIDTH;
+			im = f->max_im + (double)y * (f->min_im - f->max_im) / HEIGHT;
 			if (f->name != 0)
 			{
 				i = picker(re, im, f);
-				// i = julia(re, im, f);
-				// i = mandelbrot(re, im, f);
-				// i = tricorn(re, im, f);
-				// // i = burningship(re, im, f);
-				if (i < f->prm.max_iter)
+				if (i < f->max_iter)
 					my_mlx_pixel_put(f, x, y, (i * 0x9e94ef));
 				else
 					my_mlx_pixel_put(f, x, y, 0x000000);
