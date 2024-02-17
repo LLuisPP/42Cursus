@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 15:14:54 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/17 09:20:41 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/17 12:03:40 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,19 @@ t_f	*fr_match(char *str)
 {
 	t_f	*f;
 	int	i;
-
+	int	j;
+	
+	j = ft_strlen(str);
 	f = get_fractals();
 	i = 0;
 	while (f[i].name != NULL)
 	{
-		if (ft_strcmp(f[i].name, str) == 0)
+		if (ft_strncmp(f[i].name, str, j) == 0)
 			return (&f[i]);
 		i++;
 	}
-	return (&f[i]);
+	err_end("dafuck you doin man?");
+	return(0);
 }
 
 void	init_fractal(t_f *f)
@@ -46,14 +49,16 @@ void	init_fractal(t_f *f)
 	f->l_len = 0;
 	f->bpp = 0;
 	f->mlx_ptr = mlx_init();
-	f->win_ptr = mlx_new_window(f->mlx_ptr, WIDTH, HEIGHT, "Fractol");
+	f->win_ptr = mlx_new_window(f->mlx_ptr, WIDTH, HEIGHT, f->name);
 	f->img = mlx_new_image(f->mlx_ptr, WIDTH, HEIGHT);
 	f->addr = mlx_get_data_addr(f->img, &f->bpp, &f->l_len, &f->end);
 	f->max_iter = 150;
-	f->color = 0x7e85ef;
+	f->color = 0x9e95ef;
 	f->min_re = -2.0;
 	f->max_re = 2.0;
 	f->min_im = -2.0;
+	f->max_w = WIDTH;
+	f->max_h = HEIGHT;
 	f->max_im = f->min_re + (f->max_re - (f->min_re))
 		* WIDTH / HEIGHT;
 }

@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 08:13:12 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/17 09:39:03 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/17 12:14:53 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # include "ft_printf.h"
 # include "mlx.h"
 
-# define HEIGHT	750
-# define WIDTH	750
+# define HEIGHT	900
+# define WIDTH	900
 
 typedef struct s_fractal
 {
@@ -39,6 +39,10 @@ typedef struct s_fractal
 	char	*addr;
 	int		bpp;
 	int		l_len;
+	unsigned int	max_w;
+	unsigned int	max_h;
+	double			min_w;
+	double			min_h;
 	double	cen_re;
 	double	cen_im;
 	double	max_im;

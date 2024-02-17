@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 16:16:02 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/17 09:40:03 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/17 12:12:12 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ int	picker(double re, double im, t_f *f)
 	while (f->name[len])
 		len++;
 	f->name[len] = '\0';
-	if (!ft_strncmp(f->name, "Mandelbrot", -1))
+	if (!ft_strncmp(f->name, "Mandelbrot", 10))
 		i = mandelbrot(re, im, f);
-	else if (!ft_strncmp(f->name, "Julia", -1))
+	else if (!ft_strncmp(f->name, "Julia", 5))
 		i = julia(re, im, f);
-	else if (!ft_strncmp(f->name, "Tricorn", -1))
+	else if (!ft_strncmp(f->name, "Tricorn", 7))
 		i = tricorn(re, im, f);
 	else
 		err_end("No match name");
