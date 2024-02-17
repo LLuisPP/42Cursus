@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 15:14:54 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/17 12:36:06 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/17 20:35:19 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_f	*fr_match(char *str)
 			return (&f[i]);
 		i++;
 	}
-	err_end("dafuck you doin man?");
+	err_end("\n!! [Error][nmchk]: invalid fractal name\n");
 	return (0);
 }
 
@@ -57,6 +57,5 @@ void	init_fractal(t_f *f)
 	f->min_re = -2.0;
 	f->max_re = 2.0;
 	f->min_im = -2.0;
-	f->max_im = f->min_re + (f->max_re - (f->min_re))
-		* WIDTH / HEIGHT;
+	f->max_im = f->min_re + (f->max_re - (f->min_re)) * WIDTH / HEIGHT;
 }
