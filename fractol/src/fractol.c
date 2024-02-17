@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:37:09 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/17 12:05:25 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/17 12:35:31 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,6 @@ static void	zoom(t_f *f, double zoom)
 	f->min_im = f->min_im + (cen_im - zoom * cen_im) / 2.9;
 	f->max_im = f->min_im + zoom * cen_im;
 }
-// int	zoom(int key, int x, int y, t_f *f)
-// {
-// 	if (key == 5)
-// 	{
-// 		f->min_w = x + (f->min_w - x) * 1.1;
-// 		f->min_h = y + (f->min_h - y) * 1.1;
-// 		f->max_w = x + (f->max_w - x) * 1.1;
-// 		f->max_h = y + (f->max_h - y) * 1.1;
-// 	}
-// 	else if (key == 4)
-// 	{
-// 		f->min_w = x + (f->min_w - x) * 0.9;
-// 		f->min_h = y + (f->min_h - y) * 0.9;
-// 		f->max_w = x + (f->max_w - x) * 0.9;
-// 		f->max_h = y + (f->max_h - y) * 0.9;
-// 	}
-// 	render(f);
-// 	return (0);
-// }
 
 int	p_key(int key, t_f *f)
 {
@@ -63,7 +44,7 @@ int	p_key(int key, t_f *f)
 	if (key == 4)
 	{
 		ft_printf("valor de m_x: %d\n", f->m_x);
-	}	
+	}
 	return (render(f));
 }
 
@@ -72,10 +53,6 @@ int	mouse(int key, int x, int y, t_f *f)
 	if (key == 4)
 	{
 		ft_printf("Oo. zoom Out: %d - %d\n", x, y);
-		// f->min_w = x + (f->min_w - x) * 1.1;
-		// f->min_h = y + (f->min_h - y) * 1.1;
-		// f->max_w = x + (f->max_w - x) * 1.1;
-		// f->max_h = y + (f->max_h - y) * 1.1;
 		zoom(f, 1.4);
 		x -= WIDTH / 2;
 		y -= HEIGHT / 2;
@@ -83,10 +60,6 @@ int	mouse(int key, int x, int y, t_f *f)
 	if (key == 5)
 	{
 		ft_printf(".oO zoom In: %d - %d\n", x, y);
-		// f->min_w = x + (f->min_w - x) * 0.9;
-		// f->min_h = y + (f->min_h - y) * 0.9;
-		// f->max_w = x + (f->max_w - x) * 0.9;
-		// f->max_h = y + (f->max_h - y) * 0.9;
 		zoom(f, 0.7);
 		x -= WIDTH / 2;
 		y -= HEIGHT / 2;
@@ -97,14 +70,11 @@ int	mouse(int key, int x, int y, t_f *f)
 int	main(int argc, char **argv)
 {
 	t_f		*f;
-	// void	*param;
 
 	f = fr_match(argv[1]);
 	if (argc == 4 && ft_strncmp(argv[1], "Julia", 5) == 0)
 	{
 		f->m_x = atof(argv[3]);
-		ft_printf("valor de m_x: %d\n", ft_atof(argv[2]));
-		ft_printf("valor de m_x: %d\n", atof(argv[2]));
 		f->m_y = atof(argv[2]);
 	}
 	else if (argc != 2)

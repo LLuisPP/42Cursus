@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 16:16:02 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/17 12:12:12 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/17 12:38:20 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ int	render(t_f *f)
 	int		x;
 	int		y;
 
-	mlx_clear_window(f->mlx_ptr, f->win_ptr);
 	y = -1;
 	while (++y < HEIGHT)
 	{
