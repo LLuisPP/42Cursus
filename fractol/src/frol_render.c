@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 16:16:02 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/16 09:55:51 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/17 09:40:03 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,16 @@ int	picker(double re, double im, t_f *f)
 	return (i);
 }
 
-int	render(t_f *f, int x, int y)
+int	render(t_f *f)
 {
 	double	re;
 	double	im;
 	int		i;
+	int		x;
+	int		y;
 
 	mlx_clear_window(f->mlx_ptr, f->win_ptr);
+	y = -1;
 	while (++y < HEIGHT)
 	{
 		x = -1;
@@ -62,7 +65,7 @@ int	render(t_f *f, int x, int y)
 			{
 				i = picker(re, im, f);
 				if (i < f->max_iter)
-					my_mlx_pixel_put(f, x, y, (i * 0x9e94ef));
+					my_mlx_pixel_put(f, x, y, (i * f->color));
 				else
 					my_mlx_pixel_put(f, x, y, 0x000000);
 			}

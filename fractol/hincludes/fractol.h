@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 08:13:12 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/16 09:53:01 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/17 09:39:03 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_fractal
 	double	m_y;
 	int		end;
 	int		max_iter;
+	int		color;
 	char	*addr;
 	int		bpp;
 	int		l_len;
@@ -49,9 +50,9 @@ typedef struct s_fractal
 void	init_fractal(t_f *f);
 t_f		*get_fractals(void);
 t_f		*fr_match(char *str);
-int	p_key(int key, t_f *f);
+int		p_key(int key, t_f *f);
 int		mouse(int key, int x, int y, t_f *f);
-int		render(t_f *f, int x, int y);
+int		render(t_f *f);
 void	my_mlx_pixel_put(t_f *f, int x, int y, int color);
 int		err_end(char *msg);
 int		exit_click(void);

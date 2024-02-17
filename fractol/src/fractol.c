@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:37:09 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/16 09:54:44 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/17 09:43:22 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,20 @@ static void	zoom(t_f *f, double zoom)
 
 int	p_key(int key, t_f *f)
 {
-	(void)f;
 	if (key == 53)
 		exit (exit_click() * 0);
 	if (key == 69)
 	{
-		write(1, "↑↑↑ .oO zoom In\n", 23);
+		f->color = f->color + 5;
+		// write(1, "↑↑↑ .oO zoom In\n", 23);
 	}
 	if (key == 78)
 	{
-		write(1, "↓↓↓ Oo. zoom Out\n", 24);
+		f->color = f->color - 5;
+		// write(1, "↓↓↓ Oo. zoom Out\n", 24);
 	}
-	return (0);
+	
+	return (render(f));
 }
 
 int	mouse(int key, int x, int y, t_f *f)
@@ -57,13 +59,13 @@ int	mouse(int key, int x, int y, t_f *f)
 		x -= WIDTH / 2;
 		y -= HEIGHT / 2;
 	}
-	return (render(f, x, y));
+	return (render(f));
 }
 
 int	main(int argc, char **argv)
 {
 	t_f		*f;
-	void	*param;
+	// void	*param;
 
 	if (argc != 2)
 		err_end("[Error]: invalid number of arguments");
@@ -72,12 +74,12 @@ int	main(int argc, char **argv)
 	if (f->name == NULL)
 		err_end("[Error]: invalid fractal name");
 	f->name = (argv[1]);
-	ft_printf("Este es el nombre que le entra: %s\n", argv[1]);
-	ft_printf("Este el que tiene: %s\n", f->name);
-	render(f, -2, 2);
-	mlx_put_image_to_window(f->mlx_ptr, f->win_ptr, f->img, 0, 0);
+	ft_printf("Input fractal: %s\n", argv[1]);
+	ft_printf("Correct! loading: %s\n", f->name);
+	render(f);
+	// mlx_put_image_to_window(f->mlx_ptr, f->win_ptr, f->img, 0, 0);
 	mlx_hook (f->win_ptr, 17, 1L << 0, exit_click, f);
-	mlx_key_hook(f->win_ptr, p_key, &param);
+	mlx_key_hook(f->win_ptr, p_key, f);
 	mlx_mouse_hook(f->win_ptr, mouse, f);
 	mlx_loop(f->mlx_ptr);
 	return (0);

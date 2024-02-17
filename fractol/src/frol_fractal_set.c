@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 11:27:45 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/16 09:55:04 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/17 09:46:02 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	mandelbrot(double cr, double ci, t_f *f)
 	zx = 0;
 	zy = 0;
 	tmp = 0;
-	while (zx * zx + zy * zy <= 4.0 && ++i < f->max_iter)
+	while (zx * zx + zy * zy <= 60.0 && ++i < f->max_iter)
 	{
 		tmp = zx * zx - zy * zy + cr;
 		zy = 2 * zx * zy + ci;
