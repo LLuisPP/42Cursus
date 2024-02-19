@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 14:43:55 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/17 20:28:44 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/19 12:23:42 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	err_end(char *msg)
 	ft_printf("   ║                                            ║\n");
 	ft_printf("   ║   Julia case:                              ║\n");
 	ft_printf("   ║   ./fractol Julia [int param] [int param]  ║\n");
-	ft_printf("   ║                                            ║\n");
+	ft_printf("   ║              int range (-2 to 2)           ║\n");
 	ft_printf("   ╚════════════════════════════════════════════╝\n");
 	ft_printf("   ╔═══════════════ [fractal] COLLECTION SET ═══╗\n");
 	ft_printf("   ║                                            ║\n");
@@ -39,6 +39,14 @@ int	err_end(char *msg)
 	exit(0);
 }
 
+int	check_julia(int argc, char **argv, t_f *f)
+{
+	if (arg_is_int(argc, argv) != 1 || frol_range(argc, argv) == 1)
+		err_end("\n[Error][ju]: Invalid Julia params or syntax\n");
+	f->m_x = ft_atoi(argv[3]);
+	f->m_y = ft_atoi(argv[2]);
+	return (0);
+}
 
 int	arg_is_int(int argc, char **argv)
 {

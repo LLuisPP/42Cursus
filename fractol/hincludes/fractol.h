@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 08:13:12 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/17 19:10:57 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/19 12:30:04 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,12 @@ typedef struct s_fractal
 	double	min_im;
 	double	min_re;
 	double	max_re;
+	int		i;
 }	t_f;
 
 int		arg_is_int(int argc, char **argv);
+int		frol_range(int argc, char **argv);
+int		check_julia(int argc, char **argv, t_f *f);
 void	init_fractal(t_f *f);
 t_f		*get_fractals(void);
 t_f		*fr_match(char *str);
@@ -63,7 +66,6 @@ int		julia(double zx, double zy, t_f *f);
 int		tricorn(double cr, double ci, t_f *f);
 int		picker(double re, double im, t_f *f);
 void    print_display(t_f *f);
-
 void	tricorn_ascii(void);
 void	mandelbrot_ascii(void);
 void	julia_ascii(void);

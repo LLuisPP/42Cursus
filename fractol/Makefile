@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 16:34:33 by lprieto-          #+#    #+#              #
-#    Updated: 2024/02/17 19:42:44 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/02/19 09:10:00 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ AR = ar -rcs
 RM = rm -rf
 
 SRCS = fractol.c frol_error.c frol_fractal.c frol_fractal_set.c \
-	frol_render.c frol_options.c
+	frol_render.c frol_display.c
 
 SRC_PATH := ./src/
 OBJ_PATH := ./tmp/

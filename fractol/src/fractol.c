@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:37:09 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/17 20:36:25 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/19 12:21:32 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ int	p_key(int key, t_f *f)
 		exit (exit_click() * 0);
 	if (key == 8)
 		f->color = f->color * 3;
-	if (key == 9)
+	if (key == 2)
 		f->color = f->color * -3;
-	if (key == 38)
-		f->m_x = f->m_x - 0.02;
 	if (key == 40)
+		f->m_x = f->m_x - 0.02;
+	if (key == 46)
 		f->m_x = f->m_x + 0.02;
 	return (render(f));
 }
@@ -59,21 +59,31 @@ int	mouse(int key, int x, int y, t_f *f)
 	return (render(f));
 }
 
+int	frol_range(int argc, char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (i < argc)
+	{
+		if ((ft_atoi(argv[i]) < -2 || ft_atoi(argv[i]) > 2))
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
-	t_f		*f = NULL;
+	t_f		*f;
 
+	f = NULL;
 	if (argc == 1)
 		err_end("\n!! [Error][fr]: nothing to display\n");
 	else
-		f = fr_match(argv[1]);	
+		f = fr_match(argv[1]);
 	if (argc == 4 && ft_strncmp(argv[1], "Julia", ft_strlen(argv[1])) == 0)
-	{
-		if (arg_is_int(argc, argv) != 1)
-			err_end("\n[Error][ju]: Invalid or incomplete syntax\n");
-		f->m_x = atof(argv[3]);
-		f->m_y = atof(argv[2]);
-	}
+		check_julia(argc, argv, f);
 	else if (argc != 2)
 		err_end("\n!! [Error][n]: invalid number of arguments\n");
 	init_fractal(f);
