@@ -14,7 +14,7 @@ this are all the porjects i've passed as a 42 Barcelona student:
 - born2beroot:...............................Project ✅ .... Bonus: ❌
 </p>
 <p>
-- get_next_line:.............................Project ✅ .... Bonus: ✅
+- get_next_line:..............................Project ✅ .... Bonus: ✅
 </p>
 <p>
 <p><h4 align="left">3rd circle</h4>
