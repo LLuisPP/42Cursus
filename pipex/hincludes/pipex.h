@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:23:36 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/19 21:32:50 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/02/20 11:34:44 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ typedef struct s_pipe
 {
 	char	*name;
 }	t_p;
+
+int	err_end(char *msg);
 
 #endif

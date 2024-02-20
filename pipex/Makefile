@@ -6,20 +6,20 @@
 #    By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 16:34:33 by lprieto-          #+#    #+#              #
-#    Updated: 2024/02/19 21:31:26 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/02/20 11:33:44 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = pipex
 
-CC = gcc #-g
-CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
+CC = gcc -g
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 CPPFLAGS =  -I minilibx #flags de preprocesador
 OPENGLFLAG = -framework OpenGL -framework AppKit
 AR = ar -rcs
 RM = rm -rf
 
-SRCS = pipex.c
+SRCS = pipex.c pip_error.c 
 
 SRC_PATH := ./src/
 OBJ_PATH := ./tmp/
