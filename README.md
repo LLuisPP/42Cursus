@@ -12,7 +12,7 @@ this are all the porjects i've passed as a 42 Barcelona student:
 
 <table>
   <tr>
-    <td colspan="4" align="center">📖   libft   📖</td>
+    <td colspan="4" align="center">📖 libft 📖</td>
   </tr>
   <tr>
     <td align="center">Project</td>
@@ -74,8 +74,9 @@ this are all the porjects i've passed as a 42 Barcelona student:
   <tr>
     <td colspan="2" align="center"><img width="160" src="https://github.com/LLuisPP/42Cursus/assets/116104082/b1c4f11b-83a9-434e-8714-5eef12c2a2b3"></td>
     <td colspan="2" align="center"><img width="150" src="https://github.com/LLuisPP/42Cursus/assets/116104082/413362f4-d4b9-4036-8156-7548b670d5fd"></td>
-    <td colspan="2" align="center"><img width="200" src="https://github.com/LLuisPP/42Cursus/assets/116104082/6cecf475-a2f2-4861-8668-bbd2fd9063f9"></td>
+    <td colspan="2" align="center"><img width="180" src="https://github.com/LLuisPP/42Cursus/assets/116104082/ede483e8-b0fe-41c2-abe5-b953a7491f27"></td>
   </tr>
+
   <tr>
     <td align="center">Project</td>
     <td align="center">Bonus</td>
