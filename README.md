@@ -30,11 +30,11 @@ this are all the porjects i've passed as a 42 Barcelona student:
 
 <table>
   <tr>
-    <td colspan="2" align="center">Ft_printf 🖨</td>
+    <td colspan="2" align="center">🖨 ft_printf 🖨</td>
     <td rowspan="4" align="center"></td>
-    <td colspan="2" align="center">Born2beRoot 🐧</td>
+    <td colspan="2" align="center">🐧 born2beRoot 🐧</td>
     <td rowspan="4" align="center"></td>
-    <td colspan="2" align="center">Get_next_line 📝</td> 
+    <td colspan="2" align="center">📝 get_next_line 📝</td> 
   </tr>
   <tr>
     <td colspan="2" align="center"><img width="200" src="https://github.com/LLuisPP/42Cursus/assets/116104082/6cecf475-a2f2-4861-8668-bbd2fd9063f9"></td>
@@ -65,11 +65,11 @@ this are all the porjects i've passed as a 42 Barcelona student:
 
 <table>
   <tr>
-    <td colspan="2" align="center">Push_swap 🔢</td>
+    <td colspan="2" align="center">🔢 push_swap 🔢</td>
     <td rowspan="4" align="center"></td>
-    <td colspan="2" align="center">Fract-ol 🌀</td>
+    <td colspan="2" align="center">🌀 fract-ol 🌀</td>
     <td rowspan="4" align="center"></td>
-    <td colspan="2" align="center">Pipex ➰</td> 
+    <td colspan="2" align="center">➰ pipex ➰</td> 
   </tr>
   <tr>
     <td colspan="2" align="center"><img width="160" src="https://github.com/LLuisPP/42Cursus/assets/116104082/b1c4f11b-83a9-434e-8714-5eef12c2a2b3"></td>
