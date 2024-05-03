@@ -1,5 +1,9 @@
 # 42Cursus
-<img width="400" alt="Captura de pantalla 2023-11-12 a las 19 24 26" src="https://github.com/LLuisPP/42Cursus/assets/116104082/f65a01f3-408f-4650-b605-3f83f2dfb50a">
+
+|<div align="center">Profile</div>|<div align="center">42 School</div>|<div align="center">Stats</div>|
+|:---|:---|:---|
+|<img width="300" src="https://badge.mediaplus.ma/kettlebells/lprieto-?1337Badge=off&UM6P=off" alt="lprieto-'s 42 stats" />|<img width="300" src="https://github.com/LLuisPP/42Cursus/assets/116104082/f65a01f3-408f-4650-b605-3f83f2dfb50a">|<img align="center" width="290" src="https://github-readme-stats.vercel.app/api/top-langs?username=lluispp&show_icons=true&locale=en&layout=compact" alt="lluispp"/>|
+
 
 42 Cursus:
 this are all the porjects i've passed as a 42 Barcelona student:
