@@ -71,8 +71,8 @@ this are all the porjects i've passed as a 42 Barcelona student:
     <td rowspan="4" align="center"></td>
     <td colspan="2" align="center">Pipex ➰</td> 
   </tr>
-   <tr>
-    <td colspan="2" align="center"><img width="200" src="https://github.com/LLuisPP/42Cursus/assets/116104082/6cecf475-a2f2-4861-8668-bbd2fd9063f9"></td>
+  <tr>
+    <td colspan="2" align="center"><img width="160" src="https://github.com/LLuisPP/42Cursus/assets/116104082/b1c4f11b-83a9-434e-8714-5eef12c2a2b3"></td>
     <td colspan="2" align="center"><img width="150" src="https://github.com/LLuisPP/42Cursus/assets/116104082/413362f4-d4b9-4036-8156-7548b670d5fd"></td>
     <td colspan="2" align="center"><img width="200" src="https://github.com/LLuisPP/42Cursus/assets/116104082/6cecf475-a2f2-4861-8668-bbd2fd9063f9"></td>
   </tr>
