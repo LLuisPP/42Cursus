@@ -34,7 +34,13 @@ this are all the porjects i've passed as a 42 Barcelona student:
 - push_swap:.................................Project ✅ .... Bonus: ❌
 </p>
 <p>
-- fractol:.........................................Project ✅ .... Bonus: ✅
+
+
+|<div align="center">fract-ol</div>|<div align="center">Project</div>|<div align="center">Bonus</div>|
+|:---|:---|:---|
+|<img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/413362f4-d4b9-4036-8156-7548b670d5fd">|<img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/504507eb-65b0-4814-9525-a2c22100dab1">|<img width="95" src="https://github.com/LLuisPP/42Cursus/assets/116104082/119a3ab1-2add-47eb-85c2-630479e5a586">|![fractol](https://github.com/LLuisPP/42Cursus/assets/116104082/98207e22-9349-4950-bf73-f1dcfe0b66b2)
+
+  
 </p>
 <p>
 - pipex:...........................................Project 🎯 .... Bonus: ❌
