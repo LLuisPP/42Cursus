@@ -38,7 +38,7 @@ this are all the porjects i've passed as a 42 Barcelona student:
   </tr>
   <tr>
     <td colspan="2" align="center"><img width="200" src="https://github.com/LLuisPP/42Cursus/assets/116104082/6cecf475-a2f2-4861-8668-bbd2fd9063f9"></td>
-    <td colspan="2" align="center"><img width="200" src="https://github.com/LLuisPP/42Cursus/assets/116104082/6cecf475-a2f2-4861-8668-bbd2fd9063f9"></td>
+    <td colspan="2" align="center"><img width="200" src="https://github.com/LLuisPP/42Cursus/assets/116104082/2be4f625-c6c4-4f8b-8412-7937460cf744"></td>
     <td colspan="2" align="center"><img width="200" src="https://github.com/LLuisPP/42Cursus/assets/116104082/6cecf475-a2f2-4861-8668-bbd2fd9063f9"></td>
   </tr>
   <tr>
