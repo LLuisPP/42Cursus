@@ -16,6 +16,33 @@ this are all the porjects i've passed as a 42 Barcelona student:
   
 <p><h4 align="left">2nd circle</h4>
 <p>
+
+<table>
+  <tr>
+    <td colspan="2" align="center">ft_printf</td>
+    <td colspan="2" align="center">Born2beRoot</td>
+    <td colspan="2" align="center">get_next_line</td> 
+  </tr>
+  <tr>
+    <td align="center">Project</td>
+    <td align="center">Bonus</td>
+    <td align="center">Project</td>
+    <td align="center">Bonus</td>
+    <td align="center">Project</td>
+    <td align="center">Bonus</td>
+  </tr>
+  <tr>
+    <td><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/504507eb-65b0-4814-9525-a2c22100dab1"></td>
+    <td><img width="90" src="https://github.com/LLuisPP/42Cursus/assets/116104082/3fd39aa2-ce3e-4619-9b25-3e5dcdb4d6e3"></td>
+    <td><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/504507eb-65b0-4814-9525-a2c22100dab1"></td>
+    <td><img width="90" src="https://github.com/LLuisPP/42Cursus/assets/116104082/3fd39aa2-ce3e-4619-9b25-3e5dcdb4d6e3"></td>
+    <td><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/504507eb-65b0-4814-9525-a2c22100dab1"></td>
+    <td><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/9e54f420-b26e-46ae-8886-132ebd161931"></td>
+  </tr>
+</table>
+
+
+</div>
   
 |<div align="center">ft_printf</div>|<div align="center">Project</div>|<div align="center">Bonus</div>|
 |:---|:---|:---|
