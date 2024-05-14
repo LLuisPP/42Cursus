@@ -2,8 +2,7 @@
 
 |<div align="center">Profile</div>|<div align="center">42 School</div>|<div align="center">Stats</div>|
 |:---|:---|:---|
-|<img width="300" src="https://badge.mediaplus.ma/kettlebells/lprieto-?1337Badge=off&UM6P=off" alt="lprieto-'s 42 stats" />|<img width="300" src="https://github.com/LLuisPP/42Cursus/assets/116104082/f65a01f3-408f-4650-b605-3f83f2dfb50a">|<img align="center" width="290" src="https://github-readme-stats.vercel.app/api/top-langs?username=lluispp&show_icons=true&locale=en&layout=compact" alt="lluispp"/>|
-
+|<img width="260" src="https://github.com/LLuisPP/42Cursus/assets/116104082/a73b6542-e7f1-4b6b-b59b-7f841960c621" />|<img width="300" src="https://github.com/LLuisPP/42Cursus/assets/116104082/f65a01f3-408f-4650-b605-3f83f2dfb50a">|<img align="center" width="290" src="https://github-readme-stats.vercel.app/api/top-langs?username=lluispp&show_icons=true&locale=en&layout=compact" alt="lluispp"/>|
 
 42 Cursus:
 this are all the porjects i've passed as a 42 Barcelona student:
@@ -51,9 +50,9 @@ this are all the porjects i've passed as a 42 Barcelona student:
   </tr>
   <tr>
     <td align="center"><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/504507eb-65b0-4814-9525-a2c22100dab1"></td>
-    <td align="center"><img width="90" src="https://github.com/LLuisPP/42Cursus/assets/116104082/3fd39aa2-ce3e-4619-9b25-3e5dcdb4d6e3"></td>
+       <td align="center"><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/0df7dd81-56fb-4929-a023-67c7386906dc"></td>
     <td align="center"><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/504507eb-65b0-4814-9525-a2c22100dab1"></td>
-    <td align="center"><img width="90" src="https://github.com/LLuisPP/42Cursus/assets/116104082/3fd39aa2-ce3e-4619-9b25-3e5dcdb4d6e3"></td>
+    <td align="center"><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/0df7dd81-56fb-4929-a023-67c7386906dc"></td>
     <td align="center"><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/504507eb-65b0-4814-9525-a2c22100dab1"></td>
     <td align="center"><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/9e54f420-b26e-46ae-8886-132ebd161931"></td>
   </tr>
@@ -87,10 +86,10 @@ this are all the porjects i've passed as a 42 Barcelona student:
   </tr>
   <tr>
     <td><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/f7b1b1c5-ba6c-4259-9417-ac23c99a4879"></td>
-    <td><img width="90" src="https://github.com/LLuisPP/42Cursus/assets/116104082/3fd39aa2-ce3e-4619-9b25-3e5dcdb4d6e3"></td>
+        <td align="center"><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/0df7dd81-56fb-4929-a023-67c7386906dc"></td>
     <td><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/504507eb-65b0-4814-9525-a2c22100dab1"></td>
     <td><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/05d57ed5-eaf2-4e59-acc0-31552ce712a9"></td>
     <td><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/b600059a-1082-4f30-b10d-f9e183e103a0"></td>
-    <td><img width="90" src="https://github.com/LLuisPP/42Cursus/assets/116104082/3fd39aa2-ce3e-4619-9b25-3e5dcdb4d6e3"></td>
+        <td align="center"><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/0df7dd81-56fb-4929-a023-67c7386906dc"></td>
   </tr>
 </table>
