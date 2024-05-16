@@ -9,6 +9,6 @@
   </tr>
   <tr>
     <td align="center"><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/504507eb-65b0-4814-9525-a2c22100dab1"></td>
-    <td align="center"><img width="90" src="https://github.com/LLuisPP/42Cursus/assets/116104082/3fd39aa2-ce3e-4619-9b25-3e5dcdb4d6e3"></td>
+    <td align="center"><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/0df7dd81-56fb-4929-a023-67c7386906dc"></td>
   </tr>
 </table>
