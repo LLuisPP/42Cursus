@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 16:34:33 by lprieto-          #+#    #+#              #
-#    Updated: 2024/02/20 11:33:44 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/05/23 10:58:54 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ OPENGLFLAG = -framework OpenGL -framework AppKit
 AR = ar -rcs
 RM = rm -rf
 
-SRCS = pipex.c pip_error.c 
+SRCS = pipex.c pip_error.c pip_utils.c pip_parse.c
 
 SRC_PATH := ./src/
 OBJ_PATH := ./tmp/
