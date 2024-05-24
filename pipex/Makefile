@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 16:34:33 by lprieto-          #+#    #+#              #
-#    Updated: 2024/05/23 10:58:54 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/05/24 11:20:43 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,11 +100,11 @@ BAR_LEN := 40
 
 define show_progress
 	echo; \
-	printf " eeeee e  eeeee eeee e    e   ▄███L▄▄\n \
-8   8 8  8   8 8     8  8   ▄▀█▀▐└─┐ m     ${WHITE}▄▄▄▄▄▄▄▄▄\n \
-8eee8 8e 8eee8 8eee   ee    █▄▐▌▄█▄┘ █     ${WHITE}█${GREEN}█░█████${WHITE}█░\n \
-88    88 88    88    88 8   └▄▄▄▄▄┘ ██     ${WHITE}█████████░\n \
-88    88 88    88ee 88   8   █▒█▒████       $(WHITE)█${GREEN}█▒███${WHITE}█░\n\n"; \
+	printf " eeeee e  eeeee eeee e    e   ${RED}▄███${WHITE}L${RED}▄▄${WHITE}\n \
+8   8 8  8   8 8     8  8   ▄▀█▀${WHITE}▐└─┐ m     ${WHITE}▄▄▄▄▄▄▄▄▄\n \
+8eee8 8e 8eee8 8eee   ee    █▄▐▌▄█▄┘$(RED) █     ${WHITE}█${GREEN}█░█████${WHITE}█░\n \
+88    88 88    88    88 8  $(RED) └▄▄▄▄▄┘ ██     ${WHITE}█████████░\n \
+88    88 88    88ee 88   8  $(RED) █$(WHITE)▒$(RED)█$(WHITE)▒$(RED)████       $(WHITE)█${GREEN}█▒███${WHITE}█░\n\n"; \
 	((i = 0)); \
 	while [[ $$i -le $(COUNT_SRCS) ]] ; do \
 		printf "$(BBLUE)["; \
