@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:23:36 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/05/26 17:25:42 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/05/26 20:30:34 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,11 @@ typedef struct s_pipe
 /* Pipex functions */
 
 int parse_data(int argc, char **argv, t_p *pipe, char **env);
+int parse_path(char **env, char **argv, t_p *pipe);
+int	get_path(char **envpath, t_p *pipe);
+int get_data(char **argv, t_p *pipe, char **path);
+int	child_1(int fork, t_p *pipe, char **env);
+
 void	err_end(char *msg);
-int		getpath(char **envpath, t_p *pipe);
 
 #endif
