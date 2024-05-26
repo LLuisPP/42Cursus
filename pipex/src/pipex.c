@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:37:09 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/05/26 18:39:05 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/05/26 18:53:37 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char **argv, char **env)
 	parse_data(argc, argv, &pipe, env); // parseo de datos
 	
 	
-	// getpath(env, pipe); // recibir direcciones path
+	getpath(env, &pipe); // recibir direcciones path
 	
 	ft_printf("Control del finaldel programa\n");
 	// free(pipe); // liberamos estructura
