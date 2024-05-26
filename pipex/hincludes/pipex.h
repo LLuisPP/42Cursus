@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:23:36 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/05/24 10:29:05 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/05/26 11:32:11 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,23 @@
 # define E_NOFILE "Error: No such file or directory\n"
 # define E_DIRECTORY "Error: Is a directory\n"
 
-/* structs */
+/* Structs */
 
 typedef struct s_pipe
 {
 	int		argc;
 	char	**argv;
 	char	**env;
-	char	**path;
+	char	*path;
+	char	*test;
+	int		file;
 
 }	t_p;
 
-/* pipex functions */
+/* Pipex functions */
 
+int parse_data(int argc, char **argv, t_p *pipe);
 void	err_end(char *msg);
+int		getpath(char **envpath, t_p *pipe);
 
 #endif

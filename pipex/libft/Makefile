@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+         #
+#    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 16:34:33 by lprieto-          #+#    #+#              #
-#    Updated: 2024/02/19 21:29:59 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/05/26 11:02:06 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ SRCS = ft_strlen.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 	   ps_alg_select.c ps_validate.c ps_index.c ps_optimizer.c \
 	   ps_alg3.c ps_alg4.c ps_alg5.c ps_alg10.c ps_alg50.c \
 	   ps_alg100.c ps_alg500.c \
+	   ft_fd_printf.c \
 
 SRC_PATH = ./src/
 OBJ_PATH = ./tmp/

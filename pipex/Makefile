@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+         #
+#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 16:34:33 by lprieto-          #+#    #+#              #
-#    Updated: 2024/05/24 11:20:43 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/05/26 10:29:54 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,9 +102,9 @@ define show_progress
 	echo; \
 	printf " eeeee e  eeeee eeee e    e   ${RED}▄███${WHITE}L${RED}▄▄${WHITE}\n \
 8   8 8  8   8 8     8  8   ▄▀█▀${WHITE}▐└─┐ m     ${WHITE}▄▄▄▄▄▄▄▄▄\n \
-8eee8 8e 8eee8 8eee   ee    █▄▐▌▄█▄┘$(RED) █     ${WHITE}█${GREEN}█░█████${WHITE}█░\n \
-88    88 88    88    88 8  $(RED) └▄▄▄▄▄┘ ██     ${WHITE}█████████░\n \
-88    88 88    88ee 88   8  $(RED) █$(WHITE)▒$(RED)█$(WHITE)▒$(RED)████       $(WHITE)█${GREEN}█▒███${WHITE}█░\n\n"; \
+8eee8 8e 8eee8 8eee   ee    █▄▐▌▄█▄┘$(BLUE) █     ${WHITE}█${GREEN}█░█████${WHITE}█░\n \
+88    88 88    88    88 8  $(WHITE) └▄▄▄▄▄┘$(BLUE)▄██     ${WHITE}█████████░\n \
+88    88 88    88ee 88   8  $(BLUE) █$(RED)█$(BLUE)█$(RED)█$(BLUE)███▀       $(WHITE)█${GREEN}█▒███${WHITE}█░\n\n"; \
 	((i = 0)); \
 	while [[ $$i -le $(COUNT_SRCS) ]] ; do \
 		printf "$(BBLUE)["; \
@@ -126,7 +126,7 @@ define show_progress
 	echo; \
 	printf "\n  $(YELLOW)▄████▄   $(BBLUE)▄█████▄  ${RED}▄█████▄             ${PURPLE}▄█████▄  $(BCIAN)▄█████▄\n \
 $(YELLOW)████▄███  $(BBLUE)██${PHA}▄$(BBLUE)█$(PHA)▄█$(BBLUE)█${RES}  ${RED}█$(WHITE)▄ ${RED}█$(WHITE)▄ ${RED}█ $(GREEN)   ${BOLD}$(NAME)    ${PURPLE}█$(WHITE) ▀${PURPLE}█$(WHITE) ▀${PURPLE}█  ${BCIAN}█$(WHITE)▀ ${BCIAN}█$(WHITE)▀ ${BCIAN}█\n \
-$(YELLOW)████▄     $(BBLUE)█${PHA}▀▄▀▄▀${BBLUE}█${RES}  ${RED}███████  $(WHITE)$$(whoami)   ${PURPLE}███████  ${BCIAN}███████ \n \
+$(YELLOW)████▄     $(BBLUE)█${PHA}▀▄▀▄▀${BBLUE}█${RES}  ${RED}███████  $(WHITE) lprieto-  ${PURPLE}███████  ${BCIAN}███████ \n \
 $(YELLOW) ▀████▀   $(BBLUE)█▀█▀█▀█  ${RED}█ █ █ █             ${PURPLE}█ █ █ █  ${BCIAN}█ █ █ █\n\n";
 
 endef

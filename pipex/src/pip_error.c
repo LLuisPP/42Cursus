@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pip_error.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 11:27:42 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/05/24 10:41:05 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/05/26 09:52:03 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ void	err_end(char *msg)
 	ft_printf("   ║            [file1]  [cmnd1] [cmnd2]  [file2]     ║\n");
     ft_printf("   ║                                                  ║\n");
 	ft_printf("   ╚══════════════════════════════════════════════════╝\n\n");
-	perror("hola que tal");
-	//exit(1);
+	exit(1);
 }
