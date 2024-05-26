@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:23:36 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/05/26 11:32:11 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/05/26 17:25:42 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,26 @@
 
 /* Structs */
 
+typedef struct s_commands
+{
+	char	*path;
+	char	**cmd;
+}	t_cmd;
+
 typedef struct s_pipe
 {
-	int		argc;
-	char	**argv;
-	char	**env;
-	char	*path;
-	char	*test;
-	int		file;
-
+	t_cmd	cmd[2];
+	int		fd_1[2];
+	int		fd_2[2];
+	int		status_1;
+	int		status_2;
+	int		fd_inp;
+	int		fd_outp;
 }	t_p;
 
 /* Pipex functions */
 
-int parse_data(int argc, char **argv, t_p *pipe);
+int parse_data(int argc, char **argv, t_p *pipe, char **env);
 void	err_end(char *msg);
 int		getpath(char **envpath, t_p *pipe);
 
