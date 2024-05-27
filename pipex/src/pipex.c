@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:37:09 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/05/26 21:37:38 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/05/27 07:24:23 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,13 @@ int	main(int argc, char **argv, char **env)
 {
 	t_p	*pipe;
 	int	fork_1;
-	int fork_2;
+	int	fork_2;
 
-	ft_bzero(&pipe, sizeof(t_p)); // Limpiar struct
-	
-	pipe = (t_p *)malloc(sizeof(t_p)); // inicio struct
-	if(!pipe)
+	ft_bzero(&pipe, sizeof(t_p));
+	pipe = (t_p *)malloc(sizeof(t_p));
+	if (!pipe)
 		exit(ft_fd_printf(2, "%s", E_PATH) * 0 + 1);
-	parse_data(argc, argv, pipe, env); // parseo de datos
+	parse_data(argc, argv, pipe, env);
 	fork_1 = fork();
 	if (fork_1 == 0)
 		child_1(fork_1, pipe, env);
@@ -96,7 +95,6 @@ int	main(int argc, char **argv, char **env)
 	close(pipe->fd_outp);
 	waitpid(fork_1, &pipe->status_1, 0);
 	waitpid(fork_2, &pipe->status_2, 0);
-	ft_printf("Control del finaldel programa\n");
-	free(pipe); // liberamos estructura
+	free(pipe);
 	return (0);
 }

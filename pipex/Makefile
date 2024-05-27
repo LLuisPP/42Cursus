@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
+#    By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/28 16:34:33 by lprieto-          #+#    #+#              #
-#    Updated: 2024/05/26 10:29:54 by user             ###   ########.fr        #
+#    Created: 2024/05/27 07:16:06 by lprieto-          #+#    #+#              #
+#    Updated: 2024/05/27 07:16:30 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ OPENGLFLAG = -framework OpenGL -framework AppKit
 AR = ar -rcs
 RM = rm -rf
 
-SRCS = pipex.c pip_error.c pip_utils.c pip_parse.c
+SRCS = pipex.c pip_utils.c
 
 SRC_PATH := ./src/
 OBJ_PATH := ./tmp/

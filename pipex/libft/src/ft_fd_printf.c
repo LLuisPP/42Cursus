@@ -6,21 +6,21 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 10:49:41 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/05/26 11:03:16 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/05/27 07:22:59 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void print_char(const int fd, char c, int *len)
+static void	print_char(const int fd, char c, int *len)
 {
-    if (*len != -1)
-    {
-        if (write(fd, &c, 1) == -1)
-            *len = -1;
-        else
-            *len += 1;
-    }
+	if (*len != -1)
+	{
+		if (write(fd, &c, 1) == -1)
+			*len = -1;
+		else
+			*len += 1;
+	}
 }
 
 static void	print_str(const int fd, char *s, int *len)
@@ -31,16 +31,16 @@ static void	print_str(const int fd, char *s, int *len)
 		print_char(fd, *s++, len);
 }
 
-static void print_nbr(unsigned long n, int *base, const char *f, int *len)
+static void	print_nbr(unsigned long n, int *base, const char *f, int *len)
 {
-    if ((int)n < 0 && (*f == 'i'))
-    {
-        n = -n;
-        print_char(base[0], '-', len);
-    }
-    if (n >= (unsigned int)base[1])
-        print_nbr(n / base[1], base, f, len);
-    if (*len == -1)
+	if ((int)n < 0 && (*f == 'i'))
+	{
+		n = -n;
+		print_char(base[0], '-', len);
+	}
+	if (n >= (unsigned int)base[1])
+		print_nbr(n / base[1], base, f, len);
+	if (*len == -1)
 		return ;
 	if (*f == 'X')
 		print_char(base[0], "0123456789ABCDEF"[n % base[1]], len);
