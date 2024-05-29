@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 15:59:07 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/02/19 18:38:58 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/05/27 07:41:35 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	chp_v(t_s **s, int trgeta, int trgetb)
 {
 	int	f_count;
 	int	r_count;
-	// t_s	*curr;
 
 	if (trgeta == 0 && trgetb != 0)
 		return (trgetb);
@@ -25,7 +24,6 @@ int	chp_v(t_s **s, int trgeta, int trgetb)
 	if (trgeta == trgetb)
 		return (trgeta);
 	f_count = front_loop(s, trgeta);
-	// curr = *s;
 	r_count = reverse_loop(s, trgetb);
 	if (f_count == s_size(*s) && r_count == s_size(*s))
 		return (0);

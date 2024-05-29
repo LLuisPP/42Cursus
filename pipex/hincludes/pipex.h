@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:23:36 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/05/26 20:30:34 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/05/29 12:34:23 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,17 @@
 
 /* * * * * * * * *   Error macros * * * * * * * * * */
 
-# define E_ARG "Error: Invalid number of parameters\n"
-# define E_MALLOC "Error: Malloc failure\n"
+# define E_ARG "Invalid number of parameters\n"
+# define E_MALLOC "Malloc failure\n"
 # define E_ENV "Error: No environment\n"
-# define E_PATH "Error: No such path\n"
+# define E_PATH "No such path\n"
 # define E_CMD "Error: Command not found\n"
-# define E_OPEN "Error: Can't open file\n"
-# define E_WR "Error: Write permission denied\n"
-# define E_RD "Error: Read permission denied\n"
-# define E_NOFILE "Error: No such file or directory\n"
-# define E_DIRECTORY "Error: Is a directory\n"
+# define E_OPEN "Can't open file\n"
+# define E_WR "W Permission denied\n"
+# define E_RD "R Permission denied\n"
+# define E_X "X Permission denied\n"
+# define E_NOFILE "No such file or directory\n"
+# define E_DIRECTORY "Is a directory\n"
 
 /* Structs */
 
@@ -45,7 +46,6 @@ typedef struct s_pipe
 {
 	t_cmd	cmd[2];
 	int		fd_1[2];
-	int		fd_2[2];
 	int		status_1;
 	int		status_2;
 	int		fd_inp;
@@ -54,12 +54,12 @@ typedef struct s_pipe
 
 /* Pipex functions */
 
-int parse_data(int argc, char **argv, t_p *pipe, char **env);
-int parse_path(char **env, char **argv, t_p *pipe);
-int	get_path(char **envpath, t_p *pipe);
-int get_data(char **argv, t_p *pipe, char **path);
-int	child_1(int fork, t_p *pipe, char **env);
-
-void	err_end(char *msg);
+int	parse_data(int argc, char **argv, t_p *pipex, char **env);
+int	parse_path(char **env, char **argv, t_p *pipex);
+int	get_data(char **argv, t_p *pipex, char **path);
+int	get_path(char **envpath, t_p *pipex);
+int	child_1(int fork, t_p *pipex, char **env);
+int	child_2(int fork, t_p *pipex, char **env);
+int	check_abpath(char **argv, t_p *pipex);
 
 #endif

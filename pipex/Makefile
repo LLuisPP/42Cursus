@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+         #
+#    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/27 07:16:06 by lprieto-          #+#    #+#              #
-#    Updated: 2024/05/27 07:16:30 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/05/29 08:45:34 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,7 @@ NAME = pipex
 
 CC = gcc -g
 CFLAGS = -Wall -Wextra -Werror -fsanitize=address
-CPPFLAGS =  -I minilibx #flags de preprocesador
-OPENGLFLAG = -framework OpenGL -framework AppKit
+
 AR = ar -rcs
 RM = rm -rf
 
@@ -42,11 +41,11 @@ $(OBJ_PATH):
 
 $(NAME): $(OBJS)
 	$(call show_progress)
-	$(CC) $(CFLAGS) $(OBJS) $(OPENGLFLAG) -L libft -lft -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) libft/libft.a -o $(NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c Makefile libft/libft.a
 	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(CPPFLAGS) $(HEADERS) -MMD -c $< -o $@
+	$(CC) $(CFLAGS) $(HEADERS) -MMD -c $< -o $@
 
 clean :
 	$(RM) $(OBJ_PATH)
@@ -60,6 +59,16 @@ re :
 	make fclean --silent
 	make all --silent
 	$(MAKE) all --silent -C libft
+
+files :
+	touch A
+	touch B
+	echo "$(GREEN)\n >>> A, B files created -> to delete them use: make delfiles \n"
+
+delfiles :
+	rm A
+	rm B
+	echo "$(RED)\n >>> A, B files deleted -> X \n"
 	
 .PHONY: all, clean, fclean, re
 
@@ -100,9 +109,9 @@ BAR_LEN := 40
 
 define show_progress
 	echo; \
-	printf " eeeee e  eeeee eeee e    e   ${RED}▄███${WHITE}L${RED}▄▄${WHITE}\n \
+	printf " eeeee e  eeeee eeee e    e   ${RED}▄███${WHITE}M${RED}▄▄${WHITE}\n \
 8   8 8  8   8 8     8  8   ▄▀█▀${WHITE}▐└─┐ m     ${WHITE}▄▄▄▄▄▄▄▄▄\n \
-8eee8 8e 8eee8 8eee   ee    █▄▐▌▄█▄┘$(BLUE) █     ${WHITE}█${GREEN}█░█████${WHITE}█░\n \
+8eee8 8e 8eee8 8eee   ee    █▄ ▀▄█▄┘$(BLUE) █     ${WHITE}█${GREEN}█░█████${WHITE}█░\n \
 88    88 88    88    88 8  $(WHITE) └▄▄▄▄▄┘$(BLUE)▄██     ${WHITE}█████████░\n \
 88    88 88    88ee 88   8  $(BLUE) █$(RED)█$(BLUE)█$(RED)█$(BLUE)███▀       $(WHITE)█${GREEN}█▒███${WHITE}█░\n\n"; \
 	((i = 0)); \
