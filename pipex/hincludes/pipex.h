@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:23:36 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/05/29 12:34:23 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/05/30 07:47:42 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,13 @@ typedef struct s_pipe
 
 /* Pipex functions */
 
-int	parse_data(int argc, char **argv, t_p *pipex, char **env);
-int	parse_path(char **env, char **argv, t_p *pipex);
-int	get_data(char **argv, t_p *pipex, char **path);
-int	get_path(char **envpath, t_p *pipex);
-int	child_1(int fork, t_p *pipex, char **env);
-int	child_2(int fork, t_p *pipex, char **env);
-int	check_abpath(char **argv, t_p *pipex);
+int		parse_data(int argc, char **argv, t_p *pipex, char **env);
+int		parse_path(char **env, char **argv, t_p *pipex);
+int		get_data(char **argv, t_p *pipex, char **path);
+int		get_path(char **envpath, t_p *pipex);
+int		child_1(int fork, t_p *pipex, char **env);
+int		child_2(int fork, t_p *pipex, char **env);
+int		check_abpath(char **argv, t_p *pipex);
+void	abpath_fill(char **argv, int len, t_p *pipex, int i);
 
 #endif
