@@ -89,7 +89,7 @@ this are all the porjects i've passed as a 42 Barcelona student:
         <td align="center"><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/0df7dd81-56fb-4929-a023-67c7386906dc"></td>
     <td><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/504507eb-65b0-4814-9525-a2c22100dab1"></td>
     <td><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/05d57ed5-eaf2-4e59-acc0-31552ce712a9"></td>
-    <td><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/b600059a-1082-4f30-b10d-f9e183e103a0"></td>
+    <td><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/504507eb-65b0-4814-9525-a2c22100dab1"></td>
         <td align="center"><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/0df7dd81-56fb-4929-a023-67c7386906dc"></td>
   </tr>
 </table>
