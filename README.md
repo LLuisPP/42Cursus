@@ -31,7 +31,7 @@ this are all the porjects i've passed as a 42 Barcelona student:
   <tr>
     <td colspan="2" align="center">🖨 <a href="https://github.com/LLuisPP/42Cursus/tree/main/ft_printf" target="_blank" rel="noreferrer">ft_printf</a> 🖨</td>
     <td rowspan="4" align="center"></td>
-    <td colspan="2" align="center">🐧 <a href="https://github.com/LLuisPP/42Cursus/tree/main/born2beroot" target="_blank" rel="noreferrer">Born2beRoot</a> 🐧</td>
+    <td colspan="2" align="center">🐧 <a href="https://github.com/LLuisPP/42Cursus/tree/main/Born2beRoot" target="_blank" rel="noreferrer">Born2beRoot</a> 🐧</td>
     <td rowspan="4" align="center"></td>
     <td colspan="2" align="center">📝 <a href="https://github.com/LLuisPP/42Cursus/tree/main/get_next_line" target="_blank" rel="noreferrer">get_next_line</a> 📝</td> 
   </tr>
@@ -64,11 +64,11 @@ this are all the porjects i've passed as a 42 Barcelona student:
 
 <table>
   <tr>
-    <td colspan="2" align="center">🔢 push_swap 🔢</td>
+    <td colspan="2" align="center">🔢 <a href="https://github.com/LLuisPP/42Cursus/tree/main/push_swap" target="_blank" rel="noreferrer">push_swap</a> 🔢</td>
     <td rowspan="4" align="center"></td>
-    <td colspan="2" align="center">🌀 fract-ol 🌀</td>
+    <td colspan="2" align="center">🌀 <a href="https://github.com/LLuisPP/42Cursus/tree/main/fractol" target="_blank" rel="noreferrer">fractol</a> 🌀</td>
     <td rowspan="4" align="center"></td>
-    <td colspan="2" align="center">➰ pipex ➰</td> 
+    <td colspan="2" align="center">➰ <a href="https://github.com/LLuisPP/42Cursus/tree/main/pipex" target="_blank" rel="noreferrer">pipex</a> ➰</td> 
   </tr>
   <tr>
     <td colspan="2" align="center"><img width="160" src="https://github.com/LLuisPP/42Cursus/assets/116104082/b1c4f11b-83a9-434e-8714-5eef12c2a2b3"></td>
