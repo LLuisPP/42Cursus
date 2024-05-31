@@ -11,7 +11,7 @@ this are all the porjects i've passed as a 42 Barcelona student:
 
 <table>
   <tr>
-    <td colspan="4" align="center">📖 libft 📖</td>
+    <td colspan="4" align="center">📖 <a href="https://github.com/LLuisPP/42Cursus/tree/main/libft" target="_blank" rel="noreferrer">libft</a> 📖</td>
   </tr>
   <tr>
     <td align="center">Project</td>
@@ -29,11 +29,11 @@ this are all the porjects i've passed as a 42 Barcelona student:
 
 <table>
   <tr>
-    <td colspan="2" align="center">🖨 ft_printf 🖨</td>
+    <td colspan="2" align="center">🖨 <a href="https://github.com/LLuisPP/42Cursus/tree/main/ft_printf" target="_blank" rel="noreferrer">ft_printf</a> 🖨</td>
     <td rowspan="4" align="center"></td>
-    <td colspan="2" align="center">🐧 born2beRoot 🐧</td>
+    <td colspan="2" align="center">🐧 <a href="https://github.com/LLuisPP/42Cursus/tree/main/born2beroot" target="_blank" rel="noreferrer">Born2beRoot</a> 🐧</td>
     <td rowspan="4" align="center"></td>
-    <td colspan="2" align="center">📝 get_next_line 📝</td> 
+    <td colspan="2" align="center">📝 <a href="https://github.com/LLuisPP/42Cursus/tree/main/get_next_line" target="_blank" rel="noreferrer">get_next_line</a> 📝</td> 
   </tr>
   <tr>
     <td colspan="2" align="center"><img width="200" src="https://github.com/LLuisPP/42Cursus/assets/116104082/6cecf475-a2f2-4861-8668-bbd2fd9063f9"></td>
