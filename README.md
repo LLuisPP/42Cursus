@@ -2,10 +2,9 @@
 
 |<div align="center">Profile</div>|<div align="center">42 School</div>|<div align="center">Stats</div>|
 |:---|:---|:---|
-|<img width="260" src="https://github.com/LLuisPP/42Cursus/assets/116104082/a73b6542-e7f1-4b6b-b59b-7f841960c621" />|<img width="300" src="https://github.com/LLuisPP/42Cursus/assets/116104082/f65a01f3-408f-4650-b605-3f83f2dfb50a">|<img align="center" width="290" src="https://github-readme-stats.vercel.app/api/top-langs?username=lluispp&show_icons=true&locale=en&layout=compact" alt="lluispp"/>|
+|<img width="260" src="https://github.com/LLuisPP/42Cursus/assets/116104082/e4718526-3e02-4477-89c1-a9c6dad4a066" />|<img width="300" src="https://github.com/LLuisPP/42Cursus/assets/116104082/f65a01f3-408f-4650-b605-3f83f2dfb50a">|<img align="center" width="290" src="https://github-readme-stats.vercel.app/api/top-langs?username=lluispp&show_icons=true&locale=en&layout=compact" alt="lluispp"/>|
 
-42 Cursus:
-this are all the porjects i've passed as a 42 Barcelona student:
+42 Cursus: this are all the porjects i've passed as a 42 Barcelona student:
 
 <p><h4 align="left">Circle 0</h4>
 
@@ -68,13 +67,14 @@ this are all the porjects i've passed as a 42 Barcelona student:
     <td rowspan="4" align="center"></td>
     <td colspan="2" align="center">🌀 <a href="https://github.com/LLuisPP/42Cursus/tree/main/fractol" target="_blank" rel="noreferrer">fractol</a> 🌀</td>
     <td rowspan="4" align="center"></td>
-    <td colspan="2" align="center">➰ <a href="https://github.com/LLuisPP/42Cursus/tree/main/pipex" target="_blank" rel="noreferrer">pipex</a> ➰</td> 
+    <td colspan="2" align="center"><img width="20" src="https://github.com/LLuisPP/42Cursus/assets/116104082/37416079-ff17-412c-ae62-bb8b3f1f8adc"> <a href="https://github.com/LLuisPP/42Cursus/tree/main/pipex" target="_blank" rel="noreferrer">pipex</a> <img width="20" src="https://github.com/LLuisPP/42Cursus/assets/116104082/37416079-ff17-412c-ae62-bb8b3f1f8adc"></td> 
   </tr>
   <tr>
     <td colspan="2" align="center"><img width="160" src="https://github.com/LLuisPP/42Cursus/assets/116104082/b1c4f11b-83a9-434e-8714-5eef12c2a2b3"></td>
     <td colspan="2" align="center"><img width="150" src="https://github.com/LLuisPP/42Cursus/assets/116104082/413362f4-d4b9-4036-8156-7548b670d5fd"></td>
     <td colspan="2" align="center"><img width="180" src="https://github.com/LLuisPP/42Cursus/assets/116104082/ede483e8-b0fe-41c2-abe5-b953a7491f27"></td>
   </tr>
+
 
   <tr>
     <td align="center">Project</td>
