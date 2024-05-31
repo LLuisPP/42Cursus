@@ -93,10 +93,3 @@
         <td align="center"><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/0df7dd81-56fb-4929-a023-67c7386906dc"></td>
   </tr>
 </table>
-
-
-	printf " $(WHITE)eeeee e    e e  e    eeeee  \n \
-$(WHITE)8   8 8    8 8  8    8   8      ▐░▐░▐░  ▄▀▀▀▀▄    ▐░\n \
-$(WHITE)8eee8 8eeee8 8e 8e   88  8      █▄█▄█░ █ φιλο █░  █░\n \
-$(WHITE)88    88   8 88 88   88  8        █░   █ σόφω █░  █░\n \
-$(WHITE)88    88   8 88 88ee 88888        █░    ▀▄▄▄▄▀    █░\n\n"; \
