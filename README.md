@@ -93,3 +93,30 @@
         <td align="center"><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/0df7dd81-56fb-4929-a023-67c7386906dc"></td>
   </tr>
 </table>
+
+<p>
+<p><h4 align="left">3rd circle</h4>
+
+<table>
+  <tr>
+    <td colspan="2" align="center">🍽️ <a href="https://github.com/LLuisPP/42Cursus/tree/main/push_swap" target="_blank" rel="noreferrer">Philosophers</a> 🍽️</td>
+    <td rowspan="4" align="center"></td>
+    <td colspan="2" align="center">📦 <a href="https://github.com/LLuisPP/42Cursus/tree/main/fractol" target="_blank" rel="noreferrer">Minisell</a> 📦</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><img width="180" src="https://github.com/LLuisPP/42Cursus/assets/116104082/cb26ac18-6328-40ec-a147-3ad71afa5e5c"></td>
+    <td colspan="2" align="center"><img width="180" src="https://github.com/LLuisPP/42Cursus/assets/116104082/7a968530-2939-41f8-9cb3-03ba3eb100f0"></td>
+  </tr>
+  <tr>
+    <td align="center">Project</td>
+    <td align="center">Bonus</td>
+    <td align="center">Project</td>
+    <td align="center">Bonus</td>
+  </tr>
+  <tr>
+    <td><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/0df7dd81-56fb-4929-a023-67c7386906dc"></td>
+        <td align="center"><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/0df7dd81-56fb-4929-a023-67c7386906dc"></td>
+    <td><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/0df7dd81-56fb-4929-a023-67c7386906dc"></td>
+    <td><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/0df7dd81-56fb-4929-a023-67c7386906dc"></td>
+  </tr>
+</table>
