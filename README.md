@@ -99,9 +99,9 @@
 
 <table>
   <tr>
-    <td colspan="2" align="center">🍽️ <a href="https://github.com/LLuisPP/42Cursus/tree/main/push_swap" target="_blank" rel="noreferrer">Philosophers</a> 🍽️</td>
+    <td colspan="2" align="center">🍽️ <a href="https://github.com/LLuisPP/42Cursus/tree/main/philosophers" target="_blank" rel="noreferrer">Philosophers</a> 🍽️</td>
     <td rowspan="4" align="center"></td>
-    <td colspan="2" align="center">📦 <a href="https://github.com/LLuisPP/42Cursus/tree/main/fractol" target="_blank" rel="noreferrer">Minisell</a> 📦</td>
+    <td colspan="2" align="center">📦 <a href="https://github.com/LLuisPP/42Cursus/tree/main/minishell" target="_blank" rel="noreferrer">Minisell</a> 📦</td>
   </tr>
   <tr>
     <td colspan="2" align="center"><img width="180" src="https://github.com/LLuisPP/42Cursus/assets/116104082/cb26ac18-6328-40ec-a147-3ad71afa5e5c"></td>
