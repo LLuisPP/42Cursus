@@ -104,7 +104,7 @@
     <td colspan="2" align="center">📦 <a href="https://github.com/LLuisPP/42Cursus/tree/main/minishell" target="_blank" rel="noreferrer">Minisell</a> 📦</td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><img width="180" src="https://github.com/LLuisPP/42Cursus/assets/116104082/cb26ac18-6328-40ec-a147-3ad71afa5e5c"></td>
+    <td colspan="2" align="center"><img width="180" src="https://github.com/LLuisPP/42Cursus/assets/116104082/fbe1f86f-e94d-4cfe-a944-18a05af04f86"></td>
     <td colspan="2" align="center"><img width="180" src="https://github.com/LLuisPP/42Cursus/assets/116104082/7a968530-2939-41f8-9cb3-03ba3eb100f0"></td>
   </tr>
   <tr>
