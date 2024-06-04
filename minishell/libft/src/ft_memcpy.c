@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:55:18 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/09/22 10:56:16 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/06/03 15:49:03 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	i = 0;
 	s = (unsigned char *) src;
 	d = (unsigned char *) dst;
-	if ((n >= 0) && (dst == NULL && src == NULL))
+	if ((n > 0) && (dst == NULL && src == NULL))
 		return (dst);
 	while (i < n)
 	{

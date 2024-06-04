@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/27 07:16:06 by lprieto-          #+#    #+#              #
-#    Updated: 2024/06/03 17:40:01 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/06/04 18:54:57 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 AR = ar -rcs
 RM = rm -rf
+ 
+# **************************************************************************** #
 
 SRCS = philo.c philo_utils.c
 
@@ -30,6 +32,8 @@ DIRSRC = $(addprefix $(SRC_PATH), $(SRCS))
 OBJS = $(addprefix $(OBJ_PATH), $(SRCS:.c=.o))
 
 DEPS = $(OBJS:.o=.d)
+
+# **************************************************************************** #
 
 all: makelib $(OBJ_PATH) $(NAME)
 
@@ -66,7 +70,7 @@ re :
 
 -include $(DEPS)
 
-#========================================================================#
+# **************************************************************************** #
 
 BGRAY =	\033[1;90m
 BRED = \033[1;91m
@@ -96,11 +100,11 @@ TOTAL_ITEMS := $(words $(OBJS))
 
 define show_progress
 	@echo; \
-	printf " $(WHITE)eeeee e    e e  e    eeeee  \n \
-$(WHITE)8   8 8    8 8  8    8   8       ▐░▐░▐░  ▄▀▀▀▀▄   ▐░\n \
-$(WHITE)8eee8 8eeee8 8e 8e   88  8       █▄█▄█░ █ φιλο █░ █░\n \
-$(WHITE)88    88   8 88 88   88  8         █░   █ σόφω █░ █░\n \
-$(WHITE)88    88   8 88 88ee 88888         █░    ▀▄▄▄▄▀   █░\n\n"; \
+	printf " $(WHITE) eeeee e    e e  e    eeeee  \n \
+$(WHITE) 8   8 8    8 8  8    8   8     ▐░▐░▐░  ▄▀▀▀▀▄   ▐░\n \
+$(WHITE) 8eee8 8eeee8 8e 8e   88  8     █▄█▄█░ █ φιλο █░ █░\n \
+$(WHITE) 88    88   8 88 88   88  8       █░   █ σόφω █░ █░\n \
+$(WHITE) 88    88   8 88 88ee 88888       █░    ▀▄▄▄▄▀   █░\n\n"; \
 
 	total_ticks=$$((PROGRESS_DURATION * 10)); # 20 ticks por segundo para una actualización fluida
 	item_progress=0; \
@@ -110,7 +114,7 @@ $(WHITE)88    88   8 88 88ee 88888         █░    ▀▄▄▄▄▀   █░
 		unfilled_len=$$(( $(BAR_LEN) - $$filled_len )); \
 		bar=$$(printf "%0.s█" $$(seq 1 $$filled_len)); \
 		bar=$$bar$$(printf "%0.s-" $$(seq 1 $$unfilled_len)); \
-		printf "\r$(BBLUE)[-%s$(BBLUE)] [$(CIAN)%d%%$(BBLUE)]$(WHITE)" "$$bar" "$$percentage"; \
+		printf "\r$(WHITE)[$(GRAY)-%s$(WHITE)] $(WHITE)[$(BWHITE)%d%%$(WHITE)]$(WHITE)" "$$bar" "$$percentage"; \
 		sleep $$(echo "scale=2; $(PROGRESS_DURATION) / $(TOTAL_ITEMS)" | bc); \
 		item_progress=$$(( $$item_progress + 1 )); \
 	done; \
@@ -119,6 +123,5 @@ $(WHITE)88    88   8 88 88ee 88888         █░    ▀▄▄▄▄▀   █░
 $(YELLOW)████▄███  $(BBLUE)██${PHA}▄$(BBLUE)█$(PHA)▄█$(BBLUE)█${RES}  ${RED}█$(WHITE)▄ ${RED}█$(WHITE)▄ ${RED}█ $(GREEN)   ${BOLD}$(NAME)    ${PURPLE}█$(WHITE) ▀${PURPLE}█$(WHITE) ▀${PURPLE}█  ${BCIAN}█$(WHITE)▀ ${BCIAN}█$(WHITE)▀ ${BCIAN}█\n \
 $(YELLOW)████▄     $(BBLUE)█${PHA}▀▄▀▄▀${BBLUE}█${RES}  ${RED}███████  $(WHITE) lprieto-  ${PURPLE}███████  ${BCIAN}███████ \n \
 $(YELLOW) ▀████▀   $(BBLUE)█▀█▀█▀█  ${RED}█ █ █ █             ${PURPLE}█ █ █ █  ${BCIAN}█ █ █ █\n\n";
-
 
 endef

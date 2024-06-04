@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 16:34:33 by lprieto-          #+#    #+#              #
-#    Updated: 2024/06/03 17:38:16 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/06/04 18:56:32 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -108,12 +108,12 @@ TOTAL_ITEMS := $(words $(OBJS))
 
 define show_progress
 	@echo; \
-	printf "\n $(BBLUE)▄$(WHITE)█▀▀▀▀▀▀▀▄ ▄▀▀▀▀▀▀▀█$(BBLUE)▄$(WHITE)    e     e  eeeee  eeee eeeee \n \
-$(BBLUE)█$(WHITE)█ ░▄░▄░▄░ ░<░░/>░ █$(BBLUE)█$(WHITE)    8     8  8   8  8      8\n \
-$(BBLUE)█$(WHITE)█ $(NAME) ░▄░░▄▄░ █$(BBLUE)█$(WHITE)    8e    8e 8eee8e 8eee   8e\n \
-$(BBLUE)█$(WHITE)█ ░▄▄░▄░░ ░░░▄▄░░ █$(BBLUE)█$(WHITE)    88    88 88   8 88     88\n \
-$(BBLUE)█$(WHITE)█▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄█$(BBLUE)█$(WHITE)    88eee 88 88eee8 88     88\n \
-$(BBLUE)▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀\n\n"; \
+	printf "\n $(BBLUE) ▄$(WHITE)█▀▀▀▀▀▀▀▄ ▄▀▀▀▀▀▀▀█$(BBLUE)▄$(WHITE)   e     e  eeeee  eeee eeeee \n \
+$(BBLUE) █$(WHITE)█ ░▄░▄░▄░ ░<░░/>░ █$(BBLUE)█$(WHITE)   8     8  8   8  8      8\n \
+$(BBLUE) █$(WHITE)█ $(NAME) ░▄░░▄▄░ █$(BBLUE)█$(WHITE)   8e    8e 8eee8e 8eee   8e\n \
+$(BBLUE) █$(WHITE)█ ░▄▄░▄░░ ░░░▄▄░░ █$(BBLUE)█$(WHITE)   88    88 88   8 88     88\n \
+$(BBLUE) █$(WHITE)█▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄█$(BBLUE)█$(WHITE)   88eee 88 88eee8 88     88\n \
+$(BBLUE) ▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀\n\n"; \
 	
 	total_ticks=$$((PROGRESS_DURATION * 10)); # 20 ticks por segundo para una actualización fluida
 	item_progress=0; \
@@ -123,7 +123,7 @@ $(BBLUE)▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀\n\n"; \
 		unfilled_len=$$(( $(BAR_LEN) - $$filled_len )); \
 		bar=$$(printf "%0.s█" $$(seq 1 $$filled_len)); \
 		bar=$$bar$$(printf "%0.s-" $$(seq 1 $$unfilled_len)); \
-		printf "\r$(BBLUE)[-%s$(BBLUE)] [$(CIAN)%d%%$(BBLUE)]$(WHITE)" "$$bar" "$$percentage"; \
+		printf "\r$(WHITE)[$(GRAY)-%s$(WHITE)] $(WHITE)[$(BWHITE)%d%%$(WHITE)]$(WHITE)" "$$bar" "$$percentage"; \
 		sleep $$(echo "scale=2; $(PROGRESS_DURATION) / $(TOTAL_ITEMS)" | bc); \
 		item_progress=$$(( $$item_progress + 1 )); \
 	done; \

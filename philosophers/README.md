@@ -7,7 +7,7 @@
   <tr>
     <td align="center">Project</td>
     <td align="center">Bonus</td>
-    <td rowspan="2" align="center"><img width="250" src="https://github.com/LLuisPP/42Cursus/assets/116104082/fbe1f86f-e94d-4cfe-a944-18a05af04f86"></td>
+    <td rowspan="2" align="center"><img width="250" src="https://github.com/LLuisPP/42Cursus/assets/116104082/cb26ac18-6328-40ec-a147-3ad71afa5e5c"></td>
   </tr>
   <tr>
     <td><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/0df7dd81-56fb-4929-a023-67c7386906dc"></td>

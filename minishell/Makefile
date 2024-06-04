@@ -6,17 +6,19 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/27 07:16:06 by lprieto-          #+#    #+#              #
-#    Updated: 2024/05/31 21:00:45 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/06/04 18:49:50 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = pipex
+NAME = minishell
 
 CC = gcc -g
 CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 AR = ar -rcs
 RM = rm -rf
+ 
+# **************************************************************************** #
 
 SRCS = 
 
@@ -31,6 +33,8 @@ OBJS = $(addprefix $(OBJ_PATH), $(SRCS:.c=.o))
 
 DEPS = $(OBJS:.o=.d)
 
+# **************************************************************************** #
+
 all: makelib $(OBJ_PATH) $(NAME)
 
 makelib: 
@@ -40,8 +44,8 @@ $(OBJ_PATH):
 	mkdir -p $(OBJ_PATH)
 
 $(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -L libft -lft -o $(NAME)
 	$(call show_progress)
-	$(CC) $(CFLAGS) $(OBJS) libft/libft.a -o $(NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c Makefile libft/libft.a
 	mkdir -p $(dir $@)
@@ -66,7 +70,7 @@ re :
 
 -include $(DEPS)
 
-#========================================================================#
+# **************************************************************************** #
 
 BGRAY =	\033[1;90m
 BRED = \033[1;91m
@@ -90,40 +94,32 @@ RES = \e[0m
 
 # **************************************************************************** #
 
-COUNT_SRCS := $(words $(SRCS))
-COUNT_OBJS := $(words $(OBJS))
-BAR_LEN := 40
-
-# **************************************************************************** #
-
+BAR_LEN := 45
+PROGRESS_DURATION := 1 # Duración de la barra de progreso en segundos
+TOTAL_ITEMS := $(words $(OBJS))
 
 define show_progress
-	echo; \
-	printf " e   e   eeee e   e eeee e    e      ▄▀▀▀▀▀▀▀▀▀▀▀▀▄ \n \
-8 8 8   8    8   8 8    8    8      █  ▄         █░ \n \
-8   8   8ee8 8eee8 eee8 8e   8e     █   █        █░ \n \
-88  8      8 88  8 88   88   88     █  ▀    ▀    █░ \n \
-88  8 8 8888 88  8 88e8 88ee 88ee   ▀▄▄▄▄▄▄▄▄▄▄▄▄▀ \n\n"; \
-	((i = 0)); \
-	while [[ $$i -le $(COUNT_SRCS) ]] ; do \
-		printf "$(BBLUE)["; \
-		progress=$$((i * $(BAR_LEN) / $(COUNT_SRCS))); \
-		((j = 1));\
-		while [[ $$j -le $(BAR_LEN) ]]; do \
-			if [[ $$j -le $$progress ]]; then \
-				printf "$(GREEN)▣"; \
-			else \
-				printf "$(GRAY)▢"; \
-			fi; \
-			((j = j + 1)); \
-		done; \
-		printf "$(BBLUE)] [$(BBLUE)$$i$(BBLUE)/$(COUNT_SRCS)$(BBLUE)] \
-		[$(BWHITE)$$((i * 100 / $(COUNT_SRCS)))%%$(BBLUE)]$(WHITE)\r"; \
-		((i = i + 1)); \
-		sleep 0.02; \
+	@echo; \
+	printf " $(WHITE) e   e   eeee e   e eeee e    e      ▄▀▀▀▀▀▀▀▀▀▀▀▀▄ \n \
+$(WHITE) 8 8 8   8    8   8 8    8    8      █  ▄         █░ \n \
+$(WHITE) 8   8   8ee8 8eee8 eee8 8e   8e     █   █        █░ \n \
+$(WHITE) 88  8      8 88  8 88   88   88     █  ▀   ▀▀▀   █░ \n \
+$(WHITE) 88  8 8 8888 88  8 88e8 88ee 88ee   ▀▄▄▄▄▄▄▄▄▄▄▄▄▀ \n\n"; \
+
+	total_ticks=$$((PROGRESS_DURATION * 10)); # 20 ticks por segundo para una actualización fluida
+	item_progress=0; \
+	while [ $$item_progress -le $(TOTAL_ITEMS) ]; do \
+		percentage=$$(( 100 * $$item_progress / $(TOTAL_ITEMS) )); \
+		filled_len=$$(( $(BAR_LEN) * $$item_progress / $(TOTAL_ITEMS) )); \
+		unfilled_len=$$(( $(BAR_LEN) - $$filled_len )); \
+		bar=$$(printf "%0.s█" $$(seq 1 $$filled_len)); \
+		bar=$$bar$$(printf "%0.s-" $$(seq 1 $$unfilled_len)); \
+		printf "\r$(WHITE)[$(GRAY)-%s$(WHITE)] $(WHITE)[$(BWHITE)%d%%$(WHITE)]$(WHITE)" "$$bar" "$$percentage"; \
+		sleep $$(echo "scale=2; $(PROGRESS_DURATION) / $(TOTAL_ITEMS)" | bc); \
+		item_progress=$$(( $$item_progress + 1 )); \
 	done; \
-	echo; \
-	printf "\n  $(YELLOW)▄████▄   $(BBLUE)▄█████▄  ${RED}▄█████▄             ${PURPLE}▄█████▄  $(BCIAN)▄█████▄\n \
+	
+	printf "\n\n  $(YELLOW)▄████▄   $(BBLUE)▄█████▄  ${RED}▄█████▄             ${PURPLE}▄█████▄  $(BCIAN)▄█████▄\n \
 $(YELLOW)████▄███  $(BBLUE)██${PHA}▄$(BBLUE)█$(PHA)▄█$(BBLUE)█${RES}  ${RED}█$(WHITE)▄ ${RED}█$(WHITE)▄ ${RED}█ $(GREEN)   ${BOLD}$(NAME)    ${PURPLE}█$(WHITE) ▀${PURPLE}█$(WHITE) ▀${PURPLE}█  ${BCIAN}█$(WHITE)▀ ${BCIAN}█$(WHITE)▀ ${BCIAN}█\n \
 $(YELLOW)████▄     $(BBLUE)█${PHA}▀▄▀▄▀${BBLUE}█${RES}  ${RED}███████  $(WHITE) lprieto-  ${PURPLE}███████  ${BCIAN}███████ \n \
 $(YELLOW) ▀████▀   $(BBLUE)█▀█▀█▀█  ${RED}█ █ █ █             ${PURPLE}█ █ █ █  ${BCIAN}█ █ █ █\n\n";
