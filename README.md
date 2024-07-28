@@ -1,10 +1,4 @@
-# 42Cursus
-
-|<div align="center">Profile</div>|<div align="center">42 School</div>|<div align="center">Stats</div>|
-|:---|:---|:---|
-|<img width="260" src="https://github.com/LLuisPP/42Cursus/assets/116104082/e4718526-3e02-4477-89c1-a9c6dad4a066" />|<img width="300" src="https://github.com/LLuisPP/42Cursus/assets/116104082/f65a01f3-408f-4650-b605-3f83f2dfb50a">|<img align="center" width="290" src="https://github-readme-stats.vercel.app/api/top-langs?username=lluispp&show_icons=true&locale=en&layout=compact" alt="lluispp"/>|
-
-42 Cursus: this are all the porjects i've passed as a 42 Barcelona student:
+<img width="300" src="https://github.com/user-attachments/assets/98c7b6ef-d3a8-425e-83c7-f118db56754e">
 
 <p><h4 align="left">Circle 0</h4>
 
