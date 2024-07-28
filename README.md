@@ -24,7 +24,7 @@
 
 ||Project|Description|100|125|
 |---|---|:---|:---|:---|
-|`🐧`|[**`born2beRoot`**](https://github.com/LLuisPP/42Cursus/tree/main/born2beroot)| Setting up and configuration of a linux virtual machine |<img src="https://img.shields.io/badge/100-darkgreen">|--|
+|`🐧`|[**`born2beRoot`**](https://github.com/LLuisPP/42Cursus/tree/main/Born2beRoot)| Setting up and configuration of a linux virtual machine |<img src="https://img.shields.io/badge/100-darkgreen">|--|
 |`🖨`|[**`ft_printf`**](https://github.com/LLuisPP/42Cursus/tree/main/ft_printf)| Implementation of the printf function in C |<img src="https://img.shields.io/badge/100-darkgreen">|--|
 |`📝`|[**`get_next_line`**](https://github.com/LLuisPP/42Cursus/tree/main/get_next_line)| A utility to read from a file descriptor line by line |<img src="https://img.shields.io/badge/100-darkgreen">|<img src="https://img.shields.io/badge/125-darkgreen">|
 
