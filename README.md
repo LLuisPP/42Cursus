@@ -9,10 +9,8 @@
     <td align="center">circle 0</td>
     <td align="center">
 <div align="center">
-
-|Project|Description|
-|---|:---|
-|[**`libft`**](https://github.com/LLuisPP/42Cursus/tree/main/libft)| Replicating essential functions from the basic C library |<img src="https://img.shields.io/badge/100-darkgreen">|
+  
+[**`libft`**](https://github.com/LLuisPP/42Cursus/tree/main/libft)
 
 <div align="center">
     </td>
@@ -22,11 +20,9 @@
     <td>
       <div align="center">
 
-|Project|Description|
-|---|:---|
-|[**`born2beRoot`**](https://github.com/LLuisPP/42Cursus/tree/main/Born2beRoot)| Setting up and configuration of a linux virtual machine|
-|[**`ft_printf`**](https://github.com/LLuisPP/42Cursus/tree/main/ft_printf)| Implementation of the printf function in C |
-|[**`get_next_line`**](https://github.com/LLuisPP/42Cursus/tree/main/get_next_line)| A utility to read from a file descriptor line by line |
+[**`born2beRoot`**](https://github.com/LLuisPP/42Cursus/tree/main/Born2beRoot)
+[**`ft_printf`**](https://github.com/LLuisPP/42Cursus/tree/main/ft_printf)
+[**`get_next_line`**](https://github.com/LLuisPP/42Cursus/tree/main/get_next_line)
 
 <div align="center">
     </td>
@@ -35,12 +31,10 @@
     <td align="center">circle 2</td>
     <td>
       <div align="center">
-        
-|Project|Description|
-|---|:---|
-|[**`push_swap`**](https://github.com/LLuisPP/42Cursus/tree/main/push_swap)| Sort numbers in a stack efficiently with a limited set of actions |
-|[**`fractol`**](https://github.com/LLuisPP/42Cursus/tree/main/fractol)| Dive into 2D fractal generator with this project |
-|[**`pipex`**](https://github.com/LLuisPP/42Cursus/tree/main/pipex)| A project to manage child processes with forks and threads |
+
+[**`push_swap`**](https://github.com/LLuisPP/42Cursus/tree/main/push_swap)
+[**`fractol`**](https://github.com/LLuisPP/42Cursus/tree/main/fractol)
+[**`pipex`**](https://github.com/LLuisPP/42Cursus/tree/main/pipex)
 
 <div align="center">
     </td>
@@ -50,10 +44,8 @@
     <td>
       <div align="center">
 
-|Project|Description|
-|---|:---|
-|[**`philosophers`**](https://github.com/LLuisPP/42Cursus/tree/main/philosophers)| Handle threads and proceses to feed the Philosophers feast |
-|[**`minishell`**](https://github.com/LLuisPP/42Cursus/tree/main/minishell)| Replicate a bash terminal with complete behavior |
+[**`philosophers`**](https://github.com/LLuisPP/42Cursus/tree/main/philosophers)
+[**`minishell`**](https://github.com/LLuisPP/42Cursus/tree/main/minishell)
 
 <div align="center">
     </td>
