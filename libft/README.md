@@ -52,9 +52,8 @@
     
 [**`rank04`**](https://github.com/LLuisPP/42-exams-rank04)</td>
   </tr>
-</table>
+</table><br>
 
-</div>
 
 <table>
   <tr>
@@ -70,3 +69,5 @@
     <td align="center"><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/9e54f420-b26e-46ae-8886-132ebd161931"></td>
   </tr>
 </table>
+
+</div>
