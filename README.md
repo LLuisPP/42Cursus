@@ -67,7 +67,7 @@
 |---|---|:---|:---|:---|:---|---|
 |`📖`|[**libft**](https://github.com/LLuisPP/42Cursus/tree/main/libft)|:suspect:| Replicating essential functions from the basic C library |<img src="https://img.shields.io/badge/100-darkgreen">|<img src="https://img.shields.io/badge/125-darkgreen">|`Sep'23`|
 ||||||||
-|`🐧`|[**born2beRoot**](https://github.com/LLuisPP/42Cursus/tree/main/born2beroot)|:hurtrealbad:| Setting up and configuration of a linux virtual machine |<img src="https://img.shields.io/badge/100-darkgreen">|--|`Oct'23`|
+|`🐧`|[**born2beRoot**](https://github.com/LLuisPP/42Cursus/tree/main/Born2beRoot)|:hurtrealbad:| Setting up and configuration of a linux virtual machine |<img src="https://img.shields.io/badge/100-darkgreen">|--|`Oct'23`|
 |`🖨`|[**ft_printf**](https://github.com/LLuisPP/42Cursus/tree/main/ft_printf)|:rage2:| Implementation of the printf function in C |<img src="https://img.shields.io/badge/100-darkgreen">|--|`Nov'23`|
 |`📝`|[**get_next_line**](https://github.com/LLuisPP/42Cursus/tree/main/get_next_line)|:rage4:| A utility to read from a file descriptor line by line |<img src="https://img.shields.io/badge/100-darkgreen">|<img src="https://img.shields.io/badge/125-darkgreen">|`Dic'23`|
 ||||||||
