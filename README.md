@@ -10,9 +10,9 @@
     <td align="center">
 <div align="center">
 
-||Project|Description|100|125|
-|---|---|:---|:---|:---|
-|`📖`|[**`libft`**](https://github.com/LLuisPP/42Cursus/tree/main/libft)| Replicating essential functions from the basic C library |<img src="https://img.shields.io/badge/100-darkgreen">|<img src="https://img.shields.io/badge/125-darkgreen">|
+|Project|Description|
+|---|:---|
+|[**`libft`**](https://github.com/LLuisPP/42Cursus/tree/main/libft)| Replicating essential functions from the basic C library |<img src="https://img.shields.io/badge/100-darkgreen">|
 
 <div align="center">
     </td>
@@ -22,11 +22,11 @@
     <td>
       <div align="center">
 
-||Project|Description|100|125|
-|---|---|:---|:---|:---|
-|`🐧`|[**`born2beRoot`**](https://github.com/LLuisPP/42Cursus/tree/main/Born2beRoot)| Setting up and configuration of a linux virtual machine |<img src="https://img.shields.io/badge/100-darkgreen">|--|
-|`🖨`|[**`ft_printf`**](https://github.com/LLuisPP/42Cursus/tree/main/ft_printf)| Implementation of the printf function in C |<img src="https://img.shields.io/badge/100-darkgreen">|--|
-|`📝`|[**`get_next_line`**](https://github.com/LLuisPP/42Cursus/tree/main/get_next_line)| A utility to read from a file descriptor line by line |<img src="https://img.shields.io/badge/100-darkgreen">|<img src="https://img.shields.io/badge/125-darkgreen">|
+|Project|Description|
+|---|:---|
+|[**`born2beRoot`**](https://github.com/LLuisPP/42Cursus/tree/main/Born2beRoot)| Setting up and configuration of a linux virtual machine|
+|[**`ft_printf`**](https://github.com/LLuisPP/42Cursus/tree/main/ft_printf)| Implementation of the printf function in C |
+|[**`get_next_line`**](https://github.com/LLuisPP/42Cursus/tree/main/get_next_line)| A utility to read from a file descriptor line by line |
 
 <div align="center">
     </td>
@@ -36,11 +36,11 @@
     <td>
       <div align="center">
         
-||Project|Description|100|125|
-|---|---|:---|:---|:---|
-|`🔢`|[**`push_swap`**](https://github.com/LLuisPP/42Cursus/tree/main/push_swap)| Sort numbers in a stack efficiently with a limited set of actions |<img src="https://img.shields.io/badge/86-darkgreen">|--|
-|`🌀`|[**`fractol`**](https://github.com/LLuisPP/42Cursus/tree/main/fractol)| Dive into 2D fractal generator with this project |<img src="https://img.shields.io/badge/100-darkgreen">|<img src="https://img.shields.io/badge/110-darkgreen">|
-|`🧪`|[**`pipex`**](https://github.com/LLuisPP/42Cursus/tree/main/pipex)| A project to manage child processes with forks and threads |<img src="https://img.shields.io/badge/100-darkgreen">|--|
+|Project|Description|
+|---|:---|
+|[**`push_swap`**](https://github.com/LLuisPP/42Cursus/tree/main/push_swap)| Sort numbers in a stack efficiently with a limited set of actions |
+|[**`fractol`**](https://github.com/LLuisPP/42Cursus/tree/main/fractol)| Dive into 2D fractal generator with this project |
+|[**`pipex`**](https://github.com/LLuisPP/42Cursus/tree/main/pipex)| A project to manage child processes with forks and threads |
 
 <div align="center">
     </td>
@@ -50,10 +50,10 @@
     <td>
       <div align="center">
 
-||Project|Description|100|125|
-|---|---|:---|:---|:---|
-|`🍽`|[**`philosophers`**](https://github.com/LLuisPP/42Cursus/tree/main/philosophers)| Handle threads and proceses to feed the Philosophers feast |▶️|--|
-|`📦`|[**`minishell`**](https://github.com/LLuisPP/42Cursus/tree/main/minishell)| Replicate a bash terminal with complete behavior |▶️|--|
+|Project|Description|
+|---|:---|
+|[**`philosophers`**](https://github.com/LLuisPP/42Cursus/tree/main/philosophers)| Handle threads and proceses to feed the Philosophers feast |
+|[**`minishell`**](https://github.com/LLuisPP/42Cursus/tree/main/minishell)| Replicate a bash terminal with complete behavior |
 
 <div align="center">
     </td>
