@@ -3,52 +3,54 @@
 <table>
   <tr>
     <th align="center"><a href="https://github.com/LLuisPP/42Cursus/tree/main/"> <img width="30" align="center" src="https://github.com/user-attachments/assets/ac216672-a141-48be-bc53-ae13dd35c799"></a></th>
-    <td colspan="2" align="center"> Common Core Cursus </td>
+    <td align="center"> circle 0 </td>
+    <td align="center"> circle 1 </td>
+    <td align="center"> circle 2 </td>
+    <td align="center"> circle 3 </td>
+    <td align="center"> circle 4 </td>
   </tr>
   <tr>
-    <td align="center">circle 0</td>
+    <td align="center">pjcts</td>
     <td align="center">
-<div align="center">
-  
+
 [**`libft`**](https://github.com/LLuisPP/42Cursus/tree/main/libft)
-
-<div align="center">
     </td>
-  </tr>
-  <tr>
-    <td align="center">circle 1</td>
-    <td>
-      <div align="center">
+    <td align="left">
 
-[**`born2beRoot`**](https://github.com/LLuisPP/42Cursus/tree/main/Born2beRoot)
-[**`ft_printf`**](https://github.com/LLuisPP/42Cursus/tree/main/ft_printf)
-[**`get_next_line`**](https://github.com/LLuisPP/42Cursus/tree/main/get_next_line)
-
-<div align="center">
+  [**`born2beRoot`**](https://github.com/LLuisPP/42Cursus/tree/main/Born2beRoot)<br>
+  [**`ft_printf`**](https://github.com/LLuisPP/42Cursus/tree/main/ft_printf)<br>
+  [**`get_next_line`**](https://github.com/LLuisPP/42Cursus/tree/main/get_next_line)
     </td>
-  </tr>
-  <tr>
-    <td align="center">circle 2</td>
-    <td>
-      <div align="center">
+    <td align="left">
 
-[**`push_swap`**](https://github.com/LLuisPP/42Cursus/tree/main/push_swap)
-[**`fractol`**](https://github.com/LLuisPP/42Cursus/tree/main/fractol)
+[**`push_swap`**](https://github.com/LLuisPP/42Cursus/tree/main/push_swap)<br>
+[**`fractol`**](https://github.com/LLuisPP/42Cursus/tree/main/fractol)<br>
 [**`pipex`**](https://github.com/LLuisPP/42Cursus/tree/main/pipex)
+    </td>
+    <td align="left">
 
-<div align="center">
+[**`philosophers`**](https://github.com/LLuisPP/42Cursus/tree/main/philosophers)<br>
+[**`minishell`**](https://github.com/LLuisPP/42Cursus/tree/main/minishell)
+    </td>
+    <td align="left">
+
+[**`netpractice`**]()<br>
+[**`miniRT`**]()<br>
+[**`cpp`**]()
     </td>
   </tr>
-   <tr>
-    <td align="center">circle 3</td>
+  <tr>
+    <td align="center">exam</td>
+    <td>no</td>
+    <td>no</td>
     <td>
-      <div align="center">
-
-[**`philosophers`**](https://github.com/LLuisPP/42Cursus/tree/main/philosophers)
-[**`minishell`**](https://github.com/LLuisPP/42Cursus/tree/main/minishell)
-
-<div align="center">
-    </td>
+      
+[**`rank02`**](https://github.com/LLuisPP/42Cursus/tree/main/Born2beRoot)</td>
+    <td>
+[**`rank03`**](https://github.com/LLuisPP/42Cursus/tree/main/Born2beRoot)</td>
+  <td>
+    
+[**`rank04`**](https://github.com/LLuisPP/42Cursus/tree/main/Born2beRoot)</td>
   </tr>
 </table>
 
