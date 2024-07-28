@@ -41,8 +41,8 @@
   </tr>
   <tr>
     <td align="center">exam</td>
-    <td>no</td>
-    <td>no</td>
+    <td></td>
+    <td></td>
     <td>
       
 [**`rank02`**](https://github.com/LLuisPP/42Cursus/tree/main/Born2beRoot)</td>
@@ -53,8 +53,6 @@
 [**`rank04`**](https://github.com/LLuisPP/42Cursus/tree/main/Born2beRoot)</td>
   </tr>
 </table>
-
-</div>
 
 </div>
 
