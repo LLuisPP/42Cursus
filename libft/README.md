@@ -52,8 +52,7 @@
     
 [**`rank04`**](https://github.com/LLuisPP/42-exams-rank04)</td>
   </tr>
-</table><br>
-
+</table>
 
 <table>
   <tr>
