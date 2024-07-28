@@ -3,7 +3,7 @@
 <table>
   <tr>
     <th align="center"><a href="https://github.com/LLuisPP/42Cursus/tree/main/"> <img width="30" align="center" src="https://github.com/user-attachments/assets/ac216672-a141-48be-bc53-ae13dd35c799"></a></th>
-    <td colspan="3" align="center"> Common Core Cursus </td>
+    <td colspan="2" align="center"> Common Core Cursus </td>
   </tr>
   <tr>
     <td align="center">circle 0</td>
