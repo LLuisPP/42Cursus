@@ -45,12 +45,12 @@
     <td></td>
     <td>
       
-[**`rank02`**](https://github.com/LLuisPP/42Cursus/tree/main/Born2beRoot)</td>
+[**`rank02`**](https://github.com/LLuisPP/42-Exams/tree/main/rank02)</td>
     <td>
-[**`rank03`**](https://github.com/LLuisPP/42Cursus/tree/main/Born2beRoot)</td>
+[**`rank03`**](https://github.com/LLuisPP/42-Exams-rank03)</td>
   <td>
     
-[**`rank04`**](https://github.com/LLuisPP/42Cursus/tree/main/Born2beRoot)</td>
+[**`rank04`**](https://github.com/LLuisPP/42-exams-rank04)</td>
   </tr>
 </table>
 
