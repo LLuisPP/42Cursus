@@ -6,26 +6,26 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/27 07:16:06 by lprieto-          #+#    #+#              #
-#    Updated: 2024/06/04 18:54:57 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/08/12 20:48:30 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
 CC = gcc -g
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -MMD -pthread -fsanitize=address
 
-AR = ar -rcs
 RM = rm -rf
  
 # **************************************************************************** #
 
-SRCS = philo.c philo_utils.c
+SRCS = philo.c ph_init.c ph_checkers.c ph_routine.c ph_print_tools.c ph_utils.c \
+ph_destroy.c
 
 SRC_PATH := ./src/
 OBJ_PATH := ./tmp/
 
-H_PATH := ./hincludes
+H_PATH := ./inc/
 HEADERS = -I$(H_PATH)
 
 DIRSRC = $(addprefix $(SRC_PATH), $(SRCS))
@@ -35,34 +35,28 @@ DEPS = $(OBJS:.o=.d)
 
 # **************************************************************************** #
 
-all: makelib $(OBJ_PATH) $(NAME)
-
-makelib: 
-	$(MAKE) --silent -C libft  --no-print-directory
+all: $(OBJ_PATH) $(NAME)
 
 $(OBJ_PATH):
 	mkdir -p $(OBJ_PATH)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -L libft -lft -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	$(call show_progress)
 
-$(OBJ_PATH)%.o: $(SRC_PATH)%.c Makefile libft/libft.a
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c Makefile
 	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(HEADERS) -MMD -c $< -o $@
 
 clean :
 	$(RM) $(OBJ_PATH)
-	$(MAKE) --silent -C libft clean
 
 fclean :
 	$(RM) $(NAME) $(OBJ_PATH)
-	$(MAKE) --silent -C libft fclean
 
 re :
 	make fclean --silent
 	make all --silent
-	$(MAKE) all --silent -C libft
 
 .PHONY: all, clean, fclean, re
 
@@ -101,10 +95,10 @@ TOTAL_ITEMS := $(words $(OBJS))
 define show_progress
 	@echo; \
 	printf " $(WHITE) eeeee e    e e  e    eeeee  \n \
-$(WHITE) 8   8 8    8 8  8    8   8     ▐░▐░▐░  ▄▀▀▀▀▄   ▐░\n \
-$(WHITE) 8eee8 8eeee8 8e 8e   88  8     █▄█▄█░ █ φιλο █░ █░\n \
-$(WHITE) 88    88   8 88 88   88  8       █░   █ σόφω █░ █░\n \
-$(WHITE) 88    88   8 88 88ee 88888       █░    ▀▄▄▄▄▀   █░\n\n"; \
+$(WHITE) 8   8 8    8 8  8    8   8     ▐░▐░▐░  ▄▀▀▀▀▄   ▐░▐░▐░\n \
+$(WHITE) 8eee8 8eeee8 8e 8e   88  8     █▄█▄█░ █ φιλο █░ █▄█▄█░\n \
+$(WHITE) 88    88   8 88 88   88  8       █░   █ σόφω █░   █░\n \
+$(WHITE) 88    88   8 88 88ee 88888       █░    ▀▄▄▄▄▀     █░\n\n"; \
 
 	total_ticks=$$((PROGRESS_DURATION * 10)); # 20 ticks por segundo para una actualización fluida
 	item_progress=0; \

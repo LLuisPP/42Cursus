@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ph_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 08:34:40 by lprieto-          #+#    #+#             */
-/*   Updated: 2023/10/24 12:15:14 by lprieto-         ###   ########.fr       */
+/*   Created: 2024/08/12 19:23:40 by lprieto-          #+#    #+#             */
+/*   Updated: 2024/08/12 20:48:13 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "philo.h"
 
-int	ft_putstr(char *s)
+void destroy_all(t_table *table)
 {
-	int	i;
-
-	i = 0;
-	if (!s)
-		return (ft_putstr("(null)"));
-	while (s[i] != '\0')
-	{
-		if (ft_putchar(s[i]) == -1)
-			return (-1);
-		i++;
-	}
-	return (i);
+    destroy_mutexes(table);
+    destroy_forks(table);
+    free_threads(table);
+    free_forks(table);
+    free_philos(table);
 }
