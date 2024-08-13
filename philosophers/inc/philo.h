@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:23:36 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/12 20:52:06 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/13 09:26:57 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@
 # include <sys/time.h>
 
 /* Simplification aliases */
-typedef pthread_mutex_t t_mutex;
-typedef struct timeval t_time;
+typedef pthread_mutex_t	t_mutex;
+typedef struct timeval	t_time;
 
 /* Structs */
-typedef struct s_table t_table;
-typedef struct s_philo t_philo;
+typedef struct s_table	t_table;
+typedef struct s_philo	t_philo;
 
 struct s_philo
 {
@@ -85,7 +85,7 @@ void			put_down_forks(t_table *table, int id, int l_fork, int r_fork);
 void			sleep_philo(t_table *table, int id);
 
 /************ ph_utils ***************/
-void destroy_all(t_table *table);
+void			destroy_all(t_table *table);
 
 /************ ph_destroy ***************/
 void			destroy_mutexes(t_table *table);
@@ -100,13 +100,13 @@ void			handling(void);
 void			initfeast(int argc, char **argv);
 
 /*********** color defines ************/
-#define RD	"\033[1;31m"
-#define GR	"\033[1;32m"
-#define YL	"\033[1;33m"
-#define	BL	"\033[1;34m"
-#define PK	"\033[0;35m"
-#define PP	"\033[1;35m"
-#define CY	"\033[1;36m"
-#define F	"\033[0m"
+# define RD		"\033[1;31m"
+# define GR		"\033[1;32m"
+# define YL		"\033[1;33m"
+# define BL		"\033[1;34m"
+# define PK		"\033[0;35m"
+# define PP		"\033[1;35m"
+# define CY		"\033[1;36m"
+# define F		"\033[0m"
 
 #endif

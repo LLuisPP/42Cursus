@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 18:23:01 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/12 20:28:51 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/13 09:50:46 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	pick_up_forks(t_table *table, int id, int l_fork, int r_fork)
 {
-	long long t_elaps;
-	
+	long long	t_elaps;
+
 	pthread_mutex_lock(&table->forks[l_fork]);
 	pthread_mutex_lock(&table->print_m);
 	t_elaps = t_ms(table);
@@ -30,24 +30,25 @@ void	pick_up_forks(t_table *table, int id, int l_fork, int r_fork)
 
 void	eat(t_table *table, int id)
 {
-	long long t_elaps;
-	
+	long long	t_elaps;
+
 	pthread_mutex_lock(&table->print_m);
 	t_elaps = t_ms(table);
 	printf("[%lld] %d %sis eating%s\n", t_elaps, id, GR, F);
 	pthread_mutex_unlock(&table->print_m);
-	usleep(table->t_to_eat * 1000);	table->philos[id - 1].meals_eaten++;
+	usleep(table->t_to_eat * 1000);
+	table->philos[id - 1].meals_eaten++;
 	if (table->philos[id - 1].meals_eaten >= table->meals_req)
 		table->philos[id - 1].feeded = 1;
 	pthread_mutex_lock(&table->print_m);
-	printf("\nPh %d has eaten %d from a total of %d\n\n", 
-	id, table->philos[id -1].meals_eaten, table->meals_req);
+	printf("\nPh %d has eaten %d from a total of %d\n\n",
+		id, table->philos[id -1].meals_eaten, table->meals_req);
 	pthread_mutex_unlock(&table->print_m);
 }
 
 void	put_down_forks(t_table *table, int id, int l_fork, int r_fork)
 {
-	long long t_elaps;
+	long long	t_elaps;
 
 	pthread_mutex_unlock(&table->forks[r_fork]);
 	pthread_mutex_lock(&table->print_m);
@@ -63,8 +64,8 @@ void	put_down_forks(t_table *table, int id, int l_fork, int r_fork)
 
 void	sleep_philo(t_table *table, int id)
 {
-	long long t_elaps;
-	
+	long long	t_elaps;
+
 	pthread_mutex_lock(&table->print_m);
 	t_elaps = t_ms(table);
 	printf("[%lld] %d %sis sleeping%s\n", t_elaps, id, BL, F);
@@ -74,7 +75,7 @@ void	sleep_philo(t_table *table, int id)
 
 void	think(t_table *table, int id)
 {
-	long long t_elaps = t_ms(table);
+	long long	t_elaps;
 
 	pthread_mutex_lock(&table->print_m);
 	t_elaps = t_ms(table);
@@ -82,22 +83,22 @@ void	think(t_table *table, int id)
 	pthread_mutex_unlock(&table->print_m);
 }
 
-void *routine(void *arg)
+void	*routine(void *arg)
 {
-	t_philo			*philo;
-	t_table			*table;
-	int				id;
-	int				left_fork;
-    int				right_fork;
- 
+	t_philo	*philo;
+	t_table	*table;
+	int		id;
+	int		left_fork;
+	int		right_fork;
+
 	philo = (t_philo *)arg;
 	table = philo->table;
 	id = philo->id;
 	left_fork = id;
-    right_fork = (id % table->nbr_phs) + 1;
+	right_fork = (id % table->nbr_phs) + 1;
 	pthread_mutex_lock(&table->start_thds);
 	pthread_mutex_unlock(&table->start_thds);
-	while (1)
+	while (table->feast_end != 1)
 	{
 		pick_up_forks(table, id, left_fork, right_fork);
 		eat(table, id);

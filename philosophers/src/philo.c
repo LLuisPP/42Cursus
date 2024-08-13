@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 18:49:02 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/12 21:19:44 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/13 09:16:08 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ void	*checker(void *arg)
 			printf("All philosophers ate the required number of meals.\n");
 			// Aquí podrías finalizar la simulación, por ejemplo:
 			pthread_mutex_lock(&table->print_m);
-			return (NULL);
 			table->feast_end = 1;
+			pthread_mutex_unlock(&table->print_m);
 			break;
 		}
 		usleep(1000);  // Pequeña espera para no sobrecargar la CPU
