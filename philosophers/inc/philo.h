@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:23:36 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/13 09:26:57 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/13 15:12:56 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int				init_mutex(t_table *table);
 void			think(t_table *table, int id);
 void			pick_up_forks(t_table *table, int id, int l_fork, int r_fork);
 void			eat(t_table *table, int id);
-void			put_down_forks(t_table *table, int id, int l_fork, int r_fork);
+void			put_down_forks(t_table *table, /*int id,*/ int l_fork, int r_fork);
 void			sleep_philo(t_table *table, int id);
 
 /************ ph_utils ***************/

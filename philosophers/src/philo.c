@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 18:49:02 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/13 09:16:08 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/13 15:57:09 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int create_threads(t_table *table)
 
 	i = 0;
 	pthread_mutex_lock(&table->start_thds);
-	printf("-------------- Creating philos (threads) --------------\n");
+	// printf("-------------- Creating philos (threads) --------------\n");
 	t_philo *philo = calloc(sizeof(t_philo), table->nbr_phs);
 	if (!philo)
 		return (-1);
@@ -37,45 +37,44 @@ int create_threads(t_table *table)
 	{
 		philo[i].id = i + 1;
 		philo[i].table = table;
-		printf("%d > thread created\n", i);
+		// printf("%d > thread created\n", i);
 		if (pthread_create(&table->thds[i], NULL, routine, &philo[i]) != 0)
-		{
-			free(philo);
-			return (-1);
-		}
+			return (free(philo), -1);
 		i++;
 	}
-	printf("-------------- All philos (threads) created -----------\n");
+	// printf("-------------- All philos (threads) created -----------\n");
 	pthread_mutex_unlock(&table->start_thds);
 	return (0);
 }
 
 void	*checker(void *arg)
 {
-	t_table *table = (t_table *)arg;
+	t_table *table;
 	int all_feed;
+	int	i;
 
+	table = (t_table *)arg;
 	while (1)
 	{
 		all_feed = 1;
-		for (int i = 0; i < table->nbr_phs; i++)
+		i = 0;
+		while (i < table->nbr_phs)
 		{
 			if (table->philos[i].feeded == 0)
 			{
 				all_feed = 0;
 				break;
 			}
+			i++;
 		}
 		if (all_feed)
 		{
-			printf("All philosophers ate the required number of meals.\n");
-			// Aquí podrías finalizar la simulación, por ejemplo:
-			pthread_mutex_lock(&table->print_m);
 			table->feast_end = 1;
+			pthread_mutex_lock(&table->print_m);
+			printf("All philosophers ate the required number of meals.\n");
 			pthread_mutex_unlock(&table->print_m);
-			break;
+			return (NULL);
 		}
-		usleep(1000);  // Pequeña espera para no sobrecargar la CPU
 	}
 	return (NULL);
 }
@@ -93,7 +92,7 @@ int	main(int argc, char **argv)
 	initfeast(argc, argv);
 	if (init_table(argc, argv, &table) == -1)
 		return (info('v'));
-	printf("%s\n", "Struct intialized");
+	printf("\n╔══════ 🍽  Start feast sim 🍽  ═══╝\n▼\n");
 	if (create_threads(&table) == -1)
 		return (info('t'));
 	if (pthread_create(&checker_thread, NULL, checker, (void *)&table) != 0)
@@ -108,5 +107,6 @@ int	main(int argc, char **argv)
 	pthread_join(checker_thread, NULL);
 	printf("-------------- 11 -----------\n");
 	destroy_all(&table);
+	printf("\n╚══════ 🍽  End of feast sim 🍽  ══▶\n\n");
 	return (0);
 }

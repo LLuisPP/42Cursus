@@ -20,7 +20,7 @@ int	setup_table_params(int argc, char **argv, t_table *table)
 	table->t_to_die = ft_atol(argv[2]);
 	table->t_to_eat = ft_atol(argv[3]);
 	table->t_to_sleep = ft_atol(argv[4]);
-	table->feast_end = 1;
+	table->feast_end = 0;
 	gettimeofday(&tv, NULL);
 	table->start_t = (tv.tv_sec * 1000LL + tv.tv_usec / 1000);
 	if (!table->start_t)
@@ -32,7 +32,7 @@ int	setup_table_params(int argc, char **argv, t_table *table)
 
 int	init_table(int argc, char **argv, t_table *table)
 {
-	printf("-------------- TABLE START --------------\n");
+	// printf("-------------- TABLE START --------------\n");
 	memset(table, 0, sizeof(t_table));
 	if (setup_table_params(argc, argv, table) != 0)
 		return (-1);
@@ -47,7 +47,7 @@ int	init_table(int argc, char **argv, t_table *table)
 		return (free(table->thds), free(table->forks), -1);
 	if (init_mutex(table) != 0)
 		return (destroy_all(table), -1);
-	printf("-------------- TABLE INIT --------------\n");
+	// printf("-------------- TABLE INIT --------------\n");
 	init_philos(table, table->nbr_phs);
 	return (0);
 }
@@ -57,7 +57,7 @@ int	init_philos(t_table *table, int nbr_philo)
 	int	i;
 
 	i = 0;
-	printf("-------------- PHILOS START --------------\n");
+	// printf("-------------- PHILOS START --------------\n");
 	while (i < nbr_philo)
 	{
 		table->philos[i].nbr = i + 1;
@@ -68,7 +68,7 @@ int	init_philos(t_table *table, int nbr_philo)
 		table->philos[i].feeded = 0;
 		i++;
 	}
-	printf("-------------- PHILOS INIT --------------\n");
+	// printf("-------------- PHILOS INIT --------------\n");
 	return (1);
 }
 
@@ -77,7 +77,7 @@ int	init_mutex(t_table *table)
 	int	i;
 
 	i = 0;
-	printf("-------------- MUTEX START --------------\n");
+	// printf("-------------- MUTEX START --------------\n");
 	if (pthread_mutex_init(&table->start_thds, NULL) != 0)
 		return (-1);
 	if (pthread_mutex_init(&table->life_check, NULL) != 0)
@@ -90,6 +90,6 @@ int	init_mutex(t_table *table)
 			return (-1);
 		i++;
 	}
-	printf("-------------- MUTEX INIT --------------\n");
+	// printf("-------------- MUTEX INIT --------------\n");
 	return (0);
 }
