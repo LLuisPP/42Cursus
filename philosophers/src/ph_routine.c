@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 18:23:01 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/13 19:42:57 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/13 19:52:34 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	pick_up_forks(t_table *table, int id, int l_fork, int r_fork)
 	if (table->feast_end != 1)
     {
         t_elaps = t_ms(table);
-        printf("[%lld] %d %shas taken a fork%s %d\n", t_elaps, id, PK, F, l_fork);
+        printf("[%lld] %d %s%s%s %d\n", t_elaps, id, PK, TF, F, l_fork);
     }
 	pthread_mutex_unlock(&table->print_m);
 	pthread_mutex_lock(&table->forks[r_fork]);
@@ -29,7 +29,7 @@ void	pick_up_forks(t_table *table, int id, int l_fork, int r_fork)
 	if (table->feast_end != 1)
     {
         t_elaps = t_ms(table);
-        printf("[%lld] %d %shas taken a fork%s %d\n", t_elaps, id, PP, F, r_fork);
+        printf("[%lld] %d %s%s%s %d\n", t_elaps, id, PP, TF, F, r_fork);
     }
 	pthread_mutex_unlock(&table->print_m);
 }
@@ -42,7 +42,7 @@ void	eat(t_table *table, int id)
 	if (table->feast_end != 1)
     {
     	t_elaps = t_ms(table);
-        printf("[%lld] %d %sis eating%s\n", t_elaps, id, GR, F);
+        printf("[%lld] %d %s%s%s\n", t_elaps, id, GR, IE, F);
     }
 	pthread_mutex_unlock(&table->print_m);
 	pthread_mutex_lock(&table->data_m);
@@ -79,7 +79,7 @@ void	sleep_philo(t_table *table, int id)
 	if (table->feast_end != 1)
     {
         t_elaps = t_ms(table);
-        printf("[%lld] %d %sis sleeping%s\n", t_elaps, id, BL, F);
+        printf("[%lld] %d %s%s%s\n", t_elaps, id, BL, IS, F);
     }
 	pthread_mutex_unlock(&table->print_m);
 	usleep(table->t_to_sleep * 1000);
@@ -93,7 +93,7 @@ void	think(t_table *table, int id)
 	if (table->feast_end != 1)
     {
         t_elaps = t_ms(table);
-        printf("[%lld] %d is thinking\n", t_elaps, id);
+        printf("[%lld] %d %s\n", t_elaps, id, IT);
     }
 	pthread_mutex_unlock(&table->print_m);
 }

@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:23:36 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/13 18:48:24 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/13 19:51:53 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,4 +110,10 @@ void			initfeast(int argc, char **argv);
 # define CY		"\033[1;36m"
 # define F		"\033[0m"
 
+/************** messages *************/
+# define TF		"has taken a fork"
+# define IE		"is eating"
+# define IS		"is sleeping"
+# define IT		"is thinking"
+# define DI		"died"
 #endif
