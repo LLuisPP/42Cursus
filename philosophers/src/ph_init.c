@@ -14,8 +14,8 @@
 
 int	setup_table_params(int argc, char **argv, t_table *table)
 {
-	struct timeval tv;
-	
+	struct timeval	tv;
+
 	table->nbr_phs = ft_atol(argv[1]);
 	table->t_to_die = ft_atol(argv[2]);
 	table->t_to_eat = ft_atol(argv[3]);
@@ -52,10 +52,10 @@ int	init_table(int argc, char **argv, t_table *table)
 	return (0);
 }
 
-int init_philos(t_table *table, int nbr_philo)
+int	init_philos(t_table *table, int nbr_philo)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	printf("-------------- PHILOS START --------------\n");
 	while (i < nbr_philo)
@@ -72,25 +72,20 @@ int init_philos(t_table *table, int nbr_philo)
 	return (1);
 }
 
-int init_mutex(t_table *table)
+int	init_mutex(t_table *table)
 {
 	int	i;
 
 	i = 0;
 	printf("-------------- MUTEX START --------------\n");
-	// Inicializar mutexes de sincronización
 	if (pthread_mutex_init(&table->start_thds, NULL) != 0)
 		return (-1);
-
 	if (pthread_mutex_init(&table->life_check, NULL) != 0)
 		return (-1);
-
 	if (pthread_mutex_init(&table->print_m, NULL) != 0)
 		return (-1);
-
-	// Inicializar mutexes para los tenedores
 	while (i < table->nbr_phs)
-	{	
+	{
 		if (pthread_mutex_init(&table->forks[i], NULL) != 0)
 			return (-1);
 		i++;
