@@ -84,6 +84,8 @@ int	init_mutex(t_table *table)
 		return (-1);
 	if (pthread_mutex_init(&table->print_m, NULL) != 0)
 		return (-1);
+	if (pthread_mutex_init(&table->data_m, NULL) != 0)
+		return (-1);
 	while (i < table->nbr_phs)
 	{
 		if (pthread_mutex_init(&table->forks[i], NULL) != 0)

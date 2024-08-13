@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:23:36 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/13 15:12:56 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/13 18:48:24 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ struct s_table
 	t_mutex		start_thds;
 	t_mutex		life_check;
 	t_mutex		print_m;
+	t_mutex		data_m;
 	t_philo		*philos;
 	pthread_t	*thds;
 	long long	start_t;

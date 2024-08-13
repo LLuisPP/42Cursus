@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 18:49:02 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/13 15:57:09 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/13 18:37:38 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,28 +50,19 @@ int create_threads(t_table *table)
 void	*checker(void *arg)
 {
 	t_table *table;
-	int all_feed;
 	int	i;
 
 	table = (t_table *)arg;
 	while (1)
 	{
-		all_feed = 1;
 		i = 0;
-		while (i < table->nbr_phs)
-		{
-			if (table->philos[i].feeded == 0)
-			{
-				all_feed = 0;
-				break;
-			}
+		while (i < table->nbr_phs && table->philos[i].feeded != 0)
 			i++;
-		}
-		if (all_feed)
+		if (i == table->nbr_phs)
 		{
-			table->feast_end = 1;
 			pthread_mutex_lock(&table->print_m);
-			printf("All philosophers ate the required number of meals.\n");
+			table->feast_end = 1;
+			// printf("All philosophers ate the required number of meals.\n");
 			pthread_mutex_unlock(&table->print_m);
 			return (NULL);
 		}
@@ -103,9 +94,7 @@ int	main(int argc, char **argv)
 		pthread_join(table.thds[i], NULL);
 		i++;
 	}
-	printf("-------------- 10 -----------\n");
 	pthread_join(checker_thread, NULL);
-	printf("-------------- 11 -----------\n");
 	destroy_all(&table);
 	printf("\n╚══════ 🍽  End of feast sim 🍽  ══▶\n\n");
 	return (0);
