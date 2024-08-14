@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/27 07:16:06 by lprieto-          #+#    #+#              #
-#    Updated: 2024/08/12 20:48:30 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/08/14 09:37:34 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ RM = rm -rf
 # **************************************************************************** #
 
 SRCS = philo.c ph_init.c ph_checkers.c ph_routine.c ph_print_tools.c ph_utils.c \
-ph_destroy.c
+ph_destroy.c ph_watcher.c
 
 SRC_PATH := ./src/
 OBJ_PATH := ./tmp/

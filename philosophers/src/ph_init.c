@@ -66,6 +66,8 @@ int	init_philos(t_table *table, int nbr_philo)
 		table->philos[i].table = table;
 		table->philos[i].meals_eaten = 0;
 		table->philos[i].feeded = 0;
+		table->philos[i].last_meal = 0;
+		table->philos[i].alive = 1;
 		i++;
 	}
 	// printf("-------------- PHILOS INIT --------------\n");

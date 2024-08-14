@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 18:49:02 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/13 18:37:38 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/14 12:39:10 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,34 +47,13 @@ int create_threads(t_table *table)
 	return (0);
 }
 
-void	*checker(void *arg)
-{
-	t_table *table;
-	int	i;
-
-	table = (t_table *)arg;
-	while (1)
-	{
-		i = 0;
-		while (i < table->nbr_phs && table->philos[i].feeded != 0)
-			i++;
-		if (i == table->nbr_phs)
-		{
-			pthread_mutex_lock(&table->print_m);
-			table->feast_end = 1;
-			// printf("All philosophers ate the required number of meals.\n");
-			pthread_mutex_unlock(&table->print_m);
-			return (NULL);
-		}
-	}
-	return (NULL);
-}
 
 int	main(int argc, char **argv)
 {
 	t_table			table;
 	int			i;
 	pthread_t checker_thread;
+	pthread_t death_thread;
 	
 	if (argc < 5 || argc > 6)
 		return (info('h'));
@@ -86,6 +65,8 @@ int	main(int argc, char **argv)
 	printf("\n╔══════ 🍽  Start feast sim 🍽  ═══╝\n▼\n");
 	if (create_threads(&table) == -1)
 		return (info('t'));
+	if (pthread_create(&death_thread, NULL, death_checker, &table) != 0)
+		return (info('k'));
 	if (pthread_create(&checker_thread, NULL, checker, (void *)&table) != 0)
 		return (info('k'));
 	i = 0;

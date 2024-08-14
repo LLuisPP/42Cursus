@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:23:36 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/13 19:51:53 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/14 12:38:13 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ struct s_philo
 	int			id;
 	int			meals_eaten;
 	int			feeded;
-	t_time		last_meal;
+	int			alive;
+	long long	last_meal;
 	t_mutex		*l_fork;
 	t_mutex		*r_fork;
 	t_table		*table;
@@ -63,7 +64,6 @@ struct s_table
 
 /************* philo **************/
 long long		t_ms(t_table *table);
-void			*routine(void *arg);
 int				create_threads(t_table *table);
 
 /************* ph_checkers **************/
@@ -84,6 +84,11 @@ void			pick_up_forks(t_table *table, int id, int l_fork, int r_fork);
 void			eat(t_table *table, int id);
 void			put_down_forks(t_table *table, /*int id,*/ int l_fork, int r_fork);
 void			sleep_philo(t_table *table, int id);
+void			*routine(void *arg);
+
+/************ ph_watcher ***************/
+void			*death_checker(void *arg);
+void			*checker(void *arg);
 
 /************ ph_utils ***************/
 void			destroy_all(t_table *table);
