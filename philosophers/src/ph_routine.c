@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 18:23:01 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/15 12:36:56 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/15 12:47:27 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	eat(t_table *table, int id)
 	pthread_mutex_lock(&table->data_m);
 	if (table->feast_end != 1)
 		print_status(table, id, IE, GR);
-	if (table->philos[id - 1].last_meal + table->t_to_eat >= table->t_to_die)
+	if (table->philos[id - 1].last_meal + table->t_to_eat >= t_ms(table) + table->t_to_die)
 	{
 		print_status(table, id, DI, RD);
 		table->philos[id - 1].alive = 0;
@@ -52,8 +52,9 @@ void	eat(t_table *table, int id)
 	table->philos[id - 1].meals_eaten++;
 	if (table->philos[id - 1].meals_eaten == table->meals_req)
 		table->philos[id - 1].feeded = 1;
-	table->philos[id - 1].last_meal = t_ms(table) + table->t_to_eat;
-	printf ("valor actualizado: %lld\n", table->philos->last_meal);
+	printf("valor de t_ms(table): %lld\n", t_ms(table));
+	table->philos[id - 1].last_meal = (t_ms(table) + table->t_to_eat);
+	printf ("valor actualizado de %d: %lld\n", id, table->philos->last_meal);
 	pthread_mutex_unlock(&table->data_m);
 	usleep(table->t_to_eat * 1000);
 }
