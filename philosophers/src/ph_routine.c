@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 18:23:01 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/15 12:47:27 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/15 20:52:37 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,25 +38,31 @@ void	pick_up_forks(t_table *table, int id, int l_fork, int r_fork)
 
 void	eat(t_table *table, int id)
 {
+	long long	current_t;
+
+	current_t = t_ms(table);
 	pthread_mutex_lock(&table->data_m);
 	if (table->feast_end != 1)
 		print_status(table, id, IE, GR);
-	if (table->philos[id - 1].last_meal + table->t_to_eat >= t_ms(table) + table->t_to_die)
+	if (current_t + table->t_to_eat - table->philos[id - 1].last_meal
+		>= table->t_to_die)
 	{
+		usleep(current_t + table->t_to_eat - table->philos[id - 1].last_meal
+			>= table->t_to_die);
 		print_status(table, id, DI, RD);
 		table->philos[id - 1].alive = 0;
 		table->feast_end = 1;
 		pthread_mutex_unlock(&table->data_m);
 		return ;
 	}
+	pthread_mutex_unlock(&table->data_m);
+	usleep(table->t_to_eat * 1000);
+	pthread_mutex_lock(&table->data_m);
 	table->philos[id - 1].meals_eaten++;
 	if (table->philos[id - 1].meals_eaten == table->meals_req)
 		table->philos[id - 1].feeded = 1;
-	printf("valor de t_ms(table): %lld\n", t_ms(table));
-	table->philos[id - 1].last_meal = (t_ms(table) + table->t_to_eat);
-	printf ("valor actualizado de %d: %lld\n", id, table->philos->last_meal);
+	table->philos[id - 1].last_meal = t_ms(table);
 	pthread_mutex_unlock(&table->data_m);
-	usleep(table->t_to_eat * 1000);
 }
 
 void	put_down_forks(t_table *table, int l_fork, int r_fork)
@@ -66,7 +72,7 @@ void	put_down_forks(t_table *table, int l_fork, int r_fork)
 }
 
 void	sleep_philo(t_table *table, int id)
-{
+{	
 	print_status(table, id, IS, BL);
 	usleep(table->t_to_sleep * 1000);
 }

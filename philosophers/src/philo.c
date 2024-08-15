@@ -6,11 +6,34 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 18:49:02 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/15 08:17:28 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/15 20:56:53 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+int	create_threads(t_table *table)
+{
+	int		i;
+	t_philo	*philo;
+
+	i = 0;
+	pthread_mutex_lock(&table->start_thds);
+	philo = calloc(sizeof(t_philo), table->nbr_phs);
+	if (!philo)
+		return (-1);
+	while (i < table->nbr_phs)
+	{
+		philo[i].id = i + 1;
+		philo[i].table = table;
+		if (pthread_create(&table->thds[i], NULL, routine, &philo[i]) != 0)
+			return (free(philo), -1);
+		i++;
+	}
+	usleep(300);
+	pthread_mutex_unlock(&table->start_thds);
+	return (0);
+}
 
 void	*routine(void *arg)
 {
@@ -38,33 +61,10 @@ void	*routine(void *arg)
 	return (NULL);
 }
 
-int	create_threads(t_table *table)
-{
-	int		i;
-	t_philo	*philo;
-
-	i = 0;
-	pthread_mutex_lock(&table->start_thds);
-	philo = calloc(sizeof(t_philo), table->nbr_phs);
-	if (!philo)
-		return (-1);
-	while (i < table->nbr_phs)
-	{
-		philo[i].id = i + 1;
-		philo[i].table = table;
-		if (pthread_create(&table->thds[i], NULL, routine, &philo[i]) != 0)
-			return (free(philo), -1);
-		i++;
-	}
-	pthread_mutex_unlock(&table->start_thds);
-	return (0);
-}
-
 int	main(int argc, char **argv)
 {
 	int			i;
 	t_table		table;
-	pthread_t	checker_thread;
 
 	if (argc < 5 || argc > 6)
 		return (info('h'));
@@ -75,15 +75,13 @@ int	main(int argc, char **argv)
 		return (info('v'));
 	if (create_threads(&table) == -1)
 		return (info('t'));
-	if (pthread_create(&checker_thread, NULL, checker, (void *)&table) != 0)
-		return (info('k'));
+	simulation_loop(&table);
 	i = 0;
 	while (i < table.nbr_phs)
 	{
-		pthread_join(table.thds[i], NULL);
+		pthread_detach(table.thds[i]);
 		i++;
 	}
-	pthread_join(checker_thread, NULL);
 	destroy_all(&table);
 	printf("\n╚══════ 🍽  End of feast sim 🍽  ══▶\n\n");
 	return (0);

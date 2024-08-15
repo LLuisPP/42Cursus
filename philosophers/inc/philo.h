@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:23:36 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/15 08:16:55 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/15 20:49:27 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,9 @@ void			sleep_philo(t_table *table, int id);
 void			*routine(void *arg);
 
 /************ ph_watcher ***************/
-void			*death_checker(void *arg);
-void			*checker(void *arg);
+void			simulation_loop(t_table *table);
+int				check_all_fed(t_table *table);
+int				check_anyone_dead(t_table *table);
 
 /************ ph_utils ***************/
 void			destroy_all(t_table *table);
@@ -102,7 +103,7 @@ void			free_philos(t_table *table);
 int				info(char c);
 void			handling(void);
 void			initfeast(int argc, char **argv);
-long long		print_status(t_table *table, int id, char *msg, char *color);
+long long		print_status(t_table *table, int id, char *msg, char *clr);
 
 /*********** color defines ************/
 # define RD		"\033[1;31m"

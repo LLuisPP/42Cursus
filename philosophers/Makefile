@@ -6,14 +6,14 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/27 07:16:06 by lprieto-          #+#    #+#              #
-#    Updated: 2024/08/15 07:59:30 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/08/15 21:03:55 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
 CC = gcc -g
-CFLAGS = -Wall -Wextra -Werror -MMD -pthread -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -MMD -pthread -fsanitize=adress
 
 RM = rm -rf
  

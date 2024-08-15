@@ -58,13 +58,13 @@ int	init_philos(t_table *table, int nbr_philo)
 	i = 0;
 	while (i < nbr_philo)
 	{
+		table->philos[i].last_meal = t_ms(table) + 1;
 		table->philos[i].nbr = i + 1;
 		table->philos[i].r_fork = &table->forks[i];
 		table->philos[i].l_fork = &table->forks[((i + 1) % table->nbr_phs)];
 		table->philos[i].table = table;
 		table->philos[i].meals_eaten = 0;
 		table->philos[i].feeded = 0;
-		table->philos[i].last_meal = 0;
 		table->philos[i].alive = 1;
 		i++;
 	}
