@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:23:36 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/14 12:38:13 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/15 08:16:55 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,9 @@ struct s_table
 	int			t_to_eat;
 	int			t_to_sleep;
 	int			meals_req;
-	int			stop;
 	int			feast_end;
 	t_mutex		*forks;
 	t_mutex		start_thds;
-	t_mutex		life_check;
 	t_mutex		print_m;
 	t_mutex		data_m;
 	t_philo		*philos;
@@ -82,7 +80,7 @@ int				init_mutex(t_table *table);
 void			think(t_table *table, int id);
 void			pick_up_forks(t_table *table, int id, int l_fork, int r_fork);
 void			eat(t_table *table, int id);
-void			put_down_forks(t_table *table, /*int id,*/ int l_fork, int r_fork);
+void			put_down_forks(t_table *table, int l_fork, int r_fork);
 void			sleep_philo(t_table *table, int id);
 void			*routine(void *arg);
 
@@ -104,6 +102,7 @@ void			free_philos(t_table *table);
 int				info(char c);
 void			handling(void);
 void			initfeast(int argc, char **argv);
+long long		print_status(t_table *table, int id, char *msg, char *color);
 
 /*********** color defines ************/
 # define RD		"\033[1;31m"

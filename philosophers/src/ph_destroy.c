@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 20:47:42 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/13 09:42:58 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/14 23:39:55 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	destroy_mutexes(t_table *table)
 {
 	pthread_mutex_destroy(&table->start_thds);
-	pthread_mutex_destroy(&table->life_check);
 	pthread_mutex_destroy(&table->print_m);
 }
 

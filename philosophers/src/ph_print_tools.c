@@ -6,11 +6,25 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 22:30:54 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/13 15:53:41 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/15 08:12:15 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <philo.h>
+
+long long	print_status(t_table *table, int id, char *msg, char *color)
+{
+	struct timeval	tv;
+	long long		t_elaps;
+
+	gettimeofday(&tv, NULL);
+	t_elaps = (tv.tv_sec * 1000LL + tv.tv_usec / 1000) - table->start_t;
+	pthread_mutex_lock(&table->print_m);
+	if (table->feast_end == 0)
+		printf("[%lld] %d %s%s%s\n", t_elaps, id, color, msg, F);
+	pthread_mutex_unlock(&table->print_m);
+	return (t_elaps);
+}
 
 int	info(char c)
 {
@@ -64,4 +78,5 @@ void	initfeast(int argc, char **argv)
 	else
 		printf("║       '--'       | meals: %s\n║\n", argv[5]);
 	printf("╚════════════════════════════════╗");
+	printf("\n╔══════ 🍽  Start feast sim 🍽  ═══╝\n▼\n\n");
 }
