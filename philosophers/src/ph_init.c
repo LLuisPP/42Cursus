@@ -21,6 +21,7 @@ int	setup_table_params(int argc, char **argv, t_table *table)
 	table->t_to_eat = ft_atol(argv[3]);
 	table->t_to_sleep = ft_atol(argv[4]);
 	table->feast_end = 0;
+	table->meals_req = -1;
 	gettimeofday(&tv, NULL);
 	table->start_t = (tv.tv_sec * 1000LL + tv.tv_usec / 1000);
 	if (!table->start_t)
