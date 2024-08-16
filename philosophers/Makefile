@@ -6,21 +6,21 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/27 07:16:06 by lprieto-          #+#    #+#              #
-#    Updated: 2024/08/15 21:03:55 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/08/16 21:51:05 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
 CC = gcc -g
-CFLAGS = -Wall -Wextra -Werror -MMD -pthread -fsanitize=adress
+CFLAGS = -Wall -Wextra -Werror -MMD -pthread -fsanitize=address -g
 
 RM = rm -rf
  
 # **************************************************************************** #
 
 SRCS = philo.c ph_init.c ph_checkers.c ph_routine.c ph_print_tools.c ph_utils.c \
-ph_destroy.c ph_watcher.c
+ph_destroy.c ph_loop.c
 
 SRC_PATH := ./src/
 OBJ_PATH := ./tmp/

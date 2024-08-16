@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:23:36 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/15 20:49:27 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/16 21:51:24 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,18 @@ int				create_threads(t_table *table);
 
 /************* ph_checkers **************/
 long long int	ft_atol(const char *str);
-int				ft_isdigit(char *str);
+int				ft_is_digit(char *str);
 int				ft_arg_range(int argc, char **argv);
 int				arg_is_int(int argc, char **argv);
-int				arg_chck(int argc, char **argv);
+int				arg_check(int argc, char **argv);
 
 /************ ph_init *************/
+int				setup_table_params(int argc, char **argv, t_table *table);
 int				init_table(int argc, char **argv, t_table *table);
 int				init_philos(t_table *table, int nbr_philo);
 int				init_mutex(t_table *table);
+void			mutex_protection(t_table *table, int up);
+
 
 /************ ph_routine ************/
 void			think(t_table *table, int id);
@@ -84,7 +87,7 @@ void			put_down_forks(t_table *table, int l_fork, int r_fork);
 void			sleep_philo(t_table *table, int id);
 void			*routine(void *arg);
 
-/************ ph_watcher ***************/
+/************ ph_loop ***************/
 void			simulation_loop(t_table *table);
 int				check_all_fed(t_table *table);
 int				check_anyone_dead(t_table *table);
@@ -100,10 +103,11 @@ void			free_forks(t_table *table);
 void			free_philos(t_table *table);
 
 /************* ph_print **************/
+void			eval(void);
 int				info(char c);
 void			handling(void);
 void			initfeast(int argc, char **argv);
-long long		print_status(t_table *table, int id, char *msg, char *clr);
+void			print_status(t_table *table, int id, char *msg, char *clr);
 
 /*********** color defines ************/
 # define RD		"\033[1;31m"
@@ -116,7 +120,8 @@ long long		print_status(t_table *table, int id, char *msg, char *clr);
 # define F		"\033[0m"
 
 /************** messages *************/
-# define TF		"has taken a fork"
+# define TFL	"has taken a fork <"
+# define TFR	"has taken a fork >"
 # define IE		"is eating"
 # define IS		"is sleeping"
 # define IT		"is thinking"

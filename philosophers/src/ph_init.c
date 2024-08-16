@@ -20,14 +20,12 @@ int	setup_table_params(int argc, char **argv, t_table *table)
 	table->t_to_die = ft_atol(argv[2]);
 	table->t_to_eat = ft_atol(argv[3]);
 	table->t_to_sleep = ft_atol(argv[4]);
-	table->feast_end = 0;
 	table->meals_req = -1;
-	gettimeofday(&tv, NULL);
-	table->start_t = (tv.tv_sec * 1000LL + tv.tv_usec / 1000);
-	if (!table->start_t)
-		return (-1);
 	if (argc == 6)
 		table->meals_req = ft_atol(argv[5]);
+	table->feast_end = 0;
+	gettimeofday(&tv, NULL);
+	table->start_t = (tv.tv_sec * 1000LL + tv.tv_usec / 1000);
 	return (0);
 }
 
@@ -58,10 +56,10 @@ int	init_philos(t_table *table, int nbr_philo)
 	i = 0;
 	while (i < nbr_philo)
 	{
-		table->philos[i].last_meal = t_ms(table) + 1;
+		table->philos[i].last_meal = t_ms(table);
 		table->philos[i].nbr = i + 1;
-		table->philos[i].r_fork = &table->forks[i];
-		table->philos[i].l_fork = &table->forks[((i + 1) % table->nbr_phs)];
+		table->philos[i].l_fork = &table->forks[i];
+		table->philos[i].r_fork = &table->forks[((i + 1) % table->nbr_phs)];
 		table->philos[i].table = table;
 		table->philos[i].meals_eaten = 0;
 		table->philos[i].feeded = 0;
@@ -79,14 +77,35 @@ int	init_mutex(t_table *table)
 	if (pthread_mutex_init(&table->start_thds, NULL) != 0)
 		return (-1);
 	if (pthread_mutex_init(&table->print_m, NULL) != 0)
+	{
+		pthread_mutex_destroy(&table->start_thds);
 		return (-1);
+	}
 	if (pthread_mutex_init(&table->data_m, NULL) != 0)
+	{
+		pthread_mutex_destroy(&table->start_thds);
+		pthread_mutex_destroy(&table->print_m);
 		return (-1);
+	}
 	while (i < table->nbr_phs)
 	{
 		if (pthread_mutex_init(&table->forks[i], NULL) != 0)
-			return (-1);
+			return (mutex_protection(table, i), -1);
 		i++;
 	}
 	return (0);
+}
+
+void	mutex_protection(t_table *table, int up)
+{
+	int	i;
+
+	i = 0;
+	while (i < up)
+	{
+		pthread_mutex_destroy(&table->forks[i]);
+	}
+	pthread_mutex_destroy(&table->start_thds);
+	pthread_mutex_destroy(&table->print_m);
+	pthread_mutex_destroy(&table->data_m);
 }

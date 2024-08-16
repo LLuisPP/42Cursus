@@ -6,13 +6,13 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 22:30:54 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/15 20:56:56 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/16 19:31:33 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <philo.h>
 
-long long	print_status(t_table *table, int id, char *msg, char *color)
+void	print_status(t_table *table, int id, char *msg, char *color)
 {
 	struct timeval	tv;
 	long long		t_elaps;
@@ -23,7 +23,6 @@ long long	print_status(t_table *table, int id, char *msg, char *color)
 	if (table->feast_end == 0)
 		printf("[%lld] %d %s%s%s\n", t_elaps, id, color, msg, F);
 	pthread_mutex_unlock(&table->print_m);
-	return (t_elaps);
 }
 
 int	info(char c)
@@ -45,6 +44,26 @@ int	info(char c)
 	return (-1);
 }
 
+void	initfeast(int argc, char **argv)
+{
+	printf("\n%s\n", "╔═ PHILOSOPHERS FEAST IS READY ══╗");
+	printf("║\n%s %s\n", "║     _ .--. _     | philos:", argv[1]);
+	printf("║   .'   %sP1%s   '.   |\n", GR, F);
+	printf("║  · %sF1%s  ()  %sF2%s ·  | die: %s\n", BL, F, BL, F, argv[2]);
+	printf("║ .              . |\n");
+	printf("║ |%sP4%s ()    () %sP2%s| | eat: %s\n", GR, F, GR, F, argv[3]);
+	printf("║ .              . |\n");
+	printf("║  · %sF4%s  ()  %sF3%s ·  | sleep: %s\n", BL, F, BL, F, argv[4]);
+	printf("║   '._  %sP3%s  _.'   |\n", GR, F);
+	if (argc == 5)
+		printf("║       '--'       | meals: ∞\n║\n");
+	else
+		printf("║       '--'       | meals: %s\n║\n", argv[5]);
+	printf("╚════════════════════════════════╗");
+	eval();
+	printf("\n╔══════ 🍽  Start feast sim 🍽  ═══╝\n▼\n\n");
+}
+
 void	handling(void)
 {
 	printf("\n");
@@ -62,21 +81,12 @@ void	handling(void)
 	printf(" ╚════════════════════════════════════════════════╝\n");
 }
 
-void	initfeast(int argc, char **argv)
+void	eval(void)
 {
-	printf("\n%s\n", "╔═ PHILOSOPHERS FEAST IS READY ══╗");
-	printf("║\n%s %s\n", "║     _ .--. _     | philos:", argv[1]);
-	printf("║   .'   %sP1%s   '.   |\n", GR, F);
-	printf("║  · %sF1%s  ()  %sF2%s ·  | die: %s\n", BL, F, BL, F, argv[2]);
-	printf("║ .              . |\n");
-	printf("║ |%sP4%s ()    () %sP2%s| | eat: %s\n", GR, F, GR, F, argv[3]);
-	printf("║ .              . |\n");
-	printf("║  · %sF4%s  ()  %sF3%s ·  | sleep: %s\n", BL, F, BL, F, argv[4]);
-	printf("║   '._  %sP3%s  _.'   |\n", GR, F);
-	if (argc == 5)
-		printf("║       '--'       | meals: ∞\n║\n");
-	else
-		printf("║       '--'       | meals: %s\n║\n", argv[5]);
-	printf("╚════════════════════════════════╗");
-	printf("\n╔══════ 🍽  Start feast sim 🍽  ═══╝\n▼\n\n");
+	printf("\n  ╔════════════════════════════ EVAL ═╗\n");
+	printf("  ║   D   Ex: ./philo 1 800 200 200   ║\n");
+	printf("  ║   I   Ex: ./philo 5 800 200 200   ║\n");
+	printf("  ║   E   Ex: ./philo 5 800 500 200 7 ║\n");
+	printf("  ║   I   Ex: ./philo 4 410 200 200   ║\n");
+	printf("  ╚═══════════════════════════════════╝");
 }

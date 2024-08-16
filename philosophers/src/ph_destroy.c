@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 20:47:42 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/14 23:39:55 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/16 13:38:49 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,15 @@ void	destroy_forks(t_table *table)
 
 void	free_threads(t_table *table)
 {
+	int i;
 	if (table->thds)
 	{
+		i = 0;
+		while (i < table->nbr_phs)
+		{
+			pthread_detach(table->thds[i]);
+			i++;
+		}
 		free(table->thds);
 		table->thds = NULL;
 	}

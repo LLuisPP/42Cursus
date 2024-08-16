@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 09:34:36 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/10 10:46:34 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/16 17:28:16 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ long long int	ft_atol(const char *str)
 
 	i = 0;
 	nbr = 0;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
 		i++;
 	if (str[i] == '+')
 		i++;
@@ -28,7 +28,7 @@ long long int	ft_atol(const char *str)
 	return (nbr);
 }
 
-int	ft_isdigit(char *str)
+int	ft_is_digit(char *str)
 {
 	int	i;
 
@@ -45,11 +45,12 @@ int	ft_isdigit(char *str)
 int	ft_arg_range(int argc, char **argv)
 {
 	int	i;
-
-	i = 0;
+	int	num;
+	i = 1;
 	while (i < argc)
 	{
-		if (ft_atol(argv[i]) > INT_MAX || ft_atol(argv[i]) < INT_MIN)
+		num = ft_atol(argv[i]);
+		if (num > INT_MAX || num == 0)
 			return (-1);
 		i++;
 	}
@@ -65,22 +66,24 @@ int	arg_is_int(int argc, char **argv)
 	while (i < argc)
 	{
 		j = 0;
+		while (argv[i][j] == ' ' || argv[i][j] == '\t')
+			j++;
 		if (!argv[i] || argv[i][j] == '\0')
 			return (-1);
 		else if (argv[i][j] == '+' && argv[i][j + 1] != 0)
 			j++;
-		else if (argv[i][j] == '-' && (ft_isdigit(&argv[i][++j]) == 0))
+		else if (argv[i][j] == '-' && (ft_is_digit(&argv[i][++j]) == 0))
 			return (-1);
-		while (ft_isdigit(&argv[i][j]) == 0 && argv[i][j] != '\0')
+		while (ft_is_digit(&argv[i][j]) == 0 && argv[i][j] != '\0')
 			j++;
-		if (ft_isdigit(&argv[i][j]) == -1)
+		if (ft_is_digit(&argv[i][j]) == -1)
 			return (-1);
 		i++;
 	}
 	return (0);
 }
 
-int	arg_chck(int argc, char **argv)
+int	arg_check(int argc, char **argv)
 {
 	if (arg_is_int(argc, argv) != 0)
 		return (-1);

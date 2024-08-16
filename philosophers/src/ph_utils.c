@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 19:23:40 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/14 23:09:05 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/16 09:12:12 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ long long	t_ms(t_table *table)
 
 void	destroy_all(t_table *table)
 {
+	free_threads(table);
 	destroy_mutexes(table);
 	destroy_forks(table);
-	free_threads(table);
 	free_forks(table);
 	free_philos(table);
 }
