@@ -73,4 +73,37 @@
 
 </div>
 
+```
+t_table
+│
+├── nbr_phs  (Número de filósofos)
+│
+├── thds  (Array de identificadores de hilos)
+│   ├── thds[0] → pthread_t (ID del hilo para el filósofo 1)
+│   ├── thds[1] → pthread_t (ID del hilo para el filósofo 2)
+│   ├── ... 
+│   └── thds[nbr_phs-1] → pthread_t (ID del hilo para el filósofo n)
+│
+├── forks  (Array de mutexes para los tenedores)
+│   ├── forks[0] → t_mutex (Mutex para el tenedor 1)
+│   ├── forks[1] → t_mutex (Mutex para el tenedor 2)
+│   ├── ... 
+│   └── forks[nbr_phs-1] → t_mutex (Mutex para el tenedor n)
+│
+└── philos  (Array de estructuras de filósofos)
+    ├── philos[0] → t_philo
+    │   ├── id → 1
+    │   └── table → t_table (Apunta de regreso a la estructura `t_table`)
+    │
+    ├── philos[1] → t_philo
+    │   ├── id → 2
+    │   └── table → t_table (Apunta de regreso a la estructura `t_table`)
+    │
+    ├── ... 
+    │
+    └── philos[nbr_phs-1] → t_philo
+        ├── id → n
+        └── table → t_table (Apunta de regreso a la estructura `t_table`)
+```
+
 </div>
