@@ -77,7 +77,7 @@
 |`🌀`|[**fractol**](https://github.com/LLuisPP/42Cursus/tree/main/fractol)|:goberserk:| Dive into 2D fractal generator with this project |<img src="https://img.shields.io/badge/100-darkgreen">|<img src="https://img.shields.io/badge/110-darkgreen">|`Feb'24`|
 |`🧪`|[**pipex**](https://github.com/LLuisPP/42Cursus/tree/main/pipex)|:finnadie:| A project to manage child processes with forks and threads |<img src="https://img.shields.io/badge/100-darkgreen">|--|`May'24`|
 ||||||||
-|`🍽`|[**philosophers**](https://github.com/LLuisPP/42Cursus/tree/main/philosophers)|:finnadie:| Handle threads and proceses to feed the Philosophers feast |▶️|--|--|
+|`🍽`|[**philosophers**](https://github.com/LLuisPP/42Cursus/tree/main/philosophers)|:finnadie:| Handle threads and proceses to feed the Philosophers feast |<img src="https://img.shields.io/badge/100-darkgreen">|--|`Aug'24`|
 |`📦`|[**minishell**](https://github.com/LLuisPP/42Cursus/tree/main/minishell)|:finnadie:| Replicate a bash terminal with complete behavior |▶️|--|--|
 ||||||||
 |`🔖`|[**rank 03 exam**](https://github.com/LLuisPP/42-Exams-rank03)| :godmode:| One random program between get_next_line & ft_printf |<img src="https://img.shields.io/badge/100-darkgreen">|--|`Aug'24`|
