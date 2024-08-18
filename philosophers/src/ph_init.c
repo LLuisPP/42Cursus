@@ -34,15 +34,12 @@ int	init_table(int argc, char **argv, t_table *table)
 	memset(table, 0, sizeof(t_table));
 	if (setup_table_params(argc, argv, table) != 0)
 		return (-1);
-	table->thds = malloc(sizeof(pthread_t) * table->nbr_phs);
-	if (!table->thds)
-		return (-1);
 	table->forks = calloc(table->nbr_phs, sizeof(t_mutex));
 	if (!table->forks)
-		return (free(table->thds), -1);
-	table->philos = malloc(sizeof(t_philo) * table->nbr_phs);
-	if (!table->philos)
-		return (free(table->thds), free(table->forks), -1);
+		return (free(table->phs), -1);
+	table->phs = malloc(sizeof(t_philo) * table->nbr_phs);
+	if (!table->phs)
+		return (free(table->phs), free(table->forks), -1);
 	if (init_mutex(table) != 0)
 		return (destroy_all(table), -1);
 	init_philos(table, table->nbr_phs);
@@ -56,14 +53,13 @@ int	init_philos(t_table *table, int nbr_philo)
 	i = 0;
 	while (i < nbr_philo)
 	{
-		table->philos[i].last_meal = t_ms(table);
-		table->philos[i].nbr = i + 1;
-		table->philos[i].l_fork = &table->forks[i];
-		table->philos[i].r_fork = &table->forks[((i + 1) % table->nbr_phs)];
-		table->philos[i].table = table;
-		table->philos[i].meals_eaten = 0;
-		table->philos[i].feeded = 0;
-		table->philos[i].alive = 1;
+		table->phs[i].last_meal = t_ms(table);
+		table->phs[i].nbr = i + 1;
+		table->phs[i].l_fork = &table->forks[i];
+		table->phs[i].r_fork = &table->forks[((i + 1) % table->nbr_phs)];
+		table->phs[i].table = table;
+		table->phs[i].meals_eaten = 0;
+		table->phs[i].feeded = 0;
 		i++;
 	}
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:23:36 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/16 21:51:24 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:30:44 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ struct s_philo
 	int			id;
 	int			meals_eaten;
 	int			feeded;
-	int			alive;
 	long long	last_meal;
 	t_mutex		*l_fork;
 	t_mutex		*r_fork;
 	t_table		*table;
+	pthread_t	thd;
 };
 
 struct s_table
@@ -50,19 +50,19 @@ struct s_table
 	int			t_to_eat;
 	int			t_to_sleep;
 	int			meals_req;
+	long long	start_t;
 	int			feast_end;
+	t_philo		*phs;
 	t_mutex		*forks;
 	t_mutex		start_thds;
 	t_mutex		print_m;
 	t_mutex		data_m;
-	t_philo		*philos;
-	pthread_t	*thds;
-	long long	start_t;
 };
 
 /************* philo **************/
 long long		t_ms(t_table *table);
 int				create_threads(t_table *table);
+void			feast(t_table *table, int id, int left_fork, int right_fork);
 
 /************* ph_checkers **************/
 long long int	ft_atol(const char *str);
@@ -77,7 +77,6 @@ int				init_table(int argc, char **argv, t_table *table);
 int				init_philos(t_table *table, int nbr_philo);
 int				init_mutex(t_table *table);
 void			mutex_protection(t_table *table, int up);
-
 
 /************ ph_routine ************/
 void			think(t_table *table, int id);
@@ -107,7 +106,8 @@ void			eval(void);
 int				info(char c);
 void			handling(void);
 void			initfeast(int argc, char **argv);
-void			print_status(t_table *table, int id, char *msg, char *clr);
+void			print_status(t_table *table, int id, char *msg, char *color);
+void			print_death(t_table *table, int id, char *msg, char *color);
 
 /*********** color defines ************/
 # define RD		"\033[1;31m"

@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 09:34:36 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/16 17:28:16 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:31:42 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	ft_arg_range(int argc, char **argv)
 {
 	int	i;
 	int	num;
+
 	i = 1;
 	while (i < argc)
 	{
