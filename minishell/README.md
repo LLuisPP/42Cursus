@@ -63,14 +63,86 @@
   <tr>
     <td align="center">Project</td>
     <td align="center">Bonus</td>
-    <td rowspan="2" align="center"><img width="250" src="https://github.com/LLuisPP/42Cursus/assets/116104082/503ec095-afc5-4491-b880-2acfb0186938"></td>
+    <td rowspan="2" align="center"><img width="250" src="https://github.com/user-attachments/assets/eeb9a92d-d3ee-4c0f-8d49-609c2f6da845"></td>
   </tr>
   <tr>
-    <td><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/0df7dd81-56fb-4929-a023-67c7386906dc"></td>
+    <td><img width="100" src="https://github.com/user-attachments/assets/23788390-25b9-4723-80a6-a41e72e66eac"></td>
     <td><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/0df7dd81-56fb-4929-a023-67c7386906dc"></td>
   </tr>
 </table>
 
 </div>
+
+</div>
+<div align="left">
+
+```
+1. Inicio
+   |
+   v
+2. Leer Entrada del Usuario (Comando)
+   |
+   v
+3. Parsear Comando
+   |
+   +--> ¿Contiene operadores (|, >, <, &)? ---> Sí
+   |      |                                       |
+   |      v                                       |
+   |   Dividir en subcomandos                     |
+   |   (Tokenización)                             |
+   |      |                                       |
+   |      v                                       |
+   |   Identificar operadores                     |
+   |      |                                       |
+   |      v                                       |
+   |   Preparar para redirección o tuberías       |
+   |      |                                       |
+   |      v                                       |
+   +--> No<-- Ejecutar subcomandos en orden ----> |
+          |                                       |
+          v                                       v
+4. Identificar Comando Interno (cd, exit, history) o Externo
+   |
+   +--> Comando Interno (Ejecutar directamente)  
+   |      |  
+   |      v  
+   |   Actualizar el entorno o estado del shell
+   |      |
+   |      v
+   +--> Comando Externo (Fork y Exec)
+   |      |
+   |      v
+5. Crear Proceso Hijo (Fork)
+   |      |
+   |      v
+6. Ejecutar Comando en el Proceso Hijo (Exec)
+   |      |
+   |      v
+7. Redirigir Entrada/Salida si es necesario
+   |      |
+   |      v
+8. Esperar a que el Proceso Hijo Termine (Wait)
+   |      |
+   |      v
+9. Procesar el Resultado o Error del Comando
+   |
+   v
+10. Mostrar Output al Usuario
+   |
+   v
+11. ¿Actualizar Historial?
+   |
+   +--> Sí (Guardar en memoria o archivo)
+   |      |
+   |      v
+   +--> No
+          |
+          v
+12. Vuelve a esperar un nuevo comando
+   |
+   v
+13. Fin
+
+```
 
 </div>
