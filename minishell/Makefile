@@ -6,26 +6,27 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/27 07:16:06 by lprieto-          #+#    #+#              #
-#    Updated: 2024/06/04 18:49:50 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/08/19 09:31:25 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
 CC = gcc -g
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+LDFLAGS = -L/usr/lib/x86_64-linux-gnu -lreadline
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 
 AR = ar -rcs
 RM = rm -rf
  
 # **************************************************************************** #
 
-SRCS = 
+SRCS = minishell.c
 
 SRC_PATH := ./src/
 OBJ_PATH := ./tmp/
 
-H_PATH := ./hincludes
+H_PATH := ./inc/
 HEADERS = -I$(H_PATH)
 
 DIRSRC = $(addprefix $(SRC_PATH), $(SRCS))
@@ -44,7 +45,7 @@ $(OBJ_PATH):
 	mkdir -p $(OBJ_PATH)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -L libft -lft -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -L libft -lft $(LDFLAGS) -o $(NAME)
 	$(call show_progress)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c Makefile libft/libft.a
@@ -74,7 +75,7 @@ re :
 
 BGRAY =	\033[1;90m
 BRED = \033[1;91m
-BGREEN = \033[1;92m
+BGR = \033[1;92m
 BYELLOW = \033[1;33m
 BBLUE = \033[1;94m
 BCIAN = \033[1;96m
@@ -120,7 +121,7 @@ $(WHITE) 88  8 8 8888 88  8 88e8 88ee 88ee   ▀▄▄▄▄▄▄▄▄▄▄�
 	done; \
 	
 	printf "\n\n  $(YELLOW)▄████▄   $(BBLUE)▄█████▄  ${RED}▄█████▄             ${PURPLE}▄█████▄  $(BCIAN)▄█████▄\n \
-$(YELLOW)████▄███  $(BBLUE)██${PHA}▄$(BBLUE)█$(PHA)▄█$(BBLUE)█${RES}  ${RED}█$(WHITE)▄ ${RED}█$(WHITE)▄ ${RED}█ $(GREEN)   ${BOLD}$(NAME)    ${PURPLE}█$(WHITE) ▀${PURPLE}█$(WHITE) ▀${PURPLE}█  ${BCIAN}█$(WHITE)▀ ${BCIAN}█$(WHITE)▀ ${BCIAN}█\n \
+$(YELLOW)████▄███  $(BBLUE)██${PHA}▄$(BBLUE)█$(PHA)▄█$(BBLUE)█${RES}  ${RED}█$(WHITE)▄ ${RED}█$(WHITE)▄ ${RED}█  $(GREEN)${BOLD}$(NAME)  ${PURPLE}█$(WHITE) ▀${PURPLE}█$(WHITE) ▀${PURPLE}█  ${BCIAN}█$(WHITE)▀ ${BCIAN}█$(WHITE)▀ ${BCIAN}█\n \
 $(YELLOW)████▄     $(BBLUE)█${PHA}▀▄▀▄▀${BBLUE}█${RES}  ${RED}███████  $(WHITE) lprieto-  ${PURPLE}███████  ${BCIAN}███████ \n \
 $(YELLOW) ▀████▀   $(BBLUE)█▀█▀█▀█  ${RED}█ █ █ █             ${PURPLE}█ █ █ █  ${BCIAN}█ █ █ █\n\n";
 

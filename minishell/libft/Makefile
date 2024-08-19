@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 16:34:33 by lprieto-          #+#    #+#              #
-#    Updated: 2024/06/04 18:53:43 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/08/19 09:28:39 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ SRCS = ft_strlen.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 SRC_PATH = ./src/
 OBJ_PATH = ./tmp/
 
-H_PATH = ../hincludes
+H_PATH = ../inc/
 HEADERS = -I$(H_PATH)
 
 DIRSRC = $(addprefix $(SRC_PATH), $(SRCS))
