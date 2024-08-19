@@ -63,10 +63,10 @@
   <tr>
     <td align="center">Project</td>
     <td align="center">Bonus</td>
-    <td rowspan="2" align="center"><img width="250" src="https://github.com/user-attachments/assets/eeb9a92d-d3ee-4c0f-8d49-609c2f6da845"></td>
+    <td rowspan="2" align="center"><img width="300" src="https://github.com/user-attachments/assets/eeb9a92d-d3ee-4c0f-8d49-609c2f6da845"></td>
   </tr>
   <tr>
-    <td><img width="100" src="https://github.com/user-attachments/assets/23788390-25b9-4723-80a6-a41e72e66eac"></td>
+    <td><img width="92" src="https://github.com/user-attachments/assets/23788390-25b9-4723-80a6-a41e72e66eac"></td>
     <td><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/0df7dd81-56fb-4929-a023-67c7386906dc"></td>
   </tr>
 </table>
