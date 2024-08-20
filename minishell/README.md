@@ -88,11 +88,11 @@
 |                     |   historial                  | - Investigar manejo de       |                             |
 |                     |                              |   procesos                   |                             |
 +---------------------+------------------------------+------------------------------+-----------------------------+
-| **Semana 2**        | - Implementar tokenizador    | - Implementar parser          | **Milestone 2:**           |
-|                     | - Escribir tests para        | - Escribir tests para parser  | - Tokenización y parsing   |
-|                     |   tokenizador                | - Documentar estructura de    |   funcionales              |
-|                     | - Integrar tokenización con  |   datos y funciones           | - Integración inicial      |
-|                     |   entrada                    |                               |                            |
+| **Semana 2**        | - Implementar tokenizador    | - Implementar parser         | **Milestone 2:**            |
+|                     | - Escribir tests para        | - Escribir tests para parser | - Tokenización y parsing    |
+|                     |   tokenizador                | - Documentar estructura de   |   funcionales               |
+|                     | - Integrar tokenización con  |   datos y funciones          | - Integración inicial       |
+|                     |   entrada                    |                              |                             |
 +---------------------+------------------------------+------------------------------+-----------------------------+
 | **Semana 3**        | - Implementar comandos       | - Implementar ejecución de   | **Milestone 3:**            |
 |                     |   internos (`cd`, `exit`)    |   comandos externos (`fork`, | - Comandos internos y       |
