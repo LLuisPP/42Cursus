@@ -77,6 +77,52 @@
 <div align="left">
 
 ```
++---------------------+------------------------------+------------------------------+-----------------------------+
+| **Semana**          | **Persona A**                 | **Persona B**                 | **Milestone**                |
++---------------------+------------------------------+------------------------------+-----------------------------+
+| **Semana 1**        | - Estudiar `readline`         | - Estudiar señales (`signal`, | **Milestone 1:**            |
+|                     | - Implementar bucle de       |   `sigaction`)                | - Entrada de comando y      |
+|                     |   entrada con `readline`     | - Implementar gestión de      |   manejo básico de señales  |
+|                     | - Configurar entorno         |   señales                     |                             |
+|                     | - Diseñar estructura para    | - Escribir tests básicos      |                             |
+|                     |   historial                  | - Investigar manejo de        |                             |
+|                     |                              |   procesos                    |                             |
++---------------------+------------------------------+------------------------------+-----------------------------+
+| **Semana 2**        | - Implementar tokenizador    | - Implementar parser          | **Milestone 2:**            |
+|                     | - Escribir tests para        | - Escribir tests para parser  | - Tokenización y parsing    |
+|                     |   tokenizador                | - Documentar estructura de    |   funcionales               |
+|                     | - Integrar tokenización con  |   datos y funciones           | - Integración inicial       |
+|                     |   entrada                    |                              |                             |
++---------------------+------------------------------+------------------------------+-----------------------------+
+| **Semana 3**        | - Implementar comandos       | - Implementar ejecución de    | **Milestone 3:**            |
+|                     |   internos (`cd`, `exit`)    |   comandos externos (`fork`,  | - Comandos internos y       |
+|                     | - Gestionar historial con    |   `execve`)                   |   externos ejecutados       |
+|                     |   `add_history`              | - Manejar errores básicos     | - Historial funcional       |
+|                     | - Escribir tests para        | - Escribir tests para         |                             |
+|                     |   comandos internos          |   comandos externos           |                             |
++---------------------+------------------------------+------------------------------+-----------------------------+
+| **Semana 4**        | - Implementar redirecciones  | - Implementar ejecución de    | **Milestone 4:**            |
+|                     |   de E/S (`>`, `<`)          |   comandos con pipes (`|`)    | - Redirecciones y pipes     |
+|                     | - Gestionar errores de       | - Escribir tests para pipes   |   funcionales               |
+|                     |   redirección                | - Optimizar manejo de memoria |                             |
+|                     | - Documentar funcionalidad   |   y procesos                  |                             |
++---------------------+------------------------------+------------------------------+-----------------------------+
+| **Semana 5**        | - Manejo avanzado de señales | - Optimizar código y evitar   | **Milestone 5:**            |
+|                     | - Implementar variables de   |   memory leaks                | - Señales avanzadas y       |
+|                     |   entorno (`getenv`, etc.)   | - Implementar manejo de       |   manejo de variables de    |
+|                     | - Escribir tests para estas  |   errores con `strerror`,     |   entorno                   |
+|                     |   funcionalidades            |   `perror`                    | - Código optimizado         |
++---------------------+------------------------------+------------------------------+-----------------------------+
+| **Semana 6**        | - Integrar funcionalidades   | - Realizar pruebas de         | **Milestone 6:**            |
+|                     | - Pruebas exhaustivas        |   rendimiento y optimización  | - MiniShell completo,       |
+|                     | - Documentar proyecto final  | - Verificar Makefile y        |   testeado y documentado    |
+|                     |                              |   generación de ejecutable    | - Listo para entrega        |
++---------------------+------------------------------+------------------------------+-----------------------------+
+```
+
+
+```
+COMMAND WORKFLOW:
 1. Inicio
    |
    v
