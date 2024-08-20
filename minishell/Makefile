@@ -6,14 +6,15 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/27 07:16:06 by lprieto-          #+#    #+#              #
-#    Updated: 2024/08/19 09:31:25 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/08/20 09:45:59 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
 CC = gcc -g
-LDFLAGS = -L/usr/lib/x86_64-linux-gnu -lreadline
+#LDFLAGS = -L/usr/lib/x86_64-linux-gnu -lreadline #   LINUX    #
+LDFLAGS = -L/usr/local/opt/readline/lib -lreadline #   MACOS   #
 CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 
 AR = ar -rcs
