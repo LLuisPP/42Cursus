@@ -85,8 +85,7 @@
 |            |   entrada con `readline`     | - Implementar gestión de     |   manejo básico de señales  |
 |  Semana 1  | - Configurar entorno         |   señales                    |                             |
 |            | - Diseñar estructura para    | - Escribir tests básicos     |                             |
-|            |   historial                  | - Investigar manejo de       |                             |
-|            |                              |   procesos                   |                             |
+|            |   historial                  | - Investig manejo de procesos|                             |
 +------------+------------------------------+------------------------------+-----------------------------+
 |            | - Implementar tokenizador    | - Implementar parser         | Milestone 2:                |
 |            | - Escribir tests para        | - Escribir tests para parser | - Tokenización y parsing    |
