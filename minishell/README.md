@@ -77,47 +77,47 @@
 <div align="left">
 
 ```
-+------------------+------------------------------+------------------------------+-----------------------------+
-|      Semana      |          Persona A           |           Persona B          |          Milestone          |
-+------------------+------------------------------+------------------------------+-----------------------------+
-|                  | - Estudiar `readline`        | - Estudiar señales (`signal`,| Milestone 1:                |
-|                  | - Implementar bucle de       |   `sigaction`)               | - Entrada de comando y      |
-|                  |   entrada con `readline`     | - Implementar gestión de     |   manejo básico de señales  |
-|     Semana 1     | - Configurar entorno         |   señales                    |                             |
-|                  | - Diseñar estructura para    | - Escribir tests básicos     |                             |
-|                  |   historial                  | - Investigar manejo de       |                             |
-|                  |                              |   procesos                   |                             |
-+------------------+------------------------------+------------------------------+-----------------------------+
-|                  | - Implementar tokenizador    | - Implementar parser         | Milestone 2:                |
-|                  | - Escribir tests para        | - Escribir tests para parser | - Tokenización y parsing    |
-|     Semana 2     |   tokenizador                | - Documentar estructura de   |   funcionales               |
-|                  | - Integrar tokenización con  |   datos y funciones          | - Integración inicial       |
-|                  |   entrada                    |                              |                             |
-+------------------+------------------------------+------------------------------+-----------------------------+
-|                  | - Implementar comandos       | - Implementar ejecución de   | Milestone 3:                |
-|                  |   internos (`cd`, `exit`)    |   comandos externos (`fork`, | - Comandos internos y       |
-|     Semana 3     | - Gestionar historial con    |   `execve`)                  |   externos ejecutados       |
-|                  |   `add_history`              | - Manejar errores básicos    | - Historial funcional       |
-|                  | - Escribir tests para        | - Escribir tests para        |                             |
-|                  |   comandos internos          |   comandos externos          |                             |
-+------------------+------------------------------+------------------------------+-----------------------------+
-|                  | - Implementar redirecciones  | - Implementar ejecución de   | Milestone 4:                |
-|                  |   de E/S (`>`, `<`)          |   comandos con pipes (`|`)   | - Redirecciones y pipes     |
-|     Semana 4     | - Gestionar errores de       | - Escribir tests para pipes  |   funcionales               |
-|                  |   redirección                | - Optimizar manejo de memoria|                             |
-|                  | - Documentar funcionalidad   |   y procesos                 |                             |
-+------------------+------------------------------+------------------------------+-----------------------------+
-|                  | - Manejo avanzado de señales | - Optimizar código y evitar  | Milestone 5:                |
-|                  | - Implementar variables de   |   memory leaks               | - Señales avanzadas y       |
-|     Semana 5     |   entorno (`getenv`, etc.)   | - Implementar manejo de      |   manejo de variables de    |
-|                  | - Escribir tests para estas  |   errores con `strerror`,    |   entorno                   |
-|                  |   funcionalidades            |   `perror`                   | - Código optimizado         |
-+------------------+------------------------------+------------------------------+-----------------------------+
-|                  | - Integrar funcionalidades   | - Realizar pruebas de        | Milestone 6:                |
-|     Semana 6     | - Pruebas exhaustivas        |   rendimiento y optimización | - MiniShell completo,       |
-|                  | - Documentar proyecto final  | - Verificar Makefile y       |   testeado y documentado    |
-|                  |                              |   generación de ejecutable   | - norminette, norma, test   |
-+------------------+------------------------------+------------------------------+-----------------------------+
++------------+------------------------------+------------------------------+-----------------------------+
+|   Semana   |          Persona A           |           Persona B          |          Milestone          |
++------------+------------------------------+------------------------------+-----------------------------+
+|            | - Estudiar `readline`        | - Estudiar señales (`signal`,| Milestone 1:                |
+|            | - Implementar bucle de       |   `sigaction`)               | - Entrada de comando y      |
+|            |   entrada con `readline`     | - Implementar gestión de     |   manejo básico de señales  |
+|  Semana 1  | - Configurar entorno         |   señales                    |                             |
+|            | - Diseñar estructura para    | - Escribir tests básicos     |                             |
+|            |   historial                  | - Investigar manejo de       |                             |
+|            |                              |   procesos                   |                             |
++------------+------------------------------+------------------------------+-----------------------------+
+|            | - Implementar tokenizador    | - Implementar parser         | Milestone 2:                |
+|            | - Escribir tests para        | - Escribir tests para parser | - Tokenización y parsing    |
+|  Semana 2  |   tokenizador                | - Documentar estructura de   |   funcionales               |
+|            | - Integrar tokenización con  |   datos y funciones          | - Integración inicial       |
+|            |   entrada                    |                              |                             |
++------------+------------------------------+------------------------------+-----------------------------+
+|            | - Implementar comandos       | - Implementar ejecución de   | Milestone 3:                |
+|            |   internos (`cd`, `exit`)    |   comandos externos (`fork`, | - Comandos internos y       |
+|  Semana 3  | - Gestionar historial con    |   `execve`)                  |   externos ejecutados       |
+|            |   `add_history`              | - Manejar errores básicos    | - Historial funcional       |
+|            | - Escribir tests para        | - Escribir tests para        |                             |
+|            |   comandos internos          |   comandos externos          |                             |
++------------+------------------------------+------------------------------+-----------------------------+
+|            | - Implementar redirecciones  | - Implementar ejecución de   | Milestone 4:                |
+|            |   de E/S (`>`, `<`)          |   comandos con pipes (`|`)   | - Redirecciones y pipes     |
+|  Semana 4  | - Gestionar errores de       | - Escribir tests para pipes  |   funcionales               |
+|            |   redirección                | - Optimizar manejo de memoria|                             |
+|            | - Documentar funcionalidad   |   y procesos                 |                             |
++------------+------------------------------+------------------------------+-----------------------------+
+|            | - Manejo avanzado de señales | - Optimizar código y evitar  | Milestone 5:                |
+|            | - Implementar variables de   |   memory leaks               | - Señales avanzadas y       |
+|  Semana 5  |   entorno (`getenv`, etc.)   | - Implementar manejo de      |   manejo de variables de    |
+|            | - Escribir tests para estas  |   errores con `strerror`,    |   entorno                   |
+|            |   funcionalidades            |   `perror`                   | - Código optimizado         |
++------------+------------------------------+------------------------------+-----------------------------+
+|            | - Integrar funcionalidades   | - Realizar pruebas de        | Milestone 6:                |
+|  Semana 6  | - Pruebas exhaustivas        |   rendimiento y optimización | - MiniShell completo,       |
+|            | - Documentar proyecto final  | - Verificar Makefile y       |   testeado y documentado    |
+|            |                              |   generación de ejecutable   | - norminette, norma, test   |
++------------+------------------------------+------------------------------+-----------------------------+
 ```
 
 
