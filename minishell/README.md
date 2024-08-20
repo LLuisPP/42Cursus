@@ -116,7 +116,7 @@
 |                  | - Integrar funcionalidades   | - Realizar pruebas de        | Milestone 6:                |
 |     Semana 6     | - Pruebas exhaustivas        |   rendimiento y optimización | - MiniShell completo,       |
 |                  | - Documentar proyecto final  | - Verificar Makefile y       |   testeado y documentado    |
-|                  |                              |   generación de ejecutable   | - Listo para entrega        |
+|                  |                              |   generación de ejecutable   | - norminette, norma, test   |
 +------------------+------------------------------+------------------------------+-----------------------------+
 ```
 
