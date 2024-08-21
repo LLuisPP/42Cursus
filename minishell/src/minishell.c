@@ -78,10 +78,15 @@ char	*file_generator(const char *text, int state)
 }
 
 
-int main(void)
+int main(int argc, char **argv, char **env)
 {
 	char *input;
+	t_hist	hist;
 
+	(void)argc;
+	(void)argv;
+	(void)env;
+	ft_bzero(&hist, sizeof(t_hist));
 	while(1)
 	{
 		rl_attempted_completion_function = command_completion;
@@ -95,6 +100,7 @@ int main(void)
 		{
             add_history(input);
         }
+		execve("/bin/ls", argv, NULL);
 
 		(void)input;
 
