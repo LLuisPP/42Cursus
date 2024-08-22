@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:25:04 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/20 13:07:11 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/08/22 17:02:24 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int main(int argc, char **argv, char **env)
 	while(1)
 	{
 		rl_attempted_completion_function = command_completion;
-		input = readline("\033[1;96m minishell\e[0m> ");
+		input = readline("\033[1;96m 👽 Space 🛸 shell $\e[0m> ");
 		if (input == NULL)
 		{
 			break;
@@ -100,7 +100,7 @@ int main(int argc, char **argv, char **env)
 		{
             add_history(input);
         }
-		execve("/bin/ls", argv, NULL);
+	//	execve("/bin/ls", argv, NULL);
 
 		(void)input;
 
