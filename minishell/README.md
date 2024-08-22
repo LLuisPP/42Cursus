@@ -119,6 +119,7 @@
 +------------+------------------------------+------------------------------+-----------------------------+
 ```
 
+<img width="800" src="https://github.com/user-attachments/assets/ed0ea3dd-ba9d-42ef-a3bc-938fbe78aa8f">
 
 ```
 COMMAND WORKFLOW:
