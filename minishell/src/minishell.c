@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:25:04 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/08/22 17:02:24 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/09/03 11:06:20 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int main(int argc, char **argv, char **env)
 		{
             add_history(input);
         }
-	//	execve("/bin/ls", argv, NULL);
+		//execve("/bin/ls", argv, NULL);
 
 		(void)input;
 
