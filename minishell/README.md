@@ -118,7 +118,8 @@
 |            |                              |   generación de ejecutable   | - norminette, norma, test   |
 +------------+------------------------------+------------------------------+-----------------------------+
 ```
-
+<div align="center"><img width="800" src="https://github.com/user-attachments/assets/49fdbaeb-b3b5-4716-8bc0-75696a072e5b">
+</div>
 <div align="center"><img width="800" src="https://github.com/user-attachments/assets/ed0ea3dd-ba9d-42ef-a3bc-938fbe78aa8f">
 </div>
 
