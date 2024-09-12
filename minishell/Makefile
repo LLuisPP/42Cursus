@@ -6,15 +6,15 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/27 07:16:06 by lprieto-          #+#    #+#              #
-#    Updated: 2024/09/03 11:18:25 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/09/12 17:31:20 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
 CC = gcc -g
-#LDFLAGS = -L/usr/lib/x86_64-linux-gnu -lreadline #   LINUX    #
-LDFLAGS = -L/usr/local/opt/readline/lib -lreadline #   MACOS   #
+LDFLAGS = -L/usr/lib/x86_64-linux-gnu -lreadline #   LINUX    #
+#LDFLAGS = -L/usr/local/opt/readline/lib -lreadline #   MACOS   #
 CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 
 AR = ar -rcs
@@ -74,14 +74,14 @@ re :
 
 # **************************************************************************** #
 
-BGY =	\033[1;90m
+BGY = \033[1;90m
 BR = \033[1;91m
 BGR = \033[1;92m
 BY = \033[1;33m
 BB = \033[1;94m
 BC = \033[1;96m
 BW = \033[1;97m
-GY =	\033[0;90m
+GY = \033[0;90m
 R = \033[0;91m
 G = \033[0;92m
 Y = \033[0;93m
@@ -102,11 +102,11 @@ TOTAL_ITEMS := $(words $(OBJS))
 
 define show_progress
 	@echo; \
-	printf " $(W) e   e   eeee e   e eeee e    e      ▄▀▀▀▀▀▀▀▀▀▀▀▀▄ \n \
-$(W) 8 8 8   8    8   8 8    8    8      █  ▄         █░ \n \
-$(W) 8   8   8ee8 8eee8 eee8 8e   8e     █   █        █░ \n \
-$(W) 88  8      8 88  8 88   88   88     █  ▀   ▀▀▀   █░ \n \
-$(W) 88  8 8 8888 88  8 88e8 88ee 88ee   ▀▄▄▄▄▄▄▄▄▄▄▄▄▀ \n\n"; \
+	printf " $(W) e   e   eeee e   e eeee e    e      ▄▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▄ \n \
+$(W) 8 8 8   8    8   8 8    8    8      █  ▄             █ \n \
+$(W) 8   8   8ee8 8eee8 eee8 8e   8e     █   █            █ \n \
+$(W) 88  8      8 88  8 88   88   88     █  ▀   ▀▀▀       █ \n \
+$(W) 88  8 8 8888 88  8 88e8 88ee 88ee   ▀▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▀ \n\n"; \
 
 	total_ticks=$$((PROGRESS_DURATION * 10)); # 20 ticks por segundo para una actualización fluida
 	item_progress=0; \
@@ -123,8 +123,8 @@ $(W) 88  8 8 8888 88  8 88e8 88ee 88ee   ▀▄▄▄▄▄▄▄▄▄▄▄▄
 	
 	printf "\n\n  $(Y)▄████▄   $(BB)▄█████▄  ${R}▄█████▄  $(BW)lauriago   ${P}▄█████▄  $(BC)▄█████▄\n \
 $(Y)████▄███  $(BB)██${PHA}▄$(BB)█$(PHA)▄█$(BB)█${RES}  ${R}█$(W)▄ ${R}█$(W)▄ ${R}█  $(BW)lprieto-   ${P}█$(W) ▀${P}█$(W) ▀${P}█  ${BC}█$(W)▀ ${BC}█$(W)▀ ${BC}█\n \
-$(Y)████▄     $(BB)█${PHA}▀▄▀▄▀${BB}█${RES}  ${R}███████ $(W)· · · · · · ${P}███████  ${BC}███████ \n \
-$(Y) ▀████▀   $(BB)█▀█▀█▀█  ${R}█▀█▀█▀█  $(G)$(BD)$(NAME)  ${P}█▀█▀█▀█  ${BC}█▀█▀█▀█\n\n";
+$(Y)████▄     $(BB)█${PHA}▀▄▀▄▀${BB}█${RES}  ${R}███████ $(W)  · · · ·   ${P}███████  ${BC}███████ \n \
+$(Y) ▀████▀   $(BB)█▀█▀█▀█  ${R}█▀█▀█▀█  $(G)$(BD)$(NAME)  ${P}█▀█▀█▀█  ${BC}█▀█▀█▀█\n\n"; \
 
 endef
 
