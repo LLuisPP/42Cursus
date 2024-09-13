@@ -78,6 +78,7 @@
 
 <div align="center"><img width="800" src="https://github.com/user-attachments/assets/49fdbaeb-b3b5-4716-8bc0-75696a072e5b">
 </div>
+
 ```
 +------------+------------------------------+------------------------------+-----------------------------+
 |   Semana   |          Persona A           |           Persona B          |          Milestone          |
