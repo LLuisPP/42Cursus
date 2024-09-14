@@ -83,18 +83,13 @@
 +------------+------------------------------+------------------------------+-----------------------------+
 |   Semana   |          Persona A           |           Persona B          |          Milestone          |
 +------------+------------------------------+------------------------------+-----------------------------+
-|            | - Estudiar `readline`        | - Estudiar señales (`signal`,| Milestone 1:                |
-|            | - Implementar bucle de       |   `sigaction`)               | - Entrada de comando y      |
-|            |   entrada con `readline`     | - Implementar gestión de     |   manejo básico de señales  |
-|  Semana 1  | - Configurar entorno         |   señales                    |                             |
-|            | - Diseñar estructura para    | - Escribir tests básicos     |                             |
-|            |   historial                  | - Investig manejo de procesos|                             |
+|            | - Estructs                ✅ | - Estudiar señales        ⭕ | - Entrada de comando     ✅ |
+|  Semana 1  | - Bucle in con readline   ✅ | - Gestión de señales      ⭕ | - manejo simple señales  ⭕ |
+|            | - Configurar entorno      ❌ | - Escribir tests básicos  ⭕ |                             |
 +------------+------------------------------+------------------------------+-----------------------------+
-|            | - Implementar tokenizador    | - Implementar parser         | Milestone 2:                |
-|            | - Escribir tests para        | - Escribir tests para parser | - Tokenización y parsing    |
-|  Semana 2  |   tokenizador                | - Documentar estructura de   |   funcionales               |
-|            | - Integrar tokenización con  |   datos y funciones          | - Integración inicial       |
-|            |   entrada                    |                              |                             |
+|            | - Implementar tokenizador ⭕ | - Implementar parser      ⭕ | Milestone 2:                |
+|  Semana 2  | - Tests tokenizador       ⭕ | - Tests para parser       ⭕ | - Tokenización y parsing ❌ |
+|            | - Entrada con tokenizer   ❌ | - Documentar data y funct ❌ | - Integración inicial    ❌ |
 +------------+------------------------------+------------------------------+-----------------------------+
 |            | - Implementar comandos       | - Implementar ejecución de   | Milestone 3:                |
 |            |   internos (`cd`, `exit`)    |   comandos externos (`fork`, | - Comandos internos y       |
