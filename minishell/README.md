@@ -88,8 +88,8 @@
 |            | - Configurar entorno      ❌ | - Escribir tests básicos  ⭕ |                             |
 +------------+------------------------------+------------------------------+-----------------------------+
 |            | - Implementar tokenizador ⭕ | - Implementar parser      ⭕ | Milestone 2:                |
-|  Semana 2  | - Tests tokenizador       ⭕ | - Tests para parser       ⭕ | - Tokenización y parsing ❌ |
-|            | - Entrada con tokenizer   ❌ | - Documentar data y funct ❌ | - Integración inicial    ❌ |
+|  Semana 2  | - Tests tokenizador       ⭕ | - Tests para parser       ⭕ | - Tokenización y parsing  ❌ |
+|            | - Entrada con tokenizer   ❌ | - Documentar data y funct ❌ | - Integración inicial     ❌ |
 +------------+------------------------------+------------------------------+-----------------------------+
 |            | - Implementar comandos       | - Implementar ejecución de   | Milestone 3:                |
 |            |   internos (`cd`, `exit`)    |   comandos externos (`fork`, | - Comandos internos y       |
