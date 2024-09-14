@@ -83,37 +83,29 @@
 +------------+------------------------------+------------------------------+-----------------------------+
 |   Semana   |          Persona A           |           Persona B          |          Milestone          |
 +------------+------------------------------+------------------------------+-----------------------------+
-|            | - Estructs                ✅ | - Estudiar señales        ⭕ | - Entrada de comando     ✅ |
-|  Semana 1  | - Bucle in con readline   ✅ | - Gestión de señales      ⭕ | - manejo simple señales  ⭕ |
-|            | - Configurar entorno      ❌ | - Escribir tests básicos  ⭕ |                             |
+|            | - Estructs                ✅ | - Estudiar señales        ⭕ | Milestone 1:                |
+|  Semana 1  | - Bucle in con readline   ✅ | - Gestión de señales      ⭕ | - Entrada de comando     ✅ |
+|            | - Configurar entorno      ❌ | - Escribir tests básicos  ⭕ | - manejo simple señales  ⭕ |
 +------------+------------------------------+------------------------------+-----------------------------+
 |            | - Implementar tokenizador ⭕ | - Implementar parser      ⭕ | Milestone 2:                |
-|  Semana 2  | - Tests tokenizador       ⭕ | - Tests para parser       ⭕ | - Tokenización y parsing  ❌ |
-|            | - Entrada con tokenizer   ❌ | - Documentar data y funct ❌ | - Integración inicial     ❌ |
+|  Semana 2  | - Tests tokenizador       ❌ | - Tests para parser       ⭕ | - Tokenización y parsing ❌ |
+|            | - Entrada con tokenizer   ❌ | - Documentar data y funct ❌ | - Integración inicial    ❌ |
 +------------+------------------------------+------------------------------+-----------------------------+
-|            | - Implementar comandos       | - Implementar ejecución de   | Milestone 3:                |
-|            |   internos (`cd`, `exit`)    |   comandos externos (`fork`, | - Comandos internos y       |
-|  Semana 3  | - Gestionar historial con    |   `execve`)                  |   externos ejecutados       |
-|            |   `add_history`              | - Manejar errores básicos    | - Historial funcional       |
-|            | - Escribir tests para        | - Escribir tests para        |                             |
-|            |   comandos internos          |   comandos externos          |                             |
+|            | - Implementar built ins   ⭕ | - Exec cmds externos      ❌ | Milestone 3:                |
+|  Semana 3  | - Gestionar add_history   ✅ | - Manejar errores básicos ⭕ | - Cmds int y ext         ❌ |
+|            | - Tests history / builts  ❌ | - Tests history / builts  ❌ | - Historial funcional    ✅ |
 +------------+------------------------------+------------------------------+-----------------------------+
-|            | - Implementar redirecciones  | - Implementar ejecución de   | Milestone 4:                |
-|            |   de E/S (`>`, `<`)          |   comandos con pipes (`|`)   | - Redirecciones y pipes     |
-|  Semana 4  | - Gestionar errores de       | - Escribir tests para pipes  |   funcionales               |
-|            |   redirección                | - Optimizar manejo de memoria|                             |
-|            | - Documentar funcionalidad   |   y procesos                 |                             |
+|            | - Redirects E/S (`>`, `<`)❌ | - Exec cmds ext con pipes ❌ | Milestone 4:                |
+|  Semana 4  | - Redirect errors         ❌ | - Tests pipes             ❌ | - Redirect pipes y funct ❌ |
+|            | - Documentar data y funct ❌ | - Opt memoria leaks-frees ❌ |                             |
 +------------+------------------------------+------------------------------+-----------------------------+
-|            | - Manejo avanzado de señales | - Optimizar código y evitar  | Milestone 5:                |
-|            | - Implementar variables de   |   memory leaks               | - Señales avanzadas y       |
-|  Semana 5  |   entorno (`getenv`, etc.)   | - Implementar manejo de      |   manejo de variables de    |
-|            | - Escribir tests para estas  |   errores con `strerror`,    |   entorno                   |
-|            |   funcionalidades            |   `perror`                   | - Código optimizado         |
+|            | - Manejo advanced señales ❌ | - Code optimize leak-free ❌ | Milestone 5:                |
+|  Semana 5  | - Env vars getenv         ❌ | - Error handling strerror ❌ | - Advcd sig, vars env    ❌ |
+|            | - Tests env/signs/funct   ❌ | - Error handle p/strerror ❌ | - Código optimizado      ❌ |
 +------------+------------------------------+------------------------------+-----------------------------+
-|            | - Integrar funcionalidades   | - Realizar pruebas de        | Milestone 6:                |
-|  Semana 6  | - Pruebas exhaustivas        |   rendimiento y optimización | - MiniShell completo,       |
-|            | - Documentar proyecto final  | - Verificar Makefile y       |   testeado y documentado    |
-|            |                              |   generación de ejecutable   | - norminette, norma, test   |
+|            | - Integrar funcionalidades   | - Rendimiento y optimización | Milestone 6:                |
+|  Semana 6  | - Pruebas exhaustivas        | - Verificar Makefile y       | - testeado y document       |
+|            | - Documentar proyecto final  | - Verificar Makefile y exec  | - norminette, norma,        |
 +------------+------------------------------+------------------------------+-----------------------------+
 ```
 
