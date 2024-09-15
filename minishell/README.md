@@ -76,7 +76,7 @@
 </div>
 <div align="left">
 
-<div align="center"><img width="800" src="https://github.com/user-attachments/assets/49fdbaeb-b3b5-4716-8bc0-75696a072e5b">
+<div align="center"><img width="800" src="https://github.com/user-attachments/assets/d1577d14-d5cb-4d15-a416-b1d55b44ad54">
 </div>
 
 ```
