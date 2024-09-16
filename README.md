@@ -91,26 +91,26 @@ The 42 Common Core is an intensive, self-taught, project-based curriculum focuse
 
 |<a href="https://github.com/LLuisPP/42Cursus/tree/main/"> <img width="30" align="center" src="https://github.com/user-attachments/assets/ac216672-a141-48be-bc53-ae13dd35c799"></a>|Project|Lvl|Description|100|125|Date|
 |---|---|:---|:---|:---|:---|---|
-|`📖`|[**libft**](https://github.com/LLuisPP/42Cursus/tree/main/libft)|:suspect:| Replicating essential functions from the basic C library |<img src="https://img.shields.io/badge/100-darkgreen">|<img src="https://img.shields.io/badge/125-darkgreen">|`Sep'23`|
+|`📖`|[**libft**](https://github.com/LLuisPP/42Cursus/tree/main/libft)|:suspect:| Essential C functions library replication |<img src="https://img.shields.io/badge/100-darkgreen">|<img src="https://img.shields.io/badge/125-darkgreen">|`Sep'23`|
 ||||||||
 ||||||||
-|`🐧`|[**born2beRoot**](https://github.com/LLuisPP/42Cursus/tree/main/Born2beRoot)|:hurtrealbad:| Setting up and configuration of a linux virtual machine |<img src="https://img.shields.io/badge/100-darkgreen">|--|`Oct'23`|
-|`🖨`|[**ft_printf**](https://github.com/LLuisPP/42Cursus/tree/main/ft_printf)|:rage2:| Implementation of the printf function in C |<img src="https://img.shields.io/badge/100-darkgreen">|--|`Nov'23`|
-|`📝`|[**get_next_line**](https://github.com/LLuisPP/42Cursus/tree/main/get_next_line)|:rage4:| A utility to read from a file descriptor line by line |<img src="https://img.shields.io/badge/100-darkgreen">|<img src="https://img.shields.io/badge/125-darkgreen">|`Dic'23`|
+|`🐧`|[**born2beRoot**](https://github.com/LLuisPP/42Cursus/tree/main/Born2beRoot)|:hurtrealbad:| Configure a Linux virtual machine |<img src="https://img.shields.io/badge/100-darkgreen">|--|`Oct'23`|
+|`🖨`|[**ft_printf**](https://github.com/LLuisPP/42Cursus/tree/main/ft_printf)|:rage2:| Create a printf function from scratch in C |<img src="https://img.shields.io/badge/100-darkgreen">|--|`Nov'23`|
+|`📝`|[**get_next_line**](https://github.com/LLuisPP/42Cursus/tree/main/get_next_line)|:rage4:| Read file input line by line efficiently |<img src="https://img.shields.io/badge/100-darkgreen">|<img src="https://img.shields.io/badge/125-darkgreen">|`Dic'23`|
 ||||||||
 ||||||||
-|`🔢`|[**push_swap**](https://github.com/LLuisPP/42Cursus/tree/main/push_swap)|:feelsgood:| Sort numbers in a stack efficiently with a limited set of actions |<img src="https://img.shields.io/badge/86-darkgreen">|--|`Feb'24`|
-|`🌀`|[**fractol**](https://github.com/LLuisPP/42Cursus/tree/main/fractol)|:goberserk:| Dive into 2D fractal generator with this project |<img src="https://img.shields.io/badge/100-darkgreen">|<img src="https://img.shields.io/badge/110-darkgreen">|`Feb'24`|
-|`🧪`|[**pipex**](https://github.com/LLuisPP/42Cursus/tree/main/pipex)|:finnadie:| A project to manage child processes with forks and threads |<img src="https://img.shields.io/badge/100-darkgreen">|--|`May'24`|
-|`🔖`|[**rank 02 exam**](https://github.com/LLuisPP/42-Exams/tree/main/rank02)| :godmode:| 4 ex from a 57 set to earn 100 pts, 25 each in 3h or less |<img src="https://img.shields.io/badge/100-darkgreen">||`Jul'24`|
+|`🔢`|[**push_swap**](https://github.com/LLuisPP/42Cursus/tree/main/push_swap)|:feelsgood:| Sort stack numbers with limited actions |<img src="https://img.shields.io/badge/86-darkgreen">|--|`Feb'24`|
+|`🌀`|[**fractol**](https://github.com/LLuisPP/42Cursus/tree/main/fractol)|:goberserk:| Generate 2D fractals with graphical output |<img src="https://img.shields.io/badge/100-darkgreen">|<img src="https://img.shields.io/badge/110-darkgreen">|`Feb'24`|
+|`🧪`|[**pipex**](https://github.com/LLuisPP/42Cursus/tree/main/pipex)|:finnadie:| Manage child processes with forks and pipes |<img src="https://img.shields.io/badge/100-darkgreen">|--|`May'24`|
+|`🔖`|[**rank 02 exam**](https://github.com/LLuisPP/42-Exams/tree/main/rank02)| :godmode:| Solve 4/57 exercises in 3 hours for 100 pts |<img src="https://img.shields.io/badge/100-darkgreen">||`Jul'24`|
 ||||||||
 ||||||||
-|`🔖`|[**rank 03 exam**](https://github.com/LLuisPP/42-Exams-rank03)| :godmode:| One random program between get_next_line & ft_printf |<img src="https://img.shields.io/badge/100-darkgreen">||`Aug'24`|
-|`🍽`|[**philosophers**](https://github.com/LLuisPP/42Cursus/tree/main/philosophers)|:finnadie:| Handle threads and proceses to feed the Philosophers feast |<img src="https://img.shields.io/badge/100-darkgreen">|--|`Aug'24`|
-|`📦`|[**minishell**](https://github.com/LLuisPP/42Cursus/tree/main/minishell)|:finnadie:| Replicate a bash terminal with complete behavior |▶️|--|--|
+|`🔖`|[**rank 03 exam**](https://github.com/LLuisPP/42-Exams-rank03)| :godmode:| Random program: ft_printf or get_next_line |<img src="https://img.shields.io/badge/100-darkgreen">||`Aug'24`|
+|`🍽`|[**philosophers**](https://github.com/LLuisPP/42Cursus/tree/main/philosophers)|:finnadie:| Synchronize threads to solve philo problem |<img src="https://img.shields.io/badge/100-darkgreen">|--|`Aug'24`|
+|`📦`|[**minishell**](https://github.com/LLuisPP/42Cursus/tree/main/minishell)|:finnadie:| Build a functional shell similar to Bash |▶️|--|--|
 ||||||||
 ||||||||
-|`🔖`|[**rank 04 exam**](https://github.com/LLuisPP/42-Exams-rank04)| :godmode:| Make a microshell |--|--|`'24`|
+|`🔖`|[**rank 04 exam**](https://github.com/LLuisPP/42-Exams-rank04)| :godmode:| Develop a working microshell |--|--|`'24`|
 |`🌐`|[**netpractice**]()|:suspect:|  |--|--|`'24`|
 |`🌅`|[**miniRT**]()|:hurtrealbad:|  |--|--|`'24`|
 |`📟`|[**cpp's 0-5**]()|:finnadie:|  |--|--|`'24`|
