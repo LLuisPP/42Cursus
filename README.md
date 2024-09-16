@@ -111,7 +111,7 @@ The 42 Common Core is an intensive, self-taught, project-based curriculum focuse
 |`🌅`|[**miniRT**]()|:hurtrealbad:|  |--|--|`'24`|
 |`📟`|[**cpp's 0-5**]()|:rage2:|  |--|--|`'24`|
 ||`milestone 4`||||||
-|`🌐`|[**inception**]()|:rage3:|  |--|--|`'24`|
+|`👥`|[**inception**]()|:rage3:|  |--|--|`'24`|
 |`💬`|[**ft_irc**]()|:rage4:|  |--|--|`'24`|
 |`📟`|[**cpp's 6-9**]()|:finnadie:|  |--|--|`'24`|
 |`🔖`|[**rank 05 exam**]()|:godmode:|  |--|--|`'24`|
