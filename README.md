@@ -1,58 +1,67 @@
 <div align="center">
-<a href="https://github.com/LLuisPP/42Cursus/tree/main/"><img width="500" align="center" src="https://github.com/user-attachments/assets/98c7b6ef-d3a8-425e-83c7-f118db56754e"></a>
+  
+# <a href="https://github.com/LLuisPP/42Cursus/tree/main/"><img width="500" align="center" src="https://github.com/user-attachments/assets/98c7b6ef-d3a8-425e-83c7-f118db56754e"></a> Cursus Common Core
+
+The 42 Common Core is an intensive, project-based curriculum focused on software development, problem-solving, and peer learning, designed to build strong programming foundations. It emphasizes autonomy, collaboration, and adaptability.<br>
+
 </div>
+
 <div align="center">
 
 <table>
   <tr>
-    <td align="center"> 0 </td>
-    <td align="center"> 1 </td>
-    <td align="center"> 2 </td>
-    <td align="center"> 3 </td>
-    <td align="center"> 4 </td>
-    <td align="center"> 5 </td>
-    <td align="center"> 6 </td>
+    <th align="center"><a href="https://github.com/LLuisPP/42Cursus/tree/main/"> <img width="30" align="center" src="https://github.com/user-attachments/assets/ac216672-a141-48be-bc53-ae13dd35c799"></a></th>
+    <td align="center"> circle 0 </td>
+    <td align="center"> circle 1 </td>
+    <td align="center"> circle 2 </td>
+    <td align="center"> circle 3 </td>
+    <td align="center"> circle 4 </td>
+    <td align="center"> circle 5 </td>
+    <td align="center"> circle 6 </td>
   </tr>
   <tr>
-    <td align="center">
+    <td>pjcts
+    </td>
+    <td>
 
 [**`libft`**](https://github.com/LLuisPP/42Cursus/tree/main/libft)
     </td>
-    <td align="left">
+    <td>
 
   [**`born2beRoot`**](https://github.com/LLuisPP/42Cursus/tree/main/Born2beRoot)<br>
   [**`ft_printf`**](https://github.com/LLuisPP/42Cursus/tree/main/ft_printf)<br>
   [**`get_next_line`**](https://github.com/LLuisPP/42Cursus/tree/main/get_next_line)
     </td>
-    <td align="left">
+    <td>
 
 [**`push_swap`**](https://github.com/LLuisPP/42Cursus/tree/main/push_swap)<br>
 [**`fractol`**](https://github.com/LLuisPP/42Cursus/tree/main/fractol)<br>
 [**`pipex`**](https://github.com/LLuisPP/42Cursus/tree/main/pipex)
     </td>
-    <td align="left">
+    <td>
 
 [**`philosophers`**](https://github.com/LLuisPP/42Cursus/tree/main/philosophers)<br>
 [**`minishell`**](https://github.com/LLuisPP/42Cursus/tree/main/minishell)
     </td>
-    <td align="left">
+    <td>
 
 [**`netpractice`**]()<br>
 [**`miniRT`**]()<br>
 [**`cpp`**]()
     </td>
-    <td align="left">
+    <td>
 
 [**`ft_irc`**]()<br>
 [**`inception`**]()<br>
 [**`cpp`**]()
     </td>
-    <td align="left">
+    <td>
 
 [**`trascendence`**]()<br>
     </td>
   </tr>
   <tr>
+    <td>exam</td>
     <td></td>
     <td></td>
     <td>
@@ -70,13 +79,13 @@
 <td>
   
 [**`rank06`**]()</td>
-
   </tr>
 </table>
 
 </div>
 
-***
+<h2>Project overview:</h2>
+<br>
 
 <div align="center">
 
@@ -118,3 +127,13 @@
 
 </div>
 
+
+<h2>Cursus holygraph</h2>
+
+<div align="left">
+The Holygraph is a visual tool used at 42 to track students' progress over time, showing their project completions and skill development.
+</div>
+<br>
+<div align="center">
+<a href="https://github.com/LLuisPP/42Cursus/tree/main/"><img width="408" align="center" src="https://github.com/user-attachments/assets/b4e0e4f1-8eb9-4e21-9e1c-a7cc36ae18dc"></a> <a href="https://github.com/LLuisPP/42Cursus/tree/main/"><img width="400" align="center" src="https://github.com/user-attachments/assets/34bf2383-b6b2-488d-b6b9-582c8c7c06ad"></a>
+</div>
