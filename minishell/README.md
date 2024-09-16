@@ -140,7 +140,7 @@ Este proyecto consiste en recrear una versión simplificada del funcionamiento d
 
 <h3 weight="bold">Main loop workflow chart for a comand input:</h3>
 
-<img align="center" src="https://github.com/user-attachments/assets/d1577d14-d5cb-4d15-a416-b1d55b44ad54"></img>
+<img align="center" src="https://github.com/user-attachments/assets/bc4bc3be-dc4b-4e01-93bd-907208ab52fc"></img>
 
 # Organization
 
