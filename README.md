@@ -100,19 +100,19 @@ The 42 Common Core is an intensive, self-taught, project-based curriculum focuse
 |`🔢`|[**push_swap**](https://github.com/LLuisPP/42Cursus/tree/main/push_swap)|:feelsgood:| Sort stack numbers with limited actions |<img src="https://img.shields.io/badge/86-darkgreen">|--|`Feb'24`|
 |`🌀`|[**fractol**](https://github.com/LLuisPP/42Cursus/tree/main/fractol)|:goberserk:| Generate 2D fractals with graphical output |<img src="https://img.shields.io/badge/100-darkgreen">|<img src="https://img.shields.io/badge/110-darkgreen">|`Feb'24`|
 |`🧪`|[**pipex**](https://github.com/LLuisPP/42Cursus/tree/main/pipex)|:finnadie:| Manage child processes with forks and pipes |<img src="https://img.shields.io/badge/100-darkgreen">|--|`May'24`|
-|`🔖`|[**rank 02 exam**](https://github.com/LLuisPP/42-Exams/tree/main/rank02)| :godmode:| Solve 4/57 exercises in 3 hours for 100 pts |<img src="https://img.shields.io/badge/100-darkgreen">||`Jul'24`|
+|`🔖`|[**rank 02 exam**](https://github.com/LLuisPP/42-Exams/tree/main/rank02)|:goberserk:| Solve 4/57 exercises in 3 hours for 100 pts |<img src="https://img.shields.io/badge/100-darkgreen">||`Jul'24`|
 ||`milestone 2`||||||
 |`🔖`|[**rank 03 exam**](https://github.com/LLuisPP/42-Exams-rank03)| :godmode:| Random program: ft_printf or get_next_line |<img src="https://img.shields.io/badge/100-darkgreen">||`Aug'24`|
-|`🍽`|[**philosophers**](https://github.com/LLuisPP/42Cursus/tree/main/philosophers)|:finnadie:| Synchronize threads to solve philo problem |<img src="https://img.shields.io/badge/100-darkgreen">|--|`Aug'24`|
+|`🍽`|[**philosophers**](https://github.com/LLuisPP/42Cursus/tree/main/philosophers)|:rage2:| Synchronize threads to solve philo problem |<img src="https://img.shields.io/badge/100-darkgreen">|--|`Aug'24`|
 |`📦`|[**minishell**](https://github.com/LLuisPP/42Cursus/tree/main/minishell)|:finnadie:| Build a functional shell similar to Bash |▶️|--|--|
 ||`milestone 3`||||||
-|`🔖`|[**rank 04 exam**](https://github.com/LLuisPP/42-Exams-rank04)| :godmode:| Develop a working microshell |--|--|`'24`|
+|`🔖`|[**rank 04 exam**](https://github.com/LLuisPP/42-Exams-rank04)|:rage2:| Develop a working microshell |--|--|`'24`|
 |`🌐`|[**netpractice**]()|:suspect:|  |--|--|`'24`|
 |`🌅`|[**miniRT**]()|:hurtrealbad:|  |--|--|`'24`|
-|`📟`|[**cpp's 0-5**]()|:finnadie:|  |--|--|`'24`|
+|`📟`|[**cpp's 0-5**]()|:rage2:|  |--|--|`'24`|
 ||`milestone 4`||||||
-|`🌐`|[**inception**]()|:suspect:|  |--|--|`'24`|
-|`💬`|[**ft_irc**]()|:goberserk:|  |--|--|`'24`|
+|`🌐`|[**inception**]()|:rage3:|  |--|--|`'24`|
+|`💬`|[**ft_irc**]()|:rage4:|  |--|--|`'24`|
 |`📟`|[**cpp's 6-9**]()|:finnadie:|  |--|--|`'24`|
 |`🔖`|[**rank 05 exam**]()|:godmode:|  |--|--|`'24`|
 ||`milestone 5`||||||
