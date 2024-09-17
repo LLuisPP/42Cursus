@@ -8,52 +8,74 @@
     <td align="center"> circle 2 </td>
     <td align="center"> circle 3 </td>
     <td align="center"> circle 4 </td>
+    <td align="center"> circle 5 </td>
+    <td align="center"> circle 6 </td>
   </tr>
   <tr>
-    <td align="center">pjcts</td>
-    <td align="center">
+    <td>pjcts</td>
+    <td>
 
 [**`libft`**](https://github.com/LLuisPP/42Cursus/tree/main/libft)
     </td>
-    <td align="left">
+    <td>
 
   [**`born2beRoot`**](https://github.com/LLuisPP/42Cursus/tree/main/Born2beRoot)<br>
   [**`ft_printf`**](https://github.com/LLuisPP/42Cursus/tree/main/ft_printf)<br>
   [**`get_next_line`**](https://github.com/LLuisPP/42Cursus/tree/main/get_next_line)
     </td>
-    <td align="left">
+    <td>
 
 [**`push_swap`**](https://github.com/LLuisPP/42Cursus/tree/main/push_swap)<br>
 [**`fractol`**](https://github.com/LLuisPP/42Cursus/tree/main/fractol)<br>
 [**`pipex`**](https://github.com/LLuisPP/42Cursus/tree/main/pipex)
     </td>
-    <td align="left">
+    <td>
 
 [**`philosophers`**](https://github.com/LLuisPP/42Cursus/tree/main/philosophers)<br>
 [**`minishell`**](https://github.com/LLuisPP/42Cursus/tree/main/minishell)
     </td>
-    <td align="left">
+    <td>
 
 [**`netpractice`**]()<br>
 [**`miniRT`**]()<br>
 [**`cpp`**]()
     </td>
+    <td>
+
+[**`ft_irc`**]()<br>
+[**`inception`**]()<br>
+[**`cpp`**]()
+    </td>
+    <td>
+
+[**`trascendence`**]()<br>
+    </td>
   </tr>
   <tr>
-    <td align="center">exam</td>
+    <td>exam</td>
     <td></td>
     <td></td>
     <td>
       
 [**`rank02`**](https://github.com/LLuisPP/42-Exams/tree/main/rank02)</td>
-    <td>
+<td>
+      
 [**`rank03`**](https://github.com/LLuisPP/42-Exams-rank03)</td>
-  <td>
-    
+<td>
+      
 [**`rank04`**](https://github.com/LLuisPP/42-exams-rank04)</td>
+<td>
+      
+[**`rank05`**]()</td>
+<td>
+  
+[**`rank06`**]()</td>
   </tr>
 </table>
 
+</div>
+
+<div align="center">
 <table>
   <tr>
     <td colspan="4" align="center">📝 get_next_line 📝</td>
