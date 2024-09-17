@@ -2,10 +2,6 @@
 
 <table>
   <tr>
-  <td rowspan="4"><a href="https://github.com/LLuisPP/42Cursus/tree/main/"><img width="200" align="center" src="https://github.com/user-attachments/assets/a13492f8-ed80-4d05-996c-9752a4427a32"></a><br><a href="https://github.com/LLuisPP/42Cursus/tree/main/"><img width="200" align="center" src="https://github.com/user-attachments/assets/2d7e0e6c-d78b-41d2-9207-996469406a5d"></a>
-  </td>
-    </tr>
-  <tr>
     <th align="center"><a href="https://github.com/LLuisPP/42Cursus/tree/main/"> <img width="30" align="center" src="https://github.com/user-attachments/assets/ac216672-a141-48be-bc53-ae13dd35c799"></a></th>
     <td align="center"> circle 0 </td>
     <td align="center"> circle 1 </td>
