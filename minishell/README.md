@@ -91,11 +91,11 @@ Este proyecto consiste en recrear una versión simplificada del funcionamiento d
     <td align="center" width="260">Luis Prieto</td>
   </tr>
   <tr>
-    <td align="center"><br><img width="150" src="https://github.com/user-attachments/assets/2e57f619-5dd7-4a7c-8f43-2a05d8d82722" /><br><br></td>
+    <td align="center"><br><a href="https://github.com/Leegon8/minishell"><img width="150" src="https://github.com/user-attachments/assets/2e57f619-5dd7-4a7c-8f43-2a05d8d82722" /></a><br><br></td>
     <td align="center"><br><img width="150" src="https://github.com/user-attachments/assets/e9a907a4-e31e-458f-a8c5-823420e87756" /><br><br></td>
   </tr>
-    <td align="center">Desarrolladora</td>
-    <td align="center">Desarrollador</td>
+    <td align="center">Developer</td>
+    <td align="center">Developer</td>
   </tr>
   <tr>
     <td align="center">42 login: lauriago</td>
