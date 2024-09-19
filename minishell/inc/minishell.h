@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:26:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/09 11:31:49 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/09/19 21:49:26 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@
 
 /******************************** Structs Simplification ******************/
 
-typedef struct s_history t_hist;
-typedef	struct s_env t_env;
+typedef struct s_history	t_hist;
+typedef struct s_env		t_env;
+typedef struct s_mshll		t_mshll;
 
 /******************************** Structs *********************************/
 
@@ -44,33 +45,49 @@ struct	s_history
 	int		capacity;
 };
 
+struct	s_mshll
+{
+	int		end_sig;
+};
+
 struct	s_env
 {
-	char	*path;
+	char	*name;
+	char	*value;
 	char	*pwd;
 	char	*home;
 };
 
-/******************************* Functions ********************************/
+/******************************* ms_init **********************************/
+
+int		init_structs(t_env *env, t_hist *hist, t_mshll *msh);
+
+/******************************* ms_parser ********************************/
+
+char	*parse_path(char **env);
+char	*parse_pwd(char **env);
+
+/******************************* ms_tokenizer *****************************/
+
+char	*ft_strtok(char *str, const char *separator);
+
+/******************************* ms_rline *********************************/
 
 char	*command_generator(const char *text, int state);
 char	**command_completion(const char *text, int start, int end);
 char	*file_generator(const char *text, int state);
-char	*parse_path(char **env);
 
-/******************************* Parsing **********************************/
+/******************************* ms_executor ******************************/
 
-char	*ft_strtok(char *str, const char *separator);
-char	*parse_pwd(char **env);
+/******************************* ms_env ******************************/
 
-/******************************* Tokenizer ********************************/
+int		env_var_count(char **envs);
+int		init_env(t_env *env, char **envs);
 
-/******************************* Initialize *******************************/
 
-int	init_structs(t_env *env, t_hist *hist);
-
-/******************************* Executor *********************************/
-
+/******************************* ms_echo *********************************/
+int		num_arg(char **argv);
+char	*ft_echo(char **argv);
 
 /******************************* Error macros *****************************/
 
@@ -96,6 +113,7 @@ int	init_structs(t_env *env, t_hist *hist);
 # define PK		"\033[0;35m"
 # define PP		"\033[1;35m"
 # define CY		"\033[1;36m"
+# define CLEAR	"\033[2J\033[H"
 # define F		"\033[0m"
 
 #endif
