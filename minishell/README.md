@@ -122,7 +122,7 @@ This project involves recreating a simplified version of how the terminal works 
     <td align="center" width="550">Functions allowed</td>
   </tr>
   <tr>
-    <td align="center"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="70" height="70"/><br><br><img src="https://github.com/user-attachments/assets/bd668d04-50d1-496a-beb6-2190b1fe9241" alt="makefile" width="50" height="60"/><br>Makefile<br>
+    <td align="center"><a href="#"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="70" height="70"/></a><br><br><a href="#"><img src="https://github.com/user-attachments/assets/bd668d04-50d1-496a-beb6-2190b1fe9241" alt="makefile" width="50" height="60"/></a><br>Makefile<br>
     </td>
     <td align="center" width="100">• echo <br> • cd <br> • pwd <br> • export <br> • unset <br> • env <br> • exit <br> </td>
     <td align="left" width="330"><br>
@@ -145,7 +145,7 @@ This project involves recreating a simplified version of how the terminal works 
 
 <h3 weight="bold">Main loop workflow chart for a comand input:</h3>
 
-<img align="center" src="https://github.com/user-attachments/assets/bc4bc3be-dc4b-4e01-93bd-907208ab52fc"></img>
+<a href="#"><img align="center" src="https://github.com/user-attachments/assets/bc4bc3be-dc4b-4e01-93bd-907208ab52fc"></img></a>
 
 # Organization
 
