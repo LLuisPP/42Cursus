@@ -75,6 +75,25 @@
 
 </div>
 
+<div align="center">
+
+<table>
+  <tr>
+    <td colspan="4" align="center">📦 minishell 📦</td>
+  </tr>
+  <tr>
+    <td align="center">Project</td>
+    <td align="center">Bonus</td>
+    <td rowspan="2" align="center"><a href="#"><img width="250" src="https://github.com/user-attachments/assets/06bcc4f2-204c-4bbf-84d2-d61501884245"></a></td>
+  </tr>
+  <tr>
+    <td><a href="#"><img width="95" src="https://github.com/user-attachments/assets/862ed238-2624-453a-a5cd-c3a8ce3617d3"></a></td>
+    <td><a href="#"><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/0df7dd81-56fb-4929-a023-67c7386906dc"></a></td>
+  </tr>
+</table>
+
+</div>
+
 # Minishell
 
 This project involves recreating a simplified version of how the terminal works and the Bash command interpreter.<br>
