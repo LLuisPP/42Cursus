@@ -77,7 +77,7 @@
 
 # Minishell
 
-Este proyecto consiste en recrear una versión simplificada del funcionamiento de la terminal y el lenguaje de bash.<br>
+This project involves recreating a simplified version of how the terminal works and the Bash command interpreter.<br>
 <h2>👽Space🛸shell team members</h2>
 
 <div align="center">
@@ -91,8 +91,8 @@ Este proyecto consiste en recrear una versión simplificada del funcionamiento d
     <td align="center" width="260">Luis Prieto</td>
   </tr>
   <tr>
-    <td align="center"><br><a href="https://github.com/Leegon8/minishell"><img width="150" src="https://github.com/user-attachments/assets/2e57f619-5dd7-4a7c-8f43-2a05d8d82722" /></a><br><br></td>
-    <td align="center"><br><img width="150" src="https://github.com/user-attachments/assets/e9a907a4-e31e-458f-a8c5-823420e87756" /><br><br></td>
+    <td align="center"><br> <a href="https://github.com/Leegon8/minishell"><img width="150" src="https://github.com/user-attachments/assets/2e57f619-5dd7-4a7c-8f43-2a05d8d82722" /></a><br><br></td>
+    <td align="center"><br> <a href="https://github.com/LLuisPP/42Cursus/tree/main/minishell"><img width="150" src="https://github.com/user-attachments/assets/e9a907a4-e31e-458f-a8c5-823420e87756" /></a><br><br></td>
   </tr>
     <td align="center">Developer</td>
     <td align="center">Developer</td>
@@ -162,39 +162,38 @@ Este proyecto consiste en recrear una versión simplificada del funcionamiento d
   </tr>
   <tr>
     <td align="center">1</td>
-    <td>- Estructs ✅<br>- Bucle in con readline ✅<br>- Configurar entorno ❌</td>
-    <td>- Estudiar señales ⭕<br>- Gestión de señales ⭕<br>- Escribir tests básicos ⭕</td>
-    <td>Milestone 1:<br>- Entrada de comando ✅<br>- Manejo simple señales ⭕</td>
+    <td>- Structs ✅<br>- Loop in with readline ✅<br>- Set up environment ⭕✅</td>
+    <td>- Study signals ⭕<br>- Signal handling ⭕<br>- Write basic tests ⭕</td>
+    <td>Milestone 1:<br>- Command input ✅<br>- Basic signal handling ⭕</td>
   </tr>
   <tr>
     <td align="center">2</td>
-    <td>- Entrada con tokenizer ❌<br>- Implementar tokenizador ⭕<br>- Tests tokenizador ❌</td>
-    <td>- Documentar data y funct ❌<br>- Implementar parser ⭕<br>- Tests para parser ⭕</td>
-    <td>Milestone 2:<br>- Tokenización y parsing ❌<br>- Integración inicial ❌</td>
+    <td>- Tokenizer input ⭕<br>- Implement tokenizer ⭕<br>- Tokenizer tests ⭕</td>
+    <td>- Document data and functions ❌<br>- Implement parser ⭕<br>- Parser tests ⭕</td>
+    <td>Milestone 2:<br>- Tokenization and parsing ❌<br>- Initial integration ❌</td>
   </tr>
   <tr>
     <td align="center">3</td>
-    <td>- Implementar built ins ⭕<br>- Gestionar add_history ✅<br>- Tests history / builts ❌</td>
-    <td>- Exec cmds externos ❌<br>- Manejar errores básicos ⭕<br>- Tests history / builts ❌</td>
-    <td>Milestone 3:<br>- Cmds int y ext ❌<br>- Historial funcional ✅</td>
+    <td>- Implement built-ins ⭕<br>- Manage add_history ✅<br>- History / built-ins tests ❌</td>
+    <td>- Execute external cmds ❌<br>- Handle basic errors ⭕<br>- History / built-ins tests ❌</td>
+    <td>Milestone 3:<br>- Internal and external cmds ❌<br>- Functional history ✅</td>
   </tr>
   <tr>
-    <td align="center">4</td>
-    <td>- Redirects E/S (`>`, `<`) ❌<br>- Redirect errors ❌<br>- Documentar data y funct ❌</td>
-    <td>- Exec cmds ext con pipes ❌<br>- Tests pipes ❌<br>- Opt memoria leaks-frees ❌</td>
-    <td>Milestone 4:<br>- Redirect pipes y funct ❌</td>
+    <td align="center">4</td> <td>- I/O redirects (`>`, `<`) ❌<br>- Redirect errors ❌<br>- Document data and functions ❌</td>
+    <td>- Exec external cmds with pipes ❌<br>- Pipe tests ❌<br>- Optimize memory leaks-frees ❌</td>
+    <td>Milestone 4:<br>- Redirects, pipes, and functions ❌</td>
   </tr>
-  <tr>
-    <td align="center">5</td>
-    <td>- Manejo advanced señales ❌<br>- Env vars getenv ❌<br>- Tests env/signs/funct ❌</td>
-    <td>- Code optimize leak-free ❌<br>- Error handling strerror ❌<br>- Error handle p/strerror ❌</td>
-    <td>Milestone 5:<br>- Advcd sig, vars env ❌<br>- Código optimizado ❌</td>
-  </tr>
-  <tr>
-    <td align="center">6</td>
-    <td>- Integrar funcionalidades<br>- Pruebas exhaustivas<br>- Documentar proyecto final</td>
-    <td>- Rendimiento y optimización<br>- Verificar Makefile y exec</td>
-    <td>Milestone 6:<br>- testeado y document<br>- norminette, norma</td>
-  </tr>
-</table>
+    <tr> <td align="center">5</td>
+      <td>- Advanced signal handling ❌<br>- Env vars getenv ❌<br>- Tests for env/signals/functions ❌</td>
+      <td>- Optimize code leak-free ❌<br>- Error handling strerror ❌<br>- Error handling p/strerror ❌</td>
+      <td>Milestone 5:<br>- Advanced signals, env vars ❌<br>- Optimized code ❌</td>
+    </tr>
+    <tr>
+      <td align="center">6</td>
+      <td>- Integrate functionalities<br>- Exhaustive testing<br>- Document final project</td>
+      <td>- Performance and optimization<br>- Verify Makefile and exec</td>
+      <td>Milestone 6:<br>- Tested and documented<br>- Norminette, standards</td>
+    </tr>
+  </table>
+
 </div>
