@@ -106,18 +106,18 @@ The 42 Common Core is an intensive, self-taught, project-based curriculum focuse
 |`🍽`|<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|[**philosophers**](https://github.com/LLuisPP/42Cursus/tree/main/philosophers)|:rage2:| Synchronize threads to solve philo problem |<img src="https://img.shields.io/badge/100-darkgreen">|--|`Aug'24`|
 |`📦`|<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|[**minishell**](https://github.com/LLuisPP/42Cursus/tree/main/minishell)|:finnadie:| Build a functional shell similar to Bash |▶️|--|--|
 |||`milestone 3`||||||
-|`🔖`||[**rank 04 exam**](https://github.com/LLuisPP/42-Exams-rank04)|:rage2:| Develop a working microshell |--|--|`'24`|
-|`🌐`||[**netpractice**]()|:suspect:|  |--|--|`'24`|
-|`🌅`||[**miniRT**]()|:hurtrealbad:|  |--|--|`'24`|
-|`📟`||[**cpp's 0-5**]()|:rage2:|  |--|--|`'24`|
+|`🔖`|<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|[**rank 04 exam**](https://github.com/LLuisPP/42-Exams-rank04)|:rage2:| Develop a working microshell |--|--|`'24`|
+|`🌐`|<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|[**netpractice**]()|:suspect:| Practice networking with hands-on challenges  |--|--|`'24`|
+|`🌅`|<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|[**miniRT**]()|:hurtrealbad:| Create a 3D scene renderer  |--|--|`'24`|
+|`📟`|<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|[**cpp's 0-5**]()|:rage2:| Basics of C++ and its fundamental features  |--|--|`'24`|
 |||`milestone 4`||||||
-|`👥`||[**inception**]()|:rage3:|  |--|--|`'24`|
-|`💬`||[**ft_irc**]()|:rage4:|  |--|--|`'24`|
-|`📟`||[**cpp's 6-9**]()|:finnadie:|  |--|--|`'24`|
-|`🔖`||[**rank 05 exam**]()|:godmode:|  |--|--|`'24`|
+|`👥`|<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|[**inception**]()|:rage3:| Contain multiple Docker containers |--|--|`'24`|
+|`💬`|<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|[**ft_irc**]()|:rage4:| Implement a functional IRC server |--|--|`'24`|
+|`📟`|<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|[**cpp's 6-9**]()|:finnadie:| Explore advanced C++ and STL |--|--|`'24`|
+|`🔖`|<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|[**rank 05 exam**]()|:godmode:| Assessment of skills in C and C++ |--|--|`'24`|
 |||`milestone 5`||||||
-|`🕹️`||[**trascendence**]()|:finnadie:|  |--|--|`'24`|
-|`🔖`||[**rank 06 exam**]()|:godmode:|  |--|--|`'24`|
+|`🕹️`|<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|[**trascendence**]()|:finnadie:| Develop a 2D game with various mechanics |--|--|`'24`|
+|`🔖`|<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|[**rank 06 exam**]()|:godmode:| Advanced level exam in C/C++ |--|--|`'24`|
 
 </div>
 
