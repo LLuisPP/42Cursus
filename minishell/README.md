@@ -84,7 +84,7 @@ This project involves recreating a simplified version of how the terminal works 
   
 <table>
   <td rowspan="5">
-    <a href="https://github.com/Leegon8/minishell"><img width="200" align="center" src="https://github.com/user-attachments/assets/a13492f8-ed80-4d05-996c-9752a4427a32"></a><br><a href="https://github.com/Leegon8/minishell"><img width="200" align="center" src="https://github.com/user-attachments/assets/2d7e0e6c-d78b-41d2-9207-996469406a5d"></a>
+    <a href="#"><img width="200" align="center" src="https://github.com/user-attachments/assets/a13492f8-ed80-4d05-996c-9752a4427a32"></a><br><a href="#"><img width="200" align="center" src="https://github.com/user-attachments/assets/2d7e0e6c-d78b-41d2-9207-996469406a5d"></a>
   </td>
   <tr>
     <td align="center" width="260">Lauriane González</td>
@@ -92,7 +92,7 @@ This project involves recreating a simplified version of how the terminal works 
   </tr>
   <tr>
     <td align="center"><br> <a href="https://github.com/Leegon8/minishell"><img width="150" src="https://github.com/user-attachments/assets/2e57f619-5dd7-4a7c-8f43-2a05d8d82722" /></a><br><br></td>
-    <td align="center"><br> <a href="https://github.com/LLuisPP/42Cursus/tree/main/minishell"><img width="150" src="https://github.com/user-attachments/assets/e9a907a4-e31e-458f-a8c5-823420e87756" /></a><br><br></td>
+    <td align="center"><br> <a href="#"><img width="150" src="https://github.com/user-attachments/assets/e9a907a4-e31e-458f-a8c5-823420e87756" /></a><br><br></td>
   </tr>
     <td align="center">Developer</td>
     <td align="center">Developer</td>
