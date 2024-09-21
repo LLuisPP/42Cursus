@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 12:25:46 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/19 22:05:07 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/09/21 17:58:25 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,14 @@ int env_var_count(char **envs)
     return (i);
 }
 
+/* Comprueba que las variables PWD, OLDPWD y HOME existan  */
+int check_envs()
+{
+    if (getenv("PWD") == NULL || getenv("OLDPWD") == NULL)
+        return (printf("Warning: modified env (PWD)\n")* -1);
+    return (0);
+}
+
 /* Inicializa las variables de entorno con los valores del env (si existe) */
 int init_env(t_env *env, char **envs)
 {
@@ -35,13 +43,11 @@ int init_env(t_env *env, char **envs)
     char    *eq_sep;
     
     i = 0;
-    env->pwd = getcwd(env->pwd, sizeof(env));
-    printf("PEUVEDOBLE: %s\n",env->pwd);
+    getcwd(env->pwd, PATH_MAX);
     env->home = getenv("HOME");
-    if (!envs || envs == NULL || env_var_count(envs) != 36)
+    if (check_envs(envs) != 0)
     {
         getcwd(env->pwd, sizeof(env));
-        printf("NO HAY ENV 2\n");
         return (0);
     }
     else

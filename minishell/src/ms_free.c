@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ms_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 08:34:40 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/21 22:27:28 by lprieto-         ###   ########.fr       */
+/*   Created: 2024/09/21 20:41:30 by lprieto-          #+#    #+#             */
+/*   Updated: 2024/09/21 22:07:47 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "minishell.h"
 
-int	ft_putstr(char *s)
+void    free_structs(t_env *env, t_tok *tok)
 {
-	int	i;
-
-	i = 0;
-	if (!s)
-		return (ft_putstr("(null)"));
-	while (s[i] != '\0')
-	{
-		if (ft_putchar(s[i]) == -1)
-			return (-1);
-		i++;
-	}
-	return (i);
+    if (env)
+    {
+        free(env->pwd);
+        free(env);
+    }
+    if (tok)
+        free(tok);
 }

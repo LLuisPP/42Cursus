@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 08:34:40 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/21 22:27:28 by lprieto-         ###   ########.fr       */
+/*   Created: 2024/09/21 19:55:25 by lprieto-          #+#    #+#             */
+/*   Updated: 2024/09/21 19:58:17 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putstr(char *s)
+char    *ft_strcpy(char *dest, const char *src)
 {
-	int	i;
-
-	i = 0;
-	if (!s)
-		return (ft_putstr("(null)"));
-	while (s[i] != '\0')
-	{
-		if (ft_putchar(s[i]) == -1)
-			return (-1);
-		i++;
-	}
-	return (i);
+    char    *orig_ptr;
+    
+    orig_ptr = dest;
+    while (*src != '\0')
+    {
+        *dest = *src;
+        dest++;
+        src++;
+    }
+    dest = '\0';
+    return (orig_ptr);
 }

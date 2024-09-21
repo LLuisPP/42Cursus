@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:26:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/19 21:49:26 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/09/21 22:40:08 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,11 @@
 
 /******************************** Structs Simplification ******************/
 
-typedef struct s_history	t_hist;
 typedef struct s_env		t_env;
 typedef struct s_mshll		t_mshll;
+typedef struct s_token		t_tok;
 
 /******************************** Structs *********************************/
-
-struct	s_history
-{
-	char	**commands;
-	int		count;
-	int		capacity;
-};
-
-struct	s_mshll
-{
-	int		end_sig;
-};
 
 struct	s_env
 {
@@ -58,36 +46,48 @@ struct	s_env
 	char	*home;
 };
 
-/******************************* ms_init **********************************/
+struct	s_token
+{
+	char	*value;
+	size_t	t_len;
+};
 
-int		init_structs(t_env *env, t_hist *hist, t_mshll *msh);
+struct	s_mshll
+{
+	int		end_sig;
+};
+
+/******************************* minishell ********************************/
+void	shell_loop(t_env *env, t_mshll *msh);
+
+/******************************* ms_init **********************************/
+int		init_structs(t_env *env, t_mshll *msh);
 
 /******************************* ms_parser ********************************/
-
 char	*parse_path(char **env);
 char	*parse_pwd(char **env);
 
 /******************************* ms_tokenizer *****************************/
-
 char	*ft_strtok(char *str, const char *separator);
 
 /******************************* ms_rline *********************************/
-
 char	*command_generator(const char *text, int state);
 char	**command_completion(const char *text, int start, int end);
 char	*file_generator(const char *text, int state);
 
-/******************************* ms_executor ******************************/
-
-/******************************* ms_env ******************************/
-
+/******************************* ms_env ***********************************/
 int		env_var_count(char **envs);
 int		init_env(t_env *env, char **envs);
 
-
-/******************************* ms_echo *********************************/
+/******************************* ms_echo **********************************/
 int		num_arg(char **argv);
 char	*ft_echo(char **argv);
+
+/******************************* ms_tools ******************************/
+void	ft_pts(char *s);
+
+/******************************* ms_free **********************************/
+void    free_structs(t_env *env, t_tok *tok);
 
 /******************************* Error macros *****************************/
 
@@ -103,6 +103,10 @@ char	*ft_echo(char **argv);
 # define E_NOFILE "No such file or directory\n"
 # define E_DIRECTORY "Is a directory\n"
 # define E_EXECARG "Error: minishell doesn't accept arguments\n"
+
+/******************************** Other macros ***************************/
+
+# define PATH_MAX	4096
 
 /******************************** Color macros ***************************/
 

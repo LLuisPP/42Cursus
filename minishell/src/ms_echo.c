@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 21:21:27 by lauriago          #+#    #+#             */
-/*   Updated: 2024/09/19 19:39:31 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/09/21 22:35:51 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ char	*ft_echo(char **argv)
 		}
 		while (argv[i])
 		{
-			ft_putstr_fd(argv[i], 1);
-			if (argv[1 + i])
+			ft_pts(argv[i]);
+			if (argv[i + 1])
 				printf(" ");
 			i++;
 		}
