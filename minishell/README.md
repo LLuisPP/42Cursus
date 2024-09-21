@@ -163,19 +163,19 @@ This project involves recreating a simplified version of how the terminal works 
   <tr>
     <td align="center">1</td>
     <td>- Structs ✅<br>- Loop in with readline ✅<br>- Set up environment ⭕✅</td>
-    <td>- Study signals ⭕<br>- Signal handling ⭕<br>- Write basic tests ⭕</td>
-    <td>Milestone 1:<br>- Command input ✅<br>- Basic signal handling ⭕</td>
+    <td>- Study signals ⭕<br>- Signal handling ⭕<br>- Write basic tests ⭕✅</td>
+    <td>Milestone 1:<br>- Command input ✅<br>- Basic signal handling ⭕✅</td>
   </tr>
   <tr>
     <td align="center">2</td>
-    <td>- Tokenizer input ⭕<br>- Implement tokenizer ⭕<br>- Tokenizer tests ⭕</td>
-    <td>- Document data and functions ❌<br>- Implement parser ⭕<br>- Parser tests ⭕</td>
-    <td>Milestone 2:<br>- Tokenization and parsing ❌<br>- Initial integration ❌</td>
+    <td>- Tokenizer input ⭕✅<br>- Implement tokenizer ⭕✅<br>- Tokenizer tests ⭕✅</td>
+    <td>- Document data and functions ⭕<br>- Implement parser ⭕<br>- Parser tests ⭕</td>
+    <td>Milestone 2:<br>- Tokenization and parsing ⭕<br>- Initial integration ❌</td>
   </tr>
   <tr>
     <td align="center">3</td>
-    <td>- Implement built-ins ⭕<br>- Manage add_history ✅<br>- History / built-ins tests ❌</td>
-    <td>- Execute external cmds ❌<br>- Handle basic errors ⭕<br>- History / built-ins tests ❌</td>
+    <td>- Implement built-ins ⭕✅<br>- Manage add_history ✅<br>- Built-ins tests ❌</td>
+    <td>- Execute external cmds ❌<br>- Handle basic errors ⭕<br>- Built-ins tests ❌</td>
     <td>Milestone 3:<br>- Internal and external cmds ❌<br>- Functional history ✅</td>
   </tr>
   <tr>
