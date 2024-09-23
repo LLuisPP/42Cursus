@@ -188,13 +188,13 @@ This project involves recreating a simplified version of how the terminal works 
   <tr>
     <td align="center">2</td>
     <td>- Tokenizer input ⭕✅<br>- Implement tokenizer ⭕✅<br>- Tokenizer tests ⭕✅</td>
-    <td>- Document data and functions ⭕<br>- Implement parser ⭕<br>- Parser tests ⭕</td>
-    <td>Milestone 2:<br>- Tokenization and parsing ⭕<br>- Initial integration ❌</td>
+    <td>- Document data and functions ⭕✅<br>- Implement parser ⭕✅<br>- Parser tests ⭕</td>
+    <td>Milestone 2:<br>- Tokenization and parsing ⭕✅<br>- Initial integration ⭕✅</td>
   </tr>
   <tr>
     <td align="center">3</td>
     <td>- Implement built-ins ⭕✅<br>- Manage add_history ✅<br>- Built-ins tests ❌</td>
-    <td>- Execute external cmds ❌<br>- Handle basic errors ⭕<br>- Built-ins tests ❌</td>
+    <td>- Execute external cmds ❌<br>- Handle basic errors ⭕✅<br>- Built-ins tests ❌</td>
     <td>Milestone 3:<br>- Internal and external cmds ❌<br>- Functional history ✅</td>
   </tr>
   <tr>
@@ -203,9 +203,9 @@ This project involves recreating a simplified version of how the terminal works 
     <td>Milestone 4:<br>- Redirects, pipes, and functions ❌</td>
   </tr>
     <tr> <td align="center">5</td>
-      <td>- Advanced signal handling ❌<br>- Env vars getenv ❌<br>- Tests for env/signals/functions ❌</td>
-      <td>- Optimize code leak-free ❌<br>- Error handling strerror ❌<br>- Error handling p/strerror ❌</td>
-      <td>Milestone 5:<br>- Advanced signals, env vars ❌<br>- Optimized code ❌</td>
+      <td>- Advanced signal handling ❌<br>- Env vars getenv ⭕✅<br>- Tests for env/signals/functions ❌</td>
+      <td>- Optimize code leak-free ⭕✅<br>- Error handling strerror ❌<br>- Error handling p/strerror ❌</td>
+      <td>Milestone 5:<br>- Advanced signals, env vars ⭕✅<br>- Optimized code ❌</td>
     </tr>
     <tr>
       <td align="center">6</td>
