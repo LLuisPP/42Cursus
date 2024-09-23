@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 12:25:46 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/21 17:58:25 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/09/23 20:57:25 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int env_var_count(char **envs)
 int check_envs()
 {
     if (getenv("PWD") == NULL || getenv("OLDPWD") == NULL)
-        return (printf("Warning: modified env (PWD)\n")* -1);
+        return (printf("Warning: modified env (PWD)\n") * -1);
     return (0);
 }
 
@@ -50,19 +50,18 @@ int init_env(t_env *env, char **envs)
         getcwd(env->pwd, sizeof(env));
         return (0);
     }
-    else
+    while (envs[i])
     {
-        while (envs[i])
+        eq_sep = ft_strchr(envs[i], '=');
+        if (eq_sep)
         {
-            eq_sep = ft_strchr(envs[i], '=');
-            if (eq_sep)
-            {
-                env->name = ft_strndup(envs[i], (eq_sep - envs[i]));
-                env->value = ft_strdup(eq_sep + 1);
-                printf("nombre: %s, valor: %s\n", env->name, env->value);
-            }
-            i++;
+            env->names[i] = ft_strndup(envs[i], (eq_sep - envs[i]));
+            env->values[i] = ft_strdup(eq_sep + 1);
+            if (!env->names[i] || !env->values[i])
+                return (ft_fd_printf(2, "%s", E_ENVGET) * -1);
+            // printf("nombre: %s, valor: %s\n", env->names[i], env->values[i]);
         }
+        i++;
     }
     return (0);
 }

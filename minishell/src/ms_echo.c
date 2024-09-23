@@ -6,13 +6,13 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 21:21:27 by lauriago          #+#    #+#             */
-/*   Updated: 2024/09/21 22:35:51 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/09/23 11:11:32 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-// Calculo num de argumentos para gestionar las 2 posibilidades de echo
+/* Calculo num de argumentos para gestionar las 2 posibilidades de echo */
 int	num_arg(char **argv)
 {
 	int	i;
@@ -23,6 +23,7 @@ int	num_arg(char **argv)
 	return (i);
 }
 
+/* Imprime los argumentos de echo, manejando la opción -n para suprimir el salto de línea al final */
 char	*ft_echo(char **argv)
 {
 	int	i;

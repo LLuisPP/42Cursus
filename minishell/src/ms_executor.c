@@ -1,28 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ms_tools.c                                         :+:      :+:    :+:   */
+/*   ms_executor.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/21 22:28:01 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/23 11:05:20 by lprieto-         ###   ########.fr       */
+/*   Created: 2024/09/22 10:13:10 by lprieto-          #+#    #+#             */
+/*   Updated: 2024/09/22 10:13:26 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "minishell.h"
 
-/* Imprime cada carácter de la cadena dada putstring */
-void	ft_pts(char *s)
-{
-	int	i;
-
-	i = 0;
-	if (!s)
-		return (ft_pts("(null)"));
-	while (s[i] != '\0')
-	{
-		ft_putchar(s[i]);
-		i++;
-	}
-}

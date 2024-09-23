@@ -6,13 +6,14 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 16:34:50 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/19 19:18:54 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/09/23 10:46:18 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-char	*command_generator(const char *cmnd, int state)
+/* Genera un comando a partir de una lista para autocompletar */
+char	*cmd_gen(const char *cmnd, int state)
 {
 	static int	lst_idx;
 	static int	len;
@@ -38,19 +39,22 @@ char	*command_generator(const char *cmnd, int state)
 	return (NULL);
 }
 
-char	**command_completion(const char *cmnd, int start, int end)
+/* Completa el comando o archivo ingresado utilizando autocompletado */
+char	**cmd_comp(const char *cmnd, int start, int end)
 {
 	char	**matches;
 
 	matches = NULL;
 	if (start != 0 && end > start)
-		matches = rl_completion_matches(cmnd, file_generator);
+		matches = rl_completion_matches(cmnd, cmd_match);
 	else
-		matches = rl_completion_matches(cmnd, command_generator);
+		matches = rl_completion_matches(cmnd, cmd_gen);
 	return (matches);
 }
 
-char	*file_generator(const char *cmnd, int state)
+
+/* Busca coincidencias entre los cmds y el input del usuario */
+char	*cmd_match(const char *cmnd, int state)
 {
 	static DIR				*dir;
 	static struct dirent	*entry;
