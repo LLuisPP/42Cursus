@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:26:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/23 23:54:59 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/09/24 19:19:36 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@
 # include <string.h>
 
 /******************************** Structs Simplification ******************/
-typedef struct s_env		t_env;
-typedef struct s_msh		t_msh;
-typedef struct s_tok		t_tok;
-typedef struct s_pip		t_pip;
+typedef struct s_environment	t_env;
+typedef struct s_minishell		t_msh;
+typedef struct s_tokenizer		t_tok;
+typedef struct s_executor		t_exe;
 
 /******************************** Structs *********************************/
 
-struct	s_env
+struct	s_environment
 {
 	char	**names;
 	char	**values;
@@ -46,7 +46,7 @@ struct	s_env
 	char	*home;
 };
 
-struct	s_tok
+struct	s_tokenizer
 {
 	char	*cmd;
 	char	**args;
@@ -55,7 +55,7 @@ struct	s_tok
 	size_t	t_len;
 };
 
-struct s_pip
+struct s_executor
 {
 	int		fd_1[2];
 	int		status_1;
@@ -64,11 +64,11 @@ struct s_pip
 	int		fd_out;
 };
 
-struct	s_msh
+struct	s_minishell
 {
 	t_tok	*tkns;
 	t_env	*env;
-	t_pip	*mpip;
+	t_exe	*mpip;
 	int		end_sig;
 	int		last_exit_code;
 };
@@ -77,22 +77,26 @@ struct	s_msh
 void	shell_loop(t_env *env, t_msh *msh);
 
 /******************************* ms_init **********************************/
-int		init_structs(t_env **env, char **envs, t_msh *msh, t_pip **mpip);
+int		init_envi(t_env **env, char **envs);
+int		init_tok(t_tok **tok);
+int		init_mpip(t_exe **mpip);
+int		init_structs(t_env **env, char **envs, t_msh *msh, t_exe **mpip, t_tok **tok);
 
 /******************************* ms_parser ********************************/
 char	*parse_path(char **env);
 char	*parse_pwd(char **env);
 int		parse_input(char *input, t_msh *mshll);
 
-/******************************* ms_tokenizer *****************************/
+/******************************* ms_tokenizerenizer ***********************/
 char	*ft_strtok(char *str, const char *separator);
+int		tokenize_input(char *input, t_msh *msh);
 
 /******************************* ms_rline *********************************/
 char	*cmd_gen(const char *text, int state);
 char	**cmd_comp(const char *text, int start, int end);
 char	*cmd_match(const char *text, int state);
 
-/******************************* ms_env ***********************************/
+/******************************* ms_environment ***************************/
 int		env_var_count(char **envs);
 int		init_env(t_env *env, char **envs);
 
@@ -110,7 +114,7 @@ char	*ft_echo(char **argv);
 void	ft_pts(char *s);
 
 /******************************* ms_free **********************************/
-void    free_structs(t_env *env, t_tok *tok, t_pip *mpip);
+void    free_structs(t_env *env, t_tok *tok, t_exe *mpip);
 
 /******************************* Error macros *****************************/
 # define E_ARG "Invalid number of parameters\n"
@@ -127,6 +131,8 @@ void    free_structs(t_env *env, t_tok *tok, t_pip *mpip);
 # define E_EXECARG "Error: minishell doesn't accept arguments\n"
 # define E_MEMASF "Error: memory assignment failed\n"
 # define E_ENVGET "Error: env var retrieval failed\n"
+# define E_TOKMEM "Error: tok mem asignation failed\n"
+# define E_PIPMEM "Error: mpip mem asignation failed\n"
 
 /******************************** Other macros ***************************/
 # define PATH_MAX		4096

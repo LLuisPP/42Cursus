@@ -6,75 +6,133 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 15:49:27 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/23 23:56:50 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/09/24 19:23:56 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-/* inicia las estructuras del .h (no borrar) No trabajo en ella */
-int init_structs(t_env **env, char **envs, t_msh *msh, t_pip **mpip)
+/* inicia la asignacion de memoria para env en relacion al envs (del sistema) */
+int init_envi(t_env **env, char **envs)
 {
-  *env = malloc(sizeof(struct s_env));
+  size_t  env_count;
+  *env = malloc(sizeof(t_env));
   if (!*env)
     return (-1);
-  ft_memset(*env, 0, sizeof(struct s_env));
+  ft_memset(*env, 0, sizeof(t_env));
   (*env)->pwd = malloc(PATH_MAX);
   if (!(*env)->pwd)
     return (-1);
-  (*env)->names = malloc(sizeof(char *) * env_var_count(envs) + 1);
-  (*env)->values = malloc(sizeof(char *) * env_var_count(envs) + 1);
-  if (!(*env)->names || !(*env)->values)
+  env_count = env_var_count(envs) + 1;
+  (*env)->names = malloc(sizeof(char *) * env_count);
+  if (!(*env)->names)
     return (-1);
-  *mpip = malloc(sizeof(struct s_pip));
+  (*env)->values = malloc(sizeof(char *) * env_count);
+  if (!(*env)->values)
+    return (-1);
+  return (0);  
+}
+
+/* inicia la asignacion de memoria  para tok */
+int init_tok(t_tok **tok)
+{
+  *tok = malloc(sizeof(t_tok));
+  if (!*tok)
+    return (-1);
+  ft_memset(*tok, 0, sizeof(t_tok));
+  return (0);
+}
+
+/* inicia la asignacion de memoria  para mpip */
+int init_mpip(t_exe **mpip)
+{
+  *mpip = malloc(sizeof(t_exe));
   if (!*mpip)
     return (-1);
-  ft_memset(*mpip, 0, sizeof(struct s_pip));
-  msh->tkns = malloc(sizeof(struct s_tok));
-  if (!msh->tkns)
-    return (-1);
-  ft_memset(msh->tkns, 0, sizeof(struct s_tok));
+  ft_memset(*mpip, 0, sizeof(t_exe));
+  return (0);
+}
+
+/* inicia las estructuras por separado y las enlaza a la estructura principal msh */
+int init_structs(t_env **env, char **envs, t_msh *msh, t_exe **mpip, t_tok **tok)
+{
+if (init_envi(env, envs))
+    return (ft_fd_printf(2, "%s", E_ENVGET) * -1);
+ 
+  if (init_tok(tok))
+  {
+    free(*env);
+    return (ft_fd_printf(2, "%s", E_TOKMEM) * -1);
+  }
+  if (init_mpip(mpip))
+  {
+    free(*env);
+    free(*tok);
+    return (ft_fd_printf(2, "%s", E_PIPMEM) * -1);
+  }
   msh->env = *env;
-  
+  msh->tkns = *tok;
+  msh->mpip = *mpip;
   return (0);
 }
 
 
-/** REFACTORIZANDO (DA FALLOS DE SEGFAULT) NO USAR AUN **/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/** En un monobloque de asignacion **/
+
 
 // /* inicia las estructuras del .h (no borrar) No trabajo en ella */
-// int mem_alloc(t_env **env, char **envs, t_msh *msh, t_pip **mpip)
+// int init_structs(t_env **env, char **envs, t_msh *msh, t_exe **mpip, t_tok **tok)
 // {
-//   *env = malloc(sizeof(struct s_env));
+//   *env = malloc(sizeof(t_env));
 //   if (!*env)
 //     return (-1);
+//   ft_memset(*env, 0, sizeof(t_env));
 //   (*env)->pwd = malloc(PATH_MAX);
 //   if (!(*env)->pwd)
 //     return (-1);
-//   (*env)->names = malloc(sizeof(char *) * env_var_count(envs));
-//   (*env)->values = malloc(sizeof(char *) * env_var_count(envs));
+//   size_t env_count = env_var_count(envs) + 1;
+//   (*env)->names = malloc(sizeof(char *) * env_count);
+//   (*env)->values = malloc(sizeof(char *) * env_count);
 //   if (!(*env)->names || !(*env)->values)
 //     return (-1);
-//   *mpip = malloc(sizeof(struct s_pip));
+//   // ft_memset(*env, 0, sizeof(t_env));
+//   *mpip = malloc(sizeof(t_exe));
 //   if (!*mpip)
 //     return (-1);
-//   msh->tkns = malloc(sizeof(struct s_tok));
-//   if (!msh->tkns)
+//   ft_memset(*mpip, 0, sizeof(t_exe));
+//   *tok = malloc(sizeof(t_tok));
+//   if (!*tok)
 //     return (-1);
-//   return (0);
-// }
-
-// int zero_mem_set(t_env **env, t_msh *msh, t_pip **mpip)
-// {
-//   ft_memset(*env, 0, sizeof(struct s_env));
-//   ft_memset(*mpip, 0, sizeof(struct s_pip));
-//   ft_memset(msh->tkns, 0, sizeof(struct s_tok));
-//   return (0);
-// }
-
-// int init_structs(t_env **env, char **envs, t_msh *msh, t_pip **mpip)
-// {
-//   mem_alloc(env, envs, msh, mpip);
-//   zero_mem_set(env, msh, mpip);
+//   ft_memset(*tok, 0, sizeof(t_tok));
+//   msh->env = *env;
+//   msh->tkns = *tok;
 //   return (0);
 // }

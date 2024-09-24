@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 20:41:30 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/23 22:40:07 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/09/24 12:38:33 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void    free_env(t_env *env)
     int i;
     
     free(env->pwd);
+    free(env->home);
     if (env->names)
     {
         i = 0;
@@ -53,7 +54,7 @@ void    free_tok(t_tok *tok)
 }
 
 /* libera la memoria reservada para las estructuras al final del programa */
-void    free_structs(t_env *env, t_tok *tok, t_pip *mpip)
+void    free_structs(t_env *env, t_tok *tok, t_exe *mpip)
 {
     if (env)
         free_env(env);

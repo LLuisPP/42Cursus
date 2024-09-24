@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 16:34:33 by lprieto-          #+#    #+#              #
-#    Updated: 2024/09/21 19:59:08 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/09/24 16:56:04 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ SRCS = ft_strlen.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 	   ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstclear_bonus.c \
 	   ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_strcmp.c ft_lstlast_bonus.c \
 	   ft_lstmap_bonus.c ft_lstnew_bonus.c ft_strcpsn.c ft_abs_val.c \
-	   ft_printf.c \
+	   ft_strncpy.c ft_printf.c \
 	   ft_pholder.c ft_putchar.c ft_putstr.c \
 	   ft_putnbr.c ft_unsignedint.c ft_hex.c \
 	   get_next_line.c \
