@@ -164,7 +164,7 @@ This project involves recreating a simplified version of how the terminal works 
 
 <h3 weight="bold">Main loop workflow chart for a comand input:</h3>
 
-<a href="#"><img align="center" src="https://github.com/user-attachments/assets/bc4bc3be-dc4b-4e01-93bd-907208ab52fc"></img></a>
+<a href="#"><img align="center" src="https://github.com/user-attachments/assets/a9ac53f9-7504-4321-a2e1-415df6b5c343"></img></a>
 
 # Organization
 
