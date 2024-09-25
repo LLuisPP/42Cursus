@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 21:21:27 by lauriago          #+#    #+#             */
-/*   Updated: 2024/09/23 11:11:32 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/09/25 12:44:12 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	num_arg(char **argv)
 	return (i);
 }
 
-/* Imprime los argumentos de echo, manejando la opción -n para suprimir el salto de línea al final */
+/* Imprime los argumentos de echo, opción -n para suprimir el \n final */
 char	*ft_echo(char **argv)
 {
 	int	i;
@@ -48,5 +48,5 @@ char	*ft_echo(char **argv)
 	}
 	if (n_option == 0)
 		printf("\n");
-	return(NULL);
+	return (NULL);
 }

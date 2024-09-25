@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 16:34:50 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/23 10:46:18 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/09/25 09:48:43 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*cmd_gen(const char *cmnd, int state)
 	static int	len;
 	char		*name;
 	static char	*cmd_lst[] = {"cd", "exit", "ls", "echo", "touch", "clear",
-		 "mkdir", NULL};
+		"mkdir", NULL};
 
 	if (!state)
 	{
@@ -51,7 +51,6 @@ char	**cmd_comp(const char *cmnd, int start, int end)
 		matches = rl_completion_matches(cmnd, cmd_gen);
 	return (matches);
 }
-
 
 /* Busca coincidencias entre los cmds y el input del usuario */
 char	*cmd_match(const char *cmnd, int state)
