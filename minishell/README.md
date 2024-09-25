@@ -97,34 +97,8 @@
 # Minishell
 
 This project involves recreating a simplified version of how the terminal works and the Bash command interpreter.<br>
-<h2>👽Space🛸shell team members</h2>
 
-<div align="center">
-  
-<table>
-  <td rowspan="5">
-    <a href="#"><img width="200" align="center" src="https://github.com/user-attachments/assets/a13492f8-ed80-4d05-996c-9752a4427a32"></a><br><a href="#"><img width="200" align="center" src="https://github.com/user-attachments/assets/2d7e0e6c-d78b-41d2-9207-996469406a5d"></a>
-  </td>
-  <tr>
-    <td align="center" width="260">Lauriane González</td>
-    <td align="center" width="260">Luis Prieto</td>
-  </tr>
-  <tr>
-    <td align="center"><br> <a href="https://github.com/Leegon8/minishell"><img width="150" src="https://github.com/user-attachments/assets/2e57f619-5dd7-4a7c-8f43-2a05d8d82722" /></a><br><br></td>
-    <td align="center"><br> <a href="#"><img width="150" src="https://github.com/user-attachments/assets/e9a907a4-e31e-458f-a8c5-823420e87756" /></a><br><br></td>
-  </tr>
-    <td align="center">Developer</td>
-    <td align="center">Developer</td>
-  </tr>
-  <tr>
-    <td align="center">42 login: lauriago</td>
-    <td align="center">42 login: lprieto-</td>
-  </tr>
-</table>
-
-</div>
-
-# Description and requirements
+<h2>Description and requirements</h2>
 
 <h3 weight="bold">The proyect consists in develop a bash shell like program.</h3>
 
@@ -160,13 +134,13 @@ This project involves recreating a simplified version of how the terminal works 
 </div>
 <br>
 
-# Initial approach and proposal
+<h2>Initial approach and proposal</h2>
 
 <h3 weight="bold">Main loop workflow chart for a comand input:</h3>
 
 <a href="#"><img align="center" src="https://github.com/user-attachments/assets/a9ac53f9-7504-4321-a2e1-415df6b5c343"></img></a>
 
-# Organization
+<h2>Organization</h2>
 
 <h3 weight="bold">Task schedule distribution</h3>
 
@@ -214,5 +188,32 @@ This project involves recreating a simplified version of how the terminal works 
       <td>Milestone 6:<br>- Tested and documented<br>- Norminette, standards</td>
     </tr>
   </table>
+
+</div>
+
+<h2>👽Space🛸shell team members</h2>
+
+<div align="center">
+  
+<table>
+  <td rowspan="5">
+    <a href="#"><img width="200" align="center" src="https://github.com/user-attachments/assets/a13492f8-ed80-4d05-996c-9752a4427a32"></a><br><a href="#"><img width="200" align="center" src="https://github.com/user-attachments/assets/2d7e0e6c-d78b-41d2-9207-996469406a5d"></a>
+  </td>
+  <tr>
+    <td align="center" width="260">Lauriane González</td>
+    <td align="center" width="260">Luis Prieto</td>
+  </tr>
+  <tr>
+    <td align="center"><br> <a href="https://github.com/Leegon8/minishell"><img width="150" src="https://github.com/user-attachments/assets/2e57f619-5dd7-4a7c-8f43-2a05d8d82722" /></a><br><br></td>
+    <td align="center"><br> <a href="#"><img width="150" src="https://github.com/user-attachments/assets/e9a907a4-e31e-458f-a8c5-823420e87756" /></a><br><br></td>
+  </tr>
+    <td align="center">Developer</td>
+    <td align="center">Developer</td>
+  </tr>
+  <tr>
+    <td align="center">42 login: lauriago</td>
+    <td align="center">42 login: lprieto-</td>
+  </tr>
+</table>
 
 </div>
