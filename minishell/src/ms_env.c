@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 12:25:46 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/25 10:06:54 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/09/28 19:51:48 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	check_envs(void)
 }
 
 /* Inicializa las variables de entorno con los valores del env (si existe) */
-int	init_env(t_env *env, char **envs)
+int	init_env(t_env *env, t_msh *msh)
 {
 	int		i;
 	char	*eq_sep;
@@ -45,14 +45,14 @@ int	init_env(t_env *env, char **envs)
 	i = 0;
 	env->home = getenv("HOME");
 	getcwd(env->pwd, PATH_MAX);
-	if (check_envs() != 0)
-		return (0);
-	while (envs[i])
+	// if (check_envs() != 0)
+	// 	return (0);
+	while (msh->envs[i])
 	{
-		eq_sep = ft_strchr(envs[i], '=');
+		eq_sep = ft_strchr(msh->envs[i], '=');
 		if (eq_sep)
 		{
-			env->names[i] = ft_strndup(envs[i], (eq_sep - envs[i]));
+			env->names[i] = ft_strndup(msh->envs[i], (eq_sep - msh->envs[i]));
 			env->values[i] = ft_strdup(eq_sep + 1);
 			if (!env->names[i] || !env->values[i])
 				return (ft_fd_printf(2, "%s", E_ENVGET) * -1);

@@ -6,14 +6,14 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 15:49:27 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/25 09:58:31 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/09/28 19:45:10 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
 /* inicia la asignacion de memoria para env en relacion al envs (del sistema) */
-int	init_envi(t_env **env, char **envs)
+int	init_envi(t_env **env, t_msh *msh)
 {
 	size_t	env_count;
 
@@ -24,7 +24,7 @@ int	init_envi(t_env **env, char **envs)
 	(*env)->pwd = malloc(PATH_MAX);
 	if (!(*env)->pwd)
 		return (-1);
-	env_count = env_var_count(envs) + 1;
+	env_count = env_var_count(msh->envs) + 1;
 	(*env)->names = malloc(sizeof(char *) * env_count);
 	if (!(*env)->names)
 		return (-1);
@@ -55,9 +55,9 @@ int	init_mpip(t_exe **mpip)
 }
 
 /* inicia las estructuras por separado y las enlaza a msh */
-int	init_strc(t_env **env, char **envs, t_msh *msh, t_exe **mpip, t_tok **tok)
+int	init_strc(t_env **env, t_msh *msh, t_exe **mpip, t_tok **tok)
 {
-	if (init_envi(env, envs))
+	if (init_envi(env, msh))
 		return (ft_fd_printf(2, "%s", E_ENVGET) * -1);
 	if (init_tok(tok))
 	{
