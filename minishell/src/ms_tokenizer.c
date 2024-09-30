@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 15:35:57 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/25 12:41:30 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/09/30 09:17:25 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,6 @@ int	tokenize_input(char *input, t_msh *msh)
 		i++;
 		token = ft_strtok(NULL, " \t\n");
 	}
-	msh->tkns[i].cmd = NULL; // Marcar el final de los tokens con NULL
+	msh->tkns[i].cmd = NULL;
 	return (0);
 }

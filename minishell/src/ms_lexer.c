@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 15:45:27 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/25 12:46:50 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/09/30 09:21:57 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ int	lexer(char **tokens, t_msh *msh)
 				return (-1);
 			}
 		}
-		if (ft_strcmp(tokens[i], "<<") == 0) // Verifica si el token es el delimitador de heredoc '<<'
+		if (ft_strcmp(tokens[i], "<<") == 0)
 		{
-			if (tokens[i + 1] == NULL) // Comprueba que el siguiente token sea válido
+			if (tokens[i + 1] == NULL)
 			{
 				perror("syntax error: missing delimiter for heredoc\n");
 				return (-1);
 			}
-			msh->tkns->is_heredoc = 1; // guardamos el delimitador para el heredoc
-			msh->tkns->heredoc_delim = ft_strdup(tokens[i + 1]); // Guarda el delimitador
-			i++; // Avanza para saltar el delimitador
+			msh->tkns->is_heredoc = 1;
+			msh->tkns->heredoc_delim = ft_strdup(tokens[i + 1]);
+			i++;
 		}
 		i++;
 	}

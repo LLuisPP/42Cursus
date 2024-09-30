@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:26:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/28 19:46:30 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/09/30 18:42:22 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ struct	s_minishell
 };
 
 /******************************* minishell ********************************/
-void	shell_loop(t_env *env, t_msh *msh);
+void	shell_loop(t_msh *msh);
 
 /******************************* ms_init **********************************/
 int		init_envi(t_env **env, t_msh *msh);
@@ -111,7 +111,6 @@ int		num_arg(char **argv);
 char	*ft_echo(char **argv);
 
 /******************************* ms_tools *********************************/
-void	ft_pts(char *s);
 
 /******************************* ms_free **********************************/
 void	free_structs(t_env *env, t_tok *tok, t_exe *mpip);

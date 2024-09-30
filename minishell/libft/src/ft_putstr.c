@@ -6,13 +6,29 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 08:34:40 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/21 22:27:28 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/09/30 09:14:05 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putstr(char *s)
+// int	ft_putstr(char *s)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	if (!s)
+// 		return (ft_putstr("(null)"));
+// 	while (s[i] != '\0')
+// 	{
+// 		if (ft_putchar(s[i]) == -1)
+// 			return (-1);
+// 		i++;
+// 	}
+// 	return (i);
+// }
+
+void	ft_putstr(char *s)
 {
 	int	i;
 
@@ -21,9 +37,7 @@ int	ft_putstr(char *s)
 		return (ft_putstr("(null)"));
 	while (s[i] != '\0')
 	{
-		if (ft_putchar(s[i]) == -1)
-			return (-1);
+		write(1, &s[i], 1);
 		i++;
 	}
-	return (i);
 }

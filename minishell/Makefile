@@ -6,15 +6,15 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/27 07:16:06 by lprieto-          #+#    #+#              #
-#    Updated: 2024/09/21 22:28:39 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/09/30 09:40:41 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
 CC = gcc -g
-#LDFLAGS = -L/usr/lib/x86_64-linux-gnu -lreadline #   LINUX    #
-LDFLAGS = -L/usr/local/opt/readline/lib -lreadline #   MACOS   #
+LDFLAGS = -L/usr/lib/x86_64-linux-gnu -lreadline #   LINUX    #
+#LDFLAGS = -L/usr/local/opt/readline/lib -lreadline #   MACOS   #
 CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 
 AR = ar -rcs
@@ -100,7 +100,7 @@ RES = \e[0m
 # **************************************************************************** #
 
 BAR_LEN := 55
-PROGRESS_DURATION := 1 # Duración de la barra de progreso en segundos
+PROG_DURAT := 1
 TOTAL_ITEMS := $(words $(OBJS))
 
 define show_progress
@@ -112,16 +112,16 @@ define show_progress
 88 8  8 88 88  8 88    8 88  8 88   88   88     █  ▀   ▀▀▀      █ \n \
 88 8  8 88 88  8 88 8888 88  8 88e8 88ee 88ee   ▀▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▀ \n\n"; \
 
-	total_ticks=$$((PROGRESS_DURATION * 10)); # 20 ticks por segundo para una actualización fluida
+	total_ticks=$$((PROG_DURAT * 10)); # 20 ticks por segundo para una actualización fluida
 	item_progress=0; \
 	while [ $$item_progress -le $(TOTAL_ITEMS) ]; do \
 		percentage=$$(( 100 * $$item_progress / $(TOTAL_ITEMS) )); \
 		filled_len=$$(( $(BAR_LEN) * $$item_progress / $(TOTAL_ITEMS) )); \
 		unfilled_len=$$(( $(BAR_LEN) - $$filled_len )); \
-		bar=$$(printf "%0.s█" $$(seq 1 $$filled_len)); \
-		bar=$$bar$$(printf "%0.s-" $$(seq 1 $$unfilled_len)); \
-		printf "\r$(W)[$(GY)-%s$(W)] $(W)[$(BW)%d%%$(W)]$(W)" "$$bar" "$$percentage"; \
-		sleep $$(echo "scale=2; $(PROGRESS_DURATION) / $(TOTAL_ITEMS)" | bc); \
+		bar=$$(printf "%0.s▓" $$(seq 1 $$filled_len)); \
+		bar=$$bar$$(printf "%0.s─" $$(seq 1 $$unfilled_len)); \
+		printf "\r$(W)[$(GY)─%s$(W)] $(W)[$(BW)%d%%$(W)]$(W)" "$$bar" "$$percentage"; \
+		sleep $$(echo "scale=2; $(PROG_DURAT) / $(TOTAL_ITEMS)" | bc); \
 		item_progress=$$(( $$item_progress + 1 )); \
 	done; \
 	
