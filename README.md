@@ -120,7 +120,13 @@ The 42 Common Core is an intensive, self-taught, project-based curriculum focuse
 |`🔖`|[**rank 06 exam**]()|:godmode:| Advanced level exam in C/C++ |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'24`|
 
 </div>
-
+<div align="left">
+When I finish everything, it will be:
+</div>
+<br>
+<div align="center">
+<a href="#"><img width="408" align="center" src="https://github.com/user-attachments/assets/bf7526e2-1027-42c9-9597-4f8b6d9527f9"></a>
+</div>
 
 <h2>Cursus holygraph</h2>
 
