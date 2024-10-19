@@ -1,52 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ms_echo.c                                          :+:      :+:    :+:   */
+/*   ms_b_echo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: leegon <leegon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 21:21:27 by lauriago          #+#    #+#             */
-/*   Updated: 2024/09/28 22:25:17 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/10/06 19:24:50 by leegon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-/* Calculo num de argumentos para gestionar las 2 posibilidades de echo */
-int	num_arg(char **argv)
-{
-	int	i;
-
-	i = 0;
-	while (argv[i])
-		i++;
-	return (i);
-}
-
 /* Imprime los argumentos de echo, opción -n para suprimir el \n final */
-char	*ft_echo(char **argv)
+void	ft_echo(t_msh *msh, int num_cmd)
 {
-	int	i;
-	int	n_option;
+	int		i;
+	int		n_option;
 
 	i = 1;
 	n_option = 0;
-	if (num_arg(argv) > 1)
+	if (num_cmd <= 1)
+		printf("\n");
+	else if (num_cmd > 1)
 	{
-		while (argv[i] && ft_strcmp(argv[i], "-n") == 0)
+		if (ft_strcmp(msh->tkns[i].cmd, "-n") == 0)
 		{
 			n_option = 1;
 			i++;
 		}
-		while (argv[i])
+		while (msh->tkns[i].cmd)
 		{
-			ft_putstr(argv[i]);
-			if (argv[i + 1])
+			printf("%s", msh->tkns[i].cmd);
+			if (msh->tkns[i + 1].cmd != NULL)
 				printf(" ");
 			i++;
 		}
+		if (n_option == 0)
+			printf("\n");
 	}
-	if (n_option == 0)
-		printf("\n");
-	return (NULL);
 }
+// Hay que gestionar casos con comillas 
+			//if (msh->tkns[i].cmd == '\'' || msh->tkns[i].cmd == '\"')
+			//	i++;
+// Hay que gestionar variable de entorno

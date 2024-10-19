@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: leegon <leegon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:26:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/30 18:42:22 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/10/08 22:47:56 by leegon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,9 @@ struct	s_environment
 	char	**names;
 	char	**values;
 	char	*pwd;
+	char	*old_pwd;
 	char	*home;
+	char	*path;
 };
 
 struct	s_tokenizer
@@ -98,19 +100,36 @@ char	**cmd_comp(const char *text, int start, int end);
 char	*cmd_match(const char *text, int state);
 
 /******************************* ms_environment ***************************/
-int		env_var_count(char **envs);
+int		env_var_count(t_msh *msh);
 int		init_env(t_env *env, t_msh *msh);
 
 /******************************* ms_lexer *********************************/
 int		lexer(char **tokens, t_msh *msh);
+int		quote_lexer(t_msh *msh);
 
 /******************************* ms_executor ******************************/
+int		find_cmd(t_msh *msh);
+char	*make_path(t_msh *msh);
 
 /******************************* ms_echo **********************************/
-int		num_arg(char **argv);
-char	*ft_echo(char **argv);
+void	ft_echo(t_msh *msh, int num_cmd);
+
+/******************************** ms_cd ***********************************/
+void	ft_cd(t_msh *msh, int num_cmd);
+char	*make_relative(char *arg, t_msh *msh);
+
+/******************************* ms_builtins ******************************/
+int		ft_env(t_msh *msh);
+int		ft_exit(t_msh *msh);
+int		ft_pwd(t_msh *msh);
+int		is_builtin(t_msh *msh);
+void    cmd_not_found(t_msh *msh);
+void	exc_cmd(t_msh *msh, int count_tok);
+void	env_pos(t_msh *msh);
+void	check_tokens(char *input, t_msh *msh);
 
 /******************************* ms_tools *********************************/
+//void	verify_varenv(char *input);
 
 /******************************* ms_free **********************************/
 void	free_structs(t_env *env, t_tok *tok, t_exe *mpip);
@@ -132,9 +151,10 @@ void	free_structs(t_env *env, t_tok *tok, t_exe *mpip);
 # define E_ENVGET "Error: env var retrieval failed\n"
 # define E_TOKMEM "Error: tok mem asignation failed\n"
 # define E_PIPMEM "Error: mpip mem asignation failed\n"
+# define E_CDARG "cd: $ARG: No such file or directory\n"
 
 /******************************** Other macros ***************************/
-# define PATH_MAX		4096
+//# define PATH_MAX		4096
 # define MAX_ARGS		4096
 # define MAX_ENV_VARS	4096
 

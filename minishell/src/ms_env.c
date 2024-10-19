@@ -3,28 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ms_env.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: leegon <leegon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 12:25:46 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/28 19:51:48 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/10/08 22:54:01 by leegon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
 /* Cuenta las variables que hay en env (No modificar) trabajando en ella */
-int	env_var_count(char **envs)
+int	env_var_count(t_msh *msh)
 {
 	int	i;
 
 	i = 0;
-	if (!envs || envs == NULL)
-		printf("THERE IS NO ENV\n");
-	else
-	{
-		while (envs && envs[i])
-			i++;
-	}
+	while (msh->envs[i])
+		i++;
+	ft_fd_printf(1, " # ENV VARS # > %d\n", i);
 	return (i);
 }
 
@@ -43,10 +39,13 @@ int	init_env(t_env *env, t_msh *msh)
 	char	*eq_sep;
 
 	i = 0;
+	eq_sep = NULL;
 	env->home = getenv("HOME");
+	env->old_pwd = getenv("OLDPWD");
+	env->path = getenv("PATH");
 	getcwd(env->pwd, PATH_MAX);
-	// if (check_envs() != 0)
-	// 	return (0);
+	if (check_envs() != 0)
+		return (0);
 	while (msh->envs[i])
 	{
 		eq_sep = ft_strchr(msh->envs[i], '=');
@@ -55,9 +54,8 @@ int	init_env(t_env *env, t_msh *msh)
 			env->names[i] = ft_strndup(msh->envs[i], (eq_sep - msh->envs[i]));
 			env->values[i] = ft_strdup(eq_sep + 1);
 			if (!env->names[i] || !env->values[i])
-				return (ft_fd_printf(2, "%s", E_ENVGET) * -1);
+				return (ft_fd_printf(2, "%s", E_ENVGET), -1);
 		}
-		printf("nombre: %s, valor: %s\n", env->names[i], env->values[i]);
 		i++;
 	}
 	return (0);

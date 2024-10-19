@@ -1,28 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ms_b_export.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: leegon <leegon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/21 19:55:25 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/25 09:42:58 by lprieto-         ###   ########.fr       */
+/*   Created: 2024/10/04 13:15:46 by lauriago          #+#    #+#             */
+/*   Updated: 2024/10/07 13:51:51 by leegon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strcpy(char *dest, const char *src)
-{
-	char	*orig_ptr;
-
-	orig_ptr = dest;
-	while (*src != '\0')
-	{
-		*dest = *src;
-		dest++;
-		src++;
-	}
-	dest = 0;
-	return (orig_ptr);
-}
+#include "minishell.h"

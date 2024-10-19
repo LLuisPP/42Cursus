@@ -1,28 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ms_b_unset.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: lauriago <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/21 19:55:25 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/25 09:42:58 by lprieto-         ###   ########.fr       */
+/*   Created: 2024/10/04 13:14:37 by lauriago          #+#    #+#             */
+/*   Updated: 2024/10/04 13:14:42 by lauriago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minishell.h"
 
-char	*ft_strcpy(char *dest, const char *src)
+/*int ft_unset(void)
 {
-	char	*orig_ptr;
-
-	orig_ptr = dest;
-	while (*src != '\0')
-	{
-		*dest = *src;
-		dest++;
-		src++;
-	}
-	dest = 0;
-	return (orig_ptr);
-}
+}*/

@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ms_tools.c                                         :+:      :+:    :+:   */
+/*   ms_varenv.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: leegon <leegon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/21 22:28:01 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/28 22:55:06 by lprieto-         ###   ########.fr       */
+/*   Created: 2024/10/04 13:12:48 by lauriago          #+#    #+#             */
+/*   Updated: 2024/10/06 19:23:18 by leegon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-/*static int	verify_varenv(char *input)
+/*	
+	Verificación de si el input menciona una variable de entorno;
+	En caso de que así sea, se busca la variable y se intenta ejecutar;
+
+*/
+
+void	verify_varenv(t_msh *msh)
 {
 	int	i;
 
 	i = 0;
-	while (input[i])
+	while (msh->tkns->cmd[i])
 	{
-		if (input[i] == '$')
-			return (i);
+		if (msh->tkns->cmd[i] == '$')
+			printf("Is calling a varenv\n");
 		i++;
 	}
-    return (-1);
 }
-
-void    acces_varenv(t_msh *msh, char *input)7
-{
-    int pos;
-
-    pos = verify_varenv(input);
-    //Look to env 
-}*/

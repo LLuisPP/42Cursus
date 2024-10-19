@@ -49,7 +49,7 @@ int	tokenize_input(char *input, t_msh *msh)
 	char	*token;
 	int		i;
 
-	msh->tkns = malloc(sizeof(t_tok) * (ft_strlen(input) + 1));
+	msh->tkns = malloc(sizeof(t_tok) * ft_strlen(input) + 10);
 	if (!msh->tkns)
 		return (-1);
 	i = 0;

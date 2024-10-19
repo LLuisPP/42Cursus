@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: leegon <leegon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:25:04 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/30 18:43:51 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/10/07 12:09:59 by leegon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,15 @@ void	shell_loop(t_msh *msh)
 	{
 		i = 0;
 		rl_attempted_completion_function = cmd_comp;
-		input = readline("\033[0;96mspace 👽 shell 🛸\e[0m> ");
-		if (input == NULL)
-			break ;
+		input = readline("\033[0;96m🛸 Space_shell 👽:\e[0m");
 		if (*input)
 			add_history(input);
-		
-		tokenize_input(input, msh);
-
-		while (msh->tkns[i].cmd != NULL) /* este bucle hace print de tods los tokens */
+		if (input[0] == '\0')
 		{
-			printf("%s\n", msh->tkns[i].cmd);
-			i++;
+			free(input);
+			continue ;
 		}
-		if (ft_strcmp("pwd", msh->tkns[0].cmd) == 0) /* pwd */
-			printf("%s\n", msh->env->pwd);			
-		if (ft_strcmp("clear", msh->tkns[0].cmd) == 0) /* clear :D */
-		 	printf("%s", CLEAR);
-		if (ft_strcmp("exit", msh->tkns[0].cmd) == 0) /* para hacer exit sin ctrl+C */
-			msh->end_sig = 1;
+		check_tokens(input, msh);
 		free(input);
 		j = 0;
 		while (j < i)
@@ -63,6 +53,7 @@ int	main(int argc, char **argv, char **envs)
 	if (argc != 1 || argv[1])
 		exit (ft_fd_printf(2, "%s", E_EXECARG) * 0);
 	ft_memset(&msh, 0, sizeof(t_msh));
+	msh.envs = envs;
 	if (init_strc(&env, &msh, &mpip, &tok) != 0)
 		return (ft_fd_printf(2, "%s", E_MEMASF)* -1);
 	if (envs != NULL)

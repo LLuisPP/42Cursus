@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: leegon <leegon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 15:49:27 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/09/28 19:45:10 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/10/08 22:55:17 by leegon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,22 @@ int	init_envi(t_env **env, t_msh *msh)
 {
 	size_t	env_count;
 
-	*env = malloc(sizeof(t_env));
+	*env = malloc(sizeof(t_env) + 1);
 	if (!*env)
 		return (-1);
 	ft_memset(*env, 0, sizeof(t_env));
 	(*env)->pwd = malloc(PATH_MAX);
 	if (!(*env)->pwd)
 		return (-1);
-	env_count = env_var_count(msh->envs) + 1;
-	(*env)->names = malloc(sizeof(char *) * env_count);
+	env_count = env_var_count(msh);
+	(*env)->names = malloc(sizeof(char *) * env_count + 9);
 	if (!(*env)->names)
 		return (-1);
-	(*env)->values = malloc(sizeof(char *) * env_count);
+	(*env)->values = malloc(sizeof(char *) * env_count + 9);
 	if (!(*env)->values)
 		return (-1);
+	(*env)->names[env_count] = NULL;
+	(*env)->values[env_count] = NULL;
 	return (0);
 }
 
@@ -59,19 +61,19 @@ int	init_strc(t_env **env, t_msh *msh, t_exe **mpip, t_tok **tok)
 {
 	if (init_envi(env, msh))
 		return (ft_fd_printf(2, "%s", E_ENVGET) * -1);
+	msh->env = *env;
 	if (init_tok(tok))
 	{
 		free(*env);
 		return (ft_fd_printf(2, "%s", E_TOKMEM) * -1);
 	}
+	msh->tkns = *tok;
 	if (init_mpip(mpip))
 	{
 		free(*env);
 		free(*tok);
 		return (ft_fd_printf(2, "%s", E_PIPMEM) * -1);
 	}
-	msh->env = *env;
-	msh->tkns = *tok;
 	msh->mpip = *mpip;
 	return (0);
 }
