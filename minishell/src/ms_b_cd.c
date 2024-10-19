@@ -12,7 +12,7 @@
 
 #include "minishell.h"
 
-static void	is_varenv(char *input)
+void	is_varenv(char *input)
 {
 	int	i;
 	char	*varenv;
@@ -93,7 +93,7 @@ void	ft_cd(t_msh *msh, int num_cmd)
 	{
 		// verify_varenv --> Verificar si se quiere acceder a una variable
 		// de entorno y en caso de ser una variable 
-		verify_varenv(msh->tkns[1].cmd);
+		// verify_varenv(msh->tkns[1].cmd);
 		if (msh->tkns[1].cmd[0] == '/') // Is an absolute path
 			new_path = ft_strdup(msh->tkns[1].cmd);
 		else
