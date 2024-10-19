@@ -33,3 +33,17 @@ void    acces_varenv(t_msh *msh, char *input)7
     pos = verify_varenv(input);
     //Look to env 
 }*/
+
+int	find_envb(t_msh *msh, char *envar)
+{
+	int	i;
+
+	i = 0;
+	while(*msh->env[i].names[i] != '\0')
+	{
+		if (ft_strcmp(envar, msh->env->names[i]) == 0)
+			return (i);
+		i++;
+	}
+	return(-1);
+}
