@@ -37,10 +37,9 @@ void	check_tokens(char *input, t_msh *msh)
 				exc_cmd(msh, count_tok);
 				break ;
 			}
-			else
+			else if (find_cmd(msh->tkns[i].cmd, msh) == -1)
 			{
-				find_cmd(msh);
-				//	cmd_not_found(msh);
+				cmd_not_found(msh);
 				break ;
 			}
 			i++;
@@ -60,8 +59,6 @@ void	exc_cmd(t_msh *msh, int count_tok)
 		ft_env(msh);
 	else if (ft_strcmp(msh->tkns->cmd, "exit") == 0)
 		ft_exit(msh);
-	else if (ft_strcmp(msh->tkns->cmd, "clear") == 0)
-		ft_fd_printf(1, "%s", CLEAR);
 }
 
 int	is_builtin(t_msh *msh)
@@ -75,8 +72,6 @@ int	is_builtin(t_msh *msh)
 	else if (ft_strcmp(msh->tkns->cmd, "env") == 0)
 		return (0);
 	else if (ft_strcmp(msh->tkns->cmd, "exit") == 0)
-		return (0);
-	else if (ft_strcmp(msh->tkns->cmd, "clear") == 0)
 		return (0);
 	return (1);
 }

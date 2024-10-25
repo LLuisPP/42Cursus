@@ -38,7 +38,6 @@ int	ft_env(t_msh *msh)
 	{
 		ft_fd_printf(1, "%s=%s\n", msh->env->names[i],
 			msh->env->values[i]);
-		//ft_fd_printf(1, "O %s\n", msh->envs[i]);
 		i++;
 	}
 	return (1);

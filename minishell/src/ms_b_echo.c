@@ -31,6 +31,8 @@ void	ft_echo(t_msh *msh, int num_cmd)
 		}
 		while (msh->tkns[i].cmd)
 		{
+			if (varenv_man(msh, "echo", msh->tkns[i].cmd))
+				break;
 			printf("%s", msh->tkns[i].cmd);
 			if (msh->tkns[i + 1].cmd != NULL)
 				printf(" ");
@@ -43,4 +45,4 @@ void	ft_echo(t_msh *msh, int num_cmd)
 // Hay que gestionar casos con comillas 
 			//if (msh->tkns[i].cmd == '\'' || msh->tkns[i].cmd == '\"')
 			//	i++;
-// Hay que gestionar variable de entorno
+// Hay que gestionar variable de entorno 

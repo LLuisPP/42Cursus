@@ -22,8 +22,8 @@ int	quote_lexer(t_msh *msh)
 	quote = 2;
 	i = 0;
 	len = ft_strlen(msh->tkns->cmd);
-	if (ft_strcmp(msh->tkns->cmd, "\'") != 0 ||
-		ft_strcmp(msh->tkns->cmd, "\"") != 0)
+	if ((ft_strcmp(msh->tkns->cmd, "\'") != 0)
+		|| (ft_strcmp(msh->tkns->cmd, "\"") != 0))
 		return (-1);
 	while (msh->tkns[1].cmd[i] && i <= len)
 	{

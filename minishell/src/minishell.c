@@ -22,7 +22,7 @@ void	shell_loop(t_msh *msh)
 	while (msh->end_sig == 0)
 	{
 		i = 0;
-		rl_attempted_completion_function = cmd_comp;
+		// rl_attempted_completion_function = cmd_comp;
 		input = readline("\033[0;96m🛸 Space_shell 👽:\e[0m");
 		if (*input)
 			add_history(input);
@@ -59,6 +59,7 @@ int	main(int argc, char **argv, char **envs)
 	if (envs != NULL)
 		msh.envs = envs;
 	init_env(env, &msh); /* inicia el env, ya sea con el env del sistema o sin el */
+	ft_export(&msh);
 	shell_loop(&msh); /* Este es el loop principal, que esta en la funcion shell_loop */
 	free_structs(env, tok, mpip); /* Libera las estructuras que le pasemos */
 	return (0);
