@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_b_export.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leegon <leegon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:15:46 by lauriago          #+#    #+#             */
-/*   Updated: 2024/10/07 13:51:51 by leegon           ###   ########.fr       */
+/*   Updated: 2024/10/26 07:28:30 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int ft_export(t_msh *msh)
 {
     int i;
-    char **tmp_env;
+    char **tmp_env = NULL;
 
     i = 0;
     while (msh->env->names[i])
@@ -23,17 +23,19 @@ int ft_export(t_msh *msh)
         ft_fd_printf(1, "%s\n", msh->env->values[i]);
         i++;
     }
-    while (msh->envs->names[i])
+    while (msh->env->names[i])
 	{
-        *tmp_n_env = ft_strdup(msh->env.names[i], (ft_strlen(msh->env.names[i]) + 1));
+        tmp_env[i] = ft_strdup(msh->env->names[i]);
     
-        if (!env->names[i])
+        if (!msh->env->names[i])
             return (ft_fd_printf(2, "Error: export failed"), -1);
 		i++;
 	}
+    
     ft_fd_printf(2, "loop: %d\n", i);
     int y;
     y=0;
-    while(y < ft_fd_printf(1, "%s"))
+    while(y < ft_fd_printf(1, "%s", tmp_env[y]))
+        y++;
     return (i);
 }
