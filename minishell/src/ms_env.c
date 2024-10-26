@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_env.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leegon <leegon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 12:25:46 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/10/08 22:54:01 by leegon           ###   ########.fr       */
+/*   Updated: 2024/10/26 11:34:16 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,7 @@ int	init_env(t_env *env, t_msh *msh)
 		}
 		i++;
 	}
+	env->names[i] = NULL;
+	env->values[i] = NULL;
 	return (0);
 }
