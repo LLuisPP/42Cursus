@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_builtins.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leegon <leegon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:12:48 by lauriago          #+#    #+#             */
-/*   Updated: 2024/10/06 19:23:18 by leegon           ###   ########.fr       */
+/*   Updated: 2024/10/26 08:12:07 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void	exc_cmd(t_msh *msh, int count_tok)
 		ft_env(msh);
 	else if (ft_strcmp(msh->tkns->cmd, "exit") == 0)
 		ft_exit(msh);
+	else if (ft_strcmp(msh->tkns->cmd, "export") == 0)
+		ft_export(msh);	
 }
 
 int	is_builtin(t_msh *msh)
@@ -72,6 +74,8 @@ int	is_builtin(t_msh *msh)
 	else if (ft_strcmp(msh->tkns->cmd, "env") == 0)
 		return (0);
 	else if (ft_strcmp(msh->tkns->cmd, "exit") == 0)
+		return (0);
+	else if (ft_strcmp(msh->tkns->cmd, "export") == 0)
 		return (0);
 	return (1);
 }
