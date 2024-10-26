@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:26:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/10/26 09:01:15 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/10/26 17:17:40 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ int		varenv_man(t_msh *msh, char *builting, char *input);
 void	free_structs(t_env *env, t_tok *tok, t_exe *mpip);
 
 /******************************* ms_export ********************************/
-int		ft_export(t_msh *msh);
+int		ft_export(t_msh *msh, char *new_var);
 
 /******************************* ms_unset *********************************/
 int		ft_unset(t_msh *msh);
