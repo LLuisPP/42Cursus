@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leegon <leegon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:26:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/10/08 22:47:56 by leegon           ###   ########.fr       */
+/*   Updated: 2024/10/26 09:01:15 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ void	env_pos(t_msh *msh);
 void	check_tokens(char *input, t_msh *msh);
 
 /******************************* ms_tools *********************************/
-/******************************* ms_varenv *********************************/
+/******************************* ms_varenv ********************************/
 char	*varenv(char *input);
 char	*serach_env(char *var, t_msh *msh);
 int		varenv_man(t_msh *msh, char *builting, char *input);
@@ -139,8 +139,11 @@ int		varenv_man(t_msh *msh, char *builting, char *input);
 /******************************* ms_free **********************************/
 void	free_structs(t_env *env, t_tok *tok, t_exe *mpip);
 
-/******************************* ms_export*********************************/
+/******************************* ms_export ********************************/
 int		ft_export(t_msh *msh);
+
+/******************************* ms_unset *********************************/
+int		ft_unset(t_msh *msh);
 
 
 /******************************* Error macros *****************************/

@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:12:48 by lauriago          #+#    #+#             */
-/*   Updated: 2024/10/26 08:12:07 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/10/26 09:00:55 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void	exc_cmd(t_msh *msh, int count_tok)
 		ft_exit(msh);
 	else if (ft_strcmp(msh->tkns->cmd, "export") == 0)
 		ft_export(msh);	
+	else if (ft_strcmp(msh->tkns->cmd, "unset") == 0)
+		ft_unset(msh);	
 }
 
 int	is_builtin(t_msh *msh)
@@ -76,6 +78,8 @@ int	is_builtin(t_msh *msh)
 	else if (ft_strcmp(msh->tkns->cmd, "exit") == 0)
 		return (0);
 	else if (ft_strcmp(msh->tkns->cmd, "export") == 0)
+		return (0);
+	else if (ft_strcmp(msh->tkns->cmd, "unset") == 0)
 		return (0);
 	return (1);
 }

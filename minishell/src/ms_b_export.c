@@ -6,12 +6,17 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:15:46 by lauriago          #+#    #+#             */
-/*   Updated: 2024/10/26 08:33:02 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/10/26 09:09:39 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
+
+/* deberia funcionar pero no pasa de ls primera comprobacion (no hay env?)*/
+
+/* La idea es que lo copie a un array temporal, liberemos la memoria actual
+del env y malloquemos nueva con la nueva variable incluida mas el null del final*/
 int ft_export(t_msh *msh)
 {
     int i;
