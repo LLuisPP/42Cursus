@@ -197,15 +197,15 @@ This project involves recreating a simplified version of how the terminal works 
   
 <table>
   <td rowspan="5">
-    <a href="#"><img width="200" align="center" src="https://github.com/user-attachments/assets/b0ca0e88-e5c7-4ea7-aaf0-e2c55900e46d"></a><br><a href="#"><img width="200" align="center" src="https://github.com/user-attachments/assets/8992fe87-0051-4ab5-a775-cb04d09375e1"></a>
+    <a href="#"><img width="150" align="center" src="https://github.com/user-attachments/assets/b0ca0e88-e5c7-4ea7-aaf0-e2c55900e46d"></a><br><br><a href="#"><img width="150" align="center" src="https://github.com/user-attachments/assets/8992fe87-0051-4ab5-a775-cb04d09375e1"></a>
   </td>
   <tr>
-    <td align="center" width="260">Lauriane González</td>
-    <td align="center" width="260">Luis Prieto</td>
+    <td align="center" width="190">Lauriane González</td>
+    <td align="center" width="190">Luis Prieto</td>
   </tr>
   <tr>
-    <td align="center"><br> <a href="https://github.com/Leegon8/minishell"><img width="150" src="https://github.com/user-attachments/assets/2e57f619-5dd7-4a7c-8f43-2a05d8d82722" /></a><br><br></td>
-    <td align="center"><br> <a href="#"><img width="150" src="https://github.com/user-attachments/assets/e9a907a4-e31e-458f-a8c5-823420e87756" /></a><br><br></td>
+    <td align="center"><br> <a href="https://github.com/Leegon8/minishell"><img width="125" src="https://github.com/user-attachments/assets/2e57f619-5dd7-4a7c-8f43-2a05d8d82722" /></a><br><br></td>
+    <td align="center"><br> <a href="#"><img width="130" src="https://github.com/user-attachments/assets/e9a907a4-e31e-458f-a8c5-823420e87756" /></a><br><br></td>
   </tr>
     <td align="center">Developer</td>
     <td align="center">Developer</td>
