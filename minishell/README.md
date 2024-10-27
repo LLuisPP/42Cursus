@@ -197,7 +197,7 @@ This project involves recreating a simplified version of how the terminal works 
   
 <table>
   <td rowspan="5">
-    <a href="#"><img width="200" align="center" src="https://github.com/user-attachments/assets/a13492f8-ed80-4d05-996c-9752a4427a32"></a><br><a href="#"><img width="200" align="center" src="https://github.com/user-attachments/assets/2d7e0e6c-d78b-41d2-9207-996469406a5d"></a>
+    <a href="#"><img width="200" align="center" src="https://github.com/user-attachments/assets/b0ca0e88-e5c7-4ea7-aaf0-e2c55900e46d"></a><br><a href="#"><img width="200" align="center" src="https://github.com/user-attachments/assets/8992fe87-0051-4ab5-a775-cb04d09375e1"></a>
   </td>
   <tr>
     <td align="center" width="260">Lauriane González</td>
