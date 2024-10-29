@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 21:21:27 by lauriago          #+#    #+#             */
-/*   Updated: 2024/10/29 21:56:39 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/10/30 00:38:00 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ void	ft_echo(t_msh *msh, int num_cmd)
 	int	n_flag;
 	int	has_next;
 
+	i = 0;
 	if (num_cmd <= 1)
 	{
 		ft_putchar_fd('\n', 1);
