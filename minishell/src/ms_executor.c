@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_executor.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leegon <leegon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 10:13:10 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/10/07 13:49:37 by leegon           ###   ########.fr       */
+/*   Updated: 2024/10/29 23:33:00 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,50 @@ static void	parent_process(pid_t pid, char *fullpath)
 	free(fullpath);
 }
 
-char	*make_path(char *tkn)
-{
-	char	*fullpath;
+// // char	*make_path(char *tkn)
+// // {
+// // 	char	*fullpath;
 
-	fullpath = malloc(strlen("/bin/") + strlen(tkn) + 1);
-	if (tkn == NULL || !fullpath)
-		return (NULL);
-	ft_strcpy(fullpath, "/bin/");
-	ft_strcat(fullpath, tkn);
-	return (fullpath);
-}
+// // 	fullpath = malloc(strlen("/bin/") + strlen(tkn) + 1);
+// // 	if (tkn == NULL || !fullpath)
+// // 		return (NULL);
+// // 	ft_strcpy(fullpath, "/bin/");
+// // 	ft_strcat(fullpath, tkn);
+// // 	return (fullpath);
+// // }
+
+// char    *make_path(char *tkn)
+// {
+//     char    *fullpath;
+//     const char *paths[] = {"/bin/", "/usr/bin/", NULL};
+//     int     i;
+    
+//     if (!tkn)
+//         return (NULL);
+        
+//     i = 0;
+//     while (paths[i])
+//     {
+//         fullpath = malloc(ft_strlen(paths[i]) + ft_strlen(tkn) + 1);
+//         if (!fullpath)
+//             return (NULL);
+            
+//         ft_strcpy(fullpath, paths[i]);
+//         ft_strcat(fullpath, tkn);
+        
+//         // Si encontramos el comando en esta ruta, lo devolvemos
+//         if (access(fullpath, F_OK | X_OK) == 0)
+//             return (fullpath);
+            
+//         // Si no lo encontramos, liberamos y probamos la siguiente ruta
+//         free(fullpath);
+//         i++;
+//     }
+    
+//     return (NULL);
+// }
+
+
 
 int	execute_command(t_msh *msh, char *fullpath)
 {
@@ -72,8 +105,8 @@ int	find_cmd(char *tkn, t_msh *msh)
 {
 	char	*fullpath;
 
-	fullpath = make_path(tkn);
-	printf("fullpath is --> %s\n", fullpath);
+	fullpath = make_path(tkn, msh);
+	// printf("fullpath is --> %s\n", fullpath);
 	if (is_command_executable(fullpath))
 	{
 		if (execute_command(msh, fullpath) == -1)
@@ -98,3 +131,94 @@ int	find_cmd(char *tkn, t_msh *msh)
 ==1071002== 
 
 */
+
+
+static char	**get_path_dirs(char **envs)
+{
+	int		i;
+
+	i = 0;
+	while (envs[i])
+	{
+		if (ft_strncmp(envs[i], "PATH=", 5) == 0)
+			return (ft_split(envs[i] + 5, ':'));
+		i++;
+	}
+	return (NULL);
+}
+
+static char	*check_absolute_path(char *cmd)
+{
+	if (!cmd)
+		return (NULL);
+	if (cmd[0] == '/' || (cmd[0] == '.' && cmd[1] == '/') || 
+		(cmd[0] == '.' && cmd[1] == '.' && cmd[2] == '/'))
+	{
+		if (access(cmd, F_OK | X_OK) == 0)
+			return (ft_strdup(cmd));
+	}
+	return (NULL);
+}
+
+static char	*try_path(char *dir, char *cmd)
+{
+	char	*tmp;
+	char	*cmd_path;
+
+	tmp = ft_strjoin(dir, "/");
+	if (!tmp)
+		return (NULL);
+	cmd_path = ft_strjoin(tmp, cmd);
+	free(tmp);
+	if (!cmd_path)
+		return (NULL);
+	if (access(cmd_path, F_OK | X_OK) == 0)
+		return (cmd_path);
+	free(cmd_path);
+	return (NULL);
+}
+
+char	*make_path(char *cmd, t_msh *msh)
+{
+	char	**paths;
+	char	*cmd_path;
+	int		i;
+
+	if (!cmd || !msh || !msh->envs)
+		return (NULL);
+	cmd_path = check_absolute_path(cmd);
+	if (cmd_path)
+		return (cmd_path);
+	paths = get_path_dirs(msh->envs);
+	if (!paths)
+		return (NULL);
+	i = 0;
+	while (paths[i])
+	{
+		cmd_path = try_path(paths[i], cmd);
+		if (cmd_path)
+		{
+			ft_free_array(paths);
+			return (cmd_path);
+		}
+		i++;
+	}
+	ft_free_array(paths);
+	return (NULL);
+}
+
+void	ft_free_array(char **array)
+{
+	int	i;
+
+	i = 0;
+	if (!array)
+		return ;
+	while (array[i])
+	{
+		free(array[i]);
+		array[i] = NULL;
+		i++;
+	}
+	free(array);
+}

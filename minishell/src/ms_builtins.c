@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:12:48 by lauriago          #+#    #+#             */
-/*   Updated: 2024/10/29 20:10:08 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/10/29 22:24:39 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,10 @@ void	exc_cmd(t_msh *msh, int count_tok)
 	else if (ft_strcmp(msh->tkns->cmd, "exit") == 0)
 		ft_exit(msh);
 	else if (ft_strcmp(msh->tkns->cmd, "export") == 0)
-		ft_export(msh, "hola");	
+	{
+		char *test_args[] = {"export", "TEST=123", NULL};
+	    ft_export(msh, test_args);
+	}
 	else if (ft_strcmp(msh->tkns->cmd, "unset") == 0)
 		ft_unset(msh);	
 }

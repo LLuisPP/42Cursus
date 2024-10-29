@@ -3,42 +3,104 @@
 /*                                                        :::      ::::::::   */
 /*   ms_b_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leegon <leegon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:13:40 by lauriago          #+#    #+#             */
-/*   Updated: 2024/10/06 19:28:10 by leegon           ###   ########.fr       */
+/*   Updated: 2024/10/29 22:02:48 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-/* Actualizar env (TO DO) */
-void	env_pos(t_msh *msh)
+// /* Actualizar env (TO DO) */
+// void	env_pos(t_msh *msh)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (msh->env->names[i] && msh->env->values[i])
+// 	{
+// 		if (ft_strcmp(msh->env->names[i], "PWD") == 0)
+// 			msh->env->values[i] = msh->env->pwd;
+// 		if (ft_strcmp(msh->env->names[i], "OLDPWD") == 0)
+// 			msh->env->values[i] = msh->env->old_pwd;
+// 		i++;
+// 	}
+// }
+
+// /* builtin para imprimir el environment */
+// int	ft_env(t_msh *msh)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (msh->env->names[i] && msh->env->values[i])
+// 	{
+// 		ft_fd_printf(1, "%s=%s\n", msh->env->names[i],
+// 			msh->env->values[i]);
+// 		i++;
+// 	}
+// 	return (1);
+// }
+
+
+static int	update_env_var(t_msh *msh, char *name, char *value)
 {
-	int	i;
+	int		i;
+	char	*new_value;
 
 	i = 0;
-	while (msh->env->names[i] && msh->env->values[i])
+	if (!name || !value)
+		return (0);
+	new_value = ft_strdup(value);
+	if (!new_value)
+		return (0);
+	while (msh->env->names[i])
 	{
-		if (ft_strcmp(msh->env->names[i], "PWD") == 0)
-			msh->env->values[i] = msh->env->pwd;
-		if (ft_strcmp(msh->env->names[i], "OLDPWD") == 0)
-			msh->env->values[i] = msh->env->old_pwd;
+		if (ft_strcmp(msh->env->names[i], name) == 0)
+		{
+			free(msh->env->values[i]);
+			msh->env->values[i] = new_value;
+			return (1);
+		}
 		i++;
 	}
+	free(new_value);
+	return (0);
 }
 
-/* builtin para imprimir el environment */
+void	env_pos(t_msh *msh)
+{
+	if (!msh || !msh->env)
+		return ;
+	if (msh->env->pwd)
+		update_env_var(msh, "PWD", msh->env->pwd);
+	if (msh->env->old_pwd)
+		update_env_var(msh, "OLDPWD", msh->env->old_pwd);
+}
+
 int	ft_env(t_msh *msh)
 {
 	int	i;
 
+	if (!msh || !msh->env || !msh->env->names || !msh->env->values)
+	{
+		ft_fd_printf(2, "env: environment not available\n");
+		return (1);
+	}
+	if (msh->tkns[1].cmd)
+	{
+		ft_fd_printf(2, "env: '%s': No such file or directory\n",
+			msh->tkns[1].cmd);
+		return (127);
+	}
 	i = 0;
 	while (msh->env->names[i] && msh->env->values[i])
 	{
-		ft_fd_printf(1, "%s=%s\n", msh->env->names[i],
-			msh->env->values[i]);
+		if (msh->env->values[i][0] != '\0')
+			ft_fd_printf(1, "%s=%s\n", msh->env->names[i],
+				msh->env->values[i]);
 		i++;
 	}
-	return (1);
+	return (0);
 }
