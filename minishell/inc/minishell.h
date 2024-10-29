@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:26:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/10/26 17:17:40 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/10/29 19:38:57 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ struct	s_environment
 	char	*old_pwd;
 	char	*home;
 	char	*path;
+	int		env_count;
+	int		exit_status;
 };
 
 struct	s_tokenizer
