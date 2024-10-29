@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:12:48 by lauriago          #+#    #+#             */
-/*   Updated: 2024/10/29 20:03:04 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/10/29 20:10:08 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,9 @@ void	exc_cmd(t_msh *msh, int count_tok)
 
 int	is_builtin(t_msh *msh)
 {
-	char	*builtins[8];
-	int		i;
+	static char	*builtins[8];
+	int			i;
 
-	i = 0;
 	builtins[0] = "echo";
 	builtins[1] = "cd";
 	builtins[2] = "pwd";
@@ -79,7 +78,7 @@ int	is_builtin(t_msh *msh)
 	builtins[5] = "export";
 	builtins[6] = "unset";
 	builtins[7] = NULL;
-
+	i = 0;
 	while (builtins[i])
 	{
 		if (ft_strcmp(msh->tkns->cmd, builtins[i]) == 0)
