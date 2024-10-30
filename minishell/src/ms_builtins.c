@@ -61,11 +61,11 @@ void	exc_cmd(t_msh *msh, int count_tok)
 		ft_exit(msh);
 	else if (ft_strcmp(msh->tkns->cmd, "export") == 0)
 	{
-		char *test_args[] = {"export", "TEST=123", NULL};
-	    ft_export(msh, test_args);
+		char *test_args[] = {"export", "TEST=123", NULL}; /* esto es pa hardcodear el export*/
+		ft_export(msh, test_args);
 	}
 	else if (ft_strcmp(msh->tkns->cmd, "unset") == 0)
-		ft_unset(msh);	
+		ft_unset(msh);
 }
 
 int	is_builtin(t_msh *msh)
