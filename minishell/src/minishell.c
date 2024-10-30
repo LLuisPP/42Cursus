@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:25:04 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/10/26 19:22:37 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/10/30 08:28:53 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	main(int argc, char **argv, char **envs)
 	if (envs != NULL)
 		msh.envs = envs;
 	init_env(env, &msh); /* inicia el env, ya sea con el env del sistema o sin el */
+	init_signals();
 	shell_loop(&msh); /* Este es el loop principal, que esta en la funcion shell_loop */
 	free_structs(env, tok, mpip); /* Libera las estructuras que le pasemos */
 	return (0);
