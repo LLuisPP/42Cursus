@@ -20,7 +20,7 @@ int	env_var_count(t_msh *msh)
 	i = 0;
 	while (msh->envs[i])
 		i++;
-	// ft_fd_printf(1, " # ENV VARS # > %d\n", i);
+	msh->env_var_count = i;
 	return (i);
 }
 
@@ -58,7 +58,5 @@ int	init_env(t_env *env, t_msh *msh)
 		}
 		i++;
 	}
-	env->names[i] = NULL;
-	env->values[i] = NULL;
 	return (0);
 }
