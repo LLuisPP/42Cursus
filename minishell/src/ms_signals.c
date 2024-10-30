@@ -42,5 +42,5 @@ void    init_signals(void)
     sa_int.sa_flags = 0;
     sa_quit.sa_flags = 0;
     sigaction(SIGINT, &sa_int, NULL);
-    sigation(SIGQUIT, &sa_quit, NULL);
+    sigaction(SIGQUIT, &sa_quit, NULL);
 }
