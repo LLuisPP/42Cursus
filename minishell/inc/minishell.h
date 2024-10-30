@@ -76,6 +76,7 @@ struct	s_minishell
 	int		end_sig;
 	int		last_exit_code;
 	char	**envs;
+	int		env_var_count;
 };
 
 /******************************* minishell ********************************/
