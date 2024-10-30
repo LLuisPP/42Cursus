@@ -12,46 +12,6 @@
 
 #include "minishell.h"
 
-// int ft_unset(t_msh *msh)
-// {
-//     int i;
-//     int l;
-//     char **tmp_env;
-
-//     l = 0;
-//     i = 0;
-
-//     if (!msh->env->names[0])
-//     {
-//         ft_fd_printf(2, "Error: Environment names not initialized\n");
-//         return -1;
-//     }
-    
-//     while(msh->env->names[l])
-//         l++;
-//     ft_fd_printf(1, "l value = %d\n", l);
-//     tmp_env = (char**)malloc(sizeof (char *) * (l + 1));
-//     if (!tmp_env)
-//         return (ft_fd_printf(2, E_MALLOC));
-
-//     while (msh->env->names[i])
-//     {
-//         ft_fd_printf(1, "%s\n", msh->env->values);
-//         ft_fd_printf(2, "i value: %d\n", i);
-//         i++;
-//     }
-//     while (msh->env->names[i])
-// 	{
-//         tmp_env[i] = ft_strdup(msh->env->names[i]);
-//         ft_fd_printf(2, "loop: %d\n", i);
-// 		i++;
-// 	}
-//     tmp_env[i] = NULL;
-//     free(tmp_env);
-//     ft_fd_printf(2, "i returned: %d\n", i);
-//     return (i);
-// }
-
 static int	ft_find_env_var(char **env_names, char *var_name)
 {
 	int	i;
@@ -63,7 +23,7 @@ static int	ft_find_env_var(char **env_names, char *var_name)
 	len = ft_strlen(var_name);
 	while (env_names[i])
 	{
-		if (ft_strncmp(env_names[i], var_name, len) == 0 
+		if (ft_strncmp(env_names[i], var_name, len) == 0
 			&& (env_names[i][len] == '=' || env_names[i][len] == '\0'))
 			return (i);
 		i++;
