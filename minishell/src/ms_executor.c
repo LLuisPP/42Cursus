@@ -41,7 +41,6 @@ static void	parent_process(pid_t pid, char *fullpath)
 // // char	*make_path(char *tkn)
 // // {
 // // 	char	*fullpath;
-
 // // 	fullpath = malloc(strlen("/bin/") + strlen(tkn) + 1);
 // // 	if (tkn == NULL || !fullpath)
 // // 		return (NULL);
@@ -49,39 +48,30 @@ static void	parent_process(pid_t pid, char *fullpath)
 // // 	ft_strcat(fullpath, tkn);
 // // 	return (fullpath);
 // // }
-
 // char    *make_path(char *tkn)
 // {
 //     char    *fullpath;
 //     const char *paths[] = {"/bin/", "/usr/bin/", NULL};
 //     int     i;
-    
 //     if (!tkn)
 //         return (NULL);
-        
 //     i = 0;
 //     while (paths[i])
 //     {
 //         fullpath = malloc(ft_strlen(paths[i]) + ft_strlen(tkn) + 1);
 //         if (!fullpath)
 //             return (NULL);
-            
 //         ft_strcpy(fullpath, paths[i]);
 //         ft_strcat(fullpath, tkn);
-        
 //         // Si encontramos el comando en esta ruta, lo devolvemos
 //         if (access(fullpath, F_OK | X_OK) == 0)
 //             return (fullpath);
-            
 //         // Si no lo encontramos, liberamos y probamos la siguiente ruta
 //         free(fullpath);
 //         i++;
 //     }
-    
 //     return (NULL);
 // }
-
-
 
 int	execute_command(t_msh *msh, char *fullpath)
 {
@@ -106,7 +96,6 @@ int	find_cmd(char *tkn, t_msh *msh)
 	char	*fullpath;
 
 	fullpath = make_path(tkn, msh);
-	// printf("fullpath is --> %s\n", fullpath);
 	if (is_command_executable(fullpath))
 	{
 		if (execute_command(msh, fullpath) == -1)
@@ -119,19 +108,7 @@ int	find_cmd(char *tkn, t_msh *msh)
 	}
 	return (0);
 }
-/*
-
-==1071002== Conditional jump or move depends on uninitialised value(s)
-==1071002==    at 0x10BE93: ft_strcat (in /home/lauriago/Projects42/minishell/23-oct/minishell)
-==1071002==    by 0x10A531: make_path (ms_executor.c:49)
-==1071002==    by 0x10A5CB: find_cmd (ms_executor.c:75)
-==1071002==    by 0x109EDB: check_tokens (ms_builtins.c:40)
-==1071002==    by 0x109485: shell_loop (minishell.c:34)
-==1071002==    by 0x1095D6: main (minishell.c:62)
-==1071002== 
-
-*/
-
+/**/
 
 static char	**get_path_dirs(char **envs)
 {
@@ -151,8 +128,8 @@ static char	*check_absolute_path(char *cmd)
 {
 	if (!cmd)
 		return (NULL);
-	if (cmd[0] == '/' || (cmd[0] == '.' && cmd[1] == '/') || 
-		(cmd[0] == '.' && cmd[1] == '.' && cmd[2] == '/'))
+	if (cmd[0] == '/' || (cmd[0] == '.' && cmd[1] == '/')
+		|| (cmd[0] == '.' && cmd[1] == '.' && cmd[2] == '/'))
 	{
 		if (access(cmd, F_OK | X_OK) == 0)
 			return (ft_strdup(cmd));
