@@ -133,7 +133,8 @@ void	env_pos(t_msh *msh);
 void	check_tokens(char *input, t_msh *msh);
 
 /******************************* ms_tools *********************************/
-void    ft_free_array(char **array);
+void	ft_free_array(char **array);
+
 /******************************* ms_varenv ********************************/
 char	*varenv(char *input);
 char	*serach_env(char *var, t_msh *msh);
@@ -149,8 +150,7 @@ int		ft_export(t_msh *msh, char **new_var);
 int		ft_unset(t_msh *msh);
 
 /******************************* ms_signals *********************************/
-void    init_signals(void);
-
+void	init_signals(void);
 
 /******************************* Error macros *****************************/
 # define E_ARG			"Invalid number of parameters\n"
