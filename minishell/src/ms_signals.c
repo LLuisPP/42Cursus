@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 08:13:41 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/10/30 10:03:57 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/01 11:43:03 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,9 @@ static void	handle_sigquit(int sig)
 	(void)sig;
 }
 
-/* aqui el controlador de señales que llama a cualquier uso */
+/* Inicializa las señales del shell */
 void	init_signals(void)
 {
-	struct sigaction	sa_int;
-	struct sigaction	sa_quit;
-
-	sa_int.sa_handler = handle_sigint;
-	sa_quit.sa_handler = handle_sigquit;
-	sigemptyset(&sa_int.sa_mask);
-	sigemptyset(&sa_quit.sa_mask);
-	sa_int.sa_flags = 0;
-	sa_quit.sa_flags = 0;
-	sigaction(SIGINT, &sa_int, NULL);
-	sigaction(SIGQUIT, &sa_quit, NULL);
+	signal(SIGINT, handle_sigint);
+	signal(SIGQUIT, handle_sigquit);
 }

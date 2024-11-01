@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:26:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/10/30 08:31:13 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/01 11:34:28 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,7 +191,7 @@ void	init_signals(void);
 # define EXIT_NOEXEC  126    /* Comando no ejecutable */
 
 /******************************** Other macros ***************************/
-//# define PATH_MAX		4096
+# define PATH_MAX		4096
 # define MAX_ARGS		4096
 # define MAX_ENV_VARS	4096
 

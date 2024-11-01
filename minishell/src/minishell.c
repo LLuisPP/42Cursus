@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:25:04 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/10/30 08:28:53 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/01 18:49:32 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,14 @@ void	shell_loop(t_msh *msh)
 	{
 		i = 0;
 		input = readline("\033[0;96m🛸 Space_shell 👽:\e[0m");
+		if (!input) // Manejar Ctrl-D
+        {
+            ft_fd_printf(1, "exit\n");
+			msh->end_sig = 1;
+            break;
+        }
 		if (*input)
 			add_history(input);
-		if (input[0] == '\0')
-		{
-			free(input);
-			continue ;
-		}
 		check_tokens(input, msh);
 		free(input);
 		j = 0;
@@ -57,6 +58,8 @@ int	main(int argc, char **argv, char **envs)
 		return (ft_fd_printf(2, "%s", E_MEMASF) * -1);
 	if (envs != NULL)
 		msh.envs = envs;
+	msh.env_var_count = env_var_count(&msh);
+	// ft_fd_printf(1, "Envarcount: %d\n", msh.env_var_count);
 	init_env(env, &msh);
 	init_signals();
 	shell_loop(&msh);

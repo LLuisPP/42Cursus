@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:15:46 by lauriago          #+#    #+#             */
-/*   Updated: 2024/10/30 10:12:29 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/01 19:01:32 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,7 @@ static int	add_env_var(t_msh *msh, char *name, char *value)
 	free_array(msh->env->values);
 	msh->env->names = new_names;
 	msh->env->values = new_values;
+	msh->env_var_count++;
 	return (1);
 }
 
