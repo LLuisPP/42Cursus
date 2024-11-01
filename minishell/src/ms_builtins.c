@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:12:48 by lauriago          #+#    #+#             */
-/*   Updated: 2024/11/01 18:53:44 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/01 20:42:01 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,10 @@ void	exc_cmd(t_msh *msh, int count_tok)
 		ft_export(msh, test_args);
 	}
 	else if (ft_strcmp(msh->tkns->cmd, "unset") == 0)
-		ft_unset(msh);
+	{	
+		char *value[] = {"unset", "TEST", NULL}; /* esto es pa hardcodear el export*/
+		ft_unset(msh, value);
+	}
 	else if (ft_strcmp(msh->tkns->cmd, "test") == 0)
 		ft_fd_printf(1, "Envarcount: %d\n", msh->env_var_count);
 }

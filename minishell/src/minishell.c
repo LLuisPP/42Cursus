@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:25:04 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/11/01 18:49:32 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/01 19:04:53 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	shell_loop(t_msh *msh)
 		input = readline("\033[0;96m🛸 Space_shell 👽:\e[0m");
 		if (!input) // Manejar Ctrl-D
         {
-            ft_fd_printf(1, "exit\n");
 			msh->end_sig = 1;
             break;
         }

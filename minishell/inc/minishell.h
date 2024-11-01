@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:26:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/11/01 11:34:28 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/01 20:42:34 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ void	free_structs(t_env *env, t_tok *tok, t_exe *mpip);
 int		ft_export(t_msh *msh, char **new_var);
 
 /******************************* ms_unset *********************************/
-int		ft_unset(t_msh *msh);
+int		ft_unset(t_msh *msh, char **new_var);
 
 /******************************* ms_signals *********************************/
 void	init_signals(void);

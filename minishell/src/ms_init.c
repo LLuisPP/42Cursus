@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 15:49:27 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/11/01 18:47:34 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/01 19:08:09 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 /* inicia la asignacion de memoria para env en relacion al envs (del sistema) */
 int	init_envi(t_env **env, t_msh *msh)
 {
-	ft_fd_printf(1, "Envarcount function: %d\n", msh->env_var_count);
+	size_t	env_count;
+
 	*env = malloc(sizeof(t_env));
 	if (!*env)
 		return (-1);
@@ -23,14 +24,16 @@ int	init_envi(t_env **env, t_msh *msh)
 	(*env)->pwd = malloc(PATH_MAX);
 	if (!(*env)->pwd)
 		return (-1);
-	(*env)->names = malloc(sizeof(char *) * (msh->env_var_count + 1));
+	env_count = env_var_count(msh);
+	ft_fd_printf(1, "envarcountfunction: %d", msh->env_var_count);
+	(*env)->names = malloc(sizeof(char *) * (env_count + 1));
 	if (!(*env)->names)
 		return (-1);
-	(*env)->values = malloc(sizeof(char *) * (msh->env_var_count + 1));
+	(*env)->values = malloc(sizeof(char *) * (env_count + 1));
 	if (!(*env)->values)
 		return (-1);
-	(*env)->names[msh->env_var_count] = NULL;
-	(*env)->values[msh->env_var_count] = NULL;
+	(*env)->names[env_count] = NULL;
+	(*env)->values[env_count] = NULL;
 	return (0);
 }
 
