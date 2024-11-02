@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:26:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/11/01 20:42:34 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/02 11:06:12 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,17 @@ struct	s_environment
 	int		exit_status;
 };
 
+typedef enum e_token_type
+{
+    T_WORD,         /* comandos, argumentos, palabras */
+    T_PIPE,         /* | */
+    T_REDIR_IN,     /* < */
+    T_REDIR_OUT,    /* > */
+    T_APPEND,       /* >> */
+    T_HEREDOC,      /* << */
+    T_ENV,          /* $ */
+}   t_ttype;
+
 struct	s_tokenizer
 {
 	char	*cmd;
@@ -57,6 +68,9 @@ struct	s_tokenizer
 	int		is_heredoc;
 	char	*heredoc_delim;
 	size_t	t_len;
+	char	*input;
+	size_t	position;
+	t_ttype	type;
 };
 
 struct s_executor
