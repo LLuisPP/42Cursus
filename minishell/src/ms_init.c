@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 15:49:27 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/11/01 19:08:09 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/02 19:10:55 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	init_envi(t_env **env, t_msh *msh)
 	if (!(*env)->pwd)
 		return (-1);
 	env_count = env_var_count(msh);
-	ft_fd_printf(1, "envarcountfunction: %d", msh->env_var_count);
 	(*env)->names = malloc(sizeof(char *) * (env_count + 1));
 	if (!(*env)->names)
 		return (-1);

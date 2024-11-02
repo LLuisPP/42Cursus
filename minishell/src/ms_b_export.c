@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:15:46 by lauriago          #+#    #+#             */
-/*   Updated: 2024/11/01 19:01:32 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/02 19:03:01 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,6 @@ int	count_env_vars(t_msh *msh)
 	while (msh->env->names[l])
 		l++;
 	return (l);
-}
-
-static void	free_array(char **array)
-{
-	int	i;
-
-	i = 0;
-	if (!array)
-		return ;
-	while (array[i])
-	{
-		free(array[i]);
-		i++;
-	}
-	free(array);
 }
 
 /* busca una variable especifica en el env y nos retorna el valor de su indice*/
@@ -131,8 +116,8 @@ static int	add_env_var(t_msh *msh, char *name, char *value)
 	}
 	new_names[count] = ft_strdup(name);
 	new_values[count] = ft_strdup(value);
-	free_array(msh->env->names);
-	free_array(msh->env->values);
+	ft_free_array(msh->env->names);
+	ft_free_array(msh->env->values);
 	msh->env->names = new_names;
 	msh->env->values = new_values;
 	msh->env_var_count++;

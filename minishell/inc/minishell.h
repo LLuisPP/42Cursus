@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:26:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/11/02 11:06:12 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/02 19:02:22 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,6 @@ void	env_pos(t_msh *msh);
 void	check_tokens(char *input, t_msh *msh);
 
 /******************************* ms_tools *********************************/
-void	ft_free_array(char **array);
 
 /******************************* ms_varenv ********************************/
 char	*varenv(char *input);
@@ -156,7 +155,10 @@ char	*serach_env(char *var, t_msh *msh);
 int		varenv_man(t_msh *msh, char *builting, char *input);
 
 /******************************* ms_free **********************************/
+void	ft_free_array(char **array);
 void	free_structs(t_env *env, t_tok *tok, t_exe *mpip);
+void	free_tok(t_tok *tok);
+void	free_env(t_env *env);
 
 /******************************* ms_export ********************************/
 int		ft_export(t_msh *msh, char **new_var);

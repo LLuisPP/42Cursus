@@ -6,11 +6,28 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 20:41:30 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/11/01 12:48:26 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/02 19:01:21 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+/* libera la memoria reservada en un array */
+void	ft_free_array(char **array)
+{
+	int	i;
+
+	i = 0;
+	if (!array)
+		return ;
+	while (array[i])
+	{
+		free(array[i]);
+		array[i] = NULL;
+		i++;
+	}
+	free(array);
+}
 
 /* libera la memoria reservada para la estructura de env */
 void	free_env(t_env *env)

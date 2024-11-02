@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 10:13:10 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/10/29 23:33:00 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/02 19:01:44 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,20 +182,4 @@ char	*make_path(char *cmd, t_msh *msh)
 	}
 	ft_free_array(paths);
 	return (NULL);
-}
-
-void	ft_free_array(char **array)
-{
-	int	i;
-
-	i = 0;
-	if (!array)
-		return ;
-	while (array[i])
-	{
-		free(array[i]);
-		array[i] = NULL;
-		i++;
-	}
-	free(array);
 }

@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/27 07:16:06 by lprieto-          #+#    #+#              #
-#    Updated: 2024/11/02 11:02:10 by lprieto-         ###   ########.fr        #
+#    Updated: 2024/11/02 18:40:50 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,9 @@ RM = rm -rf
  
 # **************************************************************************** #
 
-SRCS = minishell.c ms_b_cd.c ms_b_echo.c ms_b_env.c ms_b_exit.c ms_b_pwd.c \
-	ms_b_unset.c ms_b_export.c ms_builtins.c ms_env.c ms_executor.c ms_free.c \
-	ms_init.c ms_lexer.c ms_parser.c ms_rline.c ms_tokenizer2.c ms_tools.c \
+SRCS = minishell.c ms_b_cd.c ms_b_cd_utils.c ms_b_echo.c ms_b_env.c ms_b_exit.c \
+	ms_b_pwd.c ms_b_unset.c ms_b_export.c ms_builtins.c ms_env.c ms_executor.c \
+	ms_free.c ms_init.c ms_lexer.c ms_parser.c ms_rline.c ms_tokenizer2.c ms_tools.c \
 	ms_varenv.c ms_signals.c \
 	
 SRC_PATH := ./src/
