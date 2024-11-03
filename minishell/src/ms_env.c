@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 12:25:46 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/11/03 10:15:51 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/03 10:46:10 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void update_shlvl(t_msh *msh)
 }
 
 /* Inicializa las variables de entorno con los valores del env (si existe) */
-int	init_env(t_env *env, t_msh *msh)
+int	env_init_values(t_env *env, t_msh *msh)
 {
 	int		i;
 	char	*eq_sep;

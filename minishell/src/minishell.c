@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:25:04 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/11/02 19:12:09 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/03 10:45:57 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ int	main(int argc, char **argv, char **envs)
 		exit (ft_fd_printf(2, "%s", E_EXECARG) * 0);
 	ft_memset(&msh, 0, sizeof(t_msh));
 	msh.envs = envs;
-	if (init_strc(&env, &msh, &mpip, &tok) != 0)
+	if (init_structs(&env, &msh, &mpip, &tok) != 0)
 		return (ft_fd_printf(2, "%s", E_MEMASF));
 	if (envs != NULL)
 		msh.envs = envs;
 	msh.env_var_count = env_var_count(&msh);
-	init_env(env, &msh);
+	env_init_values(env, &msh);
 	init_signals();
 	shell_loop(&msh);
 	free_structs(env, tok, mpip);

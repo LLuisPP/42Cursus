@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:26:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/11/03 10:16:54 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/03 10:46:37 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,10 @@ struct	s_minishell
 void	shell_loop(t_msh *msh);
 
 /******************************* ms_init **********************************/
-int		init_envi(t_env **env, t_msh *msh);
-int		init_tok(t_tok **tok);
-int		init_mpip(t_exe **mpip);
-int		init_strc(t_env **env, t_msh *msh, t_exe **mpip, t_tok **tok);
+int		env_alloc_struct(t_env **env, t_msh *msh);
+int		tok_alloc_struct(t_tok **tok);
+int		mpip_alloc_struct(t_exe **mpip);
+int		init_structs(t_env **env, t_msh *msh, t_exe **mpip, t_tok **tok);
 
 /******************************* ms_parser ********************************/
 char	*parse_path(char **env);
@@ -119,9 +119,12 @@ char	*cmd_match(const char *text, int state);
 
 /******************************* ms_environment ***************************/
 int		env_var_count(t_msh *msh);
-int		init_env(t_env *env, t_msh *msh);
+int		env_init_values(t_env *env, t_msh *msh);
 int	update_env_var(t_msh *msh, char *name, char *value);
 int	find_env_var(t_msh *msh, char *var_name);
+
+/******************************* ms_env_utils *****************************/
+
 
 
 /******************************* ms_lexer *********************************/

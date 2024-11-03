@@ -6,14 +6,14 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 15:49:27 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/11/02 19:10:55 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/03 10:44:43 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
 /* inicia la asignacion de memoria para env en relacion al envs (del sistema) */
-int	init_envi(t_env **env, t_msh *msh)
+int	env_alloc_struct(t_env **env, t_msh *msh)
 {
 	size_t	env_count;
 
@@ -37,7 +37,7 @@ int	init_envi(t_env **env, t_msh *msh)
 }
 
 /* inicia la asignacion de memoria  para tok */
-int	init_tok(t_tok **tok)
+int	tok_alloc_struct(t_tok **tok)
 {
 	*tok = malloc(sizeof(t_tok));
 	if (!*tok)
@@ -47,7 +47,7 @@ int	init_tok(t_tok **tok)
 }
 
 /* inicia la asignacion de memoria  para mpip */
-int	init_mpip(t_exe **mpip)
+int	mpip_alloc_struct(t_exe **mpip)
 {
 	*mpip = malloc(sizeof(t_exe));
 	if (!*mpip)
@@ -57,18 +57,18 @@ int	init_mpip(t_exe **mpip)
 }
 
 /* inicia las estructuras por separado y las enlaza a msh */
-int	init_strc(t_env **env, t_msh *msh, t_exe **mpip, t_tok **tok)
+int	init_structs(t_env **env, t_msh *msh, t_exe **mpip, t_tok **tok)
 {
-	if (init_envi(env, msh))
+	if (env_alloc_struct(env, msh))
 		return (ft_fd_printf(2, "%s", E_ENVGET) * -1);
 	msh->env = *env;
-	if (init_tok(tok))
+	if (tok_alloc_struct(tok))
 	{
 		free(*env);
 		return (ft_fd_printf(2, "%s", E_TOKMEM) * -1);
 	}
 	msh->tkns = *tok;
-	if (init_mpip(mpip))
+	if (mpip_alloc_struct(mpip))
 	{
 		free(*env);
 		free(*tok);
