@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:26:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/11/03 10:46:37 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/03 11:28:01 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,64 +94,148 @@ struct	s_minishell
 	int		shlvl;
 };
 
-/******************************* minishell ********************************/
+/******************************* minishell.c ******************************/
 void	shell_loop(t_msh *msh);
 
+/******************************* ms_b_cd_utils ****************************/
+
+char	*built_abspath(char *relative_path, char *pwd);
+char	*make_relative(char *arg, t_msh *msh);
+
+/******************************* ms_b_cd **********************************/
+
+/*static void	handle_cd_error(char *path, int error_type);
+static void	update_pwd_vars(t_msh *msh);
+static char	*handle_cd_home(t_msh *msh, char *cmd);
+static char	*handle_cd_minus(t_msh *msh);
+static void	handle_cd_execute(t_msh *msh, char *path);*/
+void	handle_cd_path(t_msh *msh);
+void	ft_cd(t_msh *msh, int num_cmd);
+
+/******************************* ms_b_echo ********************************/
+
+/*static int	is_n_flag(char *str);
+static int	check_n_flags(t_msh *msh, int *i);
+static void	print_arg(char *arg, int has_next);*/
+void	ft_echo(t_msh *msh, int num_cmd);
+
+/******************************* ms_b_env *********************************/
+
+int	update_env_var(t_msh *msh, char *name, char *value);
+int		ft_env(t_msh *msh);
+
+/******************************* ms_b_exit ********************************/
+
+/*static int	is_numeric_arg(char *str);
+static void	handle_numeric_arg(t_msh *msh, char *arg);
+static void	handle_exit_error(t_msh *msh, char *arg);*/
+void	ft_exit(t_msh *msh);
+
+/******************************* ms_b_export ******************************/
+int	find_env_var(t_msh *msh, char *var_name);
+/*static int	is_valid_identifier(char *str);
+static void	print_export_vars(t_msh *msh);
+static char	*get_var_name(char *var);
+static char	*get_var_value(char *var);*/
+int	add_env_var(t_msh *msh, char *name, char *value);
+/*static int	update_env_variable(t_msh *msh, char *name, char *value);
+static void	handle_export_arg(t_msh *msh, char *arg);*/
+int		ft_export(t_msh *msh, char **new_var);
+
+/******************************* ms_b_pwd *********************************/
+
+int		ft_pwd(t_msh *msh);
+
+/******************************** ms_b_unset ******************************/
+
+/*static int	is_valid_identifier(char *str);
+static void	remove_var_from_env(t_msh *msh, int pos);
+static int	find_var_in_env(t_msh *msh, char *var_name);*/
+int		ft_unset(t_msh *msh, char **new_var);
+
+/******************************* ms_builtins ******************************/
+
+void	cmd_not_found(t_msh *msh);
+void	check_tokens(char *input, t_msh *msh);
+void	exc_cmd(t_msh *msh, int count_tok);
+int		is_builtin(t_msh *msh);
+
+/******************************* ms_env ***********************************/
+
+int		env_var_count(t_msh *msh);
+int	check_envs(void);
+void update_shlvl(t_msh *msh);
+int		env_init_values(t_env *env, t_msh *msh);
+
+/******************************* ms_executor ******************************/
+
+/*static int	is_command_executable(char *fullpath)
+static void	child_process(t_msh *msh, char *fullpath)
+static void	parent_process(pid_t pid, char *fullpath)*/
+int	execute_command(t_msh *msh, char *fullpath);
+int		find_cmd(char *tkn, t_msh *msh);
+/*static char	**get_path_dirs(char **envs);
+static char	*check_absolute_path(char *cmd);
+static char	*try_path(char *dir, char *cmd);*/
+char	*make_path(char *tkn, t_msh *msh);
+
+/******************************* ms_free **********************************/
+
+void	ft_free_array(char **array);
+void	free_tok(t_tok *tok);
+void	free_env(t_env *env);
+void	free_structs(t_env *env, t_tok *tok, t_exe *mpip);
+
 /******************************* ms_init **********************************/
+
 int		env_alloc_struct(t_env **env, t_msh *msh);
 int		tok_alloc_struct(t_tok **tok);
 int		mpip_alloc_struct(t_exe **mpip);
 int		init_structs(t_env **env, t_msh *msh, t_exe **mpip, t_tok **tok);
 
+/******************************* ms_lexer *********************************/
+
+int		quote_lexer(t_msh *msh);
+int		lexer(char **tokens, t_msh *msh);
+
 /******************************* ms_parser ********************************/
+
 char	*parse_path(char **env);
 char	*parse_pwd(char **env);
+// static char	**extract_args(t_tok *tokens);
 int		parse_input(char *input, t_msh *mshll);
 
-/******************************* ms_tokenizerenizer ***********************/
-char	*ft_strtok(char *str, const char *separator);
-int		tokenize_input(char *input, t_msh *msh);
-
 /******************************* ms_rline *********************************/
+
 char	*cmd_gen(const char *text, int state);
 char	**cmd_comp(const char *text, int start, int end);
 char	*cmd_match(const char *text, int state);
 
-/******************************* ms_environment ***************************/
-int		env_var_count(t_msh *msh);
-int		env_init_values(t_env *env, t_msh *msh);
-int	update_env_var(t_msh *msh, char *name, char *value);
-int	find_env_var(t_msh *msh, char *var_name);
+/******************************* ms_signals ********************************/
+
+/*static	void	handle_sigint(int sig);
+static void	handle_sigquit(int sig); */
+void	init_signals(void);
+
+/******************************* ms_tokenizer *****************************/
+
+char	*ft_strtok(char *str, const char *separator);
+int		tokenize_input(char *input, t_msh *msh);
+
+/******************************* ms_tokenizer2 ****************************/
+
+/*static int	is_operator(char c);
+static int	is_whitespace(char c);
+static t_ttype	get_operator_type(char curr, char next);
+static void	init_token(t_tok *token);
+static void	handle_operator(char *input, size_t *pos, t_tok *token);
+static void	handle_word(char *input, size_t *pos, t_tok *token);
+static size_t	count_tokens(char *input); */
+
+int	tokenize_input(char *input, t_msh *msh);
+
 
 /******************************* ms_env_utils *****************************/
-
-
-
-/******************************* ms_lexer *********************************/
-int		lexer(char **tokens, t_msh *msh);
-int		quote_lexer(t_msh *msh);
-
-/******************************* ms_executor ******************************/
-int		find_cmd(char *tkn, t_msh *msh);
-char	*make_path(char *tkn, t_msh *msh);
-
-/******************************* ms_echo **********************************/
-void	ft_echo(t_msh *msh, int num_cmd);
-
-/******************************** ms_cd ***********************************/
-char	*built_abspath(char *relative_path, char *pwd);
-char	*make_relative(char *arg, t_msh *msh);
-void	handle_cd_path(t_msh *msh);
-void	ft_cd(t_msh *msh, int num_cmd);
-
-/******************************* ms_builtins ******************************/
-int		ft_env(t_msh *msh);
-void	ft_exit(t_msh *msh);
-int		ft_pwd(t_msh *msh);
-int		is_builtin(t_msh *msh);
-void	cmd_not_found(t_msh *msh);
-void	exc_cmd(t_msh *msh, int count_tok);
-void	check_tokens(char *input, t_msh *msh);
 
 /******************************* ms_tools *********************************/
 
@@ -160,22 +244,8 @@ char	*varenv(char *input);
 char	*serach_env(char *var, t_msh *msh);
 int		varenv_man(t_msh *msh, char *builting, char *input);
 
-/******************************* ms_free **********************************/
-void	ft_free_array(char **array);
-void	free_structs(t_env *env, t_tok *tok, t_exe *mpip);
-void	free_tok(t_tok *tok);
-void	free_env(t_env *env);
-
-/******************************* ms_export ********************************/
-int		ft_export(t_msh *msh, char **new_var);
-int	add_env_var(t_msh *msh, char *name, char *value);
 
 
-/******************************* ms_unset *********************************/
-int		ft_unset(t_msh *msh, char **new_var);
-
-/******************************* ms_signals *********************************/
-void	init_signals(void);
 
 /******************************* Error macros *****************************/
 # define E_ARG			"Invalid number of parameters\n"
