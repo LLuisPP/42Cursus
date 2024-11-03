@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 12:25:46 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/11/03 10:46:10 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/03 12:53:11 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,7 @@ int	env_init_values(t_env *env, t_msh *msh)
 	env->old_pwd = getenv("OLDPWD");
 	env->path = getenv("PATH");
 	getcwd(env->pwd, PATH_MAX);
-	if (check_envs() != 0)
-		return (0);
+	check_envs();
 	while (msh->envs[i])
 	{
 		eq_sep = ft_strchr(msh->envs[i], '=');

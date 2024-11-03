@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:15:46 by lauriago          #+#    #+#             */
-/*   Updated: 2024/11/03 10:04:01 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/03 11:44:34 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static void	print_export_vars(t_msh *msh)
 	}
 }
 
-static char	*get_var_name(char *var)
+char	*get_var_name(char *var)
 {
 	int		i;
 	char	*name;
@@ -72,7 +72,7 @@ static char	*get_var_name(char *var)
 	return (name);
 }
 
-static char	*get_var_value(char *var)
+char	*get_var_value(char *var)
 {
 	int		i;
 	char	*value;
@@ -113,7 +113,7 @@ int	add_env_var(t_msh *msh, char *name, char *value)
 	return (1);
 }
 
-static int	update_env_variable(t_msh *msh, char *name, char *value)
+int	update_env_variable(t_msh *msh, char *name, char *value)
 {
 	int	pos;
 

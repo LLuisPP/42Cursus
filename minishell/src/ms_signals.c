@@ -6,14 +6,14 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 08:13:41 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/11/01 11:43:03 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/03 11:48:44 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
 /* para manejar el Ctrl-C y que no se salga del minishell */
-static	void	handle_sigint(int sig)
+void	handle_sigint(int sig)
 {
 	(void)sig;
 	write(1, "\n", 1);
@@ -23,7 +23,7 @@ static	void	handle_sigint(int sig)
 }
 
 /* aqui ignoramos el Ctrl - */
-static void	handle_sigquit(int sig)
+void	handle_sigquit(int sig)
 {
 	(void)sig;
 }
