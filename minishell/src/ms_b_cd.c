@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 14:41:10 by lauriago          #+#    #+#             */
-/*   Updated: 2024/11/02 18:44:08 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/03 09:35:39 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ static void	update_pwd_vars(t_msh *msh)
 	}
 	msh->env->old_pwd = temp;
 	msh->env->pwd = new_pwd;
-	env_pos(msh);
+	update_env_var(msh, "PWD", msh->env->pwd);
+	update_env_var(msh, "OLDPWD", msh->env->old_pwd);
 }
 
 static char	*handle_cd_home(t_msh *msh, char *cmd)

@@ -6,13 +6,13 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:13:40 by lauriago          #+#    #+#             */
-/*   Updated: 2024/11/01 21:00:47 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/03 09:43:31 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static int	update_env_var(t_msh *msh, char *name, char *value)
+int	update_env_var(t_msh *msh, char *name, char *value)
 {
 	int		i;
 	char	*new_value;
@@ -35,16 +35,6 @@ static int	update_env_var(t_msh *msh, char *name, char *value)
 	}
 	free(new_value);
 	return (0);
-}
-
-void	env_pos(t_msh *msh)
-{
-	if (!msh || !msh->env)
-		return ;
-	if (msh->env->pwd)
-		update_env_var(msh, "PWD", msh->env->pwd);
-	if (msh->env->old_pwd)
-		update_env_var(msh, "OLDPWD", msh->env->old_pwd);
 }
 
 int	ft_env(t_msh *msh)

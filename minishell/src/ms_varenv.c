@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ms_varenv.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leegon <leegon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:12:48 by lauriago          #+#    #+#             */
-/*   Updated: 2024/10/06 19:23:18 by leegon           ###   ########.fr       */
+/*   Updated: 2024/11/03 09:45:59 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ int	varenv_man(t_msh *msh, char *builting, char *input)
 			{
 				msh->env->old_pwd = msh->env->pwd;
 				msh->env->pwd = getcwd(NULL, 0);
-				env_pos(msh);
+				update_env_var(msh, "PWD", msh->env->pwd);
+				update_env_var(msh, "OLDPWD", msh->env->old_pwd);
 				return (1);
 			}
 		}

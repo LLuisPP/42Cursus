@@ -6,22 +6,11 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:15:46 by lauriago          #+#    #+#             */
-/*   Updated: 2024/11/02 19:03:01 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/03 09:58:35 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-/* cuenta las variables del env*/
-int	count_env_vars(t_msh *msh)
-{
-	int	l;
-
-	l = 0;
-	while (msh->env->names[l])
-		l++;
-	return (l);
-}
 
 /* busca una variable especifica en el env y nos retorna el valor de su indice*/
 int	find_env_var(t_msh *msh, char *var_name)
@@ -103,7 +92,7 @@ static int	add_env_var(t_msh *msh, char *name, char *value)
 	char	**new_names;
 	char	**new_values;
 
-	count = count_env_vars(msh);
+	count = env_var_count(msh);
 	new_names = ft_calloc(count + 2, sizeof(char *));
 	new_values = ft_calloc(count + 2, sizeof(char *));
 	if (!new_names || !new_values)
@@ -124,7 +113,7 @@ static int	add_env_var(t_msh *msh, char *name, char *value)
 	return (1);
 }
 
-static int	update_env_var(t_msh *msh, char *name, char *value)
+static int	update_env_variable(t_msh *msh, char *name, char *value)
 {
 	int	pos;
 
@@ -157,7 +146,7 @@ static void	handle_export_arg(t_msh *msh, char *arg)
 		free(name);
 		return ;
 	}
-	if (!update_env_var(msh, name, value))
+	if (!update_env_variable(msh, name, value))
 		ft_fd_printf(2, "export: memory allocation error\n");
 	free(name);
 	free(value);

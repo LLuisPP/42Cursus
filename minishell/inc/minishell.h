@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:26:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/11/02 19:02:22 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/03 09:58:58 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ char	*cmd_match(const char *text, int state);
 /******************************* ms_environment ***************************/
 int		env_var_count(t_msh *msh);
 int		init_env(t_env *env, t_msh *msh);
+int	update_env_var(t_msh *msh, char *name, char *value);
 
 /******************************* ms_lexer *********************************/
 int		lexer(char **tokens, t_msh *msh);
@@ -144,7 +145,6 @@ int		ft_pwd(t_msh *msh);
 int		is_builtin(t_msh *msh);
 void	cmd_not_found(t_msh *msh);
 void	exc_cmd(t_msh *msh, int count_tok);
-void	env_pos(t_msh *msh);
 void	check_tokens(char *input, t_msh *msh);
 
 /******************************* ms_tools *********************************/
