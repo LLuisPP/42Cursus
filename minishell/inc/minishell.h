@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:26:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/11/03 09:58:58 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/03 10:16:54 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ struct	s_minishell
 	int		last_exit_code;
 	char	**envs;
 	int		env_var_count;
+	int		shlvl;
 };
 
 /******************************* minishell ********************************/
@@ -120,6 +121,8 @@ char	*cmd_match(const char *text, int state);
 int		env_var_count(t_msh *msh);
 int		init_env(t_env *env, t_msh *msh);
 int	update_env_var(t_msh *msh, char *name, char *value);
+int	find_env_var(t_msh *msh, char *var_name);
+
 
 /******************************* ms_lexer *********************************/
 int		lexer(char **tokens, t_msh *msh);
@@ -162,6 +165,8 @@ void	free_env(t_env *env);
 
 /******************************* ms_export ********************************/
 int		ft_export(t_msh *msh, char **new_var);
+int	add_env_var(t_msh *msh, char *name, char *value);
+
 
 /******************************* ms_unset *********************************/
 int		ft_unset(t_msh *msh, char **new_var);

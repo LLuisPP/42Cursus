@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 12:25:46 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/10/26 11:34:16 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/03 10:15:51 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,26 @@ int	check_envs(void)
 	if (getenv("PWD") == NULL || getenv("OLDPWD") == NULL)
 		return (printf("Warning: modified env (PWD)\n") * -1);
 	return (0);
+}
+
+void update_shlvl(t_msh *msh)
+{
+    char    *new_level;
+    int     i;
+
+    i = find_env_var(msh, "SHLVL");
+    if (i >= 0)
+        msh->shlvl = msh->shlvl + 1;
+    else
+        msh->shlvl = 1;
+    new_level = ft_itoa(msh->shlvl);
+    if (!new_level)
+        return ;
+    if (i >= 0)
+    {
+        free(msh->env->values[i]);
+        msh->env->values[i] = new_level;
+    }
 }
 
 /* Inicializa las variables de entorno con los valores del env (si existe) */
@@ -58,5 +78,6 @@ int	init_env(t_env *env, t_msh *msh)
 		}
 		i++;
 	}
+	update_shlvl(msh);
 	return (0);
 }

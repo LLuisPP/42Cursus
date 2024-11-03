@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:12:48 by lauriago          #+#    #+#             */
-/*   Updated: 2024/11/01 20:42:01 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/03 10:04:59 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	exc_cmd(t_msh *msh, int count_tok)
 
 int	is_builtin(t_msh *msh)
 {
-	static char	*builtins[8];
+	static char	*builtins[9];
 	int			i;
 
 	builtins[0] = "echo";

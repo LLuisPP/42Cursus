@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:15:46 by lauriago          #+#    #+#             */
-/*   Updated: 2024/11/03 09:58:35 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/03 10:04:01 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ static char	*get_var_value(char *var)
 	return (value);
 }
 
-static int	add_env_var(t_msh *msh, char *name, char *value)
+int	add_env_var(t_msh *msh, char *name, char *value)
 {
 	int		count;
 	char	**new_names;
