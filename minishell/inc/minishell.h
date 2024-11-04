@@ -52,14 +52,14 @@ struct	s_environment
 
 typedef enum e_token_type
 {
-    T_WORD,         /* comandos, argumentos, palabras */
-    T_PIPE,         /* | */
-    T_REDIR_IN,     /* < */
-    T_REDIR_OUT,    /* > */
-    T_APPEND,       /* >> */
-    T_HEREDOC,      /* << */
-    T_ENV,          /* $ */
-}   t_ttype;
+	T_WORD,
+	T_PIPE,
+	T_REDIR_IN,
+	T_REDIR_OUT,
+	T_APPEND,
+	T_HEREDOC,
+	T_ENV,
+}	t_ttype;
 
 struct	s_tokenizer
 {
@@ -124,8 +124,7 @@ void	ft_echo(t_msh *msh, int num_cmd);
 
 int		update_env_var(t_msh *msh, char *name, char *value);
 int		ft_env(t_msh *msh);
-void debug_env(t_msh *msh);
-
+void	debug_env(t_msh *msh);
 
 /******************************* ms_b_exit ********************************/
 

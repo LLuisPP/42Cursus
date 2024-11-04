@@ -80,7 +80,6 @@
 // 	return (0);
 // }
 
-
 char	*parse_path(char **envs)
 {
 	int		i;

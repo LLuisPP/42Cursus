@@ -24,10 +24,10 @@ void	shell_loop(t_msh *msh)
 		i = 0;
 		input = readline("\033[0;96m🛸 Space_shell 👽:\e[0m");
 		if (!input)
-        {
+		{
 			msh->end_sig = 1;
-            break;
-        }
+			break ;
+		}
 		if (*input)
 			add_history(input);
 		check_tokens(input, msh);

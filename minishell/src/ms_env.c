@@ -32,24 +32,24 @@ int	check_envs(void)
 	return (0);
 }
 
-void update_shlvl(t_msh *msh)
+void	update_shlvl(t_msh *msh)
 {
-    char    *new_level;
-    int     i;
+	char	*new_level;
+	int		i;
 
-    i = find_env_var(msh, "SHLVL");
-    if (i >= 0)
-        msh->shlvl = msh->shlvl + 1;
-    else
-        msh->shlvl = 1;
-    new_level = ft_itoa(msh->shlvl);
-    if (!new_level)
-        return ;
-    if (i >= 0)
-    {
-        free(msh->env->values[i]);
-        msh->env->values[i] = new_level;
-    }
+	i = find_env_var(msh, "SHLVL");
+	if (i >= 0)
+		msh->shlvl = msh->shlvl + 1;
+	else
+		msh->shlvl = 1;
+	new_level = ft_itoa(msh->shlvl);
+	if (!new_level)
+		return ;
+	if (i >= 0)
+	{
+		free(msh->env->values[i]);
+		msh->env->values[i] = new_level;
+	}
 }
 
 /* Inicializa las variables de entorno con los valores del env (si existe) */
