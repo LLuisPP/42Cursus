@@ -12,21 +12,6 @@
 
 #include "minishell.h"
 
-/* busca una variable especifica en el env y nos retorna el valor de su indice*/
-int	find_env_var(t_msh *msh, char *var_name)
-{
-	int	i;
-
-	i = 0;
-	while (msh->env->names[i])
-	{
-		if (ft_strcmp(msh->env->names[i], var_name) == 0)
-			return (i);
-		i++;
-	}
-	return (-1);
-}
-
 static int	is_valid_identifier(char *str)
 {
 	int	i;
@@ -60,32 +45,6 @@ static void	print_export_vars(t_msh *msh)
 	}
 }
 
-char	*get_var_name(char *var)
-{
-	int		i;
-	char	*name;
-
-	i = 0;
-	while (var[i] && var[i] != '=')
-		i++;
-	name = ft_substr(var, 0, i);
-	return (name);
-}
-
-char	*get_var_value(char *var)
-{
-	int		i;
-	char	*value;
-
-	i = 0;
-	while (var[i] && var[i] != '=')
-		i++;
-	if (!var[i])
-		return (ft_strdup(""));
-	value = ft_strdup(var + i + 1);
-	return (value);
-}
-
 int	add_env_var(t_msh *msh, char *name, char *value)
 {
 	int		count;
@@ -111,20 +70,6 @@ int	add_env_var(t_msh *msh, char *name, char *value)
 	msh->env->values = new_values;
 	msh->env_var_count++;
 	return (1);
-}
-
-int	update_env_variable(t_msh *msh, char *name, char *value)
-{
-	int	pos;
-
-	pos = find_env_var(msh, name);
-	if (pos >= 0)
-	{
-		free(msh->env->values[pos]);
-		msh->env->values[pos] = ft_strdup(value);
-		return (1);
-	}
-	return (add_env_var(msh, name, value));
 }
 
 static void	handle_export_arg(t_msh *msh, char *arg)

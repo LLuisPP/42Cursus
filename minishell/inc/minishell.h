@@ -100,13 +100,13 @@ void	shell_loop(t_msh *msh);
 
 /******************************* ms_b_cd_utils ****************************/
 
+void	handle_cd_error(char *path, int error_type);
+void	update_pwd_vars(t_msh *msh);
 char	*built_abspath(char *relative_path, char *pwd);
 char	*make_relative(char *arg, t_msh *msh);
 
 /******************************* ms_b_cd **********************************/
 
-// static void	handle_cd_error(char *path, int error_type);
-// static void	update_pwd_vars(t_msh *msh);
 // static char	*handle_cd_home(t_msh *msh, char *cmd);
 // static char	*handle_cd_minus(t_msh *msh);
 // static void	handle_cd_execute(t_msh *msh, char *path);
@@ -135,15 +135,17 @@ void	ft_exit(t_msh *msh);
 
 /******************************* ms_b_export ******************************/
 
-int		find_env_var(t_msh *msh, char *var_name);
 // static int	is_valid_identifier(char *str);
 // static void	print_export_vars(t_msh *msh);
-char	*get_var_name(char *var);
-char	*get_var_value(char *var);
 int		add_env_var(t_msh *msh, char *name, char *value);
-int		update_env_variable(t_msh *msh, char *name, char *value);
 // static void	handle_export_arg(t_msh *msh, char *arg);
 int		ft_export(t_msh *msh, char **new_var);
+
+/******************************* ms_b_export_utils ************************/
+
+char	*get_var_name(char *var);
+char	*get_var_value(char *var);
+int		update_env_variable(t_msh *msh, char *name, char *value);
 
 /******************************* ms_b_pwd *********************************/
 
@@ -163,11 +165,10 @@ void	check_tokens(char *input, t_msh *msh);
 void	exc_cmd(t_msh *msh, int count_tok);
 int		is_builtin(t_msh *msh);
 
-/******************************* ms_env_utils *****************************/
-
 /******************************* ms_env ***********************************/
 
 int		env_var_count(t_msh *msh);
+int		find_env_var(t_msh *msh, char *var_name);
 int		check_envs(void);
 void	update_shlvl(t_msh *msh);
 int		env_init_values(t_env *env, t_msh *msh);
@@ -229,15 +230,17 @@ int		tokenize_input(char *input, t_msh *msh);
 
 /******************************* ms_tokenizer2 ****************************/
 
-/*static int	is_operator(char c);
-static int	is_whitespace(char c);
-static t_ttype	get_operator_type(char curr, char next);
-static void	init_token(t_tok *token);
-static void	handle_operator(char *input, size_t *pos, t_tok *token);
-static void	handle_word(char *input, size_t *pos, t_tok *token);
-static size_t	count_tokens(char *input); */
-
+void	init_token(t_tok *token);
+void	handle_operator(char *input, size_t *pos, t_tok *token);
+void	handle_word(char *input, size_t *pos, t_tok *token);
+size_t	count_tokens(char *input);
 int		tokenize_input(char *input, t_msh *msh);
+
+/******************************* ms_tokenizer2b ***************************/
+
+int	is_operator(char c);
+int	is_whitespace(char c);
+t_ttype	get_operator_type(char curr, char next);
 
 /******************************* ms_tools *********************************/
 

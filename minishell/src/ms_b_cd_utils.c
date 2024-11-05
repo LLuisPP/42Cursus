@@ -12,6 +12,34 @@
 
 #include "minishell.h"
 
+void	handle_cd_error(char *path, int error_type)
+{
+	if (error_type == EACCES)
+		ft_fd_printf(2, "cd: %s: Permission denied\n", path);
+	else if (error_type == ENOTDIR)
+		ft_fd_printf(2, "cd: %s: Not a directory\n", path);
+	else
+		ft_fd_printf(2, "cd: %s: No such file or directory\n", path);
+}
+
+void	update_pwd_vars(t_msh *msh)
+{
+	char	*temp;
+	char	*new_pwd;
+
+	temp = msh->env->pwd;
+	new_pwd = getcwd(NULL, 0);
+	if (!new_pwd)
+	{
+		ft_fd_printf(2, "cd: error getting current directory\n");
+		return ;
+	}
+	msh->env->old_pwd = temp;
+	msh->env->pwd = new_pwd;
+	update_env_var(msh, "PWD", msh->env->pwd);
+	update_env_var(msh, "OLDPWD", msh->env->old_pwd);
+}
+
 char	*built_abspath(char *relative_path, char *pwd)
 {
 	char	*abs_path;

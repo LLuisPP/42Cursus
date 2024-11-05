@@ -24,6 +24,21 @@ int	env_var_count(t_msh *msh)
 	return (i);
 }
 
+/* busca una variable especifica en el env y nos retorna el valor de su indice*/
+int	find_env_var(t_msh *msh, char *var_name)
+{
+	int	i;
+
+	i = 0;
+	while (msh->env->names[i])
+	{
+		if (ft_strcmp(msh->env->names[i], var_name) == 0)
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+
 /* Comprueba que las variables PWD, OLDPWD y HOME existan  */
 int	check_envs(void)
 {

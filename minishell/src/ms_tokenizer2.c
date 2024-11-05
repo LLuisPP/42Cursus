@@ -12,39 +12,7 @@
 
 #include "minishell.h"
 
-static int	is_operator(char c)
-{
-	return (c == '|' || c == '<' || c == '>' || c == '$');
-}
-
-static int	is_whitespace(char c)
-{
-	return (c == ' ' || c == '\t' || c == '\n');
-}
-
-// static int	is_quote(char c)
-// {
-// 	return (c == '"' || c == '\'');
-// }
-
-static t_ttype	get_operator_type(char curr, char next)
-{
-	if (curr == '|')
-		return (T_PIPE);
-	else if (curr == '<' && next == '<')
-		return (T_HEREDOC);
-	else if (curr == '>' && next == '>')
-		return (T_APPEND);
-	else if (curr == '<')
-		return (T_REDIR_IN);
-	else if (curr == '>')
-		return (T_REDIR_OUT);
-	else if (curr == '$')
-		return (T_ENV);
-	return (T_WORD);
-}
-
-static void	init_token(t_tok *token)
+void	init_token(t_tok *token)
 {
 	token->cmd = NULL;
 	token->args = NULL;
@@ -56,7 +24,7 @@ static void	init_token(t_tok *token)
 	token->type = T_WORD;
 }
 
-static void	handle_operator(char *input, size_t *pos, t_tok *token)
+void	handle_operator(char *input, size_t *pos, t_tok *token)
 {
 	char	curr;
 	char	next;
@@ -79,7 +47,7 @@ static void	handle_operator(char *input, size_t *pos, t_tok *token)
 		token->is_heredoc = 1;
 }
 
-static void	handle_word(char *input, size_t *pos, t_tok *token)
+void	handle_word(char *input, size_t *pos, t_tok *token)
 {
 	size_t	start;
 	size_t	len;
@@ -97,7 +65,7 @@ static void	handle_word(char *input, size_t *pos, t_tok *token)
 	token->t_len = len;
 }
 
-static size_t	count_tokens(char *input)
+size_t	count_tokens(char *input)
 {
 	size_t	count;
 	size_t	i;
