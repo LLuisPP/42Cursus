@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:26:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/11/03 12:43:26 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/07 08:49:30 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "readline/history.h"
 # include <stddef.h>
 # include <stdio.h>
-# include <limits.h>
+# include <linux/limits.h>
 # include <dirent.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -50,7 +50,7 @@ struct	s_environment
 	int		exit_status;
 };
 
-typedef enum e_token_type
+typedef enum	e_type
 {
 	T_WORD,
 	T_PIPE,
@@ -244,6 +244,10 @@ t_ttype	get_operator_type(char curr, char next);
 
 /******************************* ms_tools *********************************/
 
+/******************************* ms_err_handle ****************************/
+
+int	ft_err(t_msh *msh, int err_code);
+
 /******************************* ms_varenv ********************************/
 
 char	*varenv(char *input);
@@ -278,15 +282,19 @@ int		varenv_man(t_msh *msh, char *builting, char *input);
 # define E_EXECVE		"Execve error"
 # define E_NOCMD		"Command not found"
 # define E_NOEXEC		"Permission denied"
+# define PIPE_READ		0
+# define PIPE_WRITE		1
+# define EXIT_SUCCESS	0
+# define EXIT_FAILURE	1
+# define EXIT_MISUSE	2
+# define EXIT_NOEXEC	126
+# define EXIT_NOFOUND	127
+# define EXIT_SIGBASE	128
 
-/******************************** Exec macros ****************************/
+/******************************** General macros **************************/
 
-# define PIPE_READ    0
-# define PIPE_WRITE   1
-# define EXIT_SUCCESS 0
-# define EXIT_FAILURE 1
-# define EXIT_NOCMD   127
-# define EXIT_NOEXEC  126
+# define TRUE			0
+# define FALSE			1
 
 /******************************** Other macros ***************************/
 

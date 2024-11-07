@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:13:40 by lauriago          #+#    #+#             */
-/*   Updated: 2024/11/03 12:54:05 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/06 18:11:11 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_env(t_msh *msh)
 	{
 		ft_fd_printf(2, "env: '%s': No such file or directory\n",
 			msh->tkns[1].cmd);
-		return (127);
+		return (ft_err(msh, EXIT_NOFOUND));
 	}
 	i = 0;
 	while (msh->env->names[i] && msh->env->values[i])

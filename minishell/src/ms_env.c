@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 12:25:46 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/11/03 12:53:11 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/06 17:53:35 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,10 @@ int	env_init_values(t_env *env, t_msh *msh)
 			env->names[i] = ft_strndup(msh->envs[i], (eq_sep - msh->envs[i]));
 			env->values[i] = ft_strdup(eq_sep + 1);
 			if (!env->names[i] || !env->values[i])
-				return (ft_fd_printf(2, "%s", E_ENVGET), -1);
+				return (ft_fd_printf(2, "%s", E_ENVGET), ft_err(msh, -1));
 		}
 		i++;
 	}
 	update_shlvl(msh);
-	return (0);
+	return (TRUE);
 }

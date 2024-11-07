@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:14:01 by lauriago          #+#    #+#             */
-/*   Updated: 2024/11/03 12:14:53 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/06 19:05:37 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static int	is_numeric_arg(char *str)
 	int	i;
 
 	i = 0;
-	if (!str)
+	if (!str || !*str)
 		return (0);
-	if (str[i] == '+' || str[i] == '-')
+	if (str[i] == '-' || str[i] == '+')
 		i++;
 	if (!str[i])
 		return (0);
@@ -58,29 +58,28 @@ static void	handle_numeric_arg(t_msh *msh, char *arg)
 
 static void	handle_exit_error(t_msh *msh, char *arg)
 {
-	ft_fd_printf(2, "exit\n");
 	ft_fd_printf(2, "minishell: exit: %s: numeric argument required\n", arg);
-	free_structs(msh->env, msh->tkns, msh->mpip);
-	msh->end_sig = 2;
-	exit(msh->end_sig);
+	if (msh->env)
+        free_structs(msh->env, msh->tkns, msh->mpip);
+	exit(2);
 }
 
 void	ft_exit(t_msh *msh)
 {
-	ft_fd_printf(1, "exit\n");
-	if (!msh->tkns[1].cmd)
-	{
-		msh->end_sig = 0;
-		exit(msh->end_sig);
-	}
-	if (!is_numeric_arg(msh->tkns[1].cmd))
-		handle_exit_error(msh, msh->tkns[1].cmd);
-	if (msh->tkns[2].cmd)
-	{
-		ft_fd_printf(2, "minishell: exit: too many arguments\n");
-		msh->end_sig = 1;
-		return ;
-	}
-	handle_numeric_arg(msh, msh->tkns[1].cmd);
-	exit(msh->end_sig);
+	if (!msh)
+        exit(1);
+    ft_fd_printf(1, "exit\n");
+    if (!msh->tkns[1].cmd)
+        exit(msh->last_exit_code);
+    if (!is_numeric_arg(msh->tkns[1].cmd))
+        handle_exit_error(msh, msh->tkns[1].cmd);
+    if (msh->tkns[2].cmd)
+    {
+        ft_fd_printf(2, "minishell: exit: too many arguments\n");
+        msh->end_sig = 1;
+        return ;
+    }
+    handle_numeric_arg(msh, msh->tkns[1].cmd);
+    free_structs(msh->env, msh->tkns, msh->mpip);
+    exit(msh->end_sig);
 }

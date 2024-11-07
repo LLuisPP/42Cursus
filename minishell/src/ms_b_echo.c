@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 21:21:27 by lauriago          #+#    #+#             */
-/*   Updated: 2024/11/01 21:01:09 by lprieto-         ###   ########.fr       */
+/*   Updated: 2024/11/06 17:17:38 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@ static int	is_n_flag(char *str)
 
 	i = 0;
 	if (!str)
-		return (0);
+		return (FALSE);
 	if (str[i] != '-')
-		return (0);
+		return (FALSE);
 	i++;
 	if (!str[i])
-		return (0);
+		return (FALSE);
 	while (str[i])
 	{
 		if (str[i] != 'n')
-			return (0);
+			return (FALSE);
 		i++;
 	}
-	return (1);
+	return (TRUE);
 }
 
 static int	check_n_flags(t_msh *msh, int *i)
@@ -40,13 +40,13 @@ static int	check_n_flags(t_msh *msh, int *i)
 	int	n_flag;
 	int	curr_i;
 
-	n_flag = 0;
+	n_flag = FALSE;
 	curr_i = 1;
 	while (msh->tkns[curr_i].cmd)
 	{
-		if (!is_n_flag(msh->tkns[curr_i].cmd))
+		if (is_n_flag(msh->tkns[curr_i].cmd) == FALSE)
 			break ;
-		n_flag = 1;
+		n_flag = TRUE;
 		curr_i++;
 	}
 	*i = curr_i;
@@ -77,14 +77,14 @@ void	ft_echo(t_msh *msh, int num_cmd)
 	n_flag = check_n_flags(msh, &i);
 	while (msh->tkns[i].cmd)
 	{
-		has_next = 0;
+		has_next = FALSE;
 		if (msh->tkns[i + 1].cmd)
-			has_next = 1;
-		if (varenv_man(msh, "echo", msh->tkns[i].cmd) != 0)
+			has_next = TRUE;
+		if (varenv_man(msh, "echo", msh->tkns[i].cmd) != FALSE)
 			break ;
 		print_arg(msh->tkns[i].cmd, has_next);
 		i++;
 	}
-	if (!n_flag)
+	if (n_flag == FALSE)
 		ft_putchar_fd('\n', 1);
 }
