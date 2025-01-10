@@ -104,20 +104,20 @@ The 42 Common Core is an intensive, self-taught, project-based curriculum focuse
 ||`milestone 2`|||||||
 |`🔖`|[**rank 03 exam**](https://github.com/LLuisPP/42-Exams-rank03)| :godmode:| Rndm program: ft_printf or get_next_line |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|<a href="#"><img src="https://img.shields.io/badge/100-darkgreen"></a>||`Aug'24`|
 |`🍽`|[**philosophers**](https://github.com/LLuisPP/42Cursus/tree/main/philosophers)|:rage2:| Synchronize threads to solve philo problem |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|<a href="#"><img src="https://img.shields.io/badge/100-darkgreen"></a>|--|`Aug'24`|
-|`📦`|[**minishell**](https://github.com/LLuisPP/42Cursus/tree/main/minishell)|:finnadie:| Build a functional shell similar to Bash |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|▶️|--|--|
+|`📦`|[**minishell**](https://github.com/LLuisPP/42Cursus/tree/main/minishell)|:finnadie:| Build a functional shell similar to Bash |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|▶️|--|`'25`|
 ||`milestone 3`|||||||
-|`🔖`|[**rank 04 exam**](https://github.com/LLuisPP/42-Exams-rank04)|:rage2:| Develop a working microshell |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'24`|
-|`🌐`|[**netpractice**]()|:suspect:| Practice networks through hands-on tasks |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'24`|
-|`🌅`|[**miniRT**]()|:hurtrealbad:| Create a 3D scene renderer |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'24`|
-|`📟`|[**cpp's 0-5**]()|:rage2:| Basics of C++ and its fundamental features |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'24`|
+|`🔖`|[**rank 04 exam**](https://github.com/LLuisPP/42-Exams-rank04)|:rage2:| Develop a working microshell |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'25`|
+|`🌐`|[**netpractice**]()|:suspect:| Practice networks through hands-on tasks |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'25`|
+|`🌅`|[**miniRT**]()|:hurtrealbad:| Create a 3D scene renderer |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'25`|
+|`📟`|[**cpp's 0-5**]()|:rage2:| Basics of C++ and its fundamental features |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'25`|
 ||`milestone 4`|||||||
-|`👥`|[**inception**]()|:rage3:| Contain multiple Docker containers |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'24`|
-|`💬`|[**ft_irc**]()|:rage4:| Implement a functional IRC server |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'24`|
-|`📟`|[**cpp's 6-9**]()|:finnadie:| Explore advanced C++ and STL |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'24`|
-|`🔖`|[**rank 05 exam**]()|:godmode:| Assessment of skills in C and C++ |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'24`|
+|`👥`|[**inception**]()|:rage3:| Contain multiple Docker containers |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'25`|
+|`💬`|[**ft_irc**]()|:rage4:| Implement a functional IRC server |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'25`|
+|`📟`|[**cpp's 6-9**]()|:finnadie:| Explore advanced C++ and STL |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'25`|
+|`🔖`|[**rank 05 exam**]()|:godmode:| Assessment of skills in C and C++ |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'25`|
 ||`milestone 5`|||||||
-|`🕹️`|[**trascendence**]()|:finnadie:| Create a 2D online game with diverse mechanics |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'24`|
-|`🔖`|[**rank 06 exam**]()|:godmode:| Advanced level exam in C/C++ |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'24`|
+|`🕹️`|[**trascendence**]()|:finnadie:| Create a 2D online game with diverse mechanics |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'25`|
+|`🔖`|[**rank 06 exam**]()|:godmode:| Advanced level exam in C/C++ |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'25`|
 
 </div>
 <div align="left">
