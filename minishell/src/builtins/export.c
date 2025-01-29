@@ -23,11 +23,11 @@ static int	is_valid_identifier(char *str)
 			i++;
 		if (str[i] == '=')
 		{
-			printf("  -------- UwU ----------\n");
+			printf("  -------- VALID IDENTIFIER ----------\n");
 			return (0);
 		}
 	}
-	printf(" --------------------------- Y una caca pa ti --------------\n");
+	printf(" ------------------ una caca pa ti --------------\n");
 	return (1);
 }
 
@@ -37,8 +37,8 @@ int	add_env_var(t_msh *msh, char *name, char *value)
 	char	**new_names;
 	char	**new_values;
 
-	ft_fd_printf(2, "NOMBRE????: `%s'\n", name);
-	ft_fd_printf(2, "VALOR?????: `%s'\n", value);
+	ft_fd_printf(2, "NOMBRE????: `%p'\n", name);
+	ft_fd_printf(2, "VALOR?????: `%p'\n", value);
 
 	count = env_var_count(msh);
 	new_names = ft_calloc(count + 2, sizeof(char *));
@@ -61,6 +61,21 @@ int	add_env_var(t_msh *msh, char *name, char *value)
 	return (0);
 }
 
+static void	print_export_vars(t_msh *msh)
+{
+	int	i;
+
+	i = 0;
+	while (msh->env->names[i])
+	{
+		ft_fd_printf(1, "declare -x %s", msh->env->names[i]);
+		if (msh->env->values[i][0])
+			ft_fd_printf(1, "=\"%s\"", msh->env->values[i]);
+		ft_fd_printf(1, "\n");
+		i++;
+	}
+}
+
 static void	handle_export_arg(t_msh *msh, char *arg)
 {
 	char	*name;
@@ -77,48 +92,39 @@ static void	handle_export_arg(t_msh *msh, char *arg)
 	// if (!name)
 	// 	return ;
 	value = get_var_value(msh->tkns->args[1]);
+	ft_fd_printf(2, "NOMBRE????: `%s'\n", name);
+	ft_fd_printf(2, "VALOR?????: `%s'\n", value);
 	// if (!value)
 	// {
 	// 	free(name);
 	// 	return ;
 	// }
-	ft_fd_printf(2, "- - - - - - - - - - - - -2\n");
-	int l = update_env_variable(msh, name, value);
-	ft_fd_printf(2, "-%d -%d - -%d - -%d - -%d - %d- - - -2\n", l);
-
-	if (!update_env_variable(msh, name, value))
-	{
-		ft_fd_printf(2, "- - - - - - - FALLA EL MALLOCADO - - - - - -3\n");
+	ft_fd_printf(2, "2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2\n");
+	// int l = update_env_variable(msh, name, value);
+	// ft_fd_printf(2, "-%d -%d - -%d - -%d - -%d - %d- - - -2\n", l);
+	if (!add_env_var(msh, name, value))
 		ft_fd_printf(2, "export: memory allocation error\n");
-	}
+	// if (!update_env_variable(msh, name, value))
+	// 	ft_fd_printf(2, "export: memory allocation error\n");
 	free(name);
 	free(value);
 }
 
 int	ft_export(t_msh *msh, int tok_num)
 {
-	// int	i;
-	(void)*msh;
-
+	if (tok_num == 1)
+	{
+		print_export_vars(msh);
+		return (0);
+	}
 	if (tok_num != 2)
 	{
-		// print_export_vars(msh);
 		ft_fd_printf(2, E_SYNTX);
 		return (0);
 	}
 	else
-	{
-		// printf("!!!!!! CMD --->>>: %s\n", msh->tkns->cmd);
-		// printf("!!!!!! CARGGGGs --->>>: %s\n", msh->tkns->args[1]);
 		handle_export_arg(msh,msh->tkns->args[1]);
-	}
 	printf("tok num: %d\n", tok_num);
-		
-	// i = 0;
-	// while (i <= tok_num)
-	// {
-	// 	handle_export_arg(msh, args[i]);
-	// 	i++;
-	// }
+
 	return (0);
 }
