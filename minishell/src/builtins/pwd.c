@@ -27,11 +27,11 @@ int	ft_pwd(t_msh *msh)
 	pwdpath = NULL;
 	pwdpath = (char *)malloc(sizeof(char) * PATH_MAX);
 	if (!pwdpath)
-		return (-1);
+		return (FALSE);
 	if (!getcwd(pwdpath, PATH_MAX))
 	{
 		free(pwdpath);
-		return (-1);
+		return (FALSE);
 	}
 	msh->env->pwd = pwdpath;
 	if (ft_fd_printf(1, "%s\n", pwdpath) < 0)

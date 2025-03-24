@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_builting.c                                    :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:14:01 by lauriago          #+#    #+#             */
-/*   Updated: 2025/01/13 18:32:01 by lauriago         ###   ########.fr       */
+/*   Updated: 2025/03/16 19:00:04 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@ static int	is_numeric_arg(char *str)
 
 	i = 0;
 	if (!str || !*str)
-		return (0);
+		return (FALSE);
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	if (!str[i])
-		return (0);
+		return (FALSE);
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
-			return (0);
+			return (FALSE);
 		i++;
 	}
-	return (1);
+	return (TRUE);
 }
 
 static void	handle_numeric_arg(t_msh *msh, char *arg)
@@ -69,7 +69,7 @@ void	ft_exit(t_msh *msh)
 	if (!msh)
 		exit(1);
 	ft_fd_printf(1, "exit\n");
-	if (!msh->tkns[1].cmd)
+	if (!msh || !msh->tkns[1].cmd)
 		exit(msh->last_exit_code);
 	if (!is_numeric_arg(msh->tkns[1].cmd))
 		handle_exit_error(msh, msh->tkns[1].cmd);

@@ -44,7 +44,7 @@ int	ft_env(t_msh *msh)
 	if (!msh || !msh->env || !msh->env->names || !msh->env->values)
 	{
 		ft_fd_printf(2, "env: environment not available\n");
-		return (1);
+		return (FALSE);
 	}
 	if (msh->tkns->args[1])
 	{
@@ -53,11 +53,24 @@ int	ft_env(t_msh *msh)
 		return (ft_err(msh, EXIT_NOFOUND));
 	}
 	i = 0;
-	while (msh->env->names[i] && msh->env->values[i])
+	while (msh->env->names[i])
 	{
-		ft_fd_printf(1, "%s=%s\n", msh->env->names[i],
-			msh->env->values[i]);
+		if (msh->env->values[i])
+			ft_fd_printf(1, "%s=%s\n", msh->env->names[i],
+				msh->env->values[i]);
+		else
+			ft_fd_printf(1, "%s=\n", msh->env->names[i]);
 		i++;
 	}
-	return (0);
+	return (TRUE);
 }
+// while (msh->env->names[i])
+// {
+// 	// comprovació de longitud names i values...
+// 	printf("len name --> %ld\nlen val --> %ld\n",
+// 		ft_strlen(msh->env->names[i]), ft_strlen(msh->env->values[i]));
+// 	// comprovació inicialització value i name
+// 	printf("NAME --> %s\n", msh->env->names[i]);
+// 	printf("VALUE --> %s\n", msh->env->values[i]);
+// 	i++;
+// }

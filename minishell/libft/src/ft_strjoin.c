@@ -30,27 +30,19 @@ static void	fill_string(const char *s1, const char *s2, char *str)
 		i++;
 		y++;
 	}
+	str[i] = 0;
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		x;
-	int		y;
 	char	*str;
 
-	x = 0;
-	y = 0;
 	if (!s1 || !s2)
 		return (0);
-	while (s1[x] != '\0')
-		x++;
-	while (s2[y] != '\0')
-		y++;
-	str = (char *)malloc(sizeof(*s1) * (x + y + 1));
+	str = malloc(sizeof(char *) * (ft_strlen(s1) + ft_strlen(s2) + 2));
 	if (!str)
 		return (NULL);
 	fill_string(s1, s2, str);
-	str[x + y] = '\0';
 	return (str);
 }
 

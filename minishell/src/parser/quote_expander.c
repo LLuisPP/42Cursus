@@ -12,9 +12,7 @@
 
 #include "minishell.h"
 
-/*
-
-	expand_and_remove function must do:
+/*	expand_and_remove function must do:
 
 	1. REMOVE QUOTES
 
@@ -34,17 +32,16 @@
 				just ignore the random environment variable.
 
 */
-
+// Calculates the size of the variable
 int	ft_varlen(char *str, int start)
 {
 	int	len;
 
 	len = 0;
-	while (str[start] && ((str[start] >= 'A' && str[start] <= 'Z')
-		|| (str[start] == '_')))
+	while (str[start] && (ft_isalpha(str[start]) || (str[start] == '_')))
 	{
-			len++;
-			start++;
+		len++;
+		start++;
 	}
 	return (len);
 }
@@ -58,7 +55,7 @@ char	*copy_var(char *str, int i, int len)
 	lola = 0;
 	if (!result)
 		return (NULL);
-	while(len--)
+	while (len--)
 	{
 		result[lola] = str[i];
 		i++;
@@ -68,27 +65,22 @@ char	*copy_var(char *str, int i, int len)
 	return (result);
 }
 
-void	look_existence(char *var, t_msh *msh)
+// Imprime valor de variable de entorno si existe
+void	print_variable(char *var, t_msh *msh)
 {
-	char	*value;
+	char	*env_value;
 
-	if (search_env(var, msh) != NULL) // La variable existe en el environment (es real hasta la muerte, no fake)
-	{
-		value = malloc(sizeof(ft_strlen(search_env(var, msh))) + 1);
-		if (!value)
-			return ;
-		value = ft_strcpy(value, search_env(var, msh));
-		printf("%s", value);
-	}
-	else
-		printf("%s", var);
-	free(value);
+	env_value = search_value(msh, var);
+	if (env_value)
+		printf("%s", env_value);
 }
 
-void	expand_and_remove_quotes(char *str, t_msh *msh)
+// Expande una variable, buscando si la variable dada como parametro existe
+// si existe la expande, si no, pues no hace na'
+void	ft_expander(char *str, t_msh *msh)
 {
-	int	i;
-	int	varlen;
+	int		i;
+	int		varlen;
 	char	*tmp;
 	char	*var_copy;
 
@@ -96,24 +88,26 @@ void	expand_and_remove_quotes(char *str, t_msh *msh)
 	varlen = 0;
 	if (!str || !msh || !msh->env)
 		return ;
-	tmp = remove_quotes(str, '\"');
+	tmp = ft_strdup(str);
 	while (tmp[i])
 	{
 		if (tmp[i] == '$' && tmp[i + 1])
 		{
 			i++;
-			varlen = ft_varlen(tmp, i); // Funcion que calcula longitud del nombre de la variable
+			varlen = ft_varlen(tmp, i);
 			if (varlen > 0)
 			{
-				var_copy = copy_var(tmp, i, varlen); // Funcion que copia nombre de la variable	
-				look_existence(var_copy, msh);
+				var_copy = copy_var(tmp, i, varlen);
+				print_variable(var_copy, msh);
 				free(var_copy);
 				i += varlen - 1;
 			}
+			else
+				printf("%c%c", tmp[i - 1], tmp[i]);
 		}
 		else
 			printf("%c", tmp[i]);
 		i++;
 	}
-	free(tmp);
 }
+// --> MAS DE 25 LINEAS

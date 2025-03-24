@@ -6,7 +6,7 @@
 /*   By: leegon <leegon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 21:21:27 by lauriago          #+#    #+#             */
-/*   Updated: 2025/01/24 17:21:21 by lauriago         ###   ########.fr       */
+/*   Updated: 2025/01/30 18:36:30 by lauriago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	check_n_flags(t_msh *msh, int *i)
 	curr_i = 1;
 	while (msh->tkns->args[curr_i])
 	{
-		if (is_n_flag(msh->tkns->args[curr_i]) == FALSE)
+		if (!is_n_flag(msh->tkns->args[curr_i]))
 			break ;
 		n_flag = TRUE;
 		curr_i++;
@@ -65,14 +65,7 @@ void	ft_echo(t_msh *msh, int num_cmd)
 	n_flag = check_n_flags(msh, &i);
 	while (i < num_cmd)
 	{
-		if (msh->tkns->args[i][0] == '\'' || msh->tkns->args[i][0] == '\"')
-			handle_quotes(msh, msh->quote, i);
-//		if (msh->tkns->args[i] == '$')
-//			handle_var()  //TODO
-		else
-			ft_putstr_fd(msh->tkns->args[i], 1);
-		if (i + 1 < num_cmd)
-			ft_putchar_fd(' ', 1);
+		print_echo_argument(msh, msh->tkns->args[i], i);
 		i++;
 	}
 	if (n_flag == FALSE)

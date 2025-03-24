@@ -12,6 +12,35 @@
 
 #include "minishell.h"
 
+int	env_var_exist(t_msh *msh, char *name)
+{
+	int	i;
+
+	i = 0;
+	if (!name)
+		return (FALSE);
+	while (msh->env->names[i])
+	{
+		if (ft_strcmp(msh->env->names[i], name) == 0)
+			return (TRUE);
+		i++;
+	}
+	return (FALSE);
+}
+
+int	env_var_pos(t_msh *msh)
+{
+	int		pos;
+	char	*name;
+
+	pos = 0;
+	name = get_var_name(msh->tkns->args[1]);
+	while (msh->env->names[pos] && (ft_strcmp(msh->env->names[pos], name) != 0))
+		pos++;
+	free (name);
+	return (pos);
+}
+
 char	*get_var_name(char *var)
 {
 	int		i;
@@ -38,16 +67,12 @@ char	*get_var_value(char *var)
 	return (value);
 }
 
-int	update_env_variable(t_msh *msh, char *name, char *value)
+int	update_env_var_value(t_msh *msh, int pos, char *value)
 {
-	int	pos;
+	char	*new_values;
 
-	pos = find_env_var(msh, name);
-	if (pos >= 0)
-	{
-		free(msh->env->values[pos]);
-		msh->env->values[pos] = ft_strdup(value);
-		return (1);
-	}
-	return (add_env_var(msh, name, value));
+	free(msh->env->values[pos]);
+	new_values = ft_strdup(value);
+	msh->env->values[pos] = new_values;
+	return (TRUE);
 }

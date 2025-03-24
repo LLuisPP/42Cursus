@@ -50,6 +50,8 @@ int	tok_alloc_struct(t_tok **tok)
 	(*tok)->type = T_WORD;
 	(*tok)->is_heredoc = 0;
 	(*tok)->heredoc_delim = NULL;
+	(*tok)->redir_pos = -1;
+	(*tok)->redir_type = NO_REDIR;
 	(*tok)->prev = NULL;
 	(*tok)->next = NULL;
 	return (TRUE);
@@ -62,27 +64,29 @@ int	mpip_alloc_struct(t_exe **mpip)
 	if (!*mpip)
 		return (FALSE);
 	ft_memset(*mpip, 0, sizeof(t_exe));
+	(*mpip)->backup_in = -1;
+	(*mpip)->backup_out = -1;
 	return (TRUE);
 }
 
 /* inicia las estructuras por separado y las enlaza a msh */
 int	init_structs(t_env **env, t_msh *msh, t_exe **mpip, t_tok **tok)
 {
-	if (env_alloc_struct(env, msh))
+	if (!env_alloc_struct(env, msh))
 		return (ft_fd_printf(2, "%s", E_ENVGET) * -1);
 	msh->env = *env;
-	if (tok_alloc_struct(tok))
+	if (!tok_alloc_struct(tok))
 	{
 		free(*env);
 		return (ft_fd_printf(2, "%s", E_TOKMEM) * -1);
 	}
 	msh->tkns = *tok;
-	if (mpip_alloc_struct(mpip))
+	if (!mpip_alloc_struct(mpip))
 	{
 		free(*env);
 		free(*tok);
 		return (ft_fd_printf(2, "%s", E_PIPMEM) * -1);
 	}
 	msh->mpip = *mpip;
-	return (0);
+	return (TRUE);
 }

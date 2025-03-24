@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: leegon <leegon@student.42.fr>              +#+  +:+       +#+         #
+#    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/27 07:16:06 by lprieto-          #+#    #+#              #
-#    Updated: 2025/01/14 16:36:24 by lauriago         ###   ########.fr        #
+#    Updated: 2025/02/19 02:31:02 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,18 +22,18 @@ RM = rm -rf
  
 # **************************************************************************** #
 
-BUILTINS = cd cd_utils echo env exit export export_utils pwd unset
+BUILTINS = cd cd_utils echo echo_utils env exit export export_utils pwd unset
 
-ENV = ms_env ms_env_tools ms_varenv
+ENV = ms_env ms_varenv
 
-EXEC = executor executor_new executor_new_utils
+EXEC = executor executor_utils output_redir input_redir exec_redir
 
 MAIN = minishell init signals rline
 
 PARSER = builtins lexer parser quote_expander quote_lexer quote_lexer_tools \
-		token_tools tokenizer
+		token_tools tokenizer redirections
 
-TOOLS = err_handle free tools
+TOOLS = err_handle free tools heredoc manage_redir
 
 SRCS = $(addsuffix .c, $(addprefix src/builtins/, $(BUILTINS))) \
 		$(addsuffix .c, $(addprefix src/env/, $(ENV))) \

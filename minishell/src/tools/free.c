@@ -18,60 +18,44 @@ void	ft_free_array(char **array)
 	int	i;
 
 	i = 0;
-	if (!array)
-		return ;
-	while (array[i])
+	if (array)
 	{
-		free(array[i]);
-		array[i] = NULL;
-		i++;
+		while (array[i])
+		{
+			free(array[i]);
+			array[i] = NULL;
+			i++;
+		}
+		free(array);
 	}
-	free(array);
 }
 
 /* libera la memoria reservada para la estructura de env */
 void	free_env(t_env *env)
 {
-	int	i;
-
-	free(env->pwd);
-	free(env->home);
-	if (env->names)
+	if (env)
 	{
-		i = 0;
-		while (env->names[i])
-			free(env->names[i++]);
-		free(env->names);
+		if (env->pwd)
+			free(env->pwd);
+		if (env->home)
+			free(env->home);
+		if (env->names)
+			ft_free_array(env->names);
+		if (env->values)
+			ft_free_array(env->values);
+		free(env);
 	}
-	if (env->values)
-	{
-		i = 0;
-		while (env->values[i])
-			free(env->values[i++]);
-		free(env->values);
-	}
-	free(env);
 }
 
 /* libera la memoria reservada para la estructura de token */
 void	free_tok(t_tok *tok)
 {
-	int	i;
-
 	if (!tok)
 		return ;
 	if (tok->cmd)
 		free(tok->cmd);
 	if (tok->args)
-	{
-		i = 0;
-		while (tok->args[i])
-		{
-			free(tok->args[i]);
-			i++;
-		}
-		free(tok->args);
-	}
+		ft_free_array(tok->args);
 	if (tok->heredoc_delim)
 		free(tok->heredoc_delim);
 	tok->prev = NULL;

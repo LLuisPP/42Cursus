@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cd_builting.c                                      :+:      :+:    :+:   */
+/*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leegon <leegon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 14:41:10 by lauriago          #+#    #+#             */
-/*   Updated: 2025/01/13 18:28:22 by lauriago         ###   ########.fr       */
+/*   Updated: 2025/02/19 02:12:49 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,19 +51,24 @@ void	handle_cd_path(t_msh *msh)
 {
 	char	*new_path;
 
-	if (ft_strcmp(msh->tkns->args[1], "$") == 0 && msh->tkns->args[2])
-	{
-		if (!varenv_man(msh, "cd", msh->tkns->args[2]))
-			return ;
-	}
-	else if (msh->tkns->args[1][0] == '/')
+	if (msh->tkns->args[1][0] == '/')
 		new_path = ft_strdup(msh->tkns->args[1]);
 	else
 		new_path = make_relative(msh->tkns->args[1], msh);
 	if (!new_path)
+	{
+		ft_fd_printf(2, "Error updating PWD environment variable\n");
 		return ;
+	}
 	if (chdir(new_path) == -1)
-		perror("cd");
+	{
+		if (errno == EACCES)
+			handle_cd_error(new_path, EACCES);
+		else if (errno == ENOTDIR)
+			handle_cd_error(new_path, ENOTDIR);
+		else
+			handle_cd_error(new_path, errno);
+	}
 	else
 	{
 		msh->env->old_pwd = update_env(msh, "OLDPWD", msh->env->pwd);
@@ -78,6 +83,8 @@ void	ft_cd(t_msh *msh, int num_cmd)
 		cd_home(msh);
 	if (num_cmd == 2)
 	{
+		if (cd_varman(msh, manage_cd_var(msh, msh->tkns->args[1])))
+			return ;
 		if (msh->tkns->args[1][0] == '-' && msh->tkns->args[1][1] == '\0')
 			handle_cd_minus(msh);
 		else if (msh->tkns->args[1][0] == '~' && msh->tkns->args[1][1] == '\0')
