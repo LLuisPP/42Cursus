@@ -157,12 +157,12 @@ This project involves recreating a simplified version of how the terminal works 
     <td align="center">1</td>
     <td>- Structs ✅<br>- Loop in with readline ✅<br>- Set up environment ✅</td>
     <td>- Study signals ✅<br>- Signal handling ⭕✅<br>- Write basic tests ⭕✅</td>
-    <td>Milestone 1:<br>- Command input ✅<br>- Basic signal handling ⭕✅</td>
+    <td>Milestone 1:<br>- Command input ✅<br>- Basic signal handling ✅</td>
   </tr>
   <tr>
     <td align="center">2</td>
     <td>- Tokenizer input ✅<br>- Implement tokenizer ✅<br>- Tokenizer tests ✅</td>
-    <td>- Document data and functions ✅<br>- Implement parser ✅<br>- Parser tests ⭕</td>
+    <td>- Document data and functions ✅<br>- Implement parser ✅<br>- Parser tests ✅</td>
     <td>Milestone 2:<br>- Tokenization and parsing ✅<br>- Initial integration ✅</td>
   </tr>
   <tr>
@@ -172,7 +172,7 @@ This project involves recreating a simplified version of how the terminal works 
     <td>Milestone 3:<br>- Internal and external cmds ✅<br>- Functional history ✅</td>
   </tr>
   <tr>
-    <td align="center">4</td> <td>- I/O redirects (`>`, `<`) ⭕✅<br>- Redirect errors ⭕✅<br>- Document data and functions ✅</td>
+    <td align="center">4</td> <td>- I/O redirects (`>`, `<`) ✅<br>- Redirect errors ✅<br>- Document data and functions ✅</td>
     <td>- Exec external cmds with pipes ⭕✅<br>- Pipe tests ⭕✅<br>- Optimize memory leaks-frees ⭕✅</td>
     <td>Milestone 4:<br>- Redirects, pipes, and functions ⭕</td>
   </tr>
@@ -185,7 +185,7 @@ This project involves recreating a simplified version of how the terminal works 
       <td align="center">6</td>
       <td>- Integrate functionalities ⭕✅<br>- Exhaustive testing ⭕<br>- Document final project ⭕✅</td>
       <td>- Performance and optimization ⭕<br>- Verify Makefile and exec ⭕✅</td>
-      <td>Milestone 6:<br>- Tested and documented ⭕<br>- Norminette, standards ✅</td>
+      <td>Milestone 6:<br>- Tested and documented ⭕<br>- Norminette, standards ⭕✅</td>
     </tr>
   </table>
 
