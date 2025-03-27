@@ -68,7 +68,7 @@ void	ft_exit(t_msh *msh)
 {
 	if (!msh)
 		exit(1);
-	ft_fd_printf(1, "exit\n");
+	ft_fd_printf(2, "exit\n");
 	if (!msh || !msh->tkns[1].cmd)
 		exit(msh->last_exit_code);
 	if (!is_numeric_arg(msh->tkns[1].cmd))

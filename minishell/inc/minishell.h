@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:26:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/03/16 19:52:56 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/03/25 18:28:08 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ typedef struct s_quote			t_quote;
 typedef struct s_tokenizer		t_tok;
 typedef struct s_minishell		t_msh;
 
-/******************************** Structs *********************************/
+/* ************************************************************************** */
+/* ******************************* [ STRCTURES ] **************************** */
+/* ************************************************************************** */
 
 enum e_quote_type
 {
@@ -142,120 +144,132 @@ struct	s_minishell
 	char	*heredoc_file;
 	int		saved_stdout;
 };
+/* ************************************************************************** */
+/* ****************************** [ BUILTINS ] ****************************** */
+/* ************************************************************************** */
 
-/* >>>>>>> BUILTINS >>>>>>> BUILTINS >>>>>>> BUILTINS >>>>>>> BUILTINS  >>>>>*/
-
-/* -------------------------------------------------------------- cd_utils.c */
+/* ----------------------------------------------------------------cd_utils.c */
 char	*built_abspath(char *relative_path, char *pwd);
 /*static char	*go_back_dir(char *pwd)*/
 /*static char	*handle_multiple_back(char *path, t_msh *msh)*/
 char	*make_relative(char *arg, t_msh *msh);
 
-/* ------------------------------------------------------------------- cd.c */
+/* ----------------------------------------------------------------------cd.c */
 /*static void	handle_cd_minus(t_msh *msh)*/
 /*static void	cd_home(t_msh *msh)*/
+/*static void	update_pwd_opwd(t_msh *msh, char *new_path)*/
 void	handle_cd_path(t_msh *msh);
 void	ft_cd(t_msh *msh, int num_cmd);
 
-/* ----------------------------------------------------------------- echo.c */
+/* --------------------------------------------------------------------echo.c */
 /*static int	is_n_flag(char *str)*/
 /*static int	check_n_flags(t_msh *msh, int *i)*/
 void	ft_echo(t_msh *msh, int num_cmd);
 
-/* ----------------------------------------------------------- echo_utils.c */
+/* --------------------------------------------------------------echo_utils.c */
 int		echo_has_2_expand(char *str);
 void	handle_echo_quotes(t_msh *msh, char k, int i);
-void	print_echo_argument(t_msh *msh, char *arg, int is_last_arg);
+void	print_echo_argument(t_msh *msh, char *arg, int i, int is_last_arg);
 
-/* ------------------------------------------------------------------ env.c */
+/* ---------------------------------------------------------------------env.c */
 //int		update_env_var(t_msh *msh, char *name, char *value); //REPETIDO
 int		ft_env(t_msh *msh);
 
-/* ----------------------------------------------------------------- exit.c */
+/* --------------------------------------------------------------------exit.c */
 /*static int	is_numeric_arg(char *str)*/
 /*static void	handle_numeric_arg(t_msh *msh, char *arg)*/
 /*static void	handle_exit_error(t_msh *msh, char *arg)*/
 void	ft_exit(t_msh *msh);
 
-/* --------------------------------------------------------- export_utils.c */
+/* ------------------------------------------------------------export_utils.c */
 int		env_var_exist(t_msh *msh, char *name);
 int		env_var_pos(t_msh *msh); // -------> REPETIDO!!!
 char	*get_var_name(char *var);
 char	*get_var_value(char *var);
 int		update_env_var_value(t_msh *msh, int pos, char *value);
 
-/* --------------------------------------------------------------- export.c */
-/*static int	is_valid_identifier(char *str)*/
+/* ------------------------------------------------------------------export.c */
+/*static int	is_valid_identifier(t_msh *msh, char *str)*/
 int		add_env_var(t_msh *msh, char *name, char *value);
-/*static void	print_export_vars(t_msh *msh)*/
+void	print_export_vars(t_msh *msh);
 void	handle_export_arg(t_msh *msh);
 int		ft_export(t_msh *msh, int tok_num);
 
-/* ------------------------------------------------------------------ pwd.c */
+/* ---------------------------------------------------------------------pwd.c */
 int		ft_pwd(t_msh *msh);
 
-/* ---------------------------------------------------------------- unset.c */
+/* -------------------------------------------------------------------unset.c */
 /*static int	is_valid_identifier(char *str)*/
 /*static void	remove_var_from_env(t_msh *msh, int pos)*/
 /*static int	find_var_in_env(t_msh *msh, char *var_name)*/
 int		ft_unset(t_msh *msh, int tok_num);
 
-/* >>>>>>> ENVIRONMENT >>>>>>> ENVIRONMENT >>>>>>> ENVIRONMENT >>>>>>>      */
+/* ************************************************************************** */
+/* ******************************** [ ENV ] ********************************* */
+/* ************************************************************************** */
 
-/* --------------------------------------------------------------- ms_env.c */
+/* ---------------------------------------------------------------------env.c */
 int		env_var_count(t_msh *msh);
 int		find_env_pos(t_msh *msh, char *var_name); // -------> REPETIDO!!!
 int		check_envs(void);
 void	update_shlvl(t_msh *msh);
 int		env_init_values(t_env *env, t_msh *msh);
 
-/* ----------------------------------------------------------- ms_varenv.c */
+/* ------------------------------------------------------------------varenv.c */
 char	*search_value(t_msh *msh, char *var);
 char	*manage_cd_var(t_msh *msh, char *arg);
 int		cd_varman(t_msh *msh, char *var_name);
 char	*update_env(t_msh *msh, char *name, char *value); // ---> REPETIDO!!!
 
-/* >>>>>>> EXECUTOR */
+/* ************************************************************************** */
+/* ******************************** [ EXECUTOR ] **************************** */
+/* ************************************************************************** */
 
-/* ----------------------------------------------------------- exec_redir.c */
+/* -------------------------------------------------------------------------- */
 // static char	**extract_command(char**args, int redir_pos)
 void	exec_redir(t_msh *msh, char *tkn, t_redir type);
-void	manage_builting_redir(t_msh *msh, t_redir type);
+int		manage_builting_redir(t_msh *msh, t_redir type);
 
-/* ------------------------------------------------------------- executor.c */
+/* ----------------------------------------------------------------executor.c */
 int		is_command_executable(char *fullpath);
 /*static void	child_process(t_msh *msh, char *fullpath)*/
 /*static void	parent_process(pid_t pid, char *fullpath)*/
 int		execute_command(t_msh *msh, char *fullpath);
 int		find_cmd(char *tkn, t_msh *msh);
-/* ------------------------------------------------------- executor_utils.c */
+
+/* ----------------------------------------------------------executor_utils.c */
 /*static char	**get_path_dirs(char **envs)*/
 /*static char	*check_absolute_path(char *cmd)*/
 /*static char	*try_path(char *dir, char *cmd)*/
 char	*make_path(char *tkn, t_msh *msh);
-/* ----------------------------------------------------------output_redir.c */
+/* ------------------------------------------------------------output_redir.c */
 int		handle_output_file(t_msh *msh, char *filename, t_redir type);
 void	restore_redirections(t_msh *msh);
 char	*extract_command(char**args, int redir_pos);
+
+/* -------------------------------------------------------------input_redir.c */
 int		handle_input_file(t_msh *msh, char *filename, t_redir type);
+void	handle_redir_in(t_msh *msh, t_redir type);
 
-/* >>>>>>>  MAIN */
+/* ************************************************************************** */
+/* ******************************* [ MAIN ] ********************************* */
+/* ************************************************************************** */
 
-/* ----------------------------------------------------------------- init.c */
+/* --------------------------------------------------------------------init.c */
 int		env_alloc_struct(t_env **env, t_msh *msh);
 int		tok_alloc_struct(t_tok **tok);
 int		mpip_alloc_struct(t_exe **mpip);
 int		init_structs(t_env **env, t_msh *msh, t_exe **mpip, t_tok **tok);
 
-/* ----------------------------------------------------------------- main.c */
+/* --------------------------------------------------------------------main.c */
 void	shell_loop(t_msh *msh);
 
-/* ---------------------------------------------------------------- rline.c */
+/* -------------------------------------------------------------------rline.c */
 char	*cmd_gen(const char *text, int state);
 char	**cmd_comp(const char *text, int start, int end);
 char	*cmd_match(const char *text, int state);
 
-/* -------------------------------------------------------------- signals.c */
+/* -----------------------------------------------------------------signals.c */
 void	handle_sigint(int sig);
 void	handle_sigquit(int sig);
 void	init_signals(void);
@@ -263,16 +277,18 @@ void	handle_sigint_heredoc(int sig);
 void	handle_heredoc_signals(void);
 void	restore_signals(void);
 
-/* >>>>>>>  PARSER */
+/* ************************************************************************** */
+/* ******************************* [ PARSER ] ******************************* */
+/* ************************************************************************** */
 
-/* ------------------------------------------------------------- builtins.c */
+/* ----------------------------------------------------------------builtins.c */
 void	cmd_not_found(t_msh *msh);
 void	check_tokens(char *input, t_msh *msh);
 void	cleanup_commands(t_msh *msh);
 int		is_builtin(char *token);
 void	exc_cmd(t_msh *msh, int count_tok);
 
-/* ---------------------------------------------------------------- lexer.c */
+/* -------------------------------------------------------------------lexer.c */
 // int		quote_lexer(char *arg);
 int		lexer(char **tokens, t_msh *msh);
 /*static int	has_pipe(char *token)*/
@@ -281,67 +297,69 @@ int		lexer(char **tokens, t_msh *msh);
 /*static int	split_commands(t_tok *tok, t_cmd *cmds)*/
 int		parse_and_validate_commands(t_tok *tok, t_cmd **commands);
 
-/* --------------------------------------------------------------- parser.c */
+/* ------------------------------------------------------------------parser.c */
 char	*parse_path(char **env);
 char	*parse_pwd(char **env);
 
-/* ---------------------------------------------------------- quote_lexer.c */
+/* -------------------------------------------------------------quote_lexer.c */
 t_quote	*init_quotes(void);
 int		analyze_quotes(t_msh *msh, char *arg, char quote);
 void	handle_single_quotes(t_msh *msh, int i);
 void	handle_double_quotes(t_msh *msh, int i);
 //void	handle_quotes(t_msh *msh, t_quote *q, int i);
 
-/* ---------------------------------------------------- quote_lexer_tools.c */
+/* -------------------------------------------------------quote_lexer_tools.c */
 char	*remove_quotes(char *str, char quote_type);
 // char	*search_value(t_msh *msh, char *name); --> REPETIDO!!
 
-/* ------------------------------------------------------- quote_expander.c */
+/* ----------------------------------------------------------quote_expander.c */
 int		ft_varlen(char *str, int start);
 char	*copy_var(char *str, int i, int len);
 void	print_variable(char *var, t_msh *msh);
 void	ft_expander(char *str, t_msh *msh);
 
-/* ---------------------------------------------------------- token_tools.c */
+/* -------------------------------------------------------------token_tools.c */
 int		is_quote(char c);
 int		is_pipe(char c);
 int		is_whitespace(char c);
 int		is_operator(char c);
 
-/* ----------------------------------------------------------- tokenizer.c */
+/* ---------------------------------------------------------------tokenizer.c */
 int		size_token(char *input, t_tok *tok);
 char	*create_token(char *input, int len, t_tok *tok);
 void	ft_token(char *input, t_tok *tok);
 //static void	print_error_msg(char c);
 
-/* --------------------------------------------------------- redirections.c */
+/* ------------------------------------------------------------redirections.c */
 // static void	print_error_msg(char c)
 int		has_redirection(t_tok *tok);
 t_redir	check_syntax_redir(char **tkn, int pos);
 // static void	init_redir(t_msh *msh)
 // static void	print_redir_info(t_redir redir_type, int redir_pos)
-void	handle_redir(t_msh *msh, t_redir type);
+void	handle_redir_out(t_msh *msh, t_redir type);
 int		redir_checker(t_msh *msh);
 
-/* >>>>>>>  TOOLS */
+/* ************************************************************************** */
+/* ******************************* [ TOOLS ] ******************************** */
+/* ************************************************************************** */
 
-/* ---------------------------------------------------------- err_hanlde.c */
+/* --------------------------------------------------------------err_hanlde.c */
 void	handle_cd_error(char *path, int error_type);
 int		ft_err(t_msh *msh, int err_code);
 
-/* ---------------------------------------------------------------- free.c */
+/* --------------------------------------------------------------------free.c */
 void	ft_free_array(char **array);
 void	free_env(t_env *env);
 void	free_tok(t_tok *tok);
 void	free_structs(t_env *env, t_tok *tok, t_exe *mpip);
 
-/* ------------------------------------------------------------- heredoc.c */
+/* -----------------------------------------------------------------heredoc.c */
 int		handle_heredoc(t_msh *msh, char *delimiter);
 
-/* -------------------------------------------------------- manage_redir.c */
+/* ------------------------------------------------------------manage_redir.c */
 void	redirection_manager(t_msh *msh);
 
-/******************************* Error macros *****************************/
+/* ----------------------------- Error macros ------------------------------- */
 
 # define E_ARG		"Invalid number of parameters\n"
 # define E_MALLOC	"Malloc failure\n"

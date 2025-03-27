@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quote_lexer_ms.c                                   :+:      :+:    :+:   */
+/*   quote_lexer.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leegon <leegon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 19:00:22 by lauriago          #+#    #+#             */
-/*   Updated: 2025/01/09 16:59:04 by lauriago         ###   ########.fr       */
+/*   Updated: 2025/03/26 11:07:05 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,16 @@ int	analyze_quotes(t_msh *msh, char *arg, char quote)
 void	handle_single_quotes(t_msh *msh, int i)
 {
 	char	*str;
+	char 	*str_rmv;
 
 	str = ft_strdup(msh->tkns->args[i]);
 	if (!analyze_quotes(msh, msh->tkns->args[i], '\''))
 		ft_fd_printf(2, E_SYNTX);
 	else
-		printf("%s", remove_quotes(str, '\''));
+	{
+		str_rmv = remove_quotes(str, '\'');
+		ft_putstr(str_rmv);
+	}
 }
 
 // 1.Verificar que hay minimo 2 comillas o numero multiple de 2

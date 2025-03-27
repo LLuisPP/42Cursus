@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 12:16:01 by lauriago          #+#    #+#             */
-/*   Updated: 2025/03/16 19:52:42 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/03/26 10:51:11 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	error_fd(char *filename)
 {
-	if (access(filename, F_OK) == 0)
+	if (!access(filename, F_OK))
 		ft_fd_printf(2, "minishell: %s: Permission denied\n", filename);
 	else
 		ft_fd_printf(2, "minishell: %s: No such file or directory\n", filename);
@@ -40,6 +40,7 @@ int	handle_output_file(t_msh *msh, char *filename, t_redir type)
 	{
 		perror("Error redirecting output");
 		close(msh->mpip->backup_out);
+		restore_redirections(msh);
 		close(fd);
 		return (FALSE);
 	}

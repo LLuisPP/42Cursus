@@ -47,6 +47,12 @@ static void	cd_home(t_msh *msh)
 	}
 }
 
+static void	update_pwd_opwd(t_msh *msh, char *new_path)
+{
+	msh->env->old_pwd = update_env(msh, "OLDPWD", msh->env->pwd);
+	msh->env->pwd = update_env(msh, "PWD", new_path);
+}
+
 void	handle_cd_path(t_msh *msh)
 {
 	char	*new_path;
@@ -70,10 +76,7 @@ void	handle_cd_path(t_msh *msh)
 			handle_cd_error(new_path, errno);
 	}
 	else
-	{
-		msh->env->old_pwd = update_env(msh, "OLDPWD", msh->env->pwd);
-		msh->env->pwd = update_env(msh, "PWD", new_path);
-	}
+		update_pwd_opwd(msh, new_path);
 	free(new_path);
 }
 

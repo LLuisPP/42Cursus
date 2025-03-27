@@ -49,7 +49,7 @@ static void	child_process_redir(t_msh *msh, char *fullpath, t_redir type)
 	if (type == REDIR_OUT || type == REDIR_APPEND)
 		handle_output_file(msh, msh->mpip->outfile, type);
 	else if (type == REDIR_IN || type == REDIR_HERE)
-		handle_input_file(msh, msh->mpip->outfile, type);
+		handle_input_file(msh, msh->mpip->infile, type);
 	if (execve(fullpath, new_args, msh->envs) == -1)
 	{
 		cmd_not_found(msh);
@@ -81,12 +81,15 @@ void	exec_redir(t_msh *msh, char *tkn, t_redir type)
 		waitpid(pid, &status, 0);
 		free (fullpath);
 	}
-	printf("TERMINANDO EXEC_REDIR\n");
 }
 
 // Función que maneja las redirecciones usando builtings 
-void	manage_builting_redir(t_msh *msh, t_redir type)
+int	manage_builting_redir(t_msh *msh, t_redir type)
 {
+	int	file_pos;
+
+	file_pos = msh->tkns->redir_pos + 1;
+	msh->mpip->outfile = msh->tkns->args[file_pos];
 	if (type == REDIR_OUT || type == REDIR_APPEND)
 	{
 		msh->mpip->backup_out = 0;
@@ -94,19 +97,20 @@ void	manage_builting_redir(t_msh *msh, t_redir type)
 		if (!handle_output_file(msh, msh->mpip->outfile, type))
 		{
 			restore_redirections(msh);
-			return ;
+			return (FALSE);
 		}
-		exc_cmd(msh, msh->tkns->redir_pos);
 	}
 	if (type == REDIR_IN || type == REDIR_HERE)
 	{
 		msh->mpip->backup_in = 0;
+		msh->mpip->backup_in = dup(STDIN_FILENO);
 		if (!handle_input_file(msh, msh->mpip->outfile, type))
 		{
 			restore_redirections(msh);
-			return ;
+			return (FALSE);
 		}
-		exc_cmd(msh, msh->tkns->token_count);
 	}
+	exc_cmd(msh, msh->tkns->redir_pos);
 	restore_redirections(msh);
+	return (TRUE);
 }

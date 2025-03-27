@@ -12,13 +12,18 @@
 
 #include "minishell.h"
 
-static int	is_valid_identifier(char *str)
+static int	is_valid_identifier(t_msh *msh, char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i])
 	{
+		if (str[i] == '$' || str[i] == '#')
+		{
+			print_export_vars(msh);
+			return (FALSE);
+		}
 		if (ft_isalnum(str[i]) || str[i] == '_')
 			i++;
 		if (str[i] == '=')
@@ -56,7 +61,7 @@ int	add_env_var(t_msh *msh, char *name, char *value)
 	return (TRUE);
 }
 
-static void	print_export_vars(t_msh *msh)
+void	print_export_vars(t_msh *msh)
 {
 	int	i;
 
@@ -78,7 +83,7 @@ void	handle_export_arg(t_msh *msh)
 	int		pos;
 
 	pos = 0;
-	if (!is_valid_identifier(msh->tkns->args[1]))
+	if (!is_valid_identifier(msh, msh->tkns->args[1]))
 		return ;
 	name = get_var_name(msh->tkns->args[1]);
 	value = get_var_value(msh->tkns->args[1]);

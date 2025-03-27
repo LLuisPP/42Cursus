@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leegon <leegon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 21:21:27 by lauriago          #+#    #+#             */
-/*   Updated: 2025/01/30 18:36:30 by lauriago         ###   ########.fr       */
+/*   Updated: 2025/03/25 20:33:05 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	ft_echo(t_msh *msh, int num_cmd)
 {
 	int	i;
 	int	n_flag;
+	int is_last_arg;
 
 	i = 1;
 	if (num_cmd <= 1)
@@ -63,9 +64,10 @@ void	ft_echo(t_msh *msh, int num_cmd)
 		return ;
 	}
 	n_flag = check_n_flags(msh, &i);
-	while (i < num_cmd)
+	while (i < num_cmd && has_redirection(msh->tkns))
 	{
-		print_echo_argument(msh, msh->tkns->args[i], i);
+		is_last_arg = (num_cmd - 1);
+		print_echo_argument(msh, msh->tkns->args[i], i, is_last_arg); //esto es demasiado lento para el fd reviasr la secuencia
 		i++;
 	}
 	if (n_flag == FALSE)
