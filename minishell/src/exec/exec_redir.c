@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_redir.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lauriago <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 16:31:02 by lauriago          #+#    #+#             */
-/*   Updated: 2025/02/26 16:31:16 by lauriago         ###   ########.fr       */
+/*   Updated: 2025/04/03 19:33:54 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,16 @@ static void	child_process_redir(t_msh *msh, char *fullpath, t_redir type)
 	new_args = redir_args(msh->tkns->args, msh->tkns->redir_pos);
 	if (type == REDIR_OUT || type == REDIR_APPEND)
 		handle_output_file(msh, msh->mpip->outfile, type);
-	else if (type == REDIR_IN || type == REDIR_HERE)
+	else if (type == REDIR_IN)
 		handle_input_file(msh, msh->mpip->infile, type);
+	else if (type == REDIR_HERE)
+	{
+		if (!redirect_input_output(msh))
+		{
+			ft_fd_printf(2, "Failed to redirect heredoc\n");
+			exit(EXIT_FAILURE);
+		}
+	}
 	if (execve(fullpath, new_args, msh->envs) == -1)
 	{
 		cmd_not_found(msh);
@@ -59,11 +67,23 @@ static void	child_process_redir(t_msh *msh, char *fullpath, t_redir type)
 	ft_free_array(new_args);
 }
 
+static void	parent_process_redir(t_msh *msh, pid_t pid, char *fullpath)
+{
+	int		status;
+
+	waitpid(pid, &status, 0);
+	if (WIFEXITED(status))
+		msh->last_exit_code = WEXITSTATUS(status);
+	else if (WIFSIGNALED(status))
+		msh->last_exit_code = 128 + WTERMSIG(status);
+	cleanup_heredoc(msh);
+	free (fullpath);
+}
+
 void	exec_redir(t_msh *msh, char *tkn, t_redir type)
 {
 	pid_t	pid;
 	char	*fullpath;
-	int		status;
 
 	msh->mpip->backup_out = dup(STDOUT_FILENO);
 	msh->mpip->backup_in = dup(STDIN_FILENO);
@@ -72,45 +92,11 @@ void	exec_redir(t_msh *msh, char *tkn, t_redir type)
 	if (pid == -1)
 	{
 		ft_fd_printf(2, "bash: fork: Cannot allocate memory\n");
+		msh->last_exit_code = 1;
 		return ;
 	}
 	else if (pid == 0)
 		child_process_redir(msh, fullpath, type);
 	else
-	{
-		waitpid(pid, &status, 0);
-		free (fullpath);
-	}
-}
-
-// Función que maneja las redirecciones usando builtings 
-int	manage_builting_redir(t_msh *msh, t_redir type)
-{
-	int	file_pos;
-
-	file_pos = msh->tkns->redir_pos + 1;
-	msh->mpip->outfile = msh->tkns->args[file_pos];
-	if (type == REDIR_OUT || type == REDIR_APPEND)
-	{
-		msh->mpip->backup_out = 0;
-		msh->mpip->backup_out = dup(STDOUT_FILENO);
-		if (!handle_output_file(msh, msh->mpip->outfile, type))
-		{
-			restore_redirections(msh);
-			return (FALSE);
-		}
-	}
-	if (type == REDIR_IN || type == REDIR_HERE)
-	{
-		msh->mpip->backup_in = 0;
-		msh->mpip->backup_in = dup(STDIN_FILENO);
-		if (!handle_input_file(msh, msh->mpip->outfile, type))
-		{
-			restore_redirections(msh);
-			return (FALSE);
-		}
-	}
-	exc_cmd(msh, msh->tkns->redir_pos);
-	restore_redirections(msh);
-	return (TRUE);
+		parent_process_redir(msh, pid, fullpath);
 }

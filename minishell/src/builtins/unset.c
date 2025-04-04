@@ -29,6 +29,8 @@ int	ft_unset(t_msh *msh, int tok_num)
 {
 	int	pos;
 
+	if (!msh->tkns->args[1])
+		return (FALSE);
 	pos = find_env_pos(msh, msh->tkns->args[1]);
 	if (tok_num == 2)
 	{

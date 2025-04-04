@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 02:29:27 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/03/06 23:17:07 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/04/03 19:58:03 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ static char	*read_until_delimiter(char *delimiter)
 	while (1)
 	{
 		line = readline("> ");
-		if (!line)
-			break ;
-		if (ft_strcmp(line, delimiter) == 0)
+		if (!line || ft_strcmp(line, delimiter) == 0)
 		{
 			free(line);
 			break ;
@@ -42,59 +40,64 @@ static char	*read_until_delimiter(char *delimiter)
 	return (content);
 }
 
-int handle_heredoc(t_msh *msh, char *delimiter)
+int	handle_heredoc(t_msh *msh, char *delimiter)
 {
-	char *content;
-	char *temp_file_path;
-	int fd;
+	char	*content;
+	char	*temp_file_path;
+	int		fd;
 
+	if (!delimiter)
+	{
+		ft_fd_printf(2, E_NW);
+		msh->last_exit_code = 2;
+		return (FALSE);
+	}
+	temp_file_path = "/tmp/heredoc_temp";
 	handle_heredoc_signals();
 	content = read_until_delimiter(delimiter);
 	restore_signals();
-	if (!content)
-		return (FALSE);
-	temp_file_path = "/tmp/heredoc_temp";
 	fd = open(temp_file_path, O_CREAT | O_WRONLY | O_TRUNC, 0644);
-	if (fd < 0)
-	{
-		free(content);
-		return (FALSE);
-	}
-	if (write(fd, content, ft_strlen(content)) < 0)
+	if (fd < 0 || write(fd, content, ft_strlen(content)) < 0)
 	{
 		close(fd);
-		free(content);
-		return (FALSE);
+		return (free(content), FALSE);
 	}
 	close(fd);
 	free(content);
 	msh->heredoc_file = ft_strdup(temp_file_path);
+	msh->mpip->infile = msh->heredoc_file;
 	return (TRUE);
 }
 
-int redirect_input_output(t_msh *msh)
+int	redirect_input_output(t_msh *msh)
 {
-	// Redirigir la entrada estándar si hay un heredoc
+	int	fd;
+
 	if (msh->heredoc_file != NULL)
 	{
-		int fd = open(msh->heredoc_file, O_RDONLY);
+		fd = open(msh->heredoc_file, O_RDONLY);
 		if (fd < 0)
+		{
+			perror("open heredoc");
 			return (FALSE);
-		dup2(fd, STDIN_FILENO); // Redirigir la entrada estándar
+		}
+		if (dup2(fd, STDIN_FILENO) == -1)
+		{
+			perror("dup2 heredoc -> STDIN");
+			close(fd);
+			return (FALSE);
+		}
 		close(fd);
 	}
-
 	return (TRUE);
 }
 
-
-
-void cleanup_heredoc(t_msh *msh)
+void	cleanup_heredoc(t_msh *msh)
 {
 	if (msh->heredoc_file)
 	{
-		unlink(msh->heredoc_file); // Eliminar el archivo temporal
-		free(msh->heredoc_file);    // Liberar la memoria
-		msh->heredoc_file = NULL;    // Evitar punteros colgantes
+		unlink(msh->heredoc_file);
+		free(msh->heredoc_file);
+		msh->heredoc_file = NULL;
 	}
 }

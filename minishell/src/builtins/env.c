@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env_builting.c                                     :+:      :+:    :+:   */
+/*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leegon <leegon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:13:40 by lauriago          #+#    #+#             */
-/*   Updated: 2024/11/11 17:56:49 by leegon           ###   ########.fr       */
+/*   Updated: 2025/04/04 10:32:58 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int	ft_env(t_msh *msh)
 		ft_fd_printf(2, "env: environment not available\n");
 		return (FALSE);
 	}
-	if (msh->tkns->args[1] && !has_redirection(msh->tkns))
+	if (ft_strcmp(msh->tkns->args[1], "env") != 0
+		&& has_redirection(msh->tkns) == -1)
 	{
 		ft_fd_printf(2, "env: '%s': No such file or directory\n",
 			msh->tkns->args[1]);
@@ -64,13 +65,3 @@ int	ft_env(t_msh *msh)
 	}
 	return (TRUE);
 }
-// while (msh->env->names[i])
-// {
-// 	// comprovació de longitud names i values...
-// 	printf("len name --> %ld\nlen val --> %ld\n",
-// 		ft_strlen(msh->env->names[i]), ft_strlen(msh->env->values[i]));
-// 	// comprovació inicialització value i name
-// 	printf("NAME --> %s\n", msh->env->names[i]);
-// 	printf("VALUE --> %s\n", msh->env->values[i]);
-// 	i++;
-// }

@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:12:48 by lauriago          #+#    #+#             */
-/*   Updated: 2025/02/19 02:23:24 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/03/28 11:14:10 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	cmd_not_found(t_msh *msh)
 {
 	ft_fd_printf(2, "Error: %s : command not found\n", msh->tkns->cmd);
+	msh->last_exit_code = 127;
 }
 
 void	check_tokens(char *input, t_msh *msh)

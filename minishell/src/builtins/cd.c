@@ -69,11 +69,11 @@ void	handle_cd_path(t_msh *msh)
 	if (chdir(new_path) == -1)
 	{
 		if (errno == EACCES)
-			handle_cd_error(new_path, EACCES);
+			handle_cd_error(msh, EACCES);
 		else if (errno == ENOTDIR)
-			handle_cd_error(new_path, ENOTDIR);
+			handle_cd_error(msh, ENOTDIR);
 		else
-			handle_cd_error(new_path, errno);
+			handle_cd_error(msh, errno);
 	}
 	else
 		update_pwd_opwd(msh, new_path);

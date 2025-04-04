@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 08:13:41 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/03/16 19:53:01 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/04/03 19:21:53 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 void	handle_sigint(int sig)
 {
 	(void)sig;
-	write(1, "\n", 1);
+	write(1, "^C\n", 3);
+	rl_replace_line("", 0);
 	rl_on_new_line();
 	rl_redisplay();
 }

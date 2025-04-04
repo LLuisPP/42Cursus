@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 21:50:55 by lauriago          #+#    #+#             */
-/*   Updated: 2025/03/26 10:48:21 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/04/03 19:56:20 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,12 @@ int	has_redirection(t_tok *tok)
 	{
 		if (is_operator(tok->args[i][0]) || is_pipe(tok->args[i][0]))
 		{
-			if (is_operator(tok->args[i + 1][0]) || is_pipe(tok->args[i + 1][0]))
-				return (-1);
+			if (tok->args[i + 1])
+			{
+				if (is_operator(tok->args[i + 1][0])
+					|| is_pipe(tok->args[i + 1][0]))
+					return (-1);
+			}
 			return (i);
 		}
 		i++;
@@ -38,7 +42,7 @@ int	has_redirection(t_tok *tok)
 }
 
 // Returns the redirection type
-t_redir	check_syntax_redir(char **tkn, int pos)
+t_redir	check_syntax_redir(t_msh *msh, char **tkn, int pos)
 {
 	int		len;
 
@@ -59,7 +63,10 @@ t_redir	check_syntax_redir(char **tkn, int pos)
 			return (PIPE);
 	}
 	if (len > 2)
+	{
 		print_error_msg(tkn[pos][1]);
+		msh->last_exit_code = 2;
+	}
 	return (REDIR_ERROR);
 }
 
@@ -72,6 +79,7 @@ void	handle_redir_out(t_msh *msh, t_redir type)
 	if (msh->mpip->outfile == NULL)
 	{
 		ft_fd_printf(2, E_NW);
+		msh->last_exit_code = 2;
 		return ;
 	}
 	if (is_builtin(msh->tkns->cmd))
@@ -81,6 +89,26 @@ void	handle_redir_out(t_msh *msh, t_redir type)
 	}
 	exec_redir(msh, msh->tkns->cmd, type);
 	restore_redirections(msh);
+}
+
+static int	check_redir_type(t_msh *msh, int redir_pos, t_redir type)
+{
+	if (type == REDIR_ERROR || type == NO_REDIR)
+		return (FALSE);
+	if (type == REDIR_OUT || type == REDIR_APPEND)
+		handle_redir_out(msh, type);
+	if (type == REDIR_IN)
+		handle_redir_in(msh, type);
+	if (type == REDIR_HERE)
+	{
+		if (!handle_heredoc(msh, msh->tkns->args[redir_pos + 1]))
+			return (TRUE);
+		exec_redir(msh, msh->tkns->cmd, type);
+		return (TRUE);
+	}
+	if (type == PIPE)
+		handle_pipes(msh);
+	return (TRUE);
 }
 
 // Función generica para verificar sintaxis redirecciones
@@ -93,18 +121,8 @@ int	redir_checker(t_msh *msh)
 		return (FALSE);
 	redir_pos = has_redirection(msh->tkns);
 	msh->tkns->redir_pos = redir_pos;
-	redir_type = check_syntax_redir(msh->tkns->args, redir_pos);
+	redir_type = check_syntax_redir(msh, msh->tkns->args, redir_pos);
 	if (redir_pos >= 0)
-	{
-		if (redir_type == REDIR_ERROR || redir_type == NO_REDIR)
-			return (FALSE);
-		if (redir_type == REDIR_OUT || redir_type == REDIR_APPEND)
-			handle_redir_out(msh, redir_type);
-		if (redir_type == REDIR_IN || redir_type == REDIR_HERE)
-			handle_redir_in(msh, redir_type);
-		//if (redir_type == REDIR_HERE)
-
-		return (TRUE);
-	}
+		return (check_redir_type(msh, redir_pos, redir_type));
 	return (FALSE);
 }

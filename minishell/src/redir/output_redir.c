@@ -34,6 +34,7 @@ int	handle_output_file(t_msh *msh, char *filename, t_redir type)
 	if (fd == -1)
 	{
 		error_fd(filename);
+		msh->last_exit_code = 1;
 		return (FALSE);
 	}
 	if (dup2(fd, STDOUT_FILENO) == -1)

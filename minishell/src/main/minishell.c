@@ -47,7 +47,7 @@ int	main(int argc, char **argv, char **envs)
 	if (envs != NULL)
 		msh.envs = envs;
 	msh.env_var_count = env_var_count(&msh);
-	env_init_values(env, &msh);
+	env_init(env, &msh);
 	init_signals();
 	shell_loop(&msh);
 	free_structs(env, tok, mpip);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pwd_builting.c                                     :+:      :+:    :+:   */
+/*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leegon <leegon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:14:23 by lauriago          #+#    #+#             */
-/*   Updated: 2024/11/11 12:44:50 by leegon           ###   ########.fr       */
+/*   Updated: 2025/04/03 19:30:52 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,6 @@ int	ft_pwd(t_msh *msh)
 	int		status;
 
 	status = 0;
-	if (!has_redirection(msh->tkns))
-	{
-		if (msh->tkns->args[1])
-		{
-			ft_fd_printf(2, "pwd: too many arguments\n");
-			status = -1;
-			return (status);
-		}
-	}
 	pwdpath = NULL;
 	pwdpath = (char *)malloc(sizeof(char) * PATH_MAX);
 	if (!pwdpath)
@@ -40,4 +31,14 @@ int	ft_pwd(t_msh *msh)
 	if (ft_fd_printf(1, "%s\n", pwdpath) < 0)
 		status = -1;
 	return (status);
+}
+
+int	builtin_redir_check(t_msh *msh)
+{
+	if (ft_strcmp(msh->tkns->args[1], ">") == 0
+		|| ft_strcmp(msh->tkns->args[1], ">>") == 0
+		|| ft_strcmp(msh->tkns->args[1], "<") == 0
+		|| ft_strcmp(msh->tkns->args[1], "<<") == 0)
+		return (TRUE);
+	return (FALSE);
 }

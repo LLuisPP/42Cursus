@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/27 07:16:06 by lprieto-          #+#    #+#              #
-#    Updated: 2025/02/19 02:31:02 by lprieto-         ###   ########.fr        #
+#    Updated: 2025/04/04 10:35:38 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,23 +24,30 @@ RM = rm -rf
 
 BUILTINS = cd cd_utils echo echo_utils env exit export export_utils pwd unset
 
-ENV = ms_env ms_varenv
+ENV = env varenv
 
-EXEC = executor executor_utils output_redir input_redir exec_redir
+EXEC = builtins executor executor_utils exec_redir pipes
 
-MAIN = minishell init signals rline
+HEREDOC = heredoc
 
-PARSER = builtins lexer parser quote_expander quote_lexer quote_lexer_tools \
-		token_tools tokenizer redirections
+MAIN = minishell init signals
 
-TOOLS = err_handle free tools heredoc manage_redir
+PARSER = lexer parser quote_expander quote_lexer quote_lexer_tools \
+		token_tools tokenizer
+
+REDIR = builtin_redir input_redir output_redir redirections
+
+TOOLS = err_handle free
 
 SRCS = $(addsuffix .c, $(addprefix src/builtins/, $(BUILTINS))) \
 		$(addsuffix .c, $(addprefix src/env/, $(ENV))) \
 		$(addsuffix .c, $(addprefix src/exec/, $(EXEC))) \
+		$(addsuffix .c, $(addprefix src/heredoc/, $(HEREDOC))) \
 		$(addsuffix .c, $(addprefix src/main/, $(MAIN))) \
 		$(addsuffix .c, $(addprefix src/parser/, $(PARSER))) \
+		$(addsuffix .c, $(addprefix src/redir/, $(REDIR))) \
 		$(addsuffix .c, $(addprefix src/tools/, $(TOOLS))) \
+
 
 OBJ_PATH := ./tmp/
 H_PATH := ./inc/
@@ -56,7 +63,7 @@ DEPS = $(OBJS:.o=.d)
 all: makelib $(OBJ_PATH) $(NAME)
 
 makelib: 
-	$(MAKE) --silent -C libft  --no-print-directory
+	$(MAKE) --silent -C libft  
 
 $(OBJ_PATH):
 	mkdir -p $(OBJ_PATH)
