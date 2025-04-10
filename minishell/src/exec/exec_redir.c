@@ -12,32 +12,30 @@
 
 #include "minishell.h"
 
-//This function copy all the args without the redirection token 
 static char	**redir_args(char **args, int redir_pos)
 {
 	char	**result;
 	int		i;
+	int		j;
 
 	if (!args || redir_pos <= 0)
 		return (NULL);
-	result = (char **)malloc(sizeof(char *) * (redir_pos + 1));
+	result = (char **)malloc(sizeof(char *) * (redir_pos + 2));
 	if (!result)
 	{
 		ft_fd_printf(2, "malloc failed");
 		return (NULL);
 	}
 	i = 0;
+	j = 0;
+	printf("redir_ps = %d\n", redir_pos);
 	while (i < redir_pos && args[i])
 	{
-		result[i] = ft_strdup(args[i]);
-		if (!result[i])
-		{
-			ft_free_array(result);
-			return (NULL);
-		}
+		if (!is_operator(args[i][0]) && !is_pipe(args[i][0]))
+			result[j++] = ft_strdup(args[i]);
 		i++;
 	}
-	result[i] = NULL;
+	result[j] = NULL;
 	return (result);
 }
 

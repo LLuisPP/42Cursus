@@ -6,19 +6,12 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 21:50:55 by lauriago          #+#    #+#             */
-/*   Updated: 2025/04/03 19:56:20 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/04/08 09:51:04 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-// print error message
-static void	print_error_msg(char c)
-{
-	ft_fd_printf(2, "minishell: syntax error near unexpected token `%c'\n", c);
-}
-
-// Verifies if it has a redirection and returns the position
 int	has_redirection(t_tok *tok)
 {
 	int	i;
@@ -41,7 +34,6 @@ int	has_redirection(t_tok *tok)
 	return (-1);
 }
 
-// Returns the redirection type
 t_redir	check_syntax_redir(t_msh *msh, char **tkn, int pos)
 {
 	int		len;
@@ -91,38 +83,23 @@ void	handle_redir_out(t_msh *msh, t_redir type)
 	restore_redirections(msh);
 }
 
-static int	check_redir_type(t_msh *msh, int redir_pos, t_redir type)
-{
-	if (type == REDIR_ERROR || type == NO_REDIR)
-		return (FALSE);
-	if (type == REDIR_OUT || type == REDIR_APPEND)
-		handle_redir_out(msh, type);
-	if (type == REDIR_IN)
-		handle_redir_in(msh, type);
-	if (type == REDIR_HERE)
-	{
-		if (!handle_heredoc(msh, msh->tkns->args[redir_pos + 1]))
-			return (TRUE);
-		exec_redir(msh, msh->tkns->cmd, type);
-		return (TRUE);
-	}
-	if (type == PIPE)
-		handle_pipes(msh);
-	return (TRUE);
-}
-
-// Función generica para verificar sintaxis redirecciones
 int	redir_checker(t_msh *msh)
 {
 	int		redir_pos;
 	t_redir	redir_type;
+	int		redir_count;
 
+	redir_count = count_redir(msh);
 	if (!msh || !msh->tkns || !msh->tkns->args)
 		return (FALSE);
 	redir_pos = has_redirection(msh->tkns);
 	msh->tkns->redir_pos = redir_pos;
 	redir_type = check_syntax_redir(msh, msh->tkns->args, redir_pos);
-	if (redir_pos >= 0)
-		return (check_redir_type(msh, redir_pos, redir_type));
+	if (redir_type == NO_REDIR || redir_type == REDIR_ERROR)
+		return (FALSE);
+	if (redir_count == 1)
+		return (handle_one_redir(msh, redir_pos, redir_type));
+	if (redir_count > 1)
+		return (handle_multip_redir(msh, redir_count, redir_pos, redir_type));
 	return (FALSE);
 }

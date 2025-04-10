@@ -6,30 +6,62 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:14:01 by lauriago          #+#    #+#             */
-/*   Updated: 2025/04/03 19:30:37 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/04/10 01:23:14 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static int	is_numeric_arg(char *str)
+static void	is_overflow(t_msh *msh, char *str)
+{
+	int			i;
+	int			sign;
+	long long	num;
+	long long	prev;
+
+	i = 0;
+	sign = 1;
+	num = 0;
+	while (str[i] == ' ' || str[i] == '\t')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+		sign = (str[i++] == '-') * -2 + 1;
+	while (str[i] && str[i] >= '0' && str[i] <= '9')
+	{
+		prev = num;
+		num = num * 10 + (str[i++] - '0');
+		if (num < prev)
+			handle_exit_error(msh, str);
+	}
+	if ((sign == 1 && num < 0) || (sign == -1 && num > 0))
+		handle_exit_error(msh, str);
+}
+
+static void	is_numeric_arg(t_msh *msh, char *str)
 {
 	int	i;
 
 	i = 0;
 	if (!str || !*str)
-		return (FALSE);
-	if (str[i] == '-' || str[i] == '+')
+		handle_exit_error(msh, str);
+	while (str[i] == ' ' || str[i] == '\t')
 		i++;
 	if (!str[i])
-		return (FALSE);
-	while (str[i])
+		handle_exit_error(msh, str);
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (!ft_isdigit(str[i]))
-			return (FALSE);
+		if (str[i + 1] == '-' || str[i + 1] == '+')
+			handle_exit_error(msh, str);
 		i++;
 	}
-	return (TRUE);
+	if (!str[i])
+		handle_exit_error(msh, str);
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			handle_exit_error(msh, str);
+		i++;
+	}
 }
 
 static void	handle_numeric_arg(t_msh *msh, char *arg)
@@ -56,31 +88,22 @@ static void	handle_numeric_arg(t_msh *msh, char *arg)
 	msh->last_exit_code = (exit_code % 256 + 256) % 256;
 }
 
-static void	handle_exit_error(t_msh *msh, char *arg)
-{
-	ft_fd_printf(2, "minishell: exit: %s: numeric argument required\n", arg);
-	if (msh->env)
-		free_structs(msh->env, msh->tkns, msh->mpip);
-	msh->last_exit_code = 2;
-	exit(2);
-}
-
 void	ft_exit(t_msh *msh)
 {
 	if (!msh)
 		exit(1);
-	ft_fd_printf(2, "exit\n");
-	if (!msh || !msh->tkns[1].cmd)
+	if (!msh->tkns || !msh->tkns->args || !msh->tkns->args[1])
 		exit(msh->last_exit_code);
-	if (!is_numeric_arg(msh->tkns[1].cmd))
-		handle_exit_error(msh, msh->tkns[1].cmd);
-	if (msh->tkns[2].cmd)
+	is_numeric_arg(msh, msh->tkns->args[1]);
+	is_overflow(msh, msh->tkns->args[1]);
+	if (msh->tkns->args[2])
 	{
-		ft_fd_printf(2, "minishell: exit: too many arguments\n");
+		write(STDERR_FILENO, "exit: too many arguments\n", 25);
 		msh->end_sig = 1;
 		return ;
 	}
-	handle_numeric_arg(msh, msh->tkns[1].cmd);
+	handle_numeric_arg(msh, msh->tkns->args[1]);
+	write(STDERR_FILENO, "exit\n", 5);
 	free_structs(msh->env, msh->tkns, msh->mpip);
 	exit(msh->last_exit_code);
 }

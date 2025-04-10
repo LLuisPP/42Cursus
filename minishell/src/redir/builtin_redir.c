@@ -12,7 +12,6 @@
 
 #include "minishell.h"
 
-// Preparación de STDIN_FIELNO en caso builtins 
 static int	manage_builting_redir_out(t_msh *msh, t_redir type)
 {
 	msh->mpip->backup_in = 0;
@@ -25,7 +24,6 @@ static int	manage_builting_redir_out(t_msh *msh, t_redir type)
 	return (TRUE);
 }
 
-// Función que maneja las redirecciones usando builtings 
 int	manage_builting_redir(t_msh *msh, t_redir type)
 {
 	int	file_pos;

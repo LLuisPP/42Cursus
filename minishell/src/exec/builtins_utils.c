@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   token_tools.c                                      :+:      :+:    :+:   */
+/*   builtins_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leegon <leegon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 09:19:26 by lprieto-          #+#    #+#             */
-/*   Updated: 2024/11/13 17:33:22 by leegon           ###   ########.fr       */
+/*   Created: 2025/04/10 10:18:04 by lprieto-          #+#    #+#             */
+/*   Updated: 2025/04/10 10:18:07 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	is_operator(char c)
+void	cmd_not_found(t_msh *msh)
 {
-	return (c == '<' || c == '>');
-}
-
-int	is_pipe(char c)
-{
-	return (c == '|');
-}
-
-int	is_whitespace(char c)
-{
-	return (c == ' ' || c == '\t' || c == '\n');
-}
-
-int	is_quote(char c)
-{
-	return (c == '\"' || c == '\'');
+	ft_fd_printf(2, "%s : command not found\n", msh->tkns->cmd);
+	msh->last_exit_code = 127;
 }

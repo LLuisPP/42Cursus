@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/27 07:16:06 by lprieto-          #+#    #+#              #
-#    Updated: 2025/04/04 10:35:38 by lprieto-         ###   ########.fr        #
+#    Updated: 2025/04/05 10:42:49 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,20 +22,22 @@ RM = rm -rf
  
 # **************************************************************************** #
 
-BUILTINS = cd cd_utils echo echo_utils env exit export export_utils pwd unset
+BUILTINS = cd cd_utils cd_utils2 echo echo_utils env exit export export_utils \
+		pwd unset export_utils2
 
 ENV = env varenv
 
-EXEC = builtins executor executor_utils exec_redir pipes
+EXEC = builtins builtins_utils executor executor_utils exec_redir pipes
 
 HEREDOC = heredoc
 
-MAIN = minishell init signals
+MAIN = minishell init signals signals2
 
 PARSER = lexer parser quote_expander quote_lexer quote_lexer_tools \
 		token_tools tokenizer
 
-REDIR = builtin_redir input_redir output_redir redirections
+REDIR = builtin_redir input_redir output_redir redirections redir_tools \
+		multiple_redir
 
 TOOLS = err_handle free
 

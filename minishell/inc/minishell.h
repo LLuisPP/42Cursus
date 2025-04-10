@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:26:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/04/04 10:21:29 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/04/10 00:59:46 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ struct	s_tokenizer
 	t_tokty				type;
 	int					is_heredoc;
 	char				*heredoc_delim;
+	int					count_redir;
 	int					redir_pos;
 	t_redir				redir_type;
 	struct s_tokenizer	*prev;
@@ -154,11 +155,12 @@ char	*built_abspath(char *relative_path, char *pwd);
 /*static char	*go_back_dir(char *pwd)*/
 /*static char	*handle_multiple_back(char *path, t_msh *msh)*/
 char	*make_relative(char *arg, t_msh *msh);
+void	expand_cd_home(t_msh *msh);
 
 /* ----------------------------------------------------------------------cd.c */
 /*static void	handle_cd_minus(t_msh *msh)*/
 /*static void	cd_home(t_msh *msh)*/
-/*static void	update_pwd_opwd(t_msh *msh, char *new_path)*/
+void	update_pwd_opwd(t_msh *msh, char *new_path);
 void	handle_cd_path(t_msh *msh);
 void	ft_cd(t_msh *msh, int num_cmd);
 
@@ -166,6 +168,7 @@ void	ft_cd(t_msh *msh, int num_cmd);
 int		echo_has_2_expand(char *str);
 void	handle_echo_quotes(t_msh *msh, char k, int i);
 void	print_echo_argument(t_msh *msh, char *arg, int i, int is_last_arg);
+void	change_to_oldpwd(t_msh *msh, char *tmp_oldpwd, char *tmp_pwd);
 
 /* --------------------------------------------------------------------echo.c */
 /*static int	is_n_flag(char *str)*/
@@ -178,7 +181,6 @@ int		ft_env(t_msh *msh);
 /* --------------------------------------------------------------------exit.c */
 /*static int	is_numeric_arg(char *str)*/
 /*static void	handle_numeric_arg(t_msh *msh, char *arg)*/
-/*static void	handle_exit_error(t_msh *msh, char *arg)*/
 void	ft_exit(t_msh *msh);
 
 /* ------------------------------------------------------------------export.c */
@@ -281,11 +283,13 @@ void	shell_loop(t_msh *msh);
 
 /* -----------------------------------------------------------------signals.c */
 void	handle_sigint(int sig);
-void	handle_sigquit(int sig);
+// void	handle_sigquit(int sig);
 void	init_signals(void);
+void	restore_signals(void);
+
+/* ----------------------------------------------------------------signals2.c */
 void	handle_sigint_heredoc(int sig);
 void	handle_heredoc_signals(void);
-void	restore_signals(void);
 
 /* ************************************************************************** */
 /* ******************************* [ PARSER ] ******************************* */
@@ -310,7 +314,7 @@ void	ft_expander(char *str, t_msh *msh);
 
 /* -------------------------------------------------------quote_lexer_tools.c */
 char	*remove_quotes(char *str, char quote_type);
-// char	*search_value(t_msh *msh, char *name); --> REPETIDO!!
+// char	*search_value(t_msh *msh, char *name);
 
 /* -------------------------------------------------------------quote_lexer.c */
 t_quote	*init_quotes(void);
@@ -325,10 +329,9 @@ int		is_whitespace(char c);
 int		is_operator(char c);
 
 /* ---------------------------------------------------------------tokenizer.c */
-int		size_token(char *input, t_tok *tok);
+int		size_token(char *input);
 char	*create_token(char *input, int len, t_tok *tok);
 void	ft_token(char *input, t_tok *tok);
-//static void	print_error_msg(char c);
 
 /* ************************************************************************** */
 /* ******************************* [ REDIR ] ******************************** */
@@ -343,10 +346,21 @@ int		manage_builting_redir(t_msh *msh, t_redir type);
 int		handle_input_file(t_msh *msh, char *filename, t_redir type);
 void	handle_redir_in(t_msh *msh, t_redir type);
 
+/* ----------------------------------------------------------multiple_redir.c */
+void	open_files(t_msh *msh, t_redir type, char *file);
+int		process_redirection(t_msh *msh, t_redir type, int current_pos);
+void	handle_last_redirection(t_msh *msh, int is_last_redir, t_redir type);
+
 /* ------------------------------------------------------------output_redir.c */
 // static void	error_fd(char *filename)
 int		handle_output_file(t_msh *msh, char *filename, t_redir type);
 void	restore_redirections(t_msh *msh);
+
+/* -------------------------------------------------------------redir_tools.c */
+int		count_redir(t_msh *msh);
+int		handle_one_redir(t_msh *msh, int redir_pos, t_redir	redir_type);
+// static int	find_next_redir(t_msh *msh, int start_pos)
+int		handle_multip_redir(t_msh *msh, int count, int redir_pos, t_redir type);
 
 /* ------------------------------------------------------------redirections.c */
 // static void	print_error_msg(char c)
@@ -362,11 +376,14 @@ int		redir_checker(t_msh *msh);
 /* ************************************************************************** */
 
 /* --------------------------------------------------------------err_hanlde.c */
+void	handle_exit_error(t_msh *msh, char *arg);
 void	handle_cd_error(t_msh *msh, int error_type);
 int		ft_err(t_msh *msh, int err_code);
 void	handle_exit_status(t_msh *msh);
+void	print_error_msg(char c);
 
 /* --------------------------------------------------------------------free.c */
+void	free_tmp_paths(char *tmp_oldpwd, char *tmp_pwd);
 void	ft_free_array(char **array);
 void	free_env(t_env *env);
 void	free_tok(t_tok *tok);

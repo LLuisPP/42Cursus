@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quote_lexer_tools.c                                :+:      :+:    :+:   */
+/*   ms_b_export_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 20:12:17 by lauriago          #+#    #+#             */
-/*   Updated: 2025/04/08 08:06:38 by lprieto-         ###   ########.fr       */
+/*   Created: 2024/11/05 10:40:25 by lprieto-          #+#    #+#             */
+/*   Updated: 2024/11/05 10:40:44 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-char	*remove_quotes(char *str, char quote_type)
+void	print_export_vars(t_msh *msh)
 {
-	char	*result;
-	int		i;
-	int		j;
+	int	i;
 
 	i = 0;
-	j = 0;
-	result = malloc(sizeof(char) * (ft_strlen(str) + 1));
-	if (!result)
-		return (NULL);
-	while (str[i])
+	while (msh->env->names[i])
 	{
-		if (str[i] != quote_type)
-			result[j++] = str[i];
+		ft_fd_printf(1, "declare -x %s", msh->env->names[i]);
+		if (msh->env->values[i][0])
+			ft_fd_printf(1, "=\"%s\"", msh->env->values[i]);
+		ft_fd_printf(1, "\n");
 		i++;
 	}
-	result[j] = '\0';
-	return (result);
 }

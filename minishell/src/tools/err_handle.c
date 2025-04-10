@@ -6,11 +6,22 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:32:36 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/03/27 10:02:09 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/04/10 00:58:04 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+void	handle_exit_error(t_msh *msh, char *arg)
+{
+	write(STDERR_FILENO, "exit: ", 6);
+	write(STDERR_FILENO, arg, ft_strlen(arg));
+	write(STDERR_FILENO, ": numeric argument required\n", 29);
+	if (msh->env)
+		free_structs(msh->env, msh->tkns, msh->mpip);
+	msh->last_exit_code = 2;
+	exit(2);
+}
 
 void	handle_cd_error(t_msh *msh, int error_type)
 {
@@ -19,7 +30,8 @@ void	handle_cd_error(t_msh *msh, int error_type)
 	else if (error_type == ENOTDIR)
 		ft_fd_printf(2, "cd: %s: Not a directory\n", msh->tkns->args[1]);
 	else
-		ft_fd_printf(2, "cd: %s: No such file or directory\n", msh->tkns->args[1]);
+		ft_fd_printf(2, "cd: %s: No such file or directory\n",
+			msh->tkns->args[1]);
 	msh->last_exit_code = 1;
 }
 
@@ -41,4 +53,10 @@ void	handle_exit_status(t_msh *msh)
 	code = ft_itoa(msh->last_exit_code);
 	ft_putstr(code);
 	free(code);
+	msh->last_exit_code = 0;
+}
+
+void	print_error_msg(char c)
+{
+	ft_fd_printf(2, "minishell: syntax error near unexpected token `%c'\n", c);
 }

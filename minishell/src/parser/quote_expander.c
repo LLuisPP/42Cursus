@@ -12,7 +12,6 @@
 
 #include "minishell.h"
 
-// Calculates the size of the variable
 int	ft_varlen(char *str, int start)
 {
 	int	len;
@@ -47,7 +46,6 @@ char	*copy_var(char *str, int i, int len)
 	return (result);
 }
 
-// Imprime valor de variable de entorno si existe
 void	print_variable(char *var, t_msh *msh)
 {
 	char	*env_value;
@@ -57,8 +55,6 @@ void	print_variable(char *var, t_msh *msh)
 		ft_putstr(env_value);
 }
 
-// Expande una variable, buscando si la variable dada como parametro existe
-// si existe la expande, si no, pues no hace na'
 void	process_variable(char *tmp, int *i, t_msh *msh)
 {
 	int		varlen;

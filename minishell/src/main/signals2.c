@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quote_lexer_tools.c                                :+:      :+:    :+:   */
+/*   signals2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 20:12:17 by lauriago          #+#    #+#             */
-/*   Updated: 2025/04/08 08:06:38 by lprieto-         ###   ########.fr       */
+/*   Created: 2025/04/05 10:41:39 by lprieto-          #+#    #+#             */
+/*   Updated: 2025/04/05 11:00:30 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-char	*remove_quotes(char *str, char quote_type)
+void	handle_sigint_heredoc(int sig)
 {
-	char	*result;
-	int		i;
-	int		j;
+	(void)sig;
+	write(1, "\n", 1);
+	exit(130);
+}
 
-	i = 0;
-	j = 0;
-	result = malloc(sizeof(char) * (ft_strlen(str) + 1));
-	if (!result)
-		return (NULL);
-	while (str[i])
-	{
-		if (str[i] != quote_type)
-			result[j++] = str[i];
-		i++;
-	}
-	result[j] = '\0';
-	return (result);
+void	handle_heredoc_signals(void)
+{
+	signal(SIGINT, handle_sigint_heredoc);
+	signal(SIGQUIT, SIG_IGN);
 }

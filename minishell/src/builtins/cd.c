@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 14:41:10 by lauriago          #+#    #+#             */
-/*   Updated: 2025/02/19 02:12:49 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/04/10 01:14:54 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,43 +14,77 @@
 
 static void	handle_cd_minus(t_msh *msh)
 {
-	char	*new_path;
+	char	*tmp_oldpwd;
+	char	*tmp_pwd;
 
 	if (!msh->tkns->args[1])
 		return ;
 	if (!msh->env->old_pwd)
 	{
 		ft_fd_printf(2, "cd: OLDPWD not set\n");
+		msh->last_exit_code = 1;
 		return ;
 	}
-	new_path = ft_strdup(msh->env->old_pwd);
-	if (chdir(msh->env->old_pwd) == -1)
-		perror("cd");
-	else
+	tmp_oldpwd = ft_strdup(msh->env->old_pwd);
+	tmp_pwd = ft_strdup(msh->env->pwd);
+	if (!tmp_oldpwd || !tmp_pwd)
 	{
-		msh->env->old_pwd = update_env(msh, "OLDPWD", msh->env->pwd);
-		msh->env->pwd = update_env(msh, "PWD", new_path);
-		ft_fd_printf(1, "%s\n", new_path);
+		free_tmp_paths(tmp_oldpwd, tmp_pwd);
+		ft_fd_printf(2, "%s", E_MEMASF);
+		return ;
 	}
+	change_to_oldpwd(msh, tmp_oldpwd, tmp_pwd);
+	free_tmp_paths(tmp_oldpwd, tmp_pwd);
 }
 
 static void	cd_home(t_msh *msh)
 {
-	if (!msh->env->home)
+	char	*tmp_pwd;
+	char	*home_path;
+
+	home_path = search_value(msh, "HOME");
+	if (!home_path)
+	{
 		ft_fd_printf(2, "cd: HOME not set\n");
-	if (chdir(msh->env->home) == -1)
+		msh->last_exit_code = 1;
+		return ;
+	}
+	if (chdir(home_path) == -1)
 		perror("cd");
 	else
 	{
-		msh->env->old_pwd = update_env(msh, "OLDPWD", msh->env->pwd);
-		msh->env->pwd = update_env(msh, "PWD", msh->env->home);
+		tmp_pwd = ft_strdup(msh->env->pwd);
+		if (!tmp_pwd)
+			return ;
+		msh->env->old_pwd = update_env(msh, "OLDPWD", tmp_pwd);
+		msh->env->pwd = update_env(msh, "PWD", home_path);
+		free(tmp_pwd);
 	}
 }
 
-static void	update_pwd_opwd(t_msh *msh, char *new_path)
+void	update_pwd_opwd(t_msh *msh, char *new_path)
 {
-	msh->env->old_pwd = update_env(msh, "OLDPWD", msh->env->pwd);
-	msh->env->pwd = update_env(msh, "PWD", new_path);
+	char	*tmp_pwd;
+	char	*tmp_new;
+	char	*res;
+
+	tmp_pwd = ft_strdup(msh->env->pwd);
+	tmp_new = ft_strdup(new_path);
+	if (!tmp_pwd || !tmp_new)
+	{
+		free(tmp_pwd);
+		free(tmp_new);
+		ft_fd_printf(2, "%s", E_MEMASF);
+		return ;
+	}
+	res = update_env(msh, "OLDPWD", tmp_pwd);
+	if (res != tmp_pwd)
+		free(tmp_pwd);
+	msh->env->old_pwd = res;
+	res = update_env(msh, "PWD", tmp_new);
+	if (res != tmp_new)
+		free(tmp_new);
+	msh->env->pwd = res;
 }
 
 void	handle_cd_path(t_msh *msh)
@@ -90,11 +124,19 @@ void	ft_cd(t_msh *msh, int num_cmd)
 			return ;
 		if (msh->tkns->args[1][0] == '-' && msh->tkns->args[1][1] == '\0')
 			handle_cd_minus(msh);
-		else if (msh->tkns->args[1][0] == '~' && msh->tkns->args[1][1] == '\0')
-			cd_home(msh);
+		else if (msh->tkns->args[1][0] == '~')
+		{
+			if (msh->tkns->args[1][1] == '\0')
+				cd_home(msh);
+			else if (msh->tkns->args[1][1] == '/')
+				expand_cd_home(msh);
+		}
 		else
 			handle_cd_path(msh);
 	}
 	else if (num_cmd == 3)
-		handle_cd_path(msh);
+	{
+		ft_fd_printf(2, "minishell: cd: too many arguments\n");
+		msh->last_exit_code = 1;
+	}
 }

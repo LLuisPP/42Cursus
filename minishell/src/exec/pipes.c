@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 16:49:04 by lauriago          #+#    #+#             */
-/*   Updated: 2025/04/03 19:49:08 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/04/07 19:05:29 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,11 @@ static void	exec_command(t_msh *msh, int i)
 		cmd_not_found(msh);
 	else
 	{
-		execve(path, msh->cmds[i].args, msh->envs);
-		free(path);
-		ft_fd_printf(2, E_EXECVE);
+		if (execve(path, msh->cmds[i].args, msh->envs) == -1)
+		{
+			free(path);
+			ft_fd_printf(2, E_EXECVE);
+		}
 	}
 	exit(EXIT_FAILURE);
 }

@@ -39,11 +39,18 @@ static int	validate_pipe_syntax(t_tok *tok)
 
 static void	init_command_struct(t_cmd *cmd)
 {
+	int	i;
+
+	i = 0;
 	cmd->args = malloc(sizeof(char *) * MAX_ARGS);
 	if (!cmd->args)
 		return ;
+	while (i < MAX_ARGS)
+	{
+		cmd->args[i] = NULL;
+		i++;
+	}
 	cmd->arg_count = 0;
-	cmd->args[0] = NULL;
 }
 
 static int	split_commands(t_tok *tok, t_cmd *cmds)

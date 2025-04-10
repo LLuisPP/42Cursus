@@ -6,16 +6,24 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:12:48 by lauriago          #+#    #+#             */
-/*   Updated: 2025/03/28 11:14:10 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/04/09 21:29:38 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	cmd_not_found(t_msh *msh)
+static void	reset_cmd_and_args(t_msh *msh)
 {
-	ft_fd_printf(2, "Error: %s : command not found\n", msh->tkns->cmd);
-	msh->last_exit_code = 127;
+	if (msh->tkns->cmd)
+	{
+		free(msh->tkns->cmd);
+		msh->tkns->cmd = NULL;
+	}
+	if (msh->tkns->args)
+	{
+		ft_free_array(msh->tkns->args);
+		msh->tkns->args = NULL;
+	}
 }
 
 void	check_tokens(char *input, t_msh *msh)
@@ -24,6 +32,7 @@ void	check_tokens(char *input, t_msh *msh)
 
 	if (!input || !*input)
 		return ;
+	reset_cmd_and_args(msh);
 	ft_token(input, msh->tkns);
 	if (!msh->tkns->args || !msh->tkns->args[0])
 		return ;
@@ -67,7 +76,7 @@ void	cleanup_commands(t_msh *msh)
 
 int	is_builtin(char	*token)
 {
-	static char	*builtins[10];
+	static char	*builtins[8];
 	int			i;
 
 	builtins[0] = "echo";
@@ -77,9 +86,7 @@ int	is_builtin(char	*token)
 	builtins[4] = "exit";
 	builtins[5] = "export";
 	builtins[6] = "unset";
-	builtins[7] = "test";
-	builtins[8] = "test2";
-	builtins[9] = NULL;
+	builtins[7] = NULL;
 	i = 0;
 	while (builtins[i])
 	{
@@ -106,8 +113,6 @@ void	exc_cmd(t_msh *msh, int count_tok)
 		ft_export(msh, count_tok);
 	else if (ft_strcmp(msh->tkns->cmd, "unset") == 0)
 		ft_unset(msh, count_tok);
-	else if (ft_strcmp(msh->tkns->cmd, "test") == 0)
-		ft_fd_printf(1, "Envarcount: %d\n", msh->env_var_count);
 	else
 		return ;
 }

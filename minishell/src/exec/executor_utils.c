@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   executor_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lauriago <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 11:47:32 by lauriago          #+#    #+#             */
-/*   Updated: 2025/02/12 11:47:45 by lauriago         ###   ########.fr       */
+/*   Updated: 2025/04/09 21:28:56 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-// Busca la variable PATH en el env
 static char	**get_path_dirs(char **envs)
 {
 	int		i;
@@ -27,7 +26,6 @@ static char	**get_path_dirs(char **envs)
 	return (NULL);
 }
 
-// 
 static char	*check_absolute_path(char *cmd)
 {
 	if (!cmd)
@@ -59,7 +57,6 @@ static char	*try_path(char *dir, char *cmd)
 	return (NULL);
 }
 
-// make the path of executable
 char	*make_path(char *cmd, t_msh *msh)
 {
 	char	**paths;
