@@ -32,7 +32,7 @@ int	handle_input_file(t_msh *msh, char *filename, t_redir type)
 	if (fd == -1)
 	{
 		error_fd(filename);
-		msh->last_exit_code = 1;
+		msh->last_exit_code = 2;
 		return (FALSE);
 	}
 	if (dup2(fd, STDIN_FILENO) == -1)

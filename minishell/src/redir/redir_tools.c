@@ -37,6 +37,11 @@ int	count_redir(t_msh *msh)
 
 int	handle_one_redir(t_msh *msh, int redir_pos, t_redir	redir_type)
 {
+	if (redir_pos == 0)
+	{
+		open_files(msh, redir_type, msh->tkns->args[redir_pos + 1]);
+		return (TRUE);
+	}
 	if (redir_type == REDIR_ERROR || redir_type == NO_REDIR)
 		return (FALSE);
 	if (redir_type == REDIR_OUT || redir_type == REDIR_APPEND)
@@ -55,7 +60,7 @@ int	handle_one_redir(t_msh *msh, int redir_pos, t_redir	redir_type)
 	return (TRUE);
 }
 
-static int	find_next_redir(t_msh *msh, int start_pos)
+int	find_next_redir(t_msh *msh, int start_pos)
 {
 	int	i;
 
@@ -71,31 +76,4 @@ static int	find_next_redir(t_msh *msh, int start_pos)
 		i++;
 	}
 	return (-1);
-}
-
-int	handle_multip_redir(t_msh *msh, int count, int redir_pos, t_redir type)
-{
-	int	i;
-	int	current_pos;
-	int	is_last_redir;
-
-	i = 0;
-	current_pos = redir_pos;
-	is_last_redir = FALSE;
-	while (i < count)
-	{
-		msh->tkns->redir_pos = current_pos;
-		if (process_redirection(msh, type, current_pos) == FALSE)
-			return (FALSE);
-		current_pos = find_next_redir(msh, current_pos + 2);
-		if (current_pos == -1)
-		{
-			is_last_redir = TRUE;
-			break ;
-		}
-		type = check_syntax_redir(msh, msh->tkns->args, current_pos);
-		i++;
-	}
-	handle_last_redirection(msh, is_last_redir, type);
-	return (TRUE);
 }

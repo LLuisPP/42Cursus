@@ -6,11 +6,17 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:12:48 by lauriago          #+#    #+#             */
-/*   Updated: 2025/04/08 09:48:54 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/04/19 19:42:49 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static void	free_dirs(char *cwd, char *old_pwd)
+{
+	free(old_pwd);
+	free(cwd);
+}
 
 char	*search_value(t_msh *msh, char *var)
 {
@@ -55,22 +61,30 @@ char	*manage_cd_var(t_msh *msh, char *arg)
 int	cd_varman(t_msh *msh, char *var_name)
 {
 	char	*value;
-	char	*current_pwd;
+	char	*old_pwd;
+	char	*cwd;
 
 	if (!var_name || !msh)
 		return (FALSE);
 	value = search_value(msh, var_name);
 	if (!value)
 		return (FALSE);
-	if (chdir(value) != -1)
-	{
-		current_pwd = getcwd(NULL, 0);
-		msh->env->old_pwd = update_env(msh, "OLDPWD", msh->env->pwd);
-		msh->env->pwd = update_env(msh, "PWD", current_pwd);
-		free(current_pwd);
-		return (TRUE);
-	}
-	return (FALSE);
+	old_pwd = msh->env->pwd;
+	if (chdir(value) == -1)
+		return (FALSE);
+	cwd = getcwd(NULL, 0);
+	if (!cwd)
+		return (FALSE);
+	update_env(msh, "OLDPWD", old_pwd);
+	update_env(msh, "PWD", cwd);
+	if (msh->env->old_pwd)
+		free(msh->env->old_pwd);
+	msh->env->old_pwd = ft_strdup(old_pwd);
+	if (msh->env->pwd)
+		free(msh->env->pwd);
+	msh->env->pwd = ft_strdup(cwd);
+	free_dirs(cwd, old_pwd);
+	return (TRUE);
 }
 
 char	*update_env(t_msh *msh, char *name, char *value)

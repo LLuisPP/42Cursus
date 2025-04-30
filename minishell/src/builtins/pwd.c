@@ -14,36 +14,23 @@
 
 int	ft_pwd(t_msh *msh)
 {
-	char	*pwdpath;
-	char	*tmp;
-	int		status;
+	char	*dir;
 
-	status = 0;
-	pwdpath = getcwd(NULL, 0);
-	if (!pwdpath)
-		return (FALSE);
-	tmp = ft_strdup(pwdpath);
-	if (!tmp)
+	(void)msh;
+	dir = ft_calloc(PATH_MAX, 1);
+	if (!dir)
+		exit(FALSE);
+	if (getcwd(dir, PATH_MAX) == NULL)
 	{
-		free(pwdpath);
+		free(dir);
 		return (FALSE);
 	}
-	update_env(msh, "PWD", tmp);
-	if (ft_fd_printf(1, "%s\n", pwdpath) < 0)
-		status = -1;
-	else
-		status = TRUE;
-	free(tmp);
-	free(pwdpath);
-	return (status);
-}
-
-int	builtin_redir_check(t_msh *msh)
-{
-	if (ft_strcmp(msh->tkns->args[1], ">") == 0
-		|| ft_strcmp(msh->tkns->args[1], ">>") == 0
-		|| ft_strcmp(msh->tkns->args[1], "<") == 0
-		|| ft_strcmp(msh->tkns->args[1], "<<") == 0)
-		return (TRUE);
-	return (FALSE);
+	dir = getcwd(dir, PATH_MAX);
+	printf("%s\n", dir);
+	if (dir)
+	{
+		free(dir);
+		dir = NULL;
+	}
+	return (TRUE);
 }

@@ -67,6 +67,10 @@ void	free_tok(t_tok *tok)
 			ft_free_array(tok->args);
 		if (tok->heredoc_delim)
 			free(tok->heredoc_delim);
+		if (tok->typepip)
+			free(tok->typepip);
+		if (tok->countpip)
+			free(tok->countpip);
 		free(tok);
 		tok = tmp;
 	}

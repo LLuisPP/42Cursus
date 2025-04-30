@@ -62,7 +62,7 @@ void	ft_echo(t_msh *msh, int num_cmd)
 		return ;
 	}
 	n_flag = check_n_flags(msh, &i);
-	while (i < num_cmd && has_redirection(msh->tkns))
+	while (i < num_cmd && has_redirection(msh, msh->tkns))
 	{
 		is_last_arg = num_cmd - 1;
 		print_echo_argument(msh, msh->tkns->args[i], i, is_last_arg);

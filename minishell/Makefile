@@ -6,16 +6,15 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/27 07:16:06 by lprieto-          #+#    #+#              #
-#    Updated: 2025/04/05 10:42:49 by lprieto-         ###   ########.fr        #
+#    Updated: 2025/04/15 23:09:17 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
 CC = gcc -g
-LDFLAGS = -L/usr/lib/x86_64-linux-gnu -lreadline #   LINUX    #
-#LDFLAGS = -L/usr/local/opt/readline/lib -lreadline #   MACOS   #
-CFLAGS = -Wall -Wextra -Werror -MMD #-fsanitize=address
+LDFLAGS = -L/usr/lib/x86_64-linux-gnu -lreadline
+CFLAGS = -Wall -Wextra -Werror -MMD
 
 AR = ar -rcs
 RM = rm -rf
@@ -31,13 +30,13 @@ EXEC = builtins builtins_utils executor executor_utils exec_redir pipes
 
 HEREDOC = heredoc
 
-MAIN = minishell init signals signals2
+MAIN = minishell init signals
 
 PARSER = lexer parser quote_expander quote_lexer quote_lexer_tools \
-		token_tools tokenizer
+		token_tools tokenizer lexer_redir lexer_syntax
 
 REDIR = builtin_redir input_redir output_redir redirections redir_tools \
-		multiple_redir
+		multiple_redir type_handler
 
 TOOLS = err_handle free
 
@@ -65,7 +64,7 @@ DEPS = $(OBJS:.o=.d)
 all: makelib $(OBJ_PATH) $(NAME)
 
 makelib: 
-	$(MAKE) --silent -C libft  
+	$(MAKE) -C libft  
 
 $(OBJ_PATH):
 	mkdir -p $(OBJ_PATH)
@@ -80,16 +79,16 @@ $(OBJ_PATH)%.o: %.c Makefile libft/libft.a
 
 clean :
 	$(RM) $(OBJ_PATH)
-	$(MAKE) --silent -C libft clean
+	$(MAKE) -C libft clean
 
 fclean :
 	$(RM) $(NAME) $(OBJ_PATH)
-	$(MAKE) --silent -C libft fclean
+	$(MAKE) -C libft fclean
 
 re :
-	make fclean --silent
-	make all --silent
-	$(MAKE) all --silent -C libft
+	make fclean
+	make all
+	$(MAKE) all -C libft
 
 .PHONY: all, clean, fclean, re
 

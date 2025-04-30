@@ -47,7 +47,7 @@ int	ft_env(t_msh *msh)
 		return (FALSE);
 	}
 	if (msh->tkns->args[1] && ft_strcmp(msh->tkns->args[1], "env") != 0
-		&& has_redirection(msh->tkns) == -1)
+		&& has_redirection(msh, msh->tkns) == -1)
 	{
 		ft_fd_printf(2, "env: '%s': No such file or directory\n",
 			msh->tkns->args[1]);

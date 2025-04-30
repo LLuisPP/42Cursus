@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 15:45:27 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/04/03 19:52:31 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/04/15 23:17:10 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static int	has_pipe(char *token)
 {
-	return (token && ft_strcmp(token, "|") == 0);
+	return (ft_strcmp(token, "|") == 0);
 }
 
-static int	validate_pipe_syntax(t_tok *tok)
+static int	validate_pipe_syntax(t_msh *msh, t_tok *tok)
 {
 	int	i;
 
@@ -26,15 +26,16 @@ static int	validate_pipe_syntax(t_tok *tok)
 	{
 		if (has_pipe(tok->args[i]))
 		{
-			if (i == 0 || !tok->args[i + 1])
+			if (!tok->args[i + 1])
 			{
 				ft_fd_printf(2, E_PIP_SNTX);
-				return (TRUE);
+				msh->last_exit_code = 2;
+				return (FALSE);
 			}
 		}
 		i++;
 	}
-	return (1);
+	return (TRUE);
 }
 
 static void	init_command_struct(t_cmd *cmd)
@@ -82,14 +83,14 @@ static int	split_commands(t_tok *tok, t_cmd *cmds)
 	return (cmd_idx + 1);
 }
 
-int	parse_and_validate_commands(t_tok *tok, t_cmd **commands)
+int	parse_and_validate_commands(t_msh *msh, t_tok *tok, t_cmd **commands)
 {
 	int		cmd_count;
 	t_cmd	*cmds;
 	int		i;
 
-	if (!validate_pipe_syntax(tok))
-		return (TRUE);
+	if (!validate_pipe_syntax(msh, tok))
+		return (FALSE);
 	cmd_count = 1;
 	i = 0;
 	while (tok->args[i])

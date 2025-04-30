@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 15:35:57 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/04/08 09:21:49 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/04/16 00:08:18 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,26 +30,19 @@ int	size_token(char *input)
 	int	i;
 
 	i = 0;
-	while (input[i] && !is_whitespace(input[i]))
+	if (is_operator(input[i]) && input[i] == input[i + 1])
+		return (2);
+	if (is_operator(input[i]))
+		return (1);
+	if (is_pipe(input[i]))
+		return (1);
+	while (input[i] && !is_whitespace(input[i]) && !is_operator(input[i])
+		&& !is_pipe(input[i]))
 	{
-		if (is_operator(input[i]))
-		{
-			if (is_operator(input[i + 1]))
-				i += 1;
-			if (i == 0)
-				return (TRUE);
-		}
-		if (is_pipe(input[i]))
-		{
-			if (i == 0)
-				return (TRUE);
-		}
 		if (is_quote(input[i]))
-		{
 			i = process_quote(input, i);
-			continue ;
-		}
-		i++;
+		else
+			i++;
 	}
 	return (i);
 }

@@ -33,3 +33,16 @@ void	restore_signals(void)
 	signal(SIGQUIT, SIG_IGN);
 	rl_catch_signals = 0;
 }
+
+void	handle_sigint_heredoc(int sig)
+{
+	(void)sig;
+	write(1, "\n", 1);
+	exit(130);
+}
+
+void	handle_heredoc_signals(void)
+{
+	signal(SIGINT, handle_sigint_heredoc);
+	signal(SIGQUIT, SIG_IGN);
+}

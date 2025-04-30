@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:32:36 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/04/10 00:58:04 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/04/17 18:44:23 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,10 @@ void	handle_exit_error(t_msh *msh, char *arg)
 {
 	write(STDERR_FILENO, "exit: ", 6);
 	write(STDERR_FILENO, arg, ft_strlen(arg));
-	write(STDERR_FILENO, ": numeric argument required\n", 29);
-	if (msh->env)
-		free_structs(msh->env, msh->tkns, msh->mpip);
+	write(STDERR_FILENO, ": numeric argument required\n", 28);
+	free_structs(msh->env, msh->tkns, msh->mpip);
 	msh->last_exit_code = 2;
-	exit(2);
+	exit(255);
 }
 
 void	handle_cd_error(t_msh *msh, int error_type)
@@ -56,7 +55,8 @@ void	handle_exit_status(t_msh *msh)
 	msh->last_exit_code = 0;
 }
 
-void	print_error_msg(char c)
+void	print_error_msg(t_msh *msh, char c)
 {
 	ft_fd_printf(2, "minishell: syntax error near unexpected token `%c'\n", c);
+	msh->last_exit_code = 2;
 }

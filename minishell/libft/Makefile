@@ -64,7 +64,7 @@ fclean :
 
 re :
 	$(RM) $(NAME) $(OBJS)
-	make all --silent
+	make all
 
 .PHONY: all, clean, fclean, re
 

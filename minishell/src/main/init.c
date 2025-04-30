@@ -35,8 +35,8 @@ int	env_alloc_struct(t_env **env, t_msh *msh)
 		free_env(*env);
 		return (FALSE);
 	}
-	(*env)->names[env_count] = NULL;
-	(*env)->values[env_count] = NULL;
+	(*env)->names[0] = NULL;
+	(*env)->values[0] = NULL;
 	return (TRUE);
 }
 
@@ -55,6 +55,8 @@ int	tok_alloc_struct(t_tok **tok)
 	(*tok)->heredoc_delim = NULL;
 	(*tok)->redir_pos = -1;
 	(*tok)->redir_type = NO_REDIR;
+	(*tok)->countpip = NULL;
+	(*tok)->typepip = NULL;
 	(*tok)->prev = NULL;
 	(*tok)->next = NULL;
 	return (TRUE);

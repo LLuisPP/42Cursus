@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 16:49:04 by lauriago          #+#    #+#             */
-/*   Updated: 2025/04/07 19:05:29 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/04/19 16:46:59 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,23 @@
 
 void	handle_pipes(t_msh *msh)
 {
-	msh->cmd_count = parse_and_validate_commands(msh->tkns, &msh->cmds);
+	int	count;
+
+	if (!msh || !msh->tkns)
+		return ;
+	count = parse_and_validate_commands(msh, msh->tkns, &msh->cmds);
+	if (count <= 0)
+		return ;
+	msh->cmd_count = count;
 	execute_pipeline(msh);
 	restore_signals();
 	cleanup_commands(msh);
-	return ;
+}
+
+void	save_pipe_and_close(int *prev_fd, int *pipe_fd)
+{
+	close(pipe_fd[1]);
+	*prev_fd = pipe_fd[0];
 }
 
 static void	exec_command(t_msh *msh, int i)
@@ -50,16 +62,24 @@ static void	child_process(t_msh *msh, int i, int prev_fd, int pipe_fd[2])
 {
 	if (prev_fd != -1)
 	{
-		dup2(prev_fd, STDIN_FILENO);
+		if (dup2(prev_fd, STDIN_FILENO) == -1)
+			exit(EXIT_FAILURE);
 		close(prev_fd);
 	}
 	if (i < msh->cmd_count - 1)
 	{
 		close(pipe_fd[0]);
-		dup2(pipe_fd[1], STDOUT_FILENO);
+		if (dup2(pipe_fd[1], STDOUT_FILENO) == -1)
+			exit(EXIT_FAILURE);
+		close(pipe_fd[1]);
+	}
+	else
+	{
+		close(pipe_fd[0]);
 		close(pipe_fd[1]);
 	}
 	exec_command(msh, i);
+	exit(EXIT_FAILURE);
 }
 
 int	execute_pipeline(t_msh *msh)
@@ -89,10 +109,4 @@ int	execute_pipeline(t_msh *msh)
 	while (wait(NULL) > 0)
 		;
 	return (0);
-}
-
-void	save_pipe_and_close(int *prev_fd, int *pipe_fd)
-{
-	close(pipe_fd[1]);
-	*prev_fd = pipe_fd[0];
 }

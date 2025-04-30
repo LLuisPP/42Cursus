@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:12:48 by lauriago          #+#    #+#             */
-/*   Updated: 2025/04/09 21:29:38 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/04/15 23:52:36 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,27 +24,38 @@ static void	reset_cmd_and_args(t_msh *msh)
 		ft_free_array(msh->tkns->args);
 		msh->tkns->args = NULL;
 	}
+	if (msh->tkns->countpip)
+	{
+		free(msh->tkns->countpip);
+		msh->tkns->countpip = NULL;
+	}
+	if (msh->tkns->typepip)
+	{
+		free(msh->tkns->typepip);
+		msh->tkns->typepip = NULL;
+	}
 }
 
 void	check_tokens(char *input, t_msh *msh)
 {
-	int	count_tok;
-
 	if (!input || !*input)
 		return ;
 	reset_cmd_and_args(msh);
 	ft_token(input, msh->tkns);
+	if (basic_syntax_checker(input, msh) == FALSE)
+		return ;
 	if (!msh->tkns->args || !msh->tkns->args[0])
 		return ;
-	count_tok = 0;
-	while (msh->tkns->args[count_tok])
-		count_tok++;
-	msh->tkns->token_count = count_tok;
+	msh->tkns->token_count = 0;
+	while (msh->tkns->args[msh->tkns->token_count])
+		msh->tkns->token_count++;
 	msh->tkns->cmd = ft_strdup(msh->tkns->args[0]);
 	if (!redir_checker(msh))
 	{
+		if (msh->tkns->first_redir_type == REDIR_ERROR)
+			return ;
 		if (is_builtin(msh->tkns->cmd))
-			exc_cmd(msh, count_tok);
+			exc_cmd(msh, msh->tkns->token_count);
 		else if (find_cmd(msh->tkns->cmd, msh) == -1)
 			cmd_not_found(msh);
 	}

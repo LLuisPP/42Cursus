@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 09:26:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/04/10 00:59:46 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/04/15 23:54:21 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,9 +122,14 @@ struct	s_tokenizer
 	t_tokty				type;
 	int					is_heredoc;
 	char				*heredoc_delim;
+	// ------------------------------------
 	int					count_redir;
 	int					redir_pos;
 	t_redir				redir_type;
+	int					*countpip;
+	t_redir				*typepip;
+	t_redir				first_redir_type;
+	// ------------------------------------
 	struct s_tokenizer	*prev;
 	struct s_tokenizer	*next;
 };
@@ -199,7 +204,7 @@ int		update_env_var_value(t_msh *msh, int pos, char *value);
 
 /* ---------------------------------------------------------------------pwd.c */
 int		ft_pwd(t_msh *msh);
-int		builtin_redir_check(t_msh *msh);
+// int		builtin_redir_check(t_msh *msh);
 
 /* -------------------------------------------------------------------unset.c */
 /*static int	is_valid_identifier(char *str)*/
@@ -295,12 +300,25 @@ void	handle_heredoc_signals(void);
 /* ******************************* [ PARSER ] ******************************* */
 /* ************************************************************************** */
 
+/* -------------------------------------------------------------lexer_redir.c */
+int		*find_piperedir(t_msh *msh);
+void	type_def(t_msh *msh);
+int		type_verif(t_msh *msh);
+int		is_redir(char *token);
+
+/* ------------------------------------------------------------lexer_syntax.c */
+int		basic_syntax_checker(char *input, t_msh *msh);
+int		check_unclosed_quotes(char *input);
+int		check_redir_edges(t_msh *msh);
+int		check_double_pipe(t_msh *msh);
+int		check_pipe_edges(t_msh *msh);
+
 /* -------------------------------------------------------------------lexer.c */
 /*static int	has_pipe(char *token)*/
 /*static int	validate_pipe_syntax(t_tok *tok)*/
 /*static void	init_command_struct(t_cmd *cmd)*/
 /*static int	split_commands(t_tok *tok, t_cmd *cmds)*/
-int		parse_and_validate_commands(t_tok *tok, t_cmd **commands);
+int		parse_and_validate_commands(t_msh *msh, t_tok *tok, t_cmd **commands);
 
 /* ------------------------------------------------------------------parser.c */
 char	*parse_path(char **env);
@@ -349,7 +367,7 @@ void	handle_redir_in(t_msh *msh, t_redir type);
 /* ----------------------------------------------------------multiple_redir.c */
 void	open_files(t_msh *msh, t_redir type, char *file);
 int		process_redirection(t_msh *msh, t_redir type, int current_pos);
-void	handle_last_redirection(t_msh *msh, int is_last_redir, t_redir type);
+void	handle_last_redirection(t_msh *msh, t_redir type);
 
 /* ------------------------------------------------------------output_redir.c */
 // static void	error_fd(char *filename)
@@ -359,17 +377,22 @@ void	restore_redirections(t_msh *msh);
 /* -------------------------------------------------------------redir_tools.c */
 int		count_redir(t_msh *msh);
 int		handle_one_redir(t_msh *msh, int redir_pos, t_redir	redir_type);
-// static int	find_next_redir(t_msh *msh, int start_pos)
-int		handle_multip_redir(t_msh *msh, int count, int redir_pos, t_redir type);
+int		find_next_redir(t_msh *msh, int start_pos);
 
 /* ------------------------------------------------------------redirections.c */
 // static void	print_error_msg(char c)
-int		has_redirection(t_tok *tok);
+int		has_redirection(t_msh *msh, t_tok *tok);
 t_redir	check_syntax_redir(t_msh *msh, char **tkn, int pos);
 // static void	init_redir(t_msh *msh)
 // static void	print_redir_info(t_redir redir_type, int redir_pos)
 void	handle_redir_out(t_msh *msh, t_redir type);
 int		redir_checker(t_msh *msh);
+
+/* ------------------------------------------------------------type_handler.c */
+int		handle_multip_redir(t_msh *msh, int count);
+int		just_redirs(t_msh *msh, int count);
+int		just_pipes(t_msh *msh, int count);
+int		handle_just_redirs(t_msh *msh, int count);
 
 /* ************************************************************************** */
 /* ******************************* [ TOOLS ] ******************************** */
@@ -380,7 +403,7 @@ void	handle_exit_error(t_msh *msh, char *arg);
 void	handle_cd_error(t_msh *msh, int error_type);
 int		ft_err(t_msh *msh, int err_code);
 void	handle_exit_status(t_msh *msh);
-void	print_error_msg(char c);
+void	print_error_msg(t_msh *msh, char c);
 
 /* --------------------------------------------------------------------free.c */
 void	free_tmp_paths(char *tmp_oldpwd, char *tmp_pwd);
@@ -409,8 +432,8 @@ void	free_structs(t_env *env, t_tok *tok, t_exe *mpip);
 # define E_PIPMEM	"Error: mpip mem asignation failed\n"
 # define E_CDARG	"cd: $ARG: No such file or directory\n"
 # define E_SYNTX	"Error: syntax not accepted"
-# define E_PIP_SNTX	"minishell: syntax error near unexpected token `|'\n"
-# define E_NW		"minishell: syntax error near unexpected token `newline'\n"
+# define E_PIP_SNTX	"bash: syntax error near unexpected token `|'\n"
+# define E_NW		"bash: syntax error near unexpected token `newline'\n"
 # define E_PIPE		"Pipe error"
 # define E_FORK		"Fork error"
 # define E_DUP		"Dup2 error"

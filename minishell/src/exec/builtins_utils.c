@@ -14,6 +14,6 @@
 
 void	cmd_not_found(t_msh *msh)
 {
-	ft_fd_printf(2, "%s : command not found\n", msh->tkns->cmd);
+	ft_fd_printf(2, "%s: command not found\n", msh->tkns->cmd);
 	msh->last_exit_code = 127;
 }
