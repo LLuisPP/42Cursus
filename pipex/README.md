@@ -75,6 +75,13 @@
 
 </div>
 
+> [!TIP]
+> ✎ Read about std_out/in, child processes and file descriptors.<br>
+
+> [!NOTE]
+> ⚠︎ If you go into this project, be sure you understand it, you will use it in the future<br>
+> ⚠︎ Try to do the bonus if you have time, you'll save time later.
+
 <div align="center">
 
 <table>
