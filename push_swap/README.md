@@ -75,6 +75,14 @@
 
 </div>
 
+> [!TIP]
+> ✎ Read about FIFO, buble sort, chunks, turkish or raddix.
+> ✎ Follow your own logics. Your own ugly code it's better than advanced "black box" one.<br>
+> ✎ Don't waste your time.<br>
+
+> [!NOTE]
+> ⚠︎ Automated self-test: `while [ 1 ]; do ./push_swap $(ruby -e "puts (1..500).to_a.shuffle.join(' ')") | wc -l; contador=$((contador + 1)); done`.
+
 <div align="center">
 
 <table>
