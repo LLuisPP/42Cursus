@@ -78,7 +78,7 @@
 <div align="center">
 <table>
   <tr>
-    <td colspan="5" align="center">🏗️ C++ 0-4 🏗️</td>
+    <td colspan="5" align="center">🏗🌐 netpractice 🏗🌐</td>
   </tr>
   <tr>
     <td align="center">Project</td>
