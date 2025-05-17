@@ -72,6 +72,8 @@
 [**`rank06`**]()</td>
   </tr>
 </table>
+
+<table>
   <tr>
     <td colspan="4" align="center">🖨 ft_printf 🖨</td>
   </tr>
