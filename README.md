@@ -44,7 +44,7 @@ The 42 Common Core is an intensive, self-taught, project-based curriculum focuse
 
 [**`netpractice`**]()<br>
 [**`miniRT`**]()<br>
-[**`cpp`**](https://github.com/LLuisPP/42-Exams/tree/main/cpp0-4)
+[**`cpp`**](https://github.com/LLuisPP/42Cursus/tree/main/cpp0-4)
     </td>
     <td>
 
