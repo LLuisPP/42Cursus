@@ -42,8 +42,8 @@ The 42 Common Core is an intensive, self-taught, project-based curriculum focuse
     </td>
     <td>
 
-[**`netpractice`**]()<br>
-[**`miniRT`**]()<br>
+[**`netpractice`**](https://github.com/LLuisPP/42Cursus/tree/main/netpractice)<br>
+[**`miniRT`**](https://github.com/LLuisPP/42Cursus/tree/main/miniRT)<br>
 [**`cpp`**](https://github.com/LLuisPP/42Cursus/tree/main/cpp0-4)
     </td>
     <td>
@@ -103,8 +103,8 @@ The 42 Common Core is an intensive, self-taught, project-based curriculum focuse
 |`📦`|[**minishell**](https://github.com/LLuisPP/42Cursus/tree/main/minishell)| Build a functional shell similar to Bash |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|<img src="https://img.shields.io/badge/101-darkgreen"></a>|--|`Apr'25`|
 ||`milestone 3`|||||$\textsf{\color{green}{achieved}}$|
 |`🔖`|[**rank 04 exam**](https://github.com/LLuisPP/42-Exams-rank04)| Develop a working microshell |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'25`|
-|`🌐`|[**netpractice**]()| Practice networks through hands-on tasks |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'25`|
-|`🌅`|[**miniRT**]()| Create a 3D scene renderer |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'25`|
+|`🌐`|[**netpractice**](https://github.com/LLuisPP/42Cursus/tree/main/netpractice)| Practice networks through hands-on tasks |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'25`|
+|`🌅`|[**miniRT**](https://github.com/LLuisPP/42Cursus/tree/main/miniRT)| Create a 3D scene renderer |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'25`|
 |`📟`|[**cpp's 0-4**](https://github.com/LLuisPP/42Cursus/tree/main/cpp0-4)| Basics of C++ and its fundamental features |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'25`|
 ||`milestone 4`||||||
 |`👥`|[**inception**]()| Contain multiple Docker containers |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'25`|
