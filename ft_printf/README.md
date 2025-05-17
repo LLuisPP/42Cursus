@@ -73,6 +73,10 @@
   </tr>
 </table>
 
+</div>
+
+<div align="center">
+
 <table>
   <tr>
     <td colspan="4" align="center">🖨 ft_printf 🖨</td>
