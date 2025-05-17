@@ -72,8 +72,15 @@
 [**`rank06`**]()</td>
   </tr>
 </table>
-
 </div>
+
+> [!TIP]
+> ✎ You must replicate original behavior, not making correct functions.<br>
+> ✎ Use `man name_of_the_function` it should be enough information.
+
+> [!WARNING]
+> ⛍ Avoid AI's or easy paths, you will progress slowly but in the correct way.<br>
+> ⚠︎ All functions must be independent from others you alredy code.
 
 <div align="center">
 <table>
@@ -97,3 +104,4 @@ https://github.com/user-attachments/assets/a4200625-219d-42c9-bbfe-b8ff1e935cb6
 </table>
 
 </div>
+
