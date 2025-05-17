@@ -75,6 +75,10 @@
 
 </div>
 
+> [!TIP]
+> ✎ Read about mandelbrot fractals and search for its descriptibe maths.<br>
+> ✎ First of all, integrate minilibx and be sure it works.<br>
+
 <div align="center">
 
 <table>
