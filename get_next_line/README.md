@@ -75,6 +75,9 @@
 
 </div>
 
+> [!TIP]
+> ✎ Try different files, lengths and buffers.<br>
+
 <div align="center">
 <table>
   <tr>
