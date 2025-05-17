@@ -75,6 +75,9 @@
 
 </div>
 
+> [!TIP]
+> ✎ Read about mutex, pid and threads.<br>
+
 <div align="center">
 
 <table>
