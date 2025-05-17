@@ -78,7 +78,6 @@
 > [!TIP]
 > ✎ Read about FIFO, buble sort, chunks, turkish or raddix.<br>
 > ✎ Follow your own logics. Your own ugly code it's better than advanced "black box" one.<br>
-> ✎ Don't waste your time.<br>
 
 > [!NOTE]
 > ⚠︎ Automated self-test:<br>
