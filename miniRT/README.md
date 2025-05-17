@@ -36,8 +36,8 @@
     </td>
     <td>
 
-[**`netpractice`**]()<br>
-[**`miniRT`**]()<br>
+[**`netpractice`**](https://github.com/LLuisPP/42Cursus/tree/main/netpractice)<br>
+[**`miniRT`**](https://github.com/LLuisPP/42Cursus/tree/main/miniRT)<br>
 [**`cpp`**](https://github.com/LLuisPP/42Cursus/tree/main/cpp0-4)
     </td>
     <td>
