@@ -38,13 +38,13 @@
 
 [**`netpractice`**](https://github.com/LLuisPP/42Cursus/tree/main/netpractice)<br>
 [**`miniRT`**](https://github.com/LLuisPP/42Cursus/tree/main/miniRT)<br>
-[**`cpp`**](https://github.com/LLuisPP/42Cursus/tree/main/cpp0-4)
+[**`cpp0-4`**](https://github.com/LLuisPP/42Cursus/tree/main/cpp0-4)
     </td>
     <td>
 
 [**`ft_irc`**]()<br>
 [**`inception`**]()<br>
-[**`cpp`**]()
+[**`cpp5-9`**]()
     </td>
     <td>
 
@@ -74,14 +74,6 @@
 </table>
 
 </div>
-
-> [!TIP]
-> ✎ Read all you can, even the guides. Ask to the AI to teach you about systems.<br>
-> ✎ It's essential you understand what the script is doing and why.
-
-> [!WARNING]
-> ⚠︎ Read the subject carefully, if you just follow a guide you will probably fail corrections.<br>
-> ⚠︎ Real hackers don't do stickers and hoodies.
 
 <div align="center">
 
