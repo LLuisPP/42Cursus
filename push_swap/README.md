@@ -38,13 +38,13 @@
 
 [**`netpractice`**](https://github.com/LLuisPP/42Cursus/tree/main/netpractice)<br>
 [**`miniRT`**](https://github.com/LLuisPP/42Cursus/tree/main/miniRT)<br>
-[**`cpp`**](https://github.com/LLuisPP/42Cursus/tree/main/cpp0-4)
+[**`cpp0-4`**](https://github.com/LLuisPP/42Cursus/tree/main/cpp0-4)
     </td>
     <td>
 
 [**`ft_irc`**]()<br>
 [**`inception`**]()<br>
-[**`cpp`**]()
+[**`cpp5-9`**]()
     </td>
     <td>
 
@@ -74,14 +74,6 @@
 </table>
 
 </div>
-
-> [!TIP]
-> ✎ Read about FIFO, buble sort, chunks, turkish or raddix.<br>
-> ✎ Follow your own logics. Your own ugly code it's better than advanced "black box" one.<br>
-
-> [!NOTE]
-> ⚠︎ Automated self-test:<br>
-> `while [ 1 ]; do ./push_swap $(ruby -e "puts (1..500).to_a.shuffle.join(' ')") | wc -l; contador=$((contador + 1)); done`.
 
 <div align="center">
 
