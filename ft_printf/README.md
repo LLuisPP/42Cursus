@@ -75,13 +75,6 @@
 
 </div>
 
-> [!TIP]
-> ✎ Variadic functions is a must.<br>
-> ✎ Test as much as you can.<br>
-
-> [!WARNING]
-> ⚠︎ Bonus is longer and harder so plan your time before going that way.
-
 <div align="center">
 
 <table>
