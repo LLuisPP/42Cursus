@@ -38,13 +38,13 @@
 
 [**`netpractice`**](https://github.com/LLuisPP/42Cursus/tree/main/netpractice)<br>
 [**`miniRT`**](https://github.com/LLuisPP/42Cursus/tree/main/miniRT)<br>
-[**`cpp`**](https://github.com/LLuisPP/42Cursus/tree/main/cpp0-4)
+[**`cpp0-4`**](https://github.com/LLuisPP/42Cursus/tree/main/cpp0-4)
     </td>
     <td>
 
 [**`ft_irc`**]()<br>
 [**`inception`**]()<br>
-[**`cpp`**]()
+[**`cpp5-9`**]()
     </td>
     <td>
 
@@ -74,13 +74,6 @@
 </table>
 
 </div>
-
-> [!TIP]
-> ✎ Read about std_out/in, child processes and file descriptors.<br>
-
-> [!NOTE]
-> ⚠︎ If you go into this project, be sure you understand it, you will use it in the future<br>
-> ⚠︎ Try to do the bonus if you have time, you'll save time later.
 
 <div align="center">
 
