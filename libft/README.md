@@ -38,13 +38,13 @@
 
 [**`netpractice`**](https://github.com/LLuisPP/42Cursus/tree/main/netpractice)<br>
 [**`miniRT`**](https://github.com/LLuisPP/42Cursus/tree/main/miniRT)<br>
-[**`cpp`**](https://github.com/LLuisPP/42Cursus/tree/main/cpp0-4)
+[**`cpp0-4`**](https://github.com/LLuisPP/42Cursus/tree/main/cpp0-4)
     </td>
     <td>
 
 [**`ft_irc`**]()<br>
 [**`inception`**]()<br>
-[**`cpp`**]()
+[**`cpp5-9`**]()
     </td>
     <td>
 
@@ -73,14 +73,6 @@
   </tr>
 </table>
 </div>
-
-> [!TIP]
-> ✎ You must replicate original behavior, not making correct functions.<br>
-> ✎ Use `man name_of_the_function` it should be enough information.
-
-> [!WARNING]
-> ⛍ Avoid AI's or easy paths, you will progress slowly but in the correct way.<br>
-> ⚠︎ All functions must be independent from others you alredy code.
 
 <div align="center">
 <table>
