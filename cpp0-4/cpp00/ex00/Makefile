@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/11 11:37:46 by lprieto-          #+#    #+#              #
-#    Updated: 2025/06/11 13:05:00 by lprieto-         ###   ########.fr        #
+#    Updated: 2025/06/11 15:37:04 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,10 +85,10 @@ TOTAL_ITEMS := $(words $(OBJS))
 define show_progress
 	@echo; \
 	printf " $(W)▄▄▄▄▄▄▄               eeeeee eeeeee \n \
-$(W)█                     e    e e    e   $(Y)▄████▄              $(BB)▄█████▄ $(RES)\n \
-█          █     █    8    8 8    8  $(Y)████▄███   $(BW)lprieto-  $(BB)██${PHA}▄${RES}$(BB)█$(PHA)▄${RES}$(BB)██ ${RES}\n \
-█▄       ▀▀█▀▀ ▀▀█▀▀  e    8 8    8  $(Y)████▄     $(G)$(BD)$(NAME)  $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
-██         ▀     ▀    88   8 8e   8  $(Y) ▀████▀              $(BB)█▀█▀█▀█ $(RES)\n \
+$(W)█                     e    e e    e   $(Y)▄████▄              $(BB)▄█████▄ $(W)\n \
+█          █     █    8    8 8    8  $(Y)████▄███   $(BW)lprieto-  $(BB)██${PHA}▄${RES}$(BB)█$(PHA)▄${RES}$(BB)██ ${W}\n \
+█▄       ▀▀█▀▀ ▀▀█▀▀  e    8 8    8  $(Y)████▄     $(G)$(BD)$(NAME)  $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(W)\n \
+██         ▀     ▀    88   8 8e   8  $(Y) ▀████▀              $(BB)█▀█▀█▀█ $(W)\n \
 ███████               888888 888888  \n\n"; \
 
 	total_ticks=$$((PROG_DURAT * 10)); # 20 ticks por segundo para una actualización fluida
