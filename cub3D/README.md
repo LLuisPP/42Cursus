@@ -1,8 +1,9 @@
 <div align="center">
 
+<div align="center">
+
 <table>
   <tr>
-    <th align="center"><a href="https://github.com/LLuisPP/42Cursus/tree/main/"> <img width="30" align="center" src="https://github.com/user-attachments/assets/ac216672-a141-48be-bc53-ae13dd35c799"></a></th>
     <td align="center"> circle 0 </td>
     <td align="center"> circle 1 </td>
     <td align="center"> circle 2 </td>
@@ -12,7 +13,6 @@
     <td align="center"> circle 6 </td>
   </tr>
   <tr>
-    <td>pjcts</td>
     <td>
 
 [**`libft`**](https://github.com/LLuisPP/42Cursus/tree/main/libft)
@@ -52,7 +52,6 @@
     </td>
   </tr>
   <tr>
-    <td>exam</td>
     <td></td>
     <td></td>
     <td>
