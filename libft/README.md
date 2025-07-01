@@ -1,8 +1,9 @@
 <div align="center">
 
+<div align="center">
+
 <table>
   <tr>
-    <th align="center"><a href="https://github.com/LLuisPP/42Cursus/tree/main/"> <img width="30" align="center" src="https://github.com/user-attachments/assets/ac216672-a141-48be-bc53-ae13dd35c799"></a></th>
     <td align="center"> circle 0 </td>
     <td align="center"> circle 1 </td>
     <td align="center"> circle 2 </td>
@@ -12,7 +13,6 @@
     <td align="center"> circle 6 </td>
   </tr>
   <tr>
-    <td>pjcts</td>
     <td>
 
 [**`libft`**](https://github.com/LLuisPP/42Cursus/tree/main/libft)
@@ -37,7 +37,7 @@
     <td>
 
 [**`netpractice`**](https://github.com/LLuisPP/42Cursus/tree/main/netpractice)<br>
-[**`miniRT`**](https://github.com/LLuisPP/42Cursus/tree/main/miniRT)<br>
+[**`cub3D`**](https://github.com/LLuisPP/42Cursus/tree/main/cub3D)<br>
 [**`cpp0-4`**](https://github.com/LLuisPP/42Cursus/tree/main/cpp0-4)
     </td>
     <td>
@@ -52,23 +52,22 @@
     </td>
   </tr>
   <tr>
-    <td>exam</td>
     <td></td>
     <td></td>
     <td>
-
+      
 [**`rank02`**](https://github.com/LLuisPP/42-Exams/tree/main/rank02)</td>
 <td>
-
+      
 [**`rank03`**](https://github.com/LLuisPP/42-Exams-rank03)</td>
 <td>
-
+      
 [**`rank04`**](https://github.com/LLuisPP/42-exams-rank04)</td>
 <td>
-
+      
 [**`rank05`**]()</td>
 <td>
-
+  
 [**`rank06`**]()</td>
   </tr>
 </table>
