@@ -37,7 +37,7 @@
     <td>
 
 [**`netpractice`**](https://github.com/LLuisPP/42Cursus/tree/main/netpractice)<br>
-[**`miniRT`**](https://github.com/LLuisPP/42Cursus/tree/main/miniRT)<br>
+[**`cub3D`**](https://github.com/LLuisPP/42Cursus/tree/main/cub3D)<br>
 [**`cpp0-4`**](https://github.com/LLuisPP/42Cursus/tree/main/cpp0-4)
     </td>
     <td>
@@ -78,7 +78,7 @@
 <div align="center">
 <table>
   <tr>
-    <td colspan="5" align="center">:hurtrealbad: miniRT :godmode:</td>
+    <td colspan="5" align="center">:hurtrealbad: cub3D :godmode:</td>
   </tr>
   <tr>
     <td align="center">Project</td>
