@@ -100,28 +100,9 @@
 
 </div>
 
-# Cub3d
-
-<h2>Description and requirements</h2>
-
 <h3 weight="bold">The proyect consists in develop a 3D videogame.</h3>
 
-<em>Requirements</em> table:
-
-<div align="center">
-
-</div>
-<br>
-
-<h2>Initial approach and proposal</h2>
-
-<h3 weight="bold">Title:</h3>
-
 <a href="#"><img width="500" align="center" src="https://github.com/user-attachments/assets/94e021d9-dcf6-44f3-b37d-7f95f4d64a99"></img></a><br>
-
-<h2>Organization</h2>
-
-<h3 weight="bold">Task schedule distribution</h3>
 
 <h2>🎮 Cub3D 🎮 team members</h2>
 
