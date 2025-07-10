@@ -102,6 +102,8 @@
 
 <h3 weight="bold">The proyect consists in develop a 3D videogame.</h3>
 
+<a href="#"><img width="330" align="center" src="https://github.com/user-attachments/assets/22161fab-913d-4db0-9f91-325cd66c63ab"></img></a>
+<a href="#"><img width="300" align="center" src="https://github.com/user-attachments/assets/71cdc9e2-880a-4ba1-a70b-9b126c86f122"></img></a><br>
 <a href="#"><img width="500" align="center" src="https://github.com/user-attachments/assets/94e021d9-dcf6-44f3-b37d-7f95f4d64a99"></img></a><br>
 
 <h2>🎮 Cub3D 🎮 team members</h2>
