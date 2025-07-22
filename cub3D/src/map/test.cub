@@ -1,0 +1,16 @@
+# Rutas de las texturas
+NO src/textures/test/north.xpm
+SO src/textures/test/south.xpm
+WE src/textures/test/west.xpm
+EA src/textures/test/east.xpm
+
+# Colores de suelo (Floor) y techo (Ceiling)
+F 220,100,90
+C 50,150,250
+
+# El mapa
+1111111111
+1000000001
+100N000001
+1000000001
+1111111111
