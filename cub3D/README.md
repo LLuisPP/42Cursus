@@ -18,8 +18,8 @@
     <td rowspan="2" align="center"><a href="#"><img width="250" src="https://github.com/user-attachments/assets/be8f00a8-5e72-4ca9-be31-3ce2487d4654"></a></td>
   </tr>
   <tr>
-    <td><a href="#"><img width="95" src="https://github.com/user-attachments/assets/862ed238-2624-453a-a5cd-c3a8ce3617d3"></a></td>
-    <td><a href="#"><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/0df7dd81-56fb-4929-a023-67c7386906dc"></a></td>
+    <td><a href="#"><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/504507eb-65b0-4814-9525-a2c22100dab1"></a></td>
+    <td><a href="#"><img width="100" src="https://github.com/user-attachments/assets/16b8d64c-7fc9-4a88-9ea6-40f49a7cb965"></a></td>
   </tr>
 </table>
 
