@@ -124,13 +124,3 @@ When I finish everything, it will be:
 <div align="center">
 <a href="#"><img width="408" align="center" src="https://github.com/user-attachments/assets/bf7526e2-1027-42c9-9597-4f8b6d9527f9"></a>
 </div>
-
-<h2>Cursus holygraph</h2>
-
-<div align="left">
-The Holygraph is a visual tool used at 42 to track students' progress over time, showing their project completions and skill development.
-</div>
-<br>
-<div align="center">
-<a href="#"><img width="408" align="center" src="https://github.com/user-attachments/assets/b4e0e4f1-8eb9-4e21-9e1c-a7cc36ae18dc"></a> <a href="#"><img width="400" align="center" src="https://github.com/user-attachments/assets/34bf2383-b6b2-488d-b6b9-582c8c7c06ad"></a>
-</div>
