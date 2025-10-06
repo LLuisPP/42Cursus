@@ -1,6 +1,6 @@
 <div align="center">
   
-# <a href="#"><img width="500" align="center" src="https://github.com/user-attachments/assets/98c7b6ef-d3a8-425e-83c7-f118db56754e"></a> Cursus Common Core
+# <a href="#"><img width="300" align="center" src="https://github.com/user-attachments/assets/98c7b6ef-d3a8-425e-83c7-f118db56754e"></a> Cursus Common Core
 
 The 42 Common Core is an intensive, self-taught, project-based curriculum focused on software development and problem-solving designed to build strong programming foundations. It emphasizes autonomy, collaboration, and adaptability.<br>
 
