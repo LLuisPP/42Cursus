@@ -6,19 +6,17 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 11:27:21 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/13 11:29:20 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/07/22 20:47:42 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <locale>
 
 int main(int argc, char **argv)
 {
     int i;
     int j;
-	const std::ctype<char>&
-	ct = std::use_facet<std::ctype<char> >(std::locale());
+
     if (argc < 2)
     {
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *"
@@ -35,7 +33,7 @@ int main(int argc, char **argv)
             {
                 j = -1;
                 while (i > 0 && argv[i][++j])
-                    std::cout << ct.toupper(argv[i][j]);
+                    std::cout << (char)std::toupper(argv[i][j]);
                 if (i != 0 && i != argc -1)
                     std::cout << " ";
             }
