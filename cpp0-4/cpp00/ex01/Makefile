@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
+#    By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/06/11 11:37:46 by lprieto-          #+#    #+#              #
-#    Updated: 2025/07/22 21:27:48 by lprieto-         ###   ########.fr        #
+#    Created: 2025/10/13 20:38:28 by lprieto-          #+#    #+#              #
+#    Updated: 2025/10/13 21:08:57 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,35 +16,43 @@ CXX = g++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g
 
 RM = rm -rf
- 
+
 # **************************************************************************** #
 
-SRCS = phonebook.cpp
+SRC = Phonebook
+SRCS = $(addsuffix .cpp, $(addprefix src/, $(SRC)))
 
-OBJS = $(SRCS:.cpp=.o)
+OBJ_PATH := ./tmp/
+H_PATH := ./inc/
+HEADERS = -I$(H_PATH)
 
+OBJS = $(addprefix $(OBJ_PATH), $(SRCS:.cpp=.o))
 DEPS = $(OBJS:.o=.d)
 
 # **************************************************************************** #
 
-all: $(NAME)
+all: $(OBJ_PATH) $(NAME)
+
+$(OBJ_PATH):
+	mkdir -p $(OBJ_PATH)
 
 $(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	$(call show_progress)
+	$(CXX) ${CXXFLAGS} $(OBJS) -o $(NAME)
 
-%.o: %.cpp Makefile
-	$(CXX) $(CXXFLAGS) -MMD -c $< -o $@
-
+$(OBJ_PATH)%.o: %.cpp Makefile
+	mkdir -p $(dir $@)
+	$(CXX) $(CXXFAGS) $(HEADERS) -MMD -c $< -o $@
+	
 clean :
-	$(RM) $(OBJS) $(DEPS)
+	$(RM) $(OBJ_PATH)
 
 fclean :
-	$(RM) $(NAME) $(OBJS) $(DEPS)
+	$(RM) $(NAME) $(OBJ_PATH)
 
 re :
-	make fclean --silent
-	make all --silent
+	make fclean
+	make all
 
 .PHONY: all clean fclean re
 
@@ -91,12 +99,12 @@ define show_progress
 8     88  8 8eee8 88  8 88ee 88eee8 8eee8 8eee8 88   8 \n\n"; \
 	printf " $(W)▄▄▄▄▄▄▄               eeeeee eeeeee \n \
 $(W)█                     e    e e    e   $(Y)▄████▄              $(BB)▄█████▄ $(RES)\n \
-█          █     █    8    8 8    8  $(Y)████▄███   $(BW)lprieto-  $(BB)██${PHA}▄${RES}$(BB)█$(PHA)▄${RES}$(BB)██ ${RES}\n \
-█▄       ▀▀█▀▀ ▀▀█▀▀  e    8 8    8  $(Y)████▄      $(G)$(BD)$(NAME) $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
-██         ▀     ▀    88   8 8e   8  $(Y) ▀████▀              $(BB)█▀█▀█▀█ $(RES)\n \
+█          █     █    8    8 8    8  $(Y)████▄███  $(BW)lprieto-   $(BB)██${PHA}▄${RES}$(BB)█$(PHA)▄${RES}$(BB)██ ${RES}\n \
+█▄       ▀▀█▀▀ ▀▀█▀▀  e    8 8    8  $(Y)████▄     $(G)$(BD)$(NAME)  $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
+██         ▀     ▀    88   8 8e   8  $(Y) ▀████▀     ex01     $(BB)█▀█▀█▀█ $(RES)\n \
 ███████               888888 888888  \n\n"; \
 
-	total_ticks=$$((PROG_DURAT * 10)); # 20 ticks por segundo para una actualización fluida
+	total_ticks=$$((PROG_DURAT * 10));
 	item_progress=0; \
 	while [ $$item_progress -le $(TOTAL_ITEMS) ]; do \
 		percentage=$$(( 100 * $$item_progress / $(TOTAL_ITEMS) )); \
@@ -108,7 +116,7 @@ $(W)█                     e    e e    e   $(Y)▄████▄              
 		sleep $$(echo "scale=2; $(PROG_DURAT) / $(TOTAL_ITEMS)" | bc); \
 		item_progress=$$(( $$item_progress + 1 )); \
 	done; \
-	
+
 	printf "\n $(RES)\n"; \
 
 endef

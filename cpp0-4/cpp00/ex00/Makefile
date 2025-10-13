@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/11 11:37:46 by lprieto-          #+#    #+#              #
-#    Updated: 2025/07/22 21:02:53 by lprieto-         ###   ########.fr        #
+#    Updated: 2025/10/13 17:41:54 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,12 +91,12 @@ define show_progress
 88 8  8 88ee 88ee8 88  8 88    88  8 8eee8 88  8 88ee \n\n"; \
 	printf " $(W)▄▄▄▄▄▄▄               eeeeee eeeeee \n \
 $(W)█                     e    e e    e   $(Y)▄████▄              $(BB)▄█████▄ $(RES)\n \
-█          █     █    8    8 8    8  $(Y)████▄███   $(BW)lprieto-  $(BB)██${PHA}▄${RES}$(BB)█$(PHA)▄${RES}$(BB)██ ${RES}\n \
+█          █     █    8    8 8    8  $(Y)████▄███  $(BW)lprieto-   $(BB)██${PHA}▄${RES}$(BB)█$(PHA)▄${RES}$(BB)██ ${RES}\n \
 █▄       ▀▀█▀▀ ▀▀█▀▀  e    8 8    8  $(Y)████▄     $(G)$(BD)$(NAME)  $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
-██         ▀     ▀    88   8 8e   8  $(Y) ▀████▀              $(BB)█▀█▀█▀█ $(RES)\n \
+██         ▀     ▀    88   8 8e   8  $(Y) ▀████▀     ex00     $(BB)█▀█▀█▀█ $(RES)\n \
 ███████               888888 888888  \n\n"; \
 
-	total_ticks=$$((PROG_DURAT * 10)); # 20 ticks por segundo para una actualización fluida
+	total_ticks=$$((PROG_DURAT * 10));
 	item_progress=0; \
 	while [ $$item_progress -le $(TOTAL_ITEMS) ]; do \
 		percentage=$$(( 100 * $$item_progress / $(TOTAL_ITEMS) )); \
