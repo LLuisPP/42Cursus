@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 17:46:43 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/14 13:08:42 by lprieto-         ###   ########.fr       */
+/*   Created: 2025/10/14 13:09:31 by lprieto-          #+#    #+#             */
+/*   Updated: 2025/10/14 13:48:08 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
-# include <iostream>
 # include <string>
+# include <iostream>
+# include "Contact.hpp"
 
-class Contact {
+class Phonebook {
 	private:
-		std::string _firstame
-		std::string _lastname
-		std::string	_nickname
-		std::string	_phone
-		str::string _darksecret
-
+		Conctact _contact[8];
 	public:
-		Contact(void);
-		~Contact(void);
+		Phonebook(void)
+		
+		~Phonebook(void)
 };
+
+
 
 #endif
