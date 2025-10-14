@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 11:27:21 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/13 14:50:18 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/14 08:51:03 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ int main(int argc, char **argv)
 		{
 			for (int j = 0; argv[i][j]; j++)
 				std::cout << ct.toupper(argv[i][j]);
-			if (i + 1 < argc)
-				std::cout << " ";
 		}
 		std::cout << std::endl;
 	}
