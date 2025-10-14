@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 20:38:28 by lprieto-          #+#    #+#              #
-#    Updated: 2025/10/13 21:08:57 by lprieto-         ###   ########.fr        #
+#    Updated: 2025/10/14 19:18:11 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,14 +19,16 @@ RM = rm -rf
 
 # **************************************************************************** #
 
-SRC = Phonebook
-SRCS = $(addsuffix .cpp, $(addprefix src/, $(SRC)))
+SRC = Main.cpp Phonebook.cpp Contact.cpp
+
+SRCS = $(addprefix src/, $(SRC))
 
 OBJ_PATH := ./tmp/
 H_PATH := ./inc/
 HEADERS = -I$(H_PATH)
 
 OBJS = $(addprefix $(OBJ_PATH), $(SRCS:.cpp=.o))
+
 DEPS = $(OBJS:.o=.d)
 
 # **************************************************************************** #
@@ -51,8 +53,8 @@ fclean :
 	$(RM) $(NAME) $(OBJ_PATH)
 
 re :
-	make fclean
-	make all
+	make fclean --silent
+	make all --silent
 
 .PHONY: all clean fclean re
 

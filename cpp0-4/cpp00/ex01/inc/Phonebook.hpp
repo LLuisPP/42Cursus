@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 13:09:31 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/14 13:48:08 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/14 18:52:42 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,19 @@
 # include <iostream>
 # include "Contact.hpp"
 
+# define ARRAY_SIZE 8;
+
 class Phonebook {
 	private:
-		Conctact _contact[8];
+		Contact	_contact[8];
+		size_t	last_updated_contact;
 	public:
-		Phonebook(void)
+		Phonebook(void);
 		
-		~Phonebook(void)
+		Contact	get_contact(size_t index);
+		void	add__contact(Contact contact);
+
+		~Phonebook(void);
 };
-
-
 
 #endif

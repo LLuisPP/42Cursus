@@ -3,44 +3,54 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
+#    By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/06/11 11:37:46 by lprieto-          #+#    #+#              #
-#    Updated: 2025/07/22 21:37:36 by lprieto-         ###   ########.fr        #
+#    Created: 2025/10/13 20:38:28 by lprieto-          #+#    #+#              #
+#    Updated: 2025/10/14 17:36:04 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Account
+NAME = account
 
 CXX = g++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g
 
 RM = rm -rf
- 
+
 # **************************************************************************** #
 
-SRCS = Account.cpp
+SRC = Account.cpp
 
-OBJS = $(SRCS:.cpp=.o)
+SRCS = $(addprefix src/, $(SRC))
+
+OBJ_PATH := ./tmp/
+H_PATH := ./inc/
+HEADERS = -I$(H_PATH)
+
+OBJS = $(addprefix $(OBJ_PATH), $(SRCS:.cpp=.o))
 
 DEPS = $(OBJS:.o=.d)
 
 # **************************************************************************** #
 
-all: $(NAME)
+all: $(OBJ_PATH) $(NAME)
+
+$(OBJ_PATH):
+	mkdir -p $(OBJ_PATH)
 
 $(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	$(call show_progress)
+	$(CXX) ${CXXFLAGS} $(OBJS) -o $(NAME)
 
-%.o: %.cpp Makefile
-	$(CXX) $(CXXFLAGS) -MMD -c $< -o $@
-
+$(OBJ_PATH)%.o: %.cpp Makefile
+	mkdir -p $(dir $@)
+	$(CXX) $(CXXFAGS) $(HEADERS) -MMD -c $< -o $@
+	
 clean :
-	$(RM) $(OBJS) $(DEPS)
+	$(RM) $(OBJ_PATH)
 
 fclean :
-	$(RM) $(NAME) $(OBJS) $(DEPS)
+	$(RM) $(NAME) $(OBJ_PATH)
 
 re :
 	make fclean --silent
@@ -112,3 +122,4 @@ $(W)█                     e    e e    e   $(Y)▄████▄              
 	printf "\n $(RES)\n"; \
 
 endef
+

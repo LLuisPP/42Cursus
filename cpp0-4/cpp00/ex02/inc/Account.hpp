@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.cpp                                      :+:      :+:    :+:   */
+/*   Account.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 18:14:24 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/14 19:42:50 by lprieto-         ###   ########.fr       */
+/*   Created: 2025/10/14 17:25:23 by lprieto-          #+#    #+#             */
+/*   Updated: 2025/10/14 17:26:21 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.hpp"
+#ifndef ACCOUNT_HPP
+# define ACCOUNT_HPP
 
-Phonebook::Phonebook(void) {
-	last_updated_contact = ARRAY_SIZE - 1;
-}
-
-Phonebook::~Phonebook(void) {
-}
-/*
-Contact Phonebook::get_contact (void) {
-}
+# include <string>
+# include <iostream>
 
 
-void	Phonebook::add_contact(Contact contact) {
-	if(last_updated_contact == ARRAY_SIZE - 1)
-		last_updated_contact = 0;
-	else
-		last_update_contact++;
-	contacts[last_updated_contact] = contact;
-}*/
+
+#endif
