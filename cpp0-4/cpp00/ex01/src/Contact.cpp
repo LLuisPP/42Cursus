@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 17:40:05 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/15 19:15:27 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/15 20:09:58 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ Contact::~Contact(void) {}
 bool	Contact::validAlpha(std::string const &str) {
 	for(int i = 0; i < str.length(); ++i) {
 		if(!std::isalpha(str[i]) && str[i] != ' ' && str[i] != '-')
-		{
-			std::cout << "whatafac" << std::endl;
 			return (false);
-		}
 	}
 	return (true);
 }

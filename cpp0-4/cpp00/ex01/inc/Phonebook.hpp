@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 13:09:31 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/15 19:03:40 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/15 20:29:08 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Phonebook {
 	private:
 		Contact	_contact[8];
 		int		_contactIndex;
+		int		_totalContacs;
 		
 	public:
 		Phonebook(void);
