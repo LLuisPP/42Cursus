@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Printutils.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcelon      +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 09:38:24 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/15 10:44:02 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/15 19:18:09 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,19 @@ void	print_search(void) {
 	std::cout << " __________________________________________________ " << std::endl;
 	std::cout << "|                                                  |" << std::endl;
 	std::cout << "|                                                  |" << std::endl;
-	std::cout << "|⠀             ⠀⠀      ⠀⢀⣰⣶⣶⣿⣿⣿⣿⣿⣶⣶⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀    |" << std::endl;
-	std::cout << "|             ⠀      ⠀⢀⣴⣿⡿⠟⠋⠉⠉⠉⠉⠉⠙⠻⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀    |" << std::endl;
+	std::cout << "|                      ⠀⢀⣰⣶⣶⣿⣿⣿⣿⣿⣶⣶⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀    |" << std::endl;
+	std::cout << "|                    ⠀⢀⣴⣿⡿⠟⠋⠉⠉⠉⠉⠉⠙⠻⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀    |" << std::endl;
 	std::cout << "|     CONTACT       ⢀⣰⣿⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣿⣿⣆⠀⠀⠀        |" << std::endl;
 	std::cout << "|                   ⢸⣿⡿⠁⠀⠀        ⠀⠀⠀⠈⣿⣿⡆⠀⠀        |" << std::endl;
 	std::cout << "|     RESULT        ⣿⣿⡇⠀⠀⠀⠀⠀    ⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀       |" << std::endl;
-	std::cout << "|                   ⣿⣿⡇⠀⠀⠀⠀       ⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀       |" << std::endl;
-	std::cout << "|     LIST          ⢻⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⡏⠀⠀⠀       |" << std::endl;
-	std::cout << "|                   ⠸⢿⣿⣦⠀⠀⠀⠀ ⠀  ⠀⠀⠀⠀⢀⣼⣿⡿⠁⠀⠀⠀       |" << std::endl;
-	std::cout << "|                   ⠀⠈⠻⣿⣷⣤⡀⠀⠀⠀⠀⠀⠀⠀⣀⣴⣾⣿⣿⡁⠀⠀⠀⠀      ⠀|" << std::endl;
-	std::cout << "|             ⠀⠀⠀      ⠈⠻⢿⣿⣿⣶⣶⣶⣶⣶⣿⣿⡿⠟⠻⣿⣿⣦⣀⣀⠀⠀⠀    ⠀|" << std::endl;
-	std::cout << "|             ⠀          ⠀⠈⠉⠛⠛⠛⠛⠋⠉⠁⠀⠀⠀⠈⣻⣿⣿⣿⣷⣄⠀⠀    |" << std::endl;
-	std::cout << "|             ⠀⠀⠀⠀    ⠀      ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⡷     |" << std::endl;
-	std::cout << "|             ⠀     ⠀⠀⠀⠀⠀⠀⠀⠀      ⠀⠀⠀⠀⠀⠀⠀⠙⢿⡿⠋      |" << std::endl;
+	std::cout << "|                ⣿⣿⡇⠀⠀⠀⠀       ⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀       |" << std::endl;
+	std::cout << "|     LIST      ⢻⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⡏⠀⠀⠀       |" << std::endl;
+	std::cout << "|               ⠸⢿⣿⣦⠀⠀⠀⠀    ⠀⠀⠀⠀⢀⣼⣿⡿⠁⠀⠀⠀       |" << std::endl;
+	std::cout << "|               ⠀⠈⠻⣿⣷⣤⡀⠀⠀⠀⠀⠀⠀⠀⣀⣴⣾⣿⣿⡁⠀⠀⠀⠀      |" << std::endl;
+	std::cout << "|                   ⠈⠻⢿⣿⣿⣶⣶⣶⣶⣶⣿⣿⡿⠟⠻⣿⣿⣦⣀⣀⠀⠀⠀    |" << std::endl;
+	std::cout << "|                       ⠀⠈⠉⠛⠛⠛⠛⠋⠉⠁⠀⠀⠀⠈⣻⣿⣿⣿⣷⣄⠀⠀    |" << std::endl;
+	std::cout << "|                             ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⡷     |" << std::endl;
+	std::cout << "|                                   ⠀⠀⠀⠀⠀⠀⠀⠙⢿⡿⠋     |" << std::endl;
 	std::cout << "|__________________________________________________|" << std::endl;
 	std::cout << "|                                                  |" << std::endl;
 	std::cout << "|             SELECT YOUT CONTACT INDEX            |" << std::endl;
@@ -67,12 +67,12 @@ void	print_add(void) {
 	std::cout << " __________________________________________________ " << std::endl;
 	std::cout << "|                                                  |" << std::endl;
 	std::cout << "|                                                  |" << std::endl;
-	std::cout << "|     ⠀⠀⠀⠀⣿⣿⣿⣿ ⠀⠀⠀⠀⠀⠀⠀⠀⠀         ⠀                 |" << std::endl;
-	std::cout << "| ⠀       ⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀                          ⠀⠀⠀ |" << std::endl;
-	std::cout << "| ⠀⠀⠀ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀   First n: alphabetic    ⠀⠀  |" << std::endl;
-	std::cout << "| ⠀   ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ ⠀⠀   Last  n: alphabetic   ⠀⠀   |" << std::endl;
-	std::cout << "| ⠀    ⠀⠀⠀⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀   nick   :⠀alpha-numeric⠀⠀   |" << std::endl;
-	std::cout << "| ⠀⠀⠀    ⠀⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀ ⠀⠀phone  : numbers         ⠀ |" << std::endl;
+	std::cout << "|     ⠀⠀⠀⠀⣿⣿⣿⣿                                    |" << std::endl;
+	std::cout << "|         ⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀                            |" << std::endl;
+	std::cout << "|     ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀   First n: alphabetic     |" << std::endl;
+	std::cout << "|     ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿      Last  n: alphabetic      |" << std::endl;
+	std::cout << "|      ⠀⠀⠀⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀   nick   :lpha-numeric    |" << std::endl;
+	std::cout << "|        ⠀⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀   phone  : numbers         |" << std::endl;
 	std::cout << "|                                                  |" << std::endl;
 	std::cout << "|__________________________________________________|" << std::endl;
 	std::cout << "|                                                  |" << std::endl;
@@ -87,5 +87,17 @@ void	print_shutdown(void) {
 	std::cout << "|                                                  |" << std::endl;
 	std::cout << "|   X     CLOSING PHONEBOOK, SEE YOU SOON     X    |" << std::endl;
 	std::cout << "|__________________________________________________|" << std::endl;
+	std::cout << "" << std::endl;
+}
+
+void	print_first(void) {
+	std::cout << "" << std::endl;
+	std::cout << "<  INSERT FIRST NAME >" << std::endl;
+	std::cout << "" << std::endl;
+}
+
+void	inputError(void) {
+	std::cout << "" << std::endl;
+	std::cout << "Error: Invalid input." << std::endl;
 	std::cout << "" << std::endl;
 }

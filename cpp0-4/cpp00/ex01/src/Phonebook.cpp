@@ -3,30 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 18:14:24 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/14 19:42:50 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/15 19:30:08 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
 
-Phonebook::Phonebook(void) {
-	last_updated_contact = ARRAY_SIZE - 1;
-}
+Phonebook::Phonebook(void) {}
+Phonebook::~Phonebook(void) {}
 
-Phonebook::~Phonebook(void) {
-}
-/*
-Contact Phonebook::get_contact (void) {
-}
+Contact Phonebook::makeContact(void) {
+	Contact	newContact;
+	std::string input;
+	
+	print_add();
+	while(true) {
+		std::cout << "whatafac" << std::endl;
 
+		print_first();
+		std::cout << "whatafac2" << std::endl;
 
-void	Phonebook::add_contact(Contact contact) {
-	if(last_updated_contact == ARRAY_SIZE - 1)
-		last_updated_contact = 0;
-	else
-		last_update_contact++;
-	contacts[last_updated_contact] = contact;
-}*/
+		std::getline(std::cin, input);
+
+		if(std::cin.eof())
+			std::cout << "whatafac4" << std::endl;
+			break ;
+
+		if (!input.empty()) {
+			newContact.setFirstName(input);
+			break ;
+		}
+	};
+	inputError();
+	
+	// this->_contact[this->_contactIndex] = newContact;
+	// this->_contactIndex = (this->_contactIndex + 1) % 8;
+	
+	std::cout << "Contact added successfully" << std::endl;
+}

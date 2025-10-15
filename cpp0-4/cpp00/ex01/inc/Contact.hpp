@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 17:46:43 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/15 11:47:13 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/15 19:16:13 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,47 @@
 
 # include <iostream>
 # include <string>
+# include <cctype>
 
 class Contact {
+	
 	private:
-		std::string _first_name;
-		std::string _last_name;
-		std::string	_nickname;
-		std::string	_phone;
-		std::string _dark_secret;
+	std::string _first_name;
+	std::string _last_name;
+	std::string	_nickname;
+	std::string	_phone;
+	std::string _dark_secret;
 
-		bool	isAlpha(std::string const &str);
-		bool	isNumber(std::string const &str);
 
-	public:
+	//VALIDATORS
+		bool	validAlpha(const std::string& str);
+		bool	validNumber(std::string const &str) const;
+
+		std::string _format(std::string str) const;
+
+		public:
 		Contact(void);
 		~Contact(void);
-
+		
+	
 		// SETTERS
-		bool		set_first_name(std::string first_name);
-		bool		set_last_name(std::string las_name);
-		bool		set_nickname(std::string nickname);
-		bool		set_phone(std::string phone);
-		bool		set_dark_secret(std::string dark_secret);
+		void	setFirstName(const std::string& str) {
+			this->_first_name = str;
+		}
+		bool		setLastName(std::string las_name);
+		bool		setNickname(std::string nickname);
+		bool		setPhone(std::string phone);
+		bool		setDarkSecret(std::string dark_secret);
 
 		// GETTERS
-		std::string	get_first_name(void);
-		std::string	get_last_name(void);
-		std::string	get_nickname(void);
-		std::string	get_phone(void);
-		std::string	get_dark_secret(void);
+		std::string	getFirstName(void) const;
+		std::string	getLastName(void) const;
+		std::string	getNickname(void) const;
+		std::string	getPhone(void);
+		std::string	getDarkSecret(void);
+
+		//FUNCTIONS
+		
 };
 
 	void		print_initial(void);
@@ -51,5 +63,7 @@ class Contact {
 	void		print_instructions(void);
 	void		print_search(void);
 	void		print_add(void);
+	void		print_first(void);
+	void		inputError();
 
 #endif
