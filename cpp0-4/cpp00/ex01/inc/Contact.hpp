@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 17:46:43 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/16 23:21:16 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/17 00:44:23 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,8 @@ class Contact {
 
 	//VALIDATORS
 		bool	validAlpha(const std::string& str);
-		// bool	validNumber(const std::string& str) const;
-
-		std::string _format(std::string str) const;
+		bool	validNumber(const std::string& str);
+		bool	validAlphaNum(const std::string& str);
 
 	public:
 		Contact(void);
@@ -67,9 +66,11 @@ class Contact {
 	void	print_nickname(void);
 	void	print_phone(void);
 	void	print_darksecret(void);
+	void	print_contactsuccess(void);
 	void	print_inputError(void);
 	void	print_inputClose(void);
 	void	print_alphabetic(void);
+	void	print_numeric(void);
 	void	print_alphanumeric(void);
 	
 #endif

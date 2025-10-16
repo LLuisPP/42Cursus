@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 17:40:05 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/16 23:25:54 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/17 00:47:05 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,21 @@ bool	Contact::validAlpha(std::string const &str) {
 	return (true);
 }
 
+bool	Contact::validNumber(std::string const &str) {
+	for(int i = 0; i < str.length(); ++i) {
+		if(!std::isdigit(str[i]) && str[i] != ' ' && str[i] != '-')
+		return (false);
+	}
+	return (true);
+}
+
+bool	Contact::validAlphaNum(std::string const &str) {
+	for(int i = 0; i < str.length(); ++i) {
+		if(!std::isalnum(str[i]) && str[i] != ' ' && str[i] != '-')
+		return (false);
+	}
+	return (true);
+}
 
 // GETTERS
 
@@ -86,7 +101,7 @@ bool	Contact::setNickname(const std::string& str) {
 		std::cout << "Empty fields are NOT allowed" << std::endl;
 		return (false);
 	}
-	else if (!this->validAlpha(str)) {
+	else if (!this->validAlphaNum(str)) {
 		print_alphanumeric();
 		return (false);
 	}
@@ -99,8 +114,8 @@ bool	Contact::setPhone(const std::string& str) {
 		std::cout << "Empty fields are NOT allowed" << std::endl;
 		return (false);
 	}
-	else if (!this->validAlpha(str)) {
-		print_alphanumeric();
+	else if (!this->validNumber(str)) {
+		print_numeric();
 		return (false);
 	}
 	this->_phone = str;
@@ -112,7 +127,7 @@ bool	Contact::setDarkSecret(const std::string& str) {
 		std::cout << "Empty fields are NOT allowed" << std::endl;
 		return (false);
 	}
-	else if (!this->validAlpha(str)) {
+	else if (!this->validAlphaNum(str)) {
 		print_alphanumeric();
 		return (false);
 	}

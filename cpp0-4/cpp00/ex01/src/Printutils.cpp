@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 09:38:24 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/16 23:30:20 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/17 00:36:26 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	print_instructions(void) {
 	std::cout << "|             PLEASE CHOOSE AN OPTION              |" << std::endl;
 	std::cout << "|__________________________________________________|" << std::endl;
 	std::cout << "|                                                  |" << std::endl;
-	std::cout << "|       ADD      |      SEARCH       |    EXIT     |" << std::endl;
+	std::cout << "|     1 - ADD    |   2 - SEARCH   |    3 - EXIT    |" << std::endl;
 	std::cout << "|__________________________________________________|\n" << std::endl;
 	std::cout << "> Your selection:" << std::endl;
 }
@@ -67,11 +67,11 @@ void	print_add(void) {
 	std::cout << "|                                                  |" << std::endl;
 	std::cout << "|                                                  |" << std::endl;
 	std::cout << "|     ⠀⠀⠀⠀⣿⣿⣿⣿                                     |" << std::endl;
-	std::cout << "|         ⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀                              |" << std::endl;
-	std::cout << "|     ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀   First n: alphabetic        |" << std::endl;
-	std::cout << "|     ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿      Last  n: alphabetic        |" << std::endl;
-	std::cout << "|      ⠀⠀⠀⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀   nick   :lpha-numeric       |" << std::endl;
-	std::cout << "|        ⠀⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀   phone  : numbers           |" << std::endl;
+	std::cout << "|         ⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀ First name: alphabetic       |" << std::endl;
+	std::cout << "|     ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀  Last name: alphabetic        |" << std::endl;
+	std::cout << "|     ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿    Nickname: alpha-numeric      |" << std::endl;
+	std::cout << "|      ⠀⠀⠀⣿⣿⣿⣿⠀⠀⠀⠀⠀   Phone: numeric               |" << std::endl;
+	std::cout << "|        ⠀⣿⣿⣿⣿⠀⠀⠀⠀⠀   Dark Secret: alpha-numeric   |" << std::endl;
 	std::cout << "|                                                  |" << std::endl;
 	std::cout << "|__________________________________________________|" << std::endl;
 	std::cout << "|                                                  |" << std::endl;
@@ -117,22 +117,37 @@ void	print_darksecret(void) {
 	std::cout << "" << std::endl;
 }
 
+void	print_contactsuccess(void) {
+	std::cout << "" << std::endl;
+	std::cout << "+ + + + + + + + + + + + + + + + + + + + + + + + + +" << std::endl;
+	std::cout << " __________________________________________________ " << std::endl;
+	std::cout << "|                                                  |" << std::endl;
+	std::cout << "|   + + +  \033[1;92m  CONTACT SUCCESSFULLY CREATED  \e[0m + + +  |" << std::endl;
+	std::cout << "|__________________________________________________|" << std::endl << std::endl;
+}
+
 void	print_inputError(void) {
-	std::cout << "X: Invalid input." << std::endl;
+	std::cout << "\033[1;91m X: Invalid input." << std::endl;
 }
 
 void	print_inputClose(void) {
-	std::cout << "X: Input closed, aborting contact creation" << std::endl;
+	std::cout << "\033[1;91m X: Input closed, aborting contact creation\e[0m" << std::endl;
 }
 
 void	print_alphabetic(void) {
 	std::cout << "" << std::endl;
-	std::cout << "X: Only alphabetic abc..ABC.." << std::endl;
+	std::cout << "\033[1;91m X\e[0m: Only alphabetic abc..ABC.." << std::endl;
+	std::cout << "" << std::endl;
+}
+
+void	print_numeric(void) {
+	std::cout << "" << std::endl;
+	std::cout << "\033[1;91m X\e[0m: Only numeric 123.." << std::endl;
 	std::cout << "" << std::endl;
 }
 
 void	print_alphanumeric(void) {
 	std::cout << "" << std::endl;
-	std::cout << "X: Only alpha-numeric abc..ABC..123.." << std::endl;
+	std::cout << "\033[1;91m X\e[0m: Only alpha-numeric abc..ABC.. 123.." << std::endl;
 	std::cout << "" << std::endl;
 }

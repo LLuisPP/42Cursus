@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 13:09:31 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/16 23:17:53 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/17 01:02:50 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string>
 # include <iostream>
 # include <cctype>
+# include <iomanip>
 
 class Phonebook {
 	private:
@@ -28,7 +29,8 @@ class Phonebook {
 		Phonebook(void);
 		~Phonebook(void);
 		
-		void makeContact(void);
+		void	makeContact(void);
+		void	searchContacts(void) const;
 		
 };
 
