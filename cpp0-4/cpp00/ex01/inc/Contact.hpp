@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 17:46:43 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/15 19:16:13 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/16 23:21:16 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@
 class Contact {
 	
 	private:
-	std::string _first_name;
-	// std::string _last_name;
-	// std::string	_nickname;
-	// std::string	_phone;
-	// std::string _dark_secret;
+	std::string _firstName;
+	std::string _lastName;
+	std::string	_nickname;
+	std::string	_phone;
+	std::string _darkSecret;
 
 
 	//VALIDATORS
 		bool	validAlpha(const std::string& str);
-		// bool	validNumber(std::string const &str) const;
+		// bool	validNumber(const std::string& str) const;
 
 		std::string _format(std::string str) const;
 
@@ -40,31 +40,36 @@ class Contact {
 		
 	
 		// SETTERS
-		void 	setFirstName(const std::string& str) {
-			this->_first_name = str;
-		};
-		// bool		setLastName(std::string las_name);
-		// bool		setNickname(std::string nickname);
-		// bool		setPhone(std::string phone);
-		// bool		setDarkSecret(std::string dark_secret);
+		bool 	setFirstName(const std::string& str);
+		bool	setLastName(const std::string& str);
+		bool	setNickname(const std::string& str);
+		bool	setPhone(const std::string& str);
+		bool	setDarkSecret(const std::string& str);
 
 		// GETTERS
 		std::string	getFirstName(void) const;
-		// std::string	getLastName(void) const;
-		// std::string	getNickname(void) const;
-		// std::string	getPhone(void);
-		// std::string	getDarkSecret(void);
+		std::string	getLastName(void) const;
+		std::string	getNickname(void) const;
+		std::string	getPhone(void) const;
+		std::string	getDarkSecret(void) const;
 
 		//FUNCTIONS
 		
 };
 
-	void		print_initial(void);
-	void		print_shutdown(void);
-	void		print_instructions(void);
-	void		print_search(void);
-	void		print_add(void);
-	void		print_first(void);
-	void		inputError();
-
+	void	print_initial(void);
+	void	print_shutdown(void);
+	void	print_instructions(void);
+	void	print_search(void);
+	void	print_add(void);
+	void	print_first(void);
+	void	print_last(void);
+	void	print_nickname(void);
+	void	print_phone(void);
+	void	print_darksecret(void);
+	void	print_inputError(void);
+	void	print_inputClose(void);
+	void	print_alphabetic(void);
+	void	print_alphanumeric(void);
+	
 #endif

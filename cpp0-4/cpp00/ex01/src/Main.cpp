@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 18:56:11 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/15 20:23:21 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/16 22:47:41 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,7 @@ int	main(void) {
 		if (input == "EXIT")
 			break ;
 		else if (input == "ADD")
-		{
-			print_add();
 			phonebook.makeContact();
-		}
 		else if (input == "SEARCH")
 			print_search();
 		else

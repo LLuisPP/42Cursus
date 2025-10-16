@@ -6,41 +6,80 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 18:14:24 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/15 21:55:49 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/16 23:25:43 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
 
-Phonebook::Phonebook(void) {};
+Phonebook::Phonebook(void) : _contactIndex(0), _totalContacs(8) {};
 Phonebook::~Phonebook(void) {};
 
 
-Contact Phonebook::makeContact(void) {
+void Phonebook::makeContact(void) {
 	Contact	newContact;
 	std::string input;
 	
+	print_add();
 	while(true) {
 		print_first();
 		std::getline(std::cin, input);
-
-		if (input.empty()) {
-			inputError();
-			break ;
+		if(std::cin.eof()) {
+			print_inputClose();
+			return ;
 		}
-		else if(std::cin.eof()) {
-			std::cout << "Input closed" << std::endl;
-			return (Contact());
+		else if (newContact.setFirstName(input)) {break ;}
+	};
+	
+	while(true) {
+		print_last();
+		std::getline(std::cin, input);
+		if(std::cin.eof()) {
+			print_inputClose();
+			return ;
 		}
-		if (!input.empty()) {
-			// newContact.setFirstName(input); //segfault
-			this->_contact[this->_contactIndex] = newContact; // segfault
-			std::cout << "empty antes" << std::endl;
-			this->_contactIndex = (this->_contactIndex + 1) % 8;
-			std::cout << "empty despues" << std::endl;
-			std::cout << "Contact added successfully" << std::endl;
+		else if (newContact.setLastName(input)) {
 			break ;
 		}
 	};
-	return (newContact);
-}
+
+	while(true) {
+		print_nickname();
+		std::getline(std::cin, input);
+		if(std::cin.eof()) {
+			print_inputClose();
+			return ;
+		}
+		else if (newContact.setNickname(input)) {
+			break ;
+		}
+	};
+
+	while(true) {
+		print_phone();
+		std::getline(std::cin, input);
+		if(std::cin.eof()) {
+			print_inputClose();
+			return ;
+		}
+		else if (newContact.setPhone(input)) {
+			break ;
+		}
+	};
+	
+	while(true) {
+		print_darksecret();
+		std::getline(std::cin, input);
+		if(std::cin.eof()) {
+			print_inputClose();
+			return ;
+		}
+		else if (newContact.setDarkSecret(input)) {
+			break ;
+		}
+	};
+	
+	this->_contact[this->_contactIndex] = newContact;
+	this->_contactIndex = (this->_contactIndex + 1) % 8;
+	std::cout << std::endl << "Contact added successfully" << std::endl;
+};

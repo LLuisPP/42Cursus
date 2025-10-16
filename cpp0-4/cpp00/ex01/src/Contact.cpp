@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 17:40:05 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/15 20:09:58 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/16 23:25:54 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,13 @@
 // CONSTRUCTOR/DESTRUCTOR
 
 Contact::Contact(void) {
-	this->_first_name = "";
+	this->_firstName = "";
+	this->_lastName = "";
+	this->_nickname = "";
+	this->_phone = "";
+	this->_darkSecret = "";	
 };
+
 Contact::~Contact(void) {};
 
 
@@ -25,105 +30,95 @@ bool	Contact::validAlpha(std::string const &str) {
 	for(int i = 0; i < str.length(); ++i) {
 		if(!std::isalpha(str[i]) && str[i] != ' ' && str[i] != '-')
 		return (false);
+	}
+	return (true);
 }
-return (true);
-}
 
 
+// GETTERS
 
-std::string getFirstName(void) {
-	// return (this->_first_name);
+std::string Contact::getFirstName(void) const {
+	return (this->_firstName);
 };
-
-// bool	Contact::validNumber(std::string const &str) {
-// 	for(int i = 0; i < str.length(); ++i) {
-// 		if(!std::isalpha(str[i]) && str[i] != ' ' && str[i] != '-')
-// 		{
-// 			std::cout << "whatafac" << std::endl;
-// 			return (false);
-// 		}
-// 	}
-// 	return (true);
-// }
-
+std::string Contact::getLastName(void) const {
+	return (this->_lastName);
+};
+std::string Contact::getNickname(void) const {
+	return (this->_nickname);
+};
+std::string Contact::getPhone(void) const {
+	return (this->_phone);
+};
+std::string Contact::getDarkSecret(void) const {
+	return (this->_darkSecret);
+};
 
 
 // SETTERS
-// bool	Contact::set_first_name(std::string _frist_name) {
-// 	if (str.empty()) {
-// 		std::cout << "Error: The field is empty, fill the blank, please" << std::endl;
-// 		return (false);
-// 	} else if (!this->validAlpha(str)) {
-// 		std::cout << "! Only alphabetic abc..ABC.." << std::endl;
-// 		return (false);
-// 	}
-// 	this->_first_name;
-// 	return (true);
-// }
+bool	Contact::setFirstName(const std::string& str) {
+	if (str.empty()) {
+		std::cout << "Empty fields are NOT allowed" << std::endl;
+		return (false);
+	}
+	else if (!this->validAlpha(str)) {
+		print_alphabetic();
+		return (false);
+	}
+	this->_firstName = str;
+	return (true);
+}
 
-// bool	Contact::set_last_name(std::string _last_name) {
-// 	if (str.empty()) {
-// 		std::cout << "Error: The field is empty, fill the blank, please" << std::endl;
-// 		return (false);
-// 	} else if (!this->_isAlpha(str)) {
-// 		std::cout << "! Pnly alphabetic abc..ABC.." << std::endl;
-// 		return (false);
-// 	}
-// 	this->_last_name;
-// 	return (true);
-// }
+bool	Contact::setLastName(const std::string& str) {
+	if (str.empty()) {
+		std::cout << "Empty fields are NOT allowed" << std::endl;
+		return (false);
+	}
+	else if (!this->validAlpha(str)) {
+		print_alphabetic();
+		return (false);
+	}
+	this->_lastName = str;
+	return (true);
+}
 
-// bool	Contact::set_nickname(std::string _nickname) {
-// 	if (str.empty()) {
-// 		std::cout << "Error: The field is empty, fill the blank, please" << std::endl;
-// 		return (false);
-// 	} else if (!this->_isAlpha(str)) {
-// 		std::cout << "! Only alpha-numeric abc..ABC..123.." << std::endl;
-// 		return (false);
-// 	}
-// 	this->_nickname;
-// 	return (true);
-// }
+bool	Contact::setNickname(const std::string& str) {
+	if (str.empty()) {
+		std::cout << "Empty fields are NOT allowed" << std::endl;
+		return (false);
+	}
+	else if (!this->validAlpha(str)) {
+		print_alphanumeric();
+		return (false);
+	}
+	this->_nickname = str;
+	return (true);
+}
 
-// bool	Contact::set_phone(std::string _phone) {
-// 	if (str.empty()) {
-// 		std::cout << "Error: The field is empty, fill the blank, please" << std::endl;
-// 		return (false);
-// 	} else if (!this->_isAlpha(str)) {
-// 		std::cout << "! Only numeric 123.." << std::endl;
-// 		return (false);
-// 	}
-// 	this->_phone;
-// 	return (true);
-// }
+bool	Contact::setPhone(const std::string& str) {
+	if (str.empty()) {
+		std::cout << "Empty fields are NOT allowed" << std::endl;
+		return (false);
+	}
+	else if (!this->validAlpha(str)) {
+		print_alphanumeric();
+		return (false);
+	}
+	this->_phone = str;
+	return (true);
+}
 
-// bool	Contact::set_dark_secret(std::string _dark_secret) {
-// 	if (str.empty()) {
-// 		std::cout << "Error: The field is empty, fill the blank, please" << std::endl;
-// 		return (false);
-// 	}
-// 	this->_dark_secret;
-// 	return (true);
-// }
-
-// Getters
-
-
-// std::string Contact::get_last_name(void) {
-// 	return (this->_last_name);
-// };
-
-// std::string Contact::get_nickname(void) {
-// 	return (this->_nickname);
-// };
-
-// std::string Contact::get_phone(void) {
-// 	return (this->_phone);
-// };
-
-// std::string Contact::get_dark_secret(void) {
-// 	return (this->_dark_secret);
-// };
+bool	Contact::setDarkSecret(const std::string& str) {
+	if (str.empty()) {
+		std::cout << "Empty fields are NOT allowed" << std::endl;
+		return (false);
+	}
+	else if (!this->validAlpha(str)) {
+		print_alphanumeric();
+		return (false);
+	}
+	this->_darkSecret = str;
+	return (true);
+}
 
 
 

@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 13:09:31 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/15 20:29:08 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/16 23:17:53 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Phonebook {
 		Phonebook(void);
 		~Phonebook(void);
 		
-		Contact makeContact(void);
+		void makeContact(void);
 		
 };
 
