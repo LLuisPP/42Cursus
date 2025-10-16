@@ -14,19 +14,26 @@
 
 // CONSTRUCTOR/DESTRUCTOR
 
-// Contact::Contact(void) {}
-Contact::~Contact(void) {}
+Contact::Contact(void) {
+	this->_first_name = "";
+};
+Contact::~Contact(void) {};
 
 
 // PRIVATE FUNCTS
 bool	Contact::validAlpha(std::string const &str) {
 	for(int i = 0; i < str.length(); ++i) {
 		if(!std::isalpha(str[i]) && str[i] != ' ' && str[i] != '-')
-			return (false);
-	}
-	return (true);
+		return (false);
+}
+return (true);
 }
 
+
+
+std::string getFirstName(void) {
+	// return (this->_first_name);
+};
 
 // bool	Contact::validNumber(std::string const &str) {
 // 	for(int i = 0; i < str.length(); ++i) {
@@ -101,9 +108,6 @@ bool	Contact::validAlpha(std::string const &str) {
 
 // Getters
 
-std::string Contact::getFirstName(void) {
-	return (this->_first_name);
-};
 
 // std::string Contact::get_last_name(void) {
 // 	return (this->_last_name);

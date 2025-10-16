@@ -23,7 +23,6 @@ Contact Phonebook::makeContact(void) {
 	while(true) {
 		print_first();
 		std::getline(std::cin, input);
-			std::cout << "conseguido" << std::endl;
 
 		if (input.empty()) {
 			inputError();
@@ -34,7 +33,7 @@ Contact Phonebook::makeContact(void) {
 			return (Contact());
 		}
 		if (!input.empty()) {
-			newContact.setFirstName(input); //segfault
+			// newContact.setFirstName(input); //segfault
 			this->_contact[this->_contactIndex] = newContact; // segfault
 			std::cout << "empty antes" << std::endl;
 			this->_contactIndex = (this->_contactIndex + 1) % 8;

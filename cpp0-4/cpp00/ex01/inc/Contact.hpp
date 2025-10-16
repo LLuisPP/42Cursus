@@ -13,6 +13,7 @@
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
+// # include "Phonebook.hpp"
 # include <iostream>
 # include <string>
 # include <cctype>
@@ -33,10 +34,8 @@ class Contact {
 
 		std::string _format(std::string str) const;
 
-		public:
-		Contact(void) {
-			this->_first_name = "";	
-		};
+	public:
+		Contact(void);
 		~Contact(void);
 		
 	
