@@ -14,7 +14,7 @@
 
 // CONSTRUCTOR/DESTRUCTOR
 
-Contact::Contact(void) {}
+// Contact::Contact(void) {}
 Contact::~Contact(void) {}
 
 
@@ -101,9 +101,9 @@ bool	Contact::validAlpha(std::string const &str) {
 
 // Getters
 
-// std::string Contact::get_first_name(void) {
-// 	return (this->_first_name);
-// };
+std::string Contact::getFirstName(void) {
+	return (this->_first_name);
+};
 
 // std::string Contact::get_last_name(void) {
 // 	return (this->_last_name);

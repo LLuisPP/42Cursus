@@ -21,38 +21,40 @@ class Contact {
 	
 	private:
 	std::string _first_name;
-	std::string _last_name;
-	std::string	_nickname;
-	std::string	_phone;
-	std::string _dark_secret;
+	// std::string _last_name;
+	// std::string	_nickname;
+	// std::string	_phone;
+	// std::string _dark_secret;
 
 
 	//VALIDATORS
 		bool	validAlpha(const std::string& str);
-		bool	validNumber(std::string const &str) const;
+		// bool	validNumber(std::string const &str) const;
 
 		std::string _format(std::string str) const;
 
 		public:
-		Contact(void);
+		Contact(void) {
+			this->_first_name = "";	
+		};
 		~Contact(void);
 		
 	
 		// SETTERS
-		void	setFirstName(const std::string& str) {
+		void 	setFirstName(const std::string& str) {
 			this->_first_name = str;
-		}
-		bool		setLastName(std::string las_name);
-		bool		setNickname(std::string nickname);
-		bool		setPhone(std::string phone);
-		bool		setDarkSecret(std::string dark_secret);
+		};
+		// bool		setLastName(std::string las_name);
+		// bool		setNickname(std::string nickname);
+		// bool		setPhone(std::string phone);
+		// bool		setDarkSecret(std::string dark_secret);
 
 		// GETTERS
 		std::string	getFirstName(void) const;
-		std::string	getLastName(void) const;
-		std::string	getNickname(void) const;
-		std::string	getPhone(void);
-		std::string	getDarkSecret(void);
+		// std::string	getLastName(void) const;
+		// std::string	getNickname(void) const;
+		// std::string	getPhone(void);
+		// std::string	getDarkSecret(void);
 
 		//FUNCTIONS
 		

@@ -13,11 +13,6 @@
 #include "Contact.hpp"
 #include "Phonebook.hpp"
 
-Contact	make_contact(void)
-{
-}
-
-
 int	main(void) {
 
 	Phonebook	phonebook;

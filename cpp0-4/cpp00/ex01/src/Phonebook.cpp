@@ -23,22 +23,25 @@ Contact Phonebook::makeContact(void) {
 	while(true) {
 		print_first();
 		std::getline(std::cin, input);
-		if(std::cin.eof()) {
-			std::cout << "Input closed" << std::endl;
-			return (Contact());
-		}
+			std::cout << "conseguido" << std::endl;
+
 		if (input.empty()) {
 			inputError();
 			break ;
 		}
+		else if(std::cin.eof()) {
+			std::cout << "Input closed" << std::endl;
+			return (Contact());
+		}
 		if (!input.empty()) {
-			newContact.setFirstName(input);
-			this->_contact[this->_contactIndex] = newContact;
+			newContact.setFirstName(input); //segfault
+			this->_contact[this->_contactIndex] = newContact; // segfault
+			std::cout << "empty antes" << std::endl;
 			this->_contactIndex = (this->_contactIndex + 1) % 8;
+			std::cout << "empty despues" << std::endl;
 			std::cout << "Contact added successfully" << std::endl;
 			break ;
 		}
 	};
-	
-	
+	return (newContact);
 }
