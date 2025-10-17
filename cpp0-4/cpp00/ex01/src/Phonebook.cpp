@@ -96,45 +96,43 @@ void Phonebook::searchContacts(void) const {
 	std::string input;
 	int			index = -1;
 
-	while (true) {
-		std::cout << std::endl << "Select an index to see details (0 - 7):" << std::endl;
-		std::getline(std::cin, input);
-		if (input[1]) {
-			print_inputClose();
-			return ;
-		}
-		if (std::isdigit(input[0])) {
-			index = input[0] - '0';
-				break;
-		}
-		if (index >= 0 && index <= 7) {
-			if (!this->_contact[index].getFirstName().empty()) {
-				break;
-			}
-			std::cout << "Index contains no information to show" << std::endl;
-			if (std::cin.eof() || !input[0] || input[1]) {
-				print_inputError();
-				return ;
-			}
-		}
-		else {
-			print_indexerror();
-			return ;
-		}
-			break;
-		
+	std::cout << std::endl << "Select an index to see details (0 - 7):" << std::endl;
+	std::getline(std::cin, input);
+	if (input.length() >= 2) {
+		print_inputClose();
+		return ;
 	}
-	if (this->_contact[index].getFirstName().empty()) {
-		print_indexerror();
+	if (std::isdigit(input[0])) {
+		index = input[0] - '0';
 	}
-	{
-		std::cout << "\033[1;92m __________________________________________________ " << std::endl;
-		std::cout << "|          |             |            |            |" << std::endl;
-		std::cout << "|" << std::setw(10) << index;
-		std::cout << "|   " << std::setw(10) << this->_contact[index].getFirstName().substr(0, 9) + ".";
-		std::cout << "|  " << std::setw(10) << this->_contact[index].getLastName().substr(0, 9) + ".";
-		std::cout << "|  " << std::setw(10) << this->_contact[index].getNickname().substr(0, 9) + "." << "|" << std::endl;
-		std::cout << "|__________|_____________|____________|____________|\e[0m" << std::endl;
+	else {
+		print_inputClose();
+		return ;
 	}
 
+	if (index >= 0 && index <= 7) {
+		if (!this->_contact[index].getFirstName().empty()) {
+			return ;
+		}
+		std::cout << "Index contains no information to show" << std::endl;
+		if (std::cin.eof() || !input[0] || input[1]) {
+			print_inputError();
+			return ;
+		}
+	}
+	else {
+		print_indexerror();
+		return ;
+	}
+
+
+	std::cout << "\033[1;92m __________________________________________________ " << std::endl;
+	std::cout << "| " << std::endl;
+	std::cout << "| " << this->_contact[index].getFirstName() << std::endl;
+	std::cout << "| " << this->_contact[index].getLastName() << std::endl;
+	std::cout << "| " << this->_contact[index].getNickname() << std::endl;
+	std::cout << "| " << this->_contact[index].getPhone() << std::endl;
+	std::cout << "| " << this->_contact[index].getDarkSecret() << std::endl;
+	std::cout << "|___________________________________________________\e[0m" << std::endl;
+	
 }
