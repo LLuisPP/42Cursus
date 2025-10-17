@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 18:14:24 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/17 09:32:23 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/17 12:50:34 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,10 @@ void Phonebook::searchContacts(void) const {
 			continue;
 		}
 
-		std::cout << "|" << std::setw(10) << i+1;
-		std::cout << "|   " << std::setw(10) << this->_contact[i].getFirstName();
-		std::cout << "|  " << std::setw(10) << this->_contact[i].getLastName();
-		std::cout << "|  " << std::setw(10) << this->_contact[i].getNickname() << "|" << std::endl;
+		std::cout << "|" << std::setw(10) << i;
+		std::cout << "|   " << std::setw(10) << this->_contact[i].getFirstName().substr(0, 9) + ".";
+		std::cout << "|  " << std::setw(10) << this->_contact[i].getLastName().substr(0, 9) + ".";
+		std::cout << "|  " << std::setw(10) << this->_contact[i].getNickname().substr(0, 9) + "." << "|" << std::endl;
 	}
 	std::cout << "|__________|_____________|____________|____________|" << std::endl;
 	
@@ -97,7 +97,7 @@ void Phonebook::searchContacts(void) const {
 	int			index = -1;
 	
 	while (true) {
-		std::cout << "Select an index to see details (0 - 7):" << std::endl;
+		std::cout << std::endl << "Select an index to see details (0 - 7):" << std::endl;
 		std::getline(std::cin, input);
 		if (std::cin.eof()) {
 			print_inputClose();
@@ -113,17 +113,17 @@ void Phonebook::searchContacts(void) const {
 		break;
 	}
 	
-	if (index) {
-		std::cout << " __________________________________________________ " << std::endl;
-		std::cout << "|          |             |            |            |" << std::endl;
-		std::cout << "|" << std::setw(10) << index;
-		std::cout << "|   " << std::setw(10) << this->_contact[index].getFirstName();
-		std::cout << "|  " << std::setw(10) << this->_contact[index].getLastName();
-		std::cout << "|  " << std::setw(10) << this->_contact[index].getNickname() << "|" << std::endl;
-		std::cout << "|__________|_____________|____________|____________|" << std::endl;
+	if (this->_contact[index].getFirstName().empty()) {
+		print_indexerror();
 	}
 	else {
-		print_indexerror();
+		std::cout << "\033[1;92m __________________________________________________ " << std::endl;
+		std::cout << "|          |             |            |            |" << std::endl;
+		std::cout << "|" << std::setw(10) << index;
+		std::cout << "|   " << std::setw(10) << this->_contact[index].getFirstName().substr(0, 9) + ".";
+		std::cout << "|  " << std::setw(10) << this->_contact[index].getLastName().substr(0, 9) + ".";
+		std::cout << "|  " << std::setw(10) << this->_contact[index].getNickname().substr(0, 9) + "." << "|" << std::endl;
+		std::cout << "|__________|_____________|____________|____________|\e[0m" << std::endl;
 	}
 
 }

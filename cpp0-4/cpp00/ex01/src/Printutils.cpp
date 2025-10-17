@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 09:38:24 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/17 09:29:55 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/17 12:53:40 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	print_instructions(void) {
 void	print_search(void) {
 	std::cout << "" << std::endl;
 	std::cout << " __________________________________________________ " << std::endl;
-	std::cout << "|                                                  |" << std::endl;
 	std::cout << "|                                                  |" << std::endl;
 	std::cout << "|                      ⠀⢀⣰⣶⣶⣿⣿⣿⣿⣿⣶⣶⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀    |" << std::endl;
 	std::cout << "|                    ⠀⢀⣴⣿⡿⠟⠋⠉⠉⠉⠉⠉⠙⠻⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀    |" << std::endl;
@@ -132,7 +131,7 @@ void	print_inputClose(void) {
 }
 
 void	print_indexerror(void) {
-	std::cout << "\033[1;91m X: Invalid or inexistent index, exiting ...\e[0m" << std::endl;
+	std::cout << std::endl << "\033[1;91m X: Invalid or inexistent index, exiting ...\e[0m" << std::endl;
 }
 
 void	print_alphabetic(void) {
