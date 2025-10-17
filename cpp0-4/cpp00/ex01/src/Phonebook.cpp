@@ -85,14 +85,22 @@ void Phonebook::searchContacts(void) const {
 		if(_firstName.empty()) {
 			continue;
 		}
-
 		std::cout << "|" << std::setw(10) << i;
-		std::cout << "|   " << std::setw(10) << this->_contact[i].getFirstName().substr(0, 9) + ".";
-		std::cout << "|  " << std::setw(10) << this->_contact[i].getLastName().substr(0, 9) + ".";
-		std::cout << "|  " << std::setw(10) << this->_contact[i].getNickname().substr(0, 9) + "." << "|" << std::endl;
+		if (this->_contact[i].getFirstName().length() > 9)
+			std::cout << "|   " << std::setw(10) << this->_contact[i].getFirstName().substr(0, 9) + ".";
+		else
+			std::cout << "|   " << std::setw(10) << this->_contact[i].getFirstName();
+		if (this->_contact[i].getLastName().length() > 9)
+			std::cout << "|  " << std::setw(10) << this->_contact[i].getLastName().substr(0, 9) + ".";
+		else
+			std::cout << "|  " << std::setw(10) << this->_contact[i].getLastName();
+		if (this->_contact[i].getNickname().length() > 9)
+			std::cout << "|  " << std::setw(10) << this->_contact[i].getNickname().substr(0, 9) + "." << "|" << std::endl;
+		else
+			std::cout << "|  " << std::setw(10) << this->_contact[i].getNickname() << "|" << std::endl;
 	}
-	std::cout << "|__________|_____________|____________|____________|" << std::endl;
-	
+			std::cout << "|__________|_____________|____________|____________|" << std::endl;
+			
 	std::string input;
 	int			index = -1;
 
@@ -109,9 +117,10 @@ void Phonebook::searchContacts(void) const {
 		print_inputClose();
 		return ;
 	}
-
+	
 	if (index >= 0 && index <= 7) {
-		if (!this->_contact[index].getFirstName().empty()) {
+		if (this->_contact[index].getFirstName().empty()) {
+			std::cout << "hola que ase" << std::endl;
 			return ;
 		}
 		std::cout << "Index contains no information to show" << std::endl;
@@ -126,6 +135,7 @@ void Phonebook::searchContacts(void) const {
 	}
 
 
+//Proteger esto
 	std::cout << "\033[1;92m __________________________________________________ " << std::endl;
 	std::cout << "| " << std::endl;
 	std::cout << "| " << this->_contact[index].getFirstName() << std::endl;
