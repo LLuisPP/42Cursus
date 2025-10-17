@@ -116,10 +116,10 @@ void	print_darksecret(void) {
 void	print_contactsuccess(void) {
 	std::cout << "" << std::endl;
 	std::cout << "+ + + + + + + + + + + + + + + + + + + + + + + + + +" << std::endl;
-	std::cout << " __________________________________________________ " << std::endl;
+	std::cout << "\033[1;92m __________________________________________________ " << std::endl;
 	std::cout << "|                                                  |" << std::endl;
-	std::cout << "|   + + +  \033[1;92m  CONTACT SUCCESSFULLY CREATED  \e[0m + + +  |" << std::endl;
-	std::cout << "|__________________________________________________|" << std::endl << std::endl;
+	std::cout << "|   + + +    CONTACT SUCCESSFULLY CREATED   + + +  |" << std::endl;
+	std::cout << "|__________________________________________________|\e[0m" << std::endl << std::endl;
 }
 
 void	print_inputError(void) {

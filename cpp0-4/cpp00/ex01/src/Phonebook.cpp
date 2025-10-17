@@ -95,28 +95,39 @@ void Phonebook::searchContacts(void) const {
 	
 	std::string input;
 	int			index = -1;
-	
+
 	while (true) {
 		std::cout << std::endl << "Select an index to see details (0 - 7):" << std::endl;
 		std::getline(std::cin, input);
-		if (std::cin.eof()) {
+		if (input[1]) {
 			print_inputClose();
 			return ;
 		}
-		if (input.length() == 1 && std::isdigit(input[0])) {
+		if (std::isdigit(input[0])) {
 			index = input[0] - '0';
-			if (index >= 0 && index <= 7 && !this->_contact[index].getFirstName().empty()) {
+				break;
+		}
+		if (index >= 0 && index <= 7) {
+			if (!this->_contact[index].getFirstName().empty()) {
 				break;
 			}
+			std::cout << "Index contains no information to show" << std::endl;
+			if (std::cin.eof() || !input[0] || input[1]) {
+				print_inputError();
+				return ;
+			}
 		}
-		// print_inputError();
-		break;
+		else {
+			print_indexerror();
+			return ;
+		}
+			break;
+		
 	}
-	
 	if (this->_contact[index].getFirstName().empty()) {
 		print_indexerror();
 	}
-	else {
+	{
 		std::cout << "\033[1;92m __________________________________________________ " << std::endl;
 		std::cout << "|          |             |            |            |" << std::endl;
 		std::cout << "|" << std::setw(10) << index;
