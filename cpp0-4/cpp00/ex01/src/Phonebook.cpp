@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 18:14:24 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/17 01:03:24 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/17 09:32:23 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,18 +73,57 @@ void Phonebook::makeContact(void) {
 
 void Phonebook::searchContacts(void) const {
 	print_search();
-	std::cout << "" << std::endl;
+	std::cout << "|          |             |            |            |" << std::endl;
 	std::cout << "|" << std::setw(10) << "Index" << "|";
-	std::cout << std::setw(10) << "First Name" << "|";
-	std::cout << std::setw(10) << "Last Name" << "|";
-	std::cout << std::setw(10) << "Nickname" << "|" << std::endl;
-	std::cout << "_____________________________________" << std::endl;
+	std::cout << "   " << std::setw(10) << "First Name" << "|";
+	std::cout << "  " << std::setw(10) << "Last Name" << "|";
+	std::cout << "  " << std::setw(10) << "Nickname" << "|" << std::endl;
+	std::cout << "|__________|_____________|____________|____________|" << std::endl;
 
 	for (int i = 0; i < 8; ++i) {
 		std::string _firstName = this->_contact[i].getFirstName();
 		if(_firstName.empty()) {
 			continue;
 		}
+
+		std::cout << "|" << std::setw(10) << i+1;
+		std::cout << "|   " << std::setw(10) << this->_contact[i].getFirstName();
+		std::cout << "|  " << std::setw(10) << this->_contact[i].getLastName();
+		std::cout << "|  " << std::setw(10) << this->_contact[i].getNickname() << "|" << std::endl;
+	}
+	std::cout << "|__________|_____________|____________|____________|" << std::endl;
+	
+	std::string input;
+	int			index = -1;
+	
+	while (true) {
+		std::cout << "Select an index to see details (0 - 7):" << std::endl;
+		std::getline(std::cin, input);
+		if (std::cin.eof()) {
+			print_inputClose();
+			return ;
+		}
+		if (input.length() == 1 && std::isdigit(input[0])) {
+			index = input[0] - '0';
+			if (index >= 0 && index <= 7 && !this->_contact[index].getFirstName().empty()) {
+				break;
+			}
+		}
+		// print_inputError();
+		break;
 	}
 	
+	if (index) {
+		std::cout << " __________________________________________________ " << std::endl;
+		std::cout << "|          |             |            |            |" << std::endl;
+		std::cout << "|" << std::setw(10) << index;
+		std::cout << "|   " << std::setw(10) << this->_contact[index].getFirstName();
+		std::cout << "|  " << std::setw(10) << this->_contact[index].getLastName();
+		std::cout << "|  " << std::setw(10) << this->_contact[index].getNickname() << "|" << std::endl;
+		std::cout << "|__________|_____________|____________|____________|" << std::endl;
+	}
+	else {
+		print_indexerror();
+	}
+
 }

@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 09:38:24 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/17 00:36:26 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/17 09:29:55 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,6 @@ void	print_search(void) {
 	std::cout << "|                                                  |" << std::endl;
 	std::cout << "|             SELECT YOUT CONTACT INDEX            |" << std::endl;
 	std::cout << "|__________________________________________________|" << std::endl;
-	std::cout << "|            |            |            |           |" << std::endl;
-	std::cout << "|       INDEX|  FIRST NAME|   LAST NAME|   NICKNAME|" << std::endl;
-	std::cout << "|____________|____________|____________|___________|" << std::endl;
 }
 
 void	print_add(void) {
@@ -84,7 +81,7 @@ void	print_shutdown(void) {
 	std::cout << "" << std::endl;
 	std::cout << " __________________________________________________" << std::endl;
 	std::cout << "|                                                  |" << std::endl;
-	std::cout << "|   X     CLOSING PHONEBOOK, SEE YOU SOON     X    |" << std::endl;
+	std::cout << "|  \033[1;91m X\e[X     CLOSING PHONEBOOK, SEE YOU SOON    \033[1;91m X\e[0m    |" << std::endl;
 	std::cout << "|__________________________________________________|" << std::endl;
 	std::cout << "" << std::endl;
 }
@@ -127,11 +124,15 @@ void	print_contactsuccess(void) {
 }
 
 void	print_inputError(void) {
-	std::cout << "\033[1;91m X: Invalid input." << std::endl;
+	std::cout << "\033[1;91m X: Invalid input ...\e[0m" << std::endl;
 }
 
 void	print_inputClose(void) {
-	std::cout << "\033[1;91m X: Input closed, aborting contact creation\e[0m" << std::endl;
+	std::cout << "\033[1;91m X: aborting operation and exiting ...\e[0m" << std::endl;
+}
+
+void	print_indexerror(void) {
+	std::cout << "\033[1;91m X: Invalid or inexistent index, exiting ...\e[0m" << std::endl;
 }
 
 void	print_alphabetic(void) {
@@ -151,3 +152,10 @@ void	print_alphanumeric(void) {
 	std::cout << "\033[1;91m X\e[0m: Only alpha-numeric abc..ABC.. 123.." << std::endl;
 	std::cout << "" << std::endl;
 }
+
+void	print_menuerror(void) {
+	std::cout << "" << std::endl;
+	std::cout << std::endl << "\t\033[1;91m X X X - Wrong option, try again - X X X\e[0m" << std::endl;
+	std::cout << "" << std::endl;
+}
+

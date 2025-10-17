@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 18:56:11 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/17 01:04:14 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/17 08:53:54 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int	main(void) {
 	print_instructions();
 	while (std::getline(std::cin, input)) {
 		if (input == "ADD" || input == "add" || input == "1")
-			phonebook.makeContact();
+		phonebook.makeContact();
 		else if (input == "SEARCH" || input == "search" || input == "2")
-			phonebook.searchContacts();
+		phonebook.searchContacts();
 		else if (input == "EXIT" || input == "exit" || input == "3")
-			break ;
+		break ;
 		else
-			std::cout << std::endl << "\tX X X - Wrong option, try again - X X X" << std::endl;
+			print_menuerror();
 		print_instructions();
 	}
 	print_shutdown();

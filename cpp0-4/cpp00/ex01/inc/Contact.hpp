@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 17:46:43 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/17 00:44:23 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/17 09:28:24 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,7 @@ class Contact {
 	void	print_alphabetic(void);
 	void	print_numeric(void);
 	void	print_alphanumeric(void);
+	void	print_menuerror(void);
+	void	print_indexerror(void);
 	
 #endif
