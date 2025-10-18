@@ -6,13 +6,13 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/11 11:37:46 by lprieto-          #+#    #+#              #
-#    Updated: 2025/10/13 17:41:54 by lprieto-         ###   ########.fr        #
+#    Updated: 2025/10/18 10:54:23 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = megaphone
 
-CXX = g++
+CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g
 
 RM = rm -rf

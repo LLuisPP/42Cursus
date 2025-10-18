@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 18:14:24 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/17 12:50:34 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/17 19:14:52 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ void Phonebook::searchContacts(void) const {
 	
 	if (index >= 0 && index <= 7) {
 		if (this->_contact[index].getFirstName().empty()) {
-			std::cout << "hola que ase" << std::endl;
+			std::cout << " \033[1;91m  X: Index contains no information to show \e[0m" << std::endl;
 			return ;
 		}
 		std::cout << "Index contains no information to show" << std::endl;
@@ -134,8 +134,6 @@ void Phonebook::searchContacts(void) const {
 		return ;
 	}
 
-
-//Proteger esto
 	std::cout << "\033[1;92m __________________________________________________ " << std::endl;
 	std::cout << "| " << std::endl;
 	std::cout << "| " << this->_contact[index].getFirstName() << std::endl;
@@ -144,5 +142,4 @@ void Phonebook::searchContacts(void) const {
 	std::cout << "| " << this->_contact[index].getPhone() << std::endl;
 	std::cout << "| " << this->_contact[index].getDarkSecret() << std::endl;
 	std::cout << "|___________________________________________________\e[0m" << std::endl;
-	
 }

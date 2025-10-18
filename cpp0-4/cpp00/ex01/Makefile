@@ -6,13 +6,13 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 20:38:28 by lprieto-          #+#    #+#              #
-#    Updated: 2025/10/16 22:44:28 by lprieto-         ###   ########.fr        #
+#    Updated: 2025/10/18 11:03:51 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
 
-CXX = g++
+CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g -fsanitize=address
 
 RM = rm -rf
