@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/11 11:37:46 by lprieto-          #+#    #+#              #
-#    Updated: 2025/10/18 10:54:23 by lprieto-         ###   ########.fr        #
+#    Updated: 2025/10/19 08:03:12 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,11 @@ RM = rm -rf
  
 # **************************************************************************** #
 
-SRCS = megaphone.cpp
+SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
 OBJS = $(SRCS:.cpp=.o)
+
+INCLUDES = Zombie.hpp
 
 DEPS = $(OBJS:.o=.d)
 
@@ -33,7 +35,7 @@ $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	$(call show_progress)
 
-%.o: %.cpp Makefile
+%.o: %.cpp Makefile $(INCLUDES)
 	$(CXX) $(CXXFLAGS) -MMD -c $< -o $@
 
 clean :
