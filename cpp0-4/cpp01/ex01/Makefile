@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 20:38:28 by lprieto-          #+#    #+#              #
-#    Updated: 2025/10/18 11:03:51 by lprieto-         ###   ########.fr        #
+#    Updated: 2025/10/19 20:20:32 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ RM = rm -rf
 
 # **************************************************************************** #
 
-SRC = Main.cpp Phonebook.cpp Contact.cpp Printutils.cpp
+SRC = main.cpp  Zombie.cpp zombieHorde.cpp
 
 SRCS = $(addprefix src/, $(SRC))
 

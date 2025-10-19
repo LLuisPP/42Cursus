@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = BraiinnzZ
+NAME = braiinnzZ
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g # -fsanitize=address
@@ -19,30 +19,38 @@ RM = rm -rf
  
 # **************************************************************************** #
 
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRC = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
-OBJS = $(SRCS:.cpp=.o)
+SRCS = $(addprefix src/, $(SRC))
 
-INCLUDES = Zombie.hpp
+OBJ_PATH := ./tmp/
+H_PATH := ./inc/
+HEADERS = -I$(H_PATH)
+
+OBJS = $(addprefix $(OBJ_PATH), $(SRCS:.cpp=.o))
 
 DEPS = $(OBJS:.o=.d)
 
 # **************************************************************************** #
 
-all: $(NAME)
+all: $(OBJ_PATH) $(NAME)
+
+$(OBJ_PATH):
+	mkdir -p $(OBJ_PATH)
 
 $(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	$(call show_progress)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp Makefile $(INCLUDES)
-	$(CXX) $(CXXFLAGS) -MMD -c $< -o $@
+$(OBJ_PATH)%.o: %.cpp Makefile
+	mkdir -p $(dir $@)
+	$(CXX) $(CXXFAGS) $(HEADERS) -MMD -c $< -o $@
 
 clean :
-	$(RM) $(OBJS) $(DEPS)
+	$(RM) $(OBJ_PATH)
 
 fclean :
-	$(RM) $(NAME) $(OBJS) $(DEPS)
+	$(RM) $(NAME) $(OBJ_PATH)
 
 re :
 	make fclean --silent
