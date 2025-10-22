@@ -14,17 +14,20 @@
 
 int main(int argc, char **argv) {
 
-	Zombie	*horde;
 	int		zombies;
+	Zombie	*horde;
 
-	if (argc != 1 && argv) {
+	if (argc != 1) {
 		std::cout << "No argumentz needed... brainzzz" << std::endl;
 		return (1);
 	}
 	zombies = 5;
-	std::cout << zombieHorde(zombies, "Zombie");
+	horde = zombieHorde(zombies, "Zombie ghoul");
+	if (!horde) {
+		return (1);
+	}
 	for (int i = 0; i < zombies; i++) {
-		horde[i].announce();
+		std::cout << i << " "; horde[i].announce();
 	};
 	delete [] horde;
 	return (0);
