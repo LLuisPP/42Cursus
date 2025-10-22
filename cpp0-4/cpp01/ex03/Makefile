@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = uViolence
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g # -fsanitize=address
@@ -19,7 +19,7 @@ RM = rm -rf
 
 # **************************************************************************** #
 
-SRC = Main.cpp Phonebook.cpp Contact.cpp Printutils.cpp
+SRC = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 
 SRCS = $(addprefix src/, $(SRC))
 
@@ -94,17 +94,17 @@ TOTAL_ITEMS := $(words $(OBJS))
 
 define show_progress
 	@echo; \
-	printf " eeeee e   e eeeee eeeee eeee eeeee  eeeee eeeee e   e \n \
-88  8 8   8 8  88 8   8 8    8   8  8  88 8  88 8   8 \n \
-8eee8 8eee8 8   8 8e  8 8eee 8eee8e 8   8 8   8 8eee8e \n \
-88    88  8 8   8 88  8 88   88   8 8   8 8   8 88   8 \n \
-8     88  8 8eee8 88  8 88ee 88eee8 8eee8 8eee8 88   8 \n\n"; \
+	printf " e   e      ee   e e  eeeee e     eeee eeeee eeee eeee \n \
+8   8      88   8 8  8  88 8     8    8   8 8  8 8 \n \
+8e  8 eeee 88  e8 8e 8   8 8e    8eee 8e  8 8e   8eee \n \
+88  8       8  8  88 8   8 88    88   88  8 88   88 \n \
+88ee8       8ee8  88 8eee8 88eee 88ee 88  8 88e8 88ee \n\n"; \
 
 	printf " $(W)▄▄▄▄▄▄▄               eeeeee 88 \n \
 $(W)█                     e    8  8       $(Y)▄████▄              $(BB)▄█████▄ $(RES)\n \
 █          █     █    8    8  8      $(Y)████▄███  $(BW)lprieto-   $(BB)██${PHA}▄${RES}$(BB)█$(PHA)▄${RES}$(BB)██ ${RES}\n \
 █▄       ▀▀█▀▀ ▀▀█▀▀  e    8  8      $(Y)████▄     $(G)$(BD)$(NAME)  $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
-██         ▀     ▀    88   8 8888    $(Y) ▀████▀     ex00     $(BB)█▀█▀█▀█ $(RES)\n \
+██         ▀     ▀    88   8 8888    $(Y) ▀████▀     ex03     $(BB)█▀█▀█▀█ $(RES)\n \
 ███████               888888 8888 \n\n"; \
 
 	total_ticks=$$((PROG_DURAT * 10));
