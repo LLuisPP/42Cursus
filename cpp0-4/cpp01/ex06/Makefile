@@ -5,21 +5,21 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/06/11 11:37:46 by lprieto-          #+#    #+#              #
-#    Updated: 2025/10/19 08:03:12 by lprieto-         ###   ########.fr        #
+#    Created: 2025/10/13 20:38:28 by lprieto-          #+#    #+#              #
+#    Updated: 2025/10/23 11:33:31 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = braiinnzZ
+NAME = harlFilter
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g # -fsanitize=address
 
 RM = rm -rf
- 
+
 # **************************************************************************** #
 
-SRC = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRC = main.cpp Harl.cpp
 
 SRCS = $(addprefix src/, $(SRC))
 
@@ -45,7 +45,7 @@ $(NAME): $(OBJS)
 $(OBJ_PATH)%.o: %.cpp Makefile
 	mkdir -p $(dir $@)
 	$(CXX) $(CXXFLAGS) $(HEADERS) -MMD -c $< -o $@
-
+	
 clean :
 	$(RM) $(OBJ_PATH)
 
@@ -94,18 +94,17 @@ TOTAL_ITEMS := $(words $(OBJS))
 
 define show_progress
 	@echo; \
-	printf " eeeeee                                           eeeeee \n \
-	8    8   eeeee  eeeee e  e  e  eeeee eeeee eeeee      8 \n \
-	8eeee8ee 8   8  8   8 8  8  8  8   8 8   8 e   8 eeeee8 \n \
-	88     8 8eee8e 8eee8 8e 8e 8e 8e  8 8e  8 eeee8 88 \n \
-	88     8 88   8 88  8 88 88 88 88  8 88  8 88    88    \n \
-	88eeeee8 88   8 88  8 88 88 88 88  8 88  8 88ww8 88eee8 \n\n"; \
+	printf " e   e eeeee eeeee  e \n \
+8   8 8   8 8   8  8  \n \
+8eee8 8eee8 8eee8e 8e  \n \
+88  8 88  8 88   8 88 \n \
+88  8 88  8 88   8 88eee  \n\n"; \
 
 	printf " $(W)▄▄▄▄▄▄▄               eeeeee 88 \n \
 $(W)█                     e    8  8       $(Y)▄████▄              $(BB)▄█████▄ $(RES)\n \
 █          █     █    8    8  8      $(Y)████▄███  $(BW)lprieto-   $(BB)██${PHA}▄${RES}$(BB)█$(PHA)▄${RES}$(BB)██ ${RES}\n \
-█▄       ▀▀█▀▀ ▀▀█▀▀  e    8  8      $(Y)████▄     $(G)$(BD)$(NAME)  $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
-██         ▀     ▀    88   8 8888    $(Y) ▀████▀     ex00     $(BB)█▀█▀█▀█ $(RES)\n \
+█▄       ▀▀█▀▀ ▀▀█▀▀  e    8  8      $(Y)████▄       $(G)$(BD)$(NAME)     $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
+██         ▀     ▀    88   8 8888    $(Y) ▀████▀     ex05     $(BB)█▀█▀█▀█ $(RES)\n \
 ███████               888888 8888 \n\n"; \
 
 	total_ticks=$$((PROG_DURAT * 10));
@@ -120,7 +119,7 @@ $(W)█                     e    8  8       $(Y)▄████▄              
 		sleep $$(echo "scale=2; $(PROG_DURAT) / $(TOTAL_ITEMS)" | bc); \
 		item_progress=$$(( $$item_progress + 1 )); \
 	done; \
-	
+
 	printf "\n $(RES)\n"; \
 
 endef

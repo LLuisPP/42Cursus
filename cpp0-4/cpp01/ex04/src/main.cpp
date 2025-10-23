@@ -21,7 +21,7 @@
 #define YELLOW  "\033[33m"
 
 
-void	replace(std::ifstream *infile, std::ofstream *outfile, std::string str1, std::string str2)
+void	replace(std::ifstream *infile, std::ofstream *outfile, std::string s1, std::string s2)
 {
 	std::string		line;
 	
@@ -30,15 +30,15 @@ void	replace(std::ifstream *infile, std::ofstream *outfile, std::string str1, st
 		for (int i = 0, j; line[i]; i++)
 		{
 			j = 0;
-			while (str1[j])
+			while (s1[j])
 			{
-				if (line[i + j] != str1[j])
+				if (line[i + j] != s1[j])
 					break;
 				j++;
 			}
-			if (j == (int) str1.length() && j)
+			if (j == (int) s1.length() && j)
 			{
-				*outfile << str2;
+				*outfile << s2;
 				i += j - 1;
 			}
 			else

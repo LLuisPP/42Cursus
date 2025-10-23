@@ -40,11 +40,11 @@ $(OBJ_PATH):
 
 $(NAME): $(OBJS)
 	$(call show_progress)
-	$(CXX) ${CXXFLAGS} $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJ_PATH)%.o: %.cpp Makefile
 	mkdir -p $(dir $@)
-	$(CXX) $(CXXFAGS) $(HEADERS) -MMD -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(HEADERS) -MMD -c $< -o $@
 	
 clean :
 	$(RM) $(OBJ_PATH)
@@ -94,11 +94,11 @@ TOTAL_ITEMS := $(words $(OBJS))
 
 define show_progress
 	@echo; \
-	printf " e   e eeeee eeeee  e \n \
-8   8 8   8 8   8  8  \n \
-8eee8 8eee8 8eee8e 8e  \n \
-88  8 88  8 88   8 88 \n \
-88  8 88  8 88   8 88eee  \n\n"; \
+	printf " e   e eeeee eeeee  e        eeeee    eeeeee\n \
+8   8 8   8 8   8  8            8    8    8 \n \
+8eee8 8eee8 8eee8e 8e       eeee8    88   8  \n \
+88  8 88  8 88   8 88       88       88   8\n \
+88  8 88  8 88   8 88eee    8eeee 88 8eeee8  \n\n"; \
 
 	printf " $(W)▄▄▄▄▄▄▄               eeeeee 88 \n \
 $(W)█                     e    8  8       $(Y)▄████▄              $(BB)▄█████▄ $(RES)\n \

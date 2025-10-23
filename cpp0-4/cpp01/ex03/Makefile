@@ -40,11 +40,11 @@ $(OBJ_PATH):
 
 $(NAME): $(OBJS)
 	$(call show_progress)
-	$(CXX) ${CXXFLAGS} $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJ_PATH)%.o: %.cpp Makefile
 	mkdir -p $(dir $@)
-	$(CXX) $(CXXFAGS) $(HEADERS) -MMD -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(HEADERS) -MMD -c $< -o $@
 	
 clean :
 	$(RM) $(OBJ_PATH)

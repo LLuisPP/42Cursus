@@ -29,6 +29,7 @@ int	main(int argc, char **argv) {
 	harl.complain("warning");
 	std::cout << RED << "[ERROR]:" << RESET << std::endl;
 	harl.complain("error");
-
+	std::cout << RED << "[BAD_LEVEL]:" << RESET << std::endl;
+	harl.complain("bad_level");
 	return (0);
 }
