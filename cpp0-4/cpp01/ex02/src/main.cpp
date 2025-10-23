@@ -23,6 +23,7 @@ int	main(int argc, char **argv) {
 		std::cout << "No arguments required !" << std::endl;
 		return (1);
 	}
+	(void)argv;
 
 	std::cout << "String:\t\t" << &string << std::endl;
 

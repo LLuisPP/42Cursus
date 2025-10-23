@@ -21,6 +21,7 @@ int main(int argc, char **argv) {
 		std::cout << "No argumentz needed... brainzzz" << std::endl;
 		return (1);
 	}
+	(void)argv;
 	zombies = 5;
 	horde = zombieHorde(zombies, "Zombie ghoul");
 	if (!horde) {

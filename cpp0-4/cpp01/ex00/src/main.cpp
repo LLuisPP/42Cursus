@@ -20,6 +20,8 @@ int main(int argc, char **argv) {
 		std::cerr << "Zombie requirezz NO argumentzz..." << std::endl;
 		return (1);
 	}
+	(void)argv;
+
 	zombie = newZombie("Zombie 1");
 	zombie->announce();
 	randomChump("Zombie 2");

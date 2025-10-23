@@ -20,15 +20,16 @@ int	main(int argc, char **argv) {
 		std::cout << "No arguments required !" << std::endl;
 		return (1);
 	}
-
+	(void)argv;
+	
 	std::cout << GREEN << "[DEBUG]:" << RESET << std::endl;
-	harl.complain("debug");
+	harl.complain("DEBUG");
 	std::cout << CYAN << "[INFO]:" RESET << std::endl;
-	harl.complain("info");
+	harl.complain("INFO");
 	std::cout << YELLOW << "[WARNING]:" << RESET << std::endl;
-	harl.complain("warning");
+	harl.complain("WARNING");
 	std::cout << RED << "[ERROR]:" << RESET << std::endl;
-	harl.complain("error");
+	harl.complain("ERROR");
 
 	return (0);
 }

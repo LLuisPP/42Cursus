@@ -21,7 +21,8 @@ int	main(int argc, char **argv) {
 		std::cout << "No arguments needed !" << std::endl;
 		return (1);
 	}
-	(void)* argv;
+	(void)argv;
+	
 	{
 		Weapon	club = Weapon("machine gun");
 

@@ -64,7 +64,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	std::ofstream	outfile(filename.c_str());
-	if (!infile.is_open()) {
+	if (!outfile.is_open()) {
 		std::cout << RED << "Error: Can't open " << argv[1] << ".replace " << " file" << std::endl;
 		return (1);
 	}

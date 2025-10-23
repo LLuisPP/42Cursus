@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <string>
+#include <fstream>
 
 // Color macros:
 #define RESET   "\033[0m"
