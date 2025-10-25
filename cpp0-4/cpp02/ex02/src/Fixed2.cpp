@@ -71,7 +71,7 @@ float	Fixed::toFloat(void) const {
 }
 
 int	Fixed::toInt(void) const {
-
+	
 	int	result = _rawBits >> _fractionalBits;
 	return (result);
 }
@@ -103,40 +103,32 @@ Fixed	Fixed::operator*(Fixed const &other) const { return (this->toFloat() * oth
 Fixed	Fixed::operator/(Fixed const &other) const { return (this->toFloat() / other.toFloat()); }
 	
 /* *********    ++/-- OPERATORS      ********** */
-Fixed	&Fixed::operator++(void) { ++_rawBits; return (*this); }
-Fixed	Fixed::operator++(int) { Fixed	tmp(*this); ++_rawBits;	return (tmp); }
-Fixed	&Fixed::operator--(void) { --_rawBits;	return (*this); }
-Fixed	Fixed::operator--(int) { Fixed	tmp(*this); --_rawBits;	return (tmp); }
+Fixed	&Fixed::operator++(void) { ++_rawBits; return (*this); }  // preincrement
+Fixed	Fixed::operator++(int) { Fixed	tmp(*this); ++_rawBits;	return (tmp); } // postincrement
+Fixed	&Fixed::operator--(void) { --_rawBits;	return (*this); } // predecrement
+Fixed	Fixed::operator--(int) { Fixed	tmp(*this); --_rawBits;	return (tmp); } // postdecrement
 
 /* *********    max/min OPERATORS      ********** */
 Fixed &Fixed::min(Fixed &a, Fixed &b) {
-	
-	if (a.toFloat() > b.toFloat()) {
+	if (a.toFloat() > b.toFloat())
 		return(b);
-	}
 	return (a);
 }
 
 Fixed &Fixed::max(Fixed &a, Fixed &b) {
-	
-	if (a.toFloat() > b.toFloat()) {
+	if (a.toFloat() > b.toFloat())
 		return(a);
-	}
 	return (b);
 }
 
 const Fixed &Fixed::min(Fixed const &a, Fixed const &b) {
-	
-	if (a.toFloat() > b.toFloat()) {
+	if (a.toFloat() > b.toFloat())
 		return(b);
-	}
 	return (a);
 }
 
 const Fixed &Fixed::max(Fixed const &a, Fixed const &b) {
-	
-	if (a.toFloat() > b.toFloat()) {
+	if (a.toFloat() > b.toFloat())
 		return(a);
-	}
 	return (b);
 }
