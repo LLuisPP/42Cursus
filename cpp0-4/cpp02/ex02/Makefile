@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = harlFilter
+NAME = fixed2
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g
@@ -19,7 +19,7 @@ RM = rm -rf
 
 # **************************************************************************** #
 
-SRC = main.cpp Harl.cpp
+SRC = pop.cpp
 
 SRCS = $(addprefix src/, $(SRC))
 
@@ -94,18 +94,18 @@ TOTAL_ITEMS := $(words $(OBJS))
 
 define show_progress
 	@echo; \
-	printf " e   e eeeee eeeee  e        eeee e  e   eeeee eeee eeeee \n \
-8   8 8   8 8   8  8        8    8  8     8   8    8   8 \n \
-8eee8 8eee8 8eee8e 8e       8eee 8e 8e    8e  8eee 8eee8e \n \
-88  8 88  8 88   8 88       88   88 88    88  88   88   8 \n \
-88  8 88  8 88   8 88eee    88   88 88eee 88  88ee 88   8 \n\n"; \
+	printf " eeee e  e    e eeee eeee      eeee \n \
+8    8   8  8  8    8   8        8 \n \
+8eee 8e  eeee  8eee 8e  8     eee8 \n \
+88   88  8  8  88   88  8        8 \n \
+88   88 8    8 88ee 88ee     8eeee \n\n"; \
 
-	printf " $(W)▄▄▄▄▄▄▄               eeeeee 88 \n \
-$(W)█                     e    8  8       $(Y)▄████▄              $(BB)▄█████▄ $(RES)\n \
-█          █     █    8    8  8      $(Y)████▄███  $(BW)lprieto-   $(BB)██${PHA}▄${RES}$(BB)█$(PHA)▄${RES}$(BB)██ ${RES}\n \
-█▄       ▀▀█▀▀ ▀▀█▀▀  e    8  8      $(Y)████▄    $(G)$(BD)$(NAME)  $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
-██         ▀     ▀    88   8 8888    $(Y) ▀████▀     ex06     $(BB)█▀█▀█▀█ $(RES)\n \
-███████               888888 8888 \n\n"; \
+	printf " $(W)▄▄▄▄▄▄▄               eeeeee 88888 \n \
+$(W)█                     e    8     8    $(Y)▄████▄              $(BB)▄█████▄ $(RES)\n \
+█          █     █    8    8     8   $(Y)████▄███  $(BW)lprieto-   $(BB)██${PHA}▄${RES}$(BB)█$(PHA)▄${RES}$(BB)██ ${RES}\n \
+█▄       ▀▀█▀▀ ▀▀█▀▀  e    8 8eee8   $(Y)████▄      $(G)$(BD)$(NAME)    $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
+██         ▀     ▀    88   8 88      $(Y) ▀████▀     ex02     $(BB)█▀█▀█▀█ $(RES)\n \
+███████               888888 88888 \n\n"; \
 
 	total_ticks=$$((PROG_DURAT * 10));
 	item_progress=0; \

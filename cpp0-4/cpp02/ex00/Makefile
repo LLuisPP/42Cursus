@@ -100,12 +100,12 @@ define show_progress
 88   88  8  8  88   88  8    88  8 88   8  88  88  8 88  8 88  8 88  8  8  8 \n \
 88   88 8    8 88ee 88ee      eee  88   8  88  88  8  eee  88ee   eee  8    8 \n\n"; \
 
-	printf " $(W)▄▄▄▄▄▄▄               eeeeee 88 \n \
-$(W)█                     e    8  8       $(Y)▄████▄              $(BB)▄█████▄ $(RES)\n \
-█          █     █    8    8  8      $(Y)████▄███  $(BW)lprieto-   $(BB)██${PHA}▄${RES}$(BB)█$(PHA)▄${RES}$(BB)██ ${RES}\n \
-█▄       ▀▀█▀▀ ▀▀█▀▀  e    8  8      $(Y)████▄      $(G)$(BD)$(NAME)     $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
-██         ▀     ▀    88   8 8888    $(Y) ▀████▀     ex00     $(BB)█▀█▀█▀█ $(RES)\n \
-███████               888888 8888 \n\n"; \
+	printf " $(W)▄▄▄▄▄▄▄               eeeeee 88888 \n \
+$(W)█                     e    8     8    $(Y)▄████▄              $(BB)▄█████▄ $(RES)\n \
+█          █     █    8    8     8   $(Y)████▄███  $(BW)lprieto-   $(BB)██${PHA}▄${RES}$(BB)█$(PHA)▄${RES}$(BB)██ ${RES}\n \
+█▄       ▀▀█▀▀ ▀▀█▀▀  e    8 8eee8   $(Y)████▄      $(G)$(BD)$(NAME)    $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
+██         ▀     ▀    88   8 88      $(Y) ▀████▀     ex00     $(BB)█▀█▀█▀█ $(RES)\n \
+███████               888888 88888 \n\n"; \
 
 	total_ticks=$$((PROG_DURAT * 10));
 	item_progress=0; \

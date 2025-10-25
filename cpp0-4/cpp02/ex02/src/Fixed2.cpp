@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed2.cpp                                         :+:      :+:    :+:   */
+/*   Fixed3.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/25 11:09:53 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/25 11:37:00 by lprieto-         ###   ########.fr       */
+/*   Created: 2025/10/25 12:30:08 by lprieto-          #+#    #+#             */
+/*   Updated: 2025/10/25 12:31:02 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed2.hpp"
+#include "Fixed3.hpp"
 
 const int Fixed::_fractionalBits = 8;
 
@@ -55,7 +55,7 @@ Fixed::Fixed(float f) {
 	_rawBits = (float)(roundf(f * (1 << _fractionalBits)));
 }
 
-Fixed::Fixed(int n) { 
+Fixed::Fixed(int n) {
 
 	std::cout << BY << "Int constructor" << RES << " called" << std::endl;
 	_rawBits = n << _fractionalBits;
@@ -65,7 +65,7 @@ Fixed::Fixed(int n) {
 /* ************************** CONVERSORS *********************************** */
 
 float	Fixed::toFloat(void) const {
-	
+
 	float result = (float)_rawBits / (1 << _fractionalBits);
 	return (result);
 }
@@ -83,4 +83,3 @@ std::ostream	&operator << (std::ostream &outstr, Fixed const &fix) {
 	outstr << fix.toFloat();
 	return (outstr);
 }
-
