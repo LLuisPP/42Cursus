@@ -19,7 +19,7 @@ RM = rm -rf
 
 # **************************************************************************** #
 
-SRC = pop.cpp
+SRC = main.cpp
 
 SRCS = $(addprefix src/, $(SRC))
 
@@ -94,11 +94,11 @@ TOTAL_ITEMS := $(words $(OBJS))
 
 define show_progress
 	@echo; \
-	printf " eeee e  e    e eeee eeee      eeee \n \
-8    8   8  8  8    8   8        8 \n \
-8eee 8e  eeee  8eee 8e  8     eee8 \n \
-88   88  8  8  88   88  8        8 \n \
-88   88 8    8 88ee 88ee     8eeee \n\n"; \
+	printf " eeee e  e    e eeee eeeee    eeeee eeeee eeee eeeee  eeeee eeeee eeeee eeeee \n \
+8    8  8    8 8    8   8    8  88 8   8 8    8   8  8   8   8   8  88 8   8 \n \
+8eee 8e eeeeee 8eee 8e  8    8   8 8eee8 8eee 8eee8e 8eee8   8e  8   8 8eee8e  \n \
+88   88 88   8 88   88  8    8   8 88    88   88   8 88  8   88  8   8 88   8 \n \
+88   88 88   8 88ee 88ee8    8eee8 88    88ee 88   8 88  8   88  8eee8 88   8 \n\n"; \
 
 	printf " $(W)▄▄▄▄▄▄▄               eeeeee 88888 \n \
 $(W)█                     e    8     8    $(Y)▄████▄              $(BB)▄█████▄ $(RES)\n \
