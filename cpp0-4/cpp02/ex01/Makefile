@@ -95,9 +95,9 @@ TOTAL_ITEMS := $(words $(OBJS))
 define show_progress
 	@echo; \
 	printf " eeee e  e    e eeee eeeee    e  eeeee eeeee    eeee e     eeeee eeeee eeeee\n \
-8    8  8    8 8    8   8    8  8   8   8      8    8     8  88 8   8   8 \n \
-8eee 8e eeeeee 8eee 8e  8    8e 8e  8   8e     8eee 8e    8   8 8eee8   8e \n \
-88   88 88   8 88   88  8    88 88  8   88     88   88    8   8 88  8   88 \n \
+8    8   8  8  8    8   8    8  8   8   8      8    8     8  88 8   8   8 \n \
+8eee 8e   ee   8eee 8e  8    8e 8e  8   8e     8eee 8e    8   8 8eee8   8e \n \
+88   88  8  8  88   88  8    88 88  8   88     88   88    8   8 88  8   88 \n \
 88   88 88   8 88ee 88ee8    88 88  8   88     88   88eee 8eee8 88  8   88 \n\n"; \
 
 	printf " $(W)▄▄▄▄▄▄▄               eeeeee 88888 \n \

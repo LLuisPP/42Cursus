@@ -96,9 +96,9 @@ define show_progress
 	@echo; \
 	printf " eeee e  e    e eeee eeee      eee  eeeee eeeee e   e  eee  eeee   eee  e    e \n \
 8    8   8  8  8    8   8    8   8 8   8   8   8   8 8   8 8   8 8   8  8  8 \n \
-8eee 8e  eeee  8eee 8e  8    8   8 8eee8e  8e  8eee8 8   8 8e  8 8   8  eeee \n \
+8eee 8e   ee   8eee 8e  8    8   8 8eee8e  8e  8eee8 8   8 8e  8 8   8  eeee \n \
 88   88  8  8  88   88  8    88  8 88   8  88  88  8 88  8 88  8 88  8  8  8 \n \
-88   88 8    8 88ee 88ee      eee  88   8  88  88  8  eee  88ee   eee  8    8 \n\n"; \
+88   88 88   8 88ee 88ee      eee  88   8  88  88  8  eee  88ee   eee  8    8 \n\n"; \
 
 	printf " $(W)▄▄▄▄▄▄▄               eeeeee 88888 \n \
 $(W)█                     e    8     8    $(Y)▄████▄              $(BB)▄█████▄ $(RES)\n \

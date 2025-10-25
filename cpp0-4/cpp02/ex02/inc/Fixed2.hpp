@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 09:59:15 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/25 11:23:40 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/10/25 14:33:16 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@
 // macros
 
 #include <iostream>
-#include <ostream>
 #include <cmath>
 
 class	Fixed {
@@ -49,6 +48,7 @@ class	Fixed {
 		Fixed (Fixed const &copy);
 		Fixed& operator = (const Fixed &copy);
 		~Fixed();
+		// Orthodoxal Canonical Form
 
 		Fixed(int n);
 		Fixed(float f);
@@ -57,6 +57,37 @@ class	Fixed {
 
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
+
+		/* *** COMPARE OPERATORS ** */
+
+		bool	operator<(Fixed const &other) const;
+		bool	operator>(Fixed const &other) const;
+		bool	operator<=(Fixed const &other) const;
+		bool	operator>=(Fixed const &other) const;
+		bool	operator==(Fixed const &other) const;
+		bool	operator!=(Fixed const &other) const;
+		
+		/* *** ARITHMETIC OPERATORS ** */
+
+		Fixed	operator+(Fixed const &other) const;
+		Fixed	operator-(Fixed const &other) const;
+		Fixed	operator*(Fixed const &other) const;
+		Fixed	operator/(Fixed const &other) const;
+		
+		// prefix
+		Fixed	&operator++();
+		Fixed	&operator--();
+		// sufix
+		Fixed	operator++(int);
+		Fixed	operator--(int);
+
+		/* *** MAX/MIN OPERATORS ** */
+
+		static Fixed &min(Fixed &a, Fixed &b);
+		static Fixed &max(Fixed &a, Fixed &b);
+		static const Fixed &min(Fixed const &a, Fixed const &b);
+		static const Fixed &max(Fixed const &a, Fixed const &b);
+
 };
 
 std::ostream &operator << (std::ostream &outstr, Fixed const &fix);
