@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = harlFilter
+NAME = fixed2
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g
@@ -19,7 +19,7 @@ RM = rm -rf
 
 # **************************************************************************** #
 
-SRC = main.cpp Harl.cpp
+SRC = main.cpp Fixed2.cpp
 
 SRCS = $(addprefix src/, $(SRC))
 
