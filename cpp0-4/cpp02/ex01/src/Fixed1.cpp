@@ -47,7 +47,7 @@ void	Fixed::setRawBits(int const raw)
 	_rawBits = raw;
 }
 
-/* ************************** CONSTRUCTORS FOR ********************************* */
+/* ************************** CONSTRUCTORS FOR NUMBERS *********************** */
 
 Fixed::Fixed(float f) {
 
