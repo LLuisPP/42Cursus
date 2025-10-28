@@ -13,12 +13,12 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-ClapTrap::ClapTrap(void): _attack(0), _energy(10), _health(10) {
+ClapTrap::ClapTrap(void): _attack(20), _energy(50), _health(100) {
 	
 	std::cout << G << "ClapTrap created" << std::endl;
 }
 
-ClapTrap::ClapTrap(const std::string &name): _attack(0), _energy(10), _health(10) {
+ClapTrap::ClapTrap(const std::string &name): _attack(20), _energy(50), _health(100) {
 	
 	_name = name;
 	std::cout << "ClapTrap " << W << name << G << " created" << RES << " !" << std::endl;
