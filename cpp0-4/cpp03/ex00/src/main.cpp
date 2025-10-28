@@ -42,9 +42,11 @@ int	main(void) {
 	
 	clap.attack("Clyde");
 	trap.takeDamage(50);
+	trap.beRepaired(5000);
 	trap.attack("Bonny");
 
 	clap.takeDamage(5);
+	trap.beRepaired(5000);
 	
 	clap.attack("Clyde");
 	trap.attack("Bonny");
