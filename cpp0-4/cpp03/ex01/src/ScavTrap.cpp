@@ -45,19 +45,14 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &copy) {
 	return (*this);
 }
 
-ScavTrap::~ScavTrap(void) {
-
-	std::cout << "ScavTrap " << _name << " destroyed !!" << std::endl;	
-}
-
 void	ScavTrap::attack(const std::string &target) {
-
+	
 	if (_energy > 0 && _health > 0 && !_guard) {
 		_energy--;
 		std::cout << "ScavTrap " << _name << " attacks " << target << ", causing" << _attack << " points of damage" << std::endl;	
 	}
 	else
-		std::cout << "ScavTrap " << _name << " can't attack!" << std::endl;	
+	std::cout << "ScavTrap " << _name << " can't attack!" << std::endl;	
 }
 
 void	ScavTrap::guardGate(void) {
@@ -69,5 +64,8 @@ void	ScavTrap::guardGate(void) {
 		std::cout << "ScavTrap " << _name << " leaves the guard" << std::endl;	
 }
 
+ScavTrap::~ScavTrap(void) {
 
+	std::cout << "ScavTrap " << _name << " destroyed !!" << std::endl;	
+}
 

@@ -62,12 +62,12 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 		std::cout << "ClapTrap " << Y << _name << R << " is dead" << RES << std::endl;
 }
 
-void	ClapTrap::beRepaired(unsigned int health) {
+void	ClapTrap::beRepaired(unsigned int amount) {
 
 	if (_energy > 0 && _health > 0) {
 		_energy--;
-		_health += health;
-		std::cout << "ClapTrap " << _name << " repairs, gaining " << G << health << " points " << RES << "of health" << RES << std::endl;
+		_health += amount;
+		std::cout << "ClapTrap " << _name << " repairs, gaining " << G << amount << " points " << RES << "of health" << RES << std::endl;
 	}
 	else
 		std::cout << "ClapTrap " << W << _name << C << " can't be repaired" << RES << std::endl;

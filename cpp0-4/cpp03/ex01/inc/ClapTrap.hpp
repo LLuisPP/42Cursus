@@ -35,6 +35,7 @@
 // macros
 
 #include <string>
+#include <iostream>
 
 class	ClapTrap {
 
@@ -45,11 +46,11 @@ class	ClapTrap {
 		int			_health;
 	public:
 		ClapTrap(void);
-		explicit ClapTrap(const std::string &name);
 		ClapTrap(const ClapTrap &copy);
+		ClapTrap &operator=(const ClapTrap &copy);
 		~ClapTrap(void);
 		
-		ClapTrap &operator=(const ClapTrap &copy);
+		explicit ClapTrap(const std::string &name);
 
 		void	attack(const std::string &target);
 		void	takeDamage(unsigned int amount);
