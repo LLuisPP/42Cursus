@@ -39,7 +39,7 @@
 
 class	ClapTrap {
 
-	private:
+	protected:
 		std::string	_name;
 		int			_attack;
 		int			_energy;

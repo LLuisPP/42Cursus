@@ -12,7 +12,7 @@
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(void) ClapTrap(), _guard(false) {
+ScavTrap::ScavTrap(void) : ClapTrap(), _guard(false) {
 
 	_health = 100;
 	_energy = 50;
@@ -20,7 +20,7 @@ ScavTrap::ScavTrap(void) ClapTrap(), _guard(false) {
 	std::cout << "ScavTrap created" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name): ClapTrap(name), _guard(false) {
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name), _guard(false) {
 
 	_health = 100;
 	_energy = 50;
@@ -29,7 +29,7 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name), _guard(false) {
 }
 
 
-ScavTrap::ScavTrap(const ScavTrap &copy): ClapTrap(copy), _guard(false) {
+ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy), _guard(false) {
 
 	*this = copy;
 	std::cout << "ScavTrap " << _name << " copy created" << std::endl;

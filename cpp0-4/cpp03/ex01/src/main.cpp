@@ -14,12 +14,24 @@
 
 int	main(void) {
 
-	ClapTrap	clap("Bonny");
-	ClapTrap	trap("Clyde");
+	ClapTrap   clap("Bonny");
+    ScavTrap   trap("Clyde");   // <- ScavTrap
 
+    clap.beRepaired(6);
+    trap.beRepaired(7);
 
-	clap.beRepaired(6);
-	trap.beRepaired(7);
+    clap.attack("Clyde");
+    trap.takeDamage(20);
+
+    // ScavTrap attacks with his stats (HP=100, EN=50, ATK=20)
+    trap.attack("Bonny");
+    clap.takeDamage(20);
+
+    // Guard mode activated: Can't attack while active
+    trap.guardGate();
+    trap.attack("Bonny");
+    trap.guardGate();
+    trap.attack("Bonny");
 	
 	clap.attack("Clyde");
 	trap.takeDamage(20);
@@ -39,7 +51,6 @@ int	main(void) {
 	trap.attack("Bonny");
 	clap.takeDamage(20);
 
-	
 	clap.attack("Clyde");
 	trap.takeDamage(50);
 	clap.beRepaired(5000);
