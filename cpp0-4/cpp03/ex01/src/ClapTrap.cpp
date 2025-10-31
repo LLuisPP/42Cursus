@@ -67,10 +67,10 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 	if (_energy > 0 && _health > 0) {
 		_energy--;
 		_health += amount;
-		std::cout << "ClapTrap " << _name << " repairs, gaining " << G << amount << " points " << RES << "of health" << RES << std::endl;
+		std::cout << "ClapTrap " << W << _name << RES << " repairs, gaining " << G << amount << " points " << RES << "of health" << RES << std::endl;
 	}
 	else
-		std::cout << "ClapTrap " << W << _name << C << " can't be repaired" << RES << std::endl;
+		std::cout << "ClapTrap " << W << _name << OR << " can't be repaired" << RES << std::endl;
 }
 
 ClapTrap::~ClapTrap (void) {
