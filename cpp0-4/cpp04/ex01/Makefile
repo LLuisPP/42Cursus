@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = brains
+NAME = brain
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g
@@ -19,7 +19,7 @@ RM = rm -rf
 
 # **************************************************************************** #
 
-SRC = main.cpp
+SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 
 SRCS = $(addprefix src/, $(SRC))
 
@@ -94,16 +94,16 @@ TOTAL_ITEMS := $(words $(OBJS))
 
 define show_progress
 	@echo; \
-	printf " eeeee  eeeee  eeeee e  eeeee eeeee \n \
-8   8  8   8  8   8 8  8   8 8   e \n \
-8eee8e 8eee8e 8eee8 8e 8e  8 8eeee \n \
-88   8 88   8 88  8 88 88  8    88 \n \
-88eee8 88   8 88  8 88 88  8 8ee88 \n\n"; \
+	printf " eeeee  eeeee  eeeee e  eeeee \n \
+8   8  8   8  8   8 8  8   8 \n \
+8eee8e 8eee8e 8eee8 8e 8e  8 \n \
+88   8 88   8 88  8 88 88  8 \n \
+88eee8 88   8 88  8 88 88  8 \n\n"; \
 
 	printf " $(W)▄▄▄▄▄▄▄               eeeeee 88888 \n \
 $(W)█                     e    8     8    $(Y)▄████▄              $(BB)▄█████▄ $(RES)\n \
 █          █     █    8    8     8   $(Y)████▄███  $(BW)lprieto-   $(BB)██${PHA}▄${RES}$(BB)█$(PHA)▄${RES}$(BB)██ ${RES}\n \
-█▄       ▀▀█▀▀ ▀▀█▀▀  e    8 8eee8   $(Y)████▄      $(G)$(BD)$(NAME)    $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
+█▄       ▀▀█▀▀ ▀▀█▀▀  e    8 8eee8   $(Y)████▄      $(G)$(BD)$(NAME)     $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
 ██         ▀     ▀    88   8    88   $(Y) ▀████▀     ex01     $(BB)█▀█▀█▀█ $(RES)\n \
 ███████               888888 88888 \n\n"; \
 

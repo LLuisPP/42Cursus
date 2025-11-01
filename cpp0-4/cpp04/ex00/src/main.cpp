@@ -33,11 +33,12 @@ int	main(void)
 	wrongAnimal->makeSound();
 	wrongCat->makeSound();
 
-	delete animal;
+   std::cout << "\n x x x [Destructors] x x x\n";
 	delete dog;
 	delete cat;
 	delete wrongAnimal;
 	delete wrongCat;
+	delete animal;
 	return (0);
 }
 
