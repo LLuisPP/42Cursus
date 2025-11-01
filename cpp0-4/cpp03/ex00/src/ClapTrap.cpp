@@ -52,14 +52,29 @@ void	ClapTrap::attack(const std::string &target) {
 
 void	ClapTrap::takeDamage(unsigned int amount) {
 
-	if (_health > 0) {
-		_health -= amount;
-		std::cout << "ClapTrap " << PP << _name << R << " takes " << amount << RES << " points of damage" << std::endl;
-		if (_health < 0)
-			std::cout << "ClapTrap " << Y << _name << R << " is dead" << RES << std::endl;
-	}
-	else
+	if (_health <= 0) {
 		std::cout << "ClapTrap " << Y << _name << R << " is dead" << RES << std::endl;
+		return ;
+	}
+	std::cout << "ClapTrap " << PP << _name << R << " takes " << amount << RES << " points of damage" << std::endl;
+	
+	if (amount >= static_cast<unsigned int>(_health)) {
+		_health = 0;
+		std::cout << "ClapTrap " << Y << _name << R << " is dead" << RES << std::endl;
+	}
+	else {
+		_health -= amount;
+	}
+	
+	// Functional but unsigned int underflow
+	// if (_health > 0) {
+	// 	_health -= amount;
+	// 	std::cout << "ClapTrap " << PP << _name << R << " takes " << amount << RES << " points of damage" << std::endl;
+	// 	if (_health < 0)
+	// 		std::cout << "ClapTrap " << Y << _name << R << " is dead" << RES << std::endl;
+	// }
+	// else
+	// 	std::cout << "ClapTrap " << Y << _name << R << " is dead" << RES << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int health) {

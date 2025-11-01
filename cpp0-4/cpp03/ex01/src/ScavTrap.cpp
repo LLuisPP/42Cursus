@@ -66,6 +66,6 @@ void	ScavTrap::guardGate(void) {
 
 ScavTrap::~ScavTrap(void) {
 
-	std::cout << GY << "ScavTrap " << B << _name << R << " destroyed !!" << std::endl;	
+	std::cout << GY << "ScavTrap " << B << _name << R << " destroyed !!" << RES << std::endl;	
 }
 

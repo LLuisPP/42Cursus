@@ -34,10 +34,10 @@ int	main(void) {
 	clap.takeDamage(5);
 
 	clap.attack("Clyde");
-	trap.takeDamage(5);
+	trap.takeDamage(11);
 	
 	trap.attack("Bonny");
-	clap.takeDamage(5);
+	clap.takeDamage(2147483648u);
 
 	
 	clap.attack("Clyde");

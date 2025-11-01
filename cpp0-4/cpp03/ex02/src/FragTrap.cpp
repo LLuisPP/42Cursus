@@ -6,36 +6,36 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 09:50:01 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/31 09:50:57 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/11/01 09:50:57 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(void): ClapTrap()
-{
+FragTrap::FragTrap(void): ClapTrap() {
+
 	_health = 100;
 	_energy = 100;
 	_attack = 30;
 	std::cout << W << "FragTrap" << G << " created !!!" << RES << std::endl;
 }
 
-FragTrap::FragTrap(std::string name): ClapTrap(name), _guard(false)
-{
+FragTrap::FragTrap(std::string name): ClapTrap(name), _guard(false) {
+
 	_health = 100;
 	_energy = 100;
 	_attack = 30;
 	std::cout << W << "FragTrap " << PP << _name << G << " created !!!" << RES << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap &copy): ClapTrap(copy), _guard(false)
-{
+FragTrap::FragTrap(const FragTrap &copy): ClapTrap(copy), _guard(false) {
+
 	*this = copy;
 	std::cout << W << "FragTrap " << _name << " copy created!" << std::endl;
 }
 
-FragTrap	&FragTrap::operator=(const FragTrap &copy)
-{
+FragTrap	&FragTrap::operator=(const FragTrap &copy) {
+
 	_name = copy._name;
 	_health = copy._health;
 	_energy = copy._energy;
@@ -45,12 +45,12 @@ FragTrap	&FragTrap::operator=(const FragTrap &copy)
 	return (*this);
 }
 
-FragTrap::~FragTrap(void)
-{
+FragTrap::~FragTrap(void) {
+	
 	std::cout << W << "FragTrap " << _name << " destroyed!" << std::endl;
 }
 
-void	FragTrap::highFiveGuys(void)
-{
+void	FragTrap::highFiveGuys(void) {
+
 	std::cout << W << "FragTrap " << PP << _name << G << " high five!" << RES << std::endl;
 }

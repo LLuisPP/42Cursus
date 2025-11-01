@@ -65,3 +65,43 @@ int	main(void) {
 
 	return (0);
 }
+
+
+
+
+
+/*
+
+[Clase base]
+┌──────────────────────────┐
+│        ClapTrap          │
+│ ───────────────────────  │
+│  - _name                 │
+│  - _health (=10)         │
+│  - _energy (=10)         │
+│  - _attack (=0)          │
+│ ───────────────────────  │
+│  + attack(target)        │
+│  + takeDamage(amount)    │
+│  + beRepaired(amount)    │
+│  + ctor/dtor/copy/assign │
+└───────────▲──────────────┘
+            │  herencia pública
+[Clase derivada]
+┌───────────┴──────────────┐
+│         ScavTrap         │
+│ ───────────────────────  │
+│  (hereda todo lo de      │
+│   ClapTrap y añade:)     │
+│  - _guard (estado)       │
+│  (ajusta stats iniciales)│
+│   _health=100            │
+│   _energy=50             │
+│   _attack=20             │
+│ ───────────────────────  │
+│  + attack(target)  [OVR] │
+│  + guardGate()           │
+│  + ctors/dtor propios    │
+└──────────────────────────┘
+
+*/
