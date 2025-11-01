@@ -34,9 +34,3 @@ Animal::~Animal() {
 
 	std::cout << W << "Animal " << R << " destroyed" << RES << std::endl;
 }
-
-void	Animal::makeSound() {
-
-	std::cout << Y << "* Silence *" << RES << std::endl;
-}
-

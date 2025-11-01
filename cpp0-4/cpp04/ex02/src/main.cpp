@@ -10,33 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
-
-// int	main(void)
-// {
-// 	int	n = 100;
-// 	Animal	*animals[100];
-// 	for (int i = 0; i < n / 2; i++)
-// 	{
-// 		animals[i] = new Dog();
-// 		animals[i + n / 2] = new Cat();
-// 	}
-// 	for (int i = 0; i < n; i ++)
-// 		delete animals[i];
-// 	std::cout << " - - - - - - END - - - - - - " << std::endl;
-
-// 	Dog	dog, dogCopy;
-// 	dog.getBrain()->setIdea("I must eat poop", 12);
-// 	dogCopy = dog;
-
-// 	std::cout << "DOG ideas: "  << dog.getBrain()->getIdeas()[12]  << std::endl;
-// 	std::cout << "DOG COPY ideas: "  << dogCopy.getBrain()->getIdeas()[12] << std::endl;
-
-// 	return (0);
-// }
-
-
 #include <iostream>
 #include "Animal.hpp"
 #include "Dog.hpp"
@@ -45,62 +18,81 @@
 int main(void)
 {
     // --- Polimorphism and destruction by base ---
-    const int N = 8;
+    const int N = 6;
     Animal* animals[N];
 
-    for (int i = 0; i < N / 2; ++i)
-        animals[i] = new Dog();
-    for (int i = N / 2; i < N; ++i)
-        animals[i] = new Cat();
+    animals[0] = new Dog();
+    animals[1] = new Cat();
+    animals[2] = new Cat();
+    animals[3] = new Dog();
+    animals[4] = new Cat();
+    animals[5] = new Dog();
+
+    std::cout << std::endl << "- - - Polimophic Sounds / Check the main.cpp array - - - " << std::endl;
+    for (int i = 0; i < N; ++i)
+        animals[i]->makeSound();   // <- polimorphism proof
+
+    std::cout << std::endl;
 
     for (int i = 0; i < N; ++i)
         delete animals[i];
-
-    std::cout << " - - - - - - END - - - - - - " << std::endl;
-
-    // --- Deep copy: operator= and copy-ctor ---
-    Dog original;
-    Dog copia;
-
-    // Diagnostics: pointers of Brain (they must be different)
-    std::cout << "[ptr] original.brain =" << original.getBrain() << std::endl;
-    std::cout << "[ptr] copia.brain    =" << copia.getBrain()    << std::endl;
-
-    // 1) Idea only the original
-    original.getBrain()->setIdea("I must eat poop", 82);
-
-    // 2) Copying (operator= with deep copy)
-    copia = original;
-
-    // 3) Changing the ORIGINAL after copying
-    original.getBrain()->setIdea("CHANGED after copy", 82);
-
-    // 4) Comprobation: this must be diff if there is deep copy
-    std::cout << "ORIGINAL idea[82]: " << original.getBrain()->getIdeas()[82] << std::endl;
-    std::cout << "COPIA    idea[82]: " << copia.getBrain()->getIdeas()[82]    << std::endl;
-
-    // 5) (Optional) copy-ctor
-    Dog clon(original);
-    std::cout << "[ptr] clon.brain     =" << clon.getBrain() << std::endl;
-
-    // Changing the original again; clon mustn't change
-    original.getBrain()->setIdea("CHANGED again", 82);
-    std::cout << "CLON     idea[82]: " << clon.getBrain()->getIdeas()[82]     << std::endl;
-
-    return 0;
+    return (0);
 }
-
-
-
 
 /*
 
-        Animal (BASE: virtual makeSound, ~virtual)
-           ▲
-     ┌─────┴─────┐
-     │           │
-    Dog         Cat
-     │           │
-     └─ has → Brain* (100 ideas)  ←─┘   (composición con new/delete)
+          ┌────────────────────────┐
+          │      Animal (abstract) │
+          │────────────────────────│
+          │ - type : std::string   │
+          │────────────────────────│
+          │ + getType() const      │
+          │ + makeSound() = 0 🔸   │ ← pure virtual method
+          │ + virtual ~Animal()    │
+          └──────────┬─────────────┘
+                     │
+     ┌───────────────┴────────────────┐
+     │                                │
+┌──────────────┐               ┌──────────────┐
+│    Dog       │               │    Cat       │
+│──────────────│               │──────────────│
+│ + Brain*     │               │ + Brain*     │  ← both OWN a Brain
+│──────────────│               │──────────────│
+│ + makeSound()│ → "Woof Woof" │ + makeSound()│ → "Meow Meow"
+└───────┬──────┘               └───────┬──────┘
+        │                              │
+   ┌────▼─────┐                   ┌────▼─────┐
+   │  Brain   │                   │  Brain   │
+   │100 ideas │                   │100 ideas │
+   └──────────┘                   └──────────┘
+
+
+Key facts (CPP04):
+- ex02 (Abstract): Animal is NOT instantiable; makeSound() is pure virtual (=0).
+- ex01 (Brain & deep copy): each Dog and Cat allocates its OWN Brain with new Brain().
+
+Memory management (Rule of Three on Dog/Cat):
+- Constructor: new Brain().
+- Destructor: delete Brain (no leaks).
+- Copy constructor / operator=: DEEP COPY (clone Brain’s 100 ideas); NEVER share pointers.
+
+Polymorphism:
+- Use Animal* (or Animal&) to store Dogs/Cats.
+- Calling animals[i]->makeSound() resolves to Dog/Cat at runtime (dynamic dispatch).
+- Virtual destructor in Animal ensures deleting via Animal* calls the proper derived destructor.
+
+Construction / Destruction order:
+- Construct: Animal (base) → Dog/Cat (derived) → Brain.
+- Destruct: Brain → Dog/Cat (derived) → Animal (base).
+
+Testing checklist:
+- Create array of Animal* with mixed Dog/Cat; loop makeSound() (polymorphism).
+- Delete all via Animal* (no leaks; correct destructor chain).
+- Deep copy check: copy a Dog/Cat, mutate original Brain; copied Brain must remain unchanged.
+
+Gotchas:
+- Do NOT instantiate Animal directly in ex02.
+- Avoid object slicing (use pointers/references to base).
+- Ensure makeSound() signature in Dog/Cat EXACTLY matches Animal’s (const vs non-const).
 
 */

@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 12:37:44 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/11/01 12:40:12 by lprieto-         ###   ########.fr       */
+/*   Updated: 2025/11/02 00:11:07 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ class	Animal {
 		Animal(const Animal &copy);
 		Animal &operator=(const Animal &copy);
 		virtual	~Animal(void);
-		virtual void	makeSound(void);
+		virtual void	makeSound(void) = 0;
 };
 
 #endif

@@ -44,10 +44,10 @@ int	main(void)
 
 /*
 
-        Animal               (BASE: con virtual)
+        Animal               (BASE: with virtual)
      ┌──────────┐
      │ type     │  protected
-     │ getType  │  virtual? (suele ser no-virtual)
+     │ getType  │  usually non-virtual
      │ makeSound│  virtual
      │ ~Animal  │  virtual
      └────▲─────┘
@@ -55,11 +55,19 @@ int	main(void)
    ┌──────┴───────┐
    │              │
 ┌──┴───┐      ┌───┴───┐
-│  Dog │      │  Cat  │   (ambas override de makeSound)
+│  Dog │      │  Cat  │   (both override makeSound)
 └──────┘      └───────┘
 
-Animal con atributo type y makeSound() virtual; Dog/Cat heredan y sobre-escriben makeSound()
- (perro no maúlla, gato no ladra). El main del subject invoca vía puntero a base y debe oírse 
- el sonido específico (polimorfismo dinámico). Destructor virtual para borrar por Animal* sin leaks.
+
+Animal has a type attribute and a virtual makeSound() function;
+Dog and Cat inherit from it and override makeSound()
+(a dog doesn’t meow, and a cat doesn’t bark).
+
+The subject’s main calls makeSound() through a base pointer,
+and the specific sound of each derived class must be heard
+(dynamic polymorphism).
+
+A virtual destructor is used so objects can be deleted through an Animal*
+without causing memory leaks.
 
 */

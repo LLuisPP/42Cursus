@@ -10,33 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
-
-// int	main(void)
-// {
-// 	int	n = 100;
-// 	Animal	*animals[100];
-// 	for (int i = 0; i < n / 2; i++)
-// 	{
-// 		animals[i] = new Dog();
-// 		animals[i + n / 2] = new Cat();
-// 	}
-// 	for (int i = 0; i < n; i ++)
-// 		delete animals[i];
-// 	std::cout << " - - - - - - END - - - - - - " << std::endl;
-
-// 	Dog	dog, dogCopy;
-// 	dog.getBrain()->setIdea("I must eat poop", 12);
-// 	dogCopy = dog;
-
-// 	std::cout << "DOG ideas: "  << dog.getBrain()->getIdeas()[12]  << std::endl;
-// 	std::cout << "DOG COPY ideas: "  << dogCopy.getBrain()->getIdeas()[12] << std::endl;
-
-// 	return (0);
-// }
-
-
 #include <iostream>
 #include "Animal.hpp"
 #include "Dog.hpp"
@@ -87,20 +60,30 @@ int main(void)
     original.getBrain()->setIdea("CHANGED again", 82);
     std::cout << "CLON     idea[82]: " << clon.getBrain()->getIdeas()[82]     << std::endl;
 
-    return 0;
+    return (0);
 }
-
-
-
 
 /*
 
-        Animal (BASE: virtual makeSound, ~virtual)
-           ▲
-     ┌─────┴─────┐
-     │           │
-    Dog         Cat
-     │           │
-     └─ has → Brain* (100 ideas)  ←─┘   (composición con new/delete)
+  CPP04 / ex01 — Composition + Deep Copy
+
+            Animal (BASE: virtual makeSound, virtual destructor)
+                   ▲
+            ┌──────┴──────┐
+            │             │
+           Dog           Cat
+     (owns Brain*)  (owns Brain*)
+            │             │
+      ┌─────▼─────┐ ┌─────▼─────┐
+      │  Brain    │ │  Brain    │
+      │ 100 ideas │ │ 100 ideas │
+      └───────────┘ └───────────┘
+
+Key points:
+- Each Dog and each Cat allocates its OWN Brain with new Brain() in the constructor.
+- Destructor deletes Brain (no leaks).
+- Copy constructor and operator= perform a DEEP COPY (clone Brain content, do not share pointers).
+- Polymorphism: call makeSound() via Animal* and get the derived behavior.
+- Deleting via Animal* correctly calls derived destructors thanks to Animal’s virtual destructor.
 
 */
