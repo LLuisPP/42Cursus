@@ -92,3 +92,12 @@
 
 </div>
 
+<div>
+
+| Ejercicio | Clase      | Base       | Stats iniciales        | Habilidad extra   | Mensajes ctor/dtor                                                   |
+| --------- | ---------- | ---------- | ---------------------- | ----------------- | -------------------------------------------------------------------- |
+| **ex00**  | `ClapTrap` | —          | HP=10, EN=10, ATK=0    | —                 | Sí (obligatorio)                                                     |
+| **ex01**  | `ScavTrap` | `ClapTrap` | HP=100, EN=50, ATK=20  | `guardGate()`     | ctor/dtor **distintos** + encadenado base→derivada visible en tests  |
+| **ex02**  | `FragTrap` | `ClapTrap` | HP=100, EN=100, ATK=30 | `highFivesGuys()` | ctor/dtor **distintos** + encadenado base→derivada visible en tests  |
+
+</div>

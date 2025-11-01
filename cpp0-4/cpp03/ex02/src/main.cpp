@@ -75,3 +75,33 @@ int	main(void) {
 
 	return (0);
 }
+
+
+
+
+
+/*
+
+CLASES
+┌───────────────────────────────────┐
+│        ClapTrap                   │  (base)
+│  _name, _health, _energy, _attack |
+│  attack / takeDamage / beRepaired |
+│  ctors / dtor / copy / assign     |
+└───────────▲───────▲───────────────┘
+            │       │  public inherit
+┌───────────┴───┐   └───────────────┐  
+│    ScavTrap   │         ┌─────────┴────────────────┐ 
+│  (derivate)   │         |  FragTrap                |
+│  + guardGate  │         |  (derivate)              | 
+│  + attack(OVR)│         |  + highFiveGuys          |
+│  HP=100 EN=50 │         |  (uses attack inherited) |
+│  ATK=20       │         |  HP=100 EN=100 ATK=30    |
+└───────────────┘         └──────────────────────────┘
+
+OBJECTS in main()
+clap : ClapTrap("Okto")
+trap : ScavTrap("Link")
+frag : FragTrap("Zelda")
+
+*/
