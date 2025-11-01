@@ -11,3 +11,19 @@
 /* ************************************************************************** */
 
 
+/*
+
+     AAnimal (BASE ABSTRACTA)
+   ┌────────────────────────┐
+   │ type (protected)       │
+   │ virtual ~AAnimal()     │
+   │ virtual getType()      │
+   │ =0 makeSound()         │  ← pura (base NO instanciable)
+   └──────────▲─────────────┘
+              │ public
+        ┌─────┴────┐
+        │          │
+       Dog        Cat        (implementan makeSound())
+
+
+*/

@@ -11,3 +11,14 @@
 /* ************************************************************************** */
 
 
+/*
+
+        Animal (BASE: virtual makeSound, ~virtual)
+           ▲
+     ┌─────┴─────┐
+     │           │
+    Dog         Cat
+     │           │
+     └─ has → Brain* (100 ideas)  ←─┘   (composición con new/delete)
+
+*/
