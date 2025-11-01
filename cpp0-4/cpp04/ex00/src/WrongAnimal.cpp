@@ -14,28 +14,28 @@
 
 WrongAnimal::WrongAnimal(void) {
 
-	std::cout << "WrongAnimal created" << std::endl;
+	std::cout << GY << "WrongAnimal" << G << " created" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &copy) {
 
 	_type = copy._type;
-	std::cout << "WrongAnimal created" << std::endl;
+	std::cout << GY << "WrongAnimal" << G << " created" << std::endl;
 }
 
 WrongAnimal	&WrongAnimal::operator=(const WrongAnimal &copy) {
 
 	_type = copy._type;
-	std::cout << "WrongAnimal created" << std::endl;
+	std::cout << GY << "WrongAnimal" << G << " created" << std::endl;
 	return (*this);
 }
 
 WrongAnimal::~WrongAnimal(void) {
 
-	std::cout << "WrongAnimal destroyed" << std::endl;
+	std::cout << GY << "WrongAnimal" << R << " destroyed" << RES << std::endl;
 }
 
 void	WrongAnimal::makeSound(void) {
 
-	std::cout << "* Wrong Silence *" << std::endl;
+	std::cout << GY << "* Wrong Silence *" << RES << std::endl;
 }

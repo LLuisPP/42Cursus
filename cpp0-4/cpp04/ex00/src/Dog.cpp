@@ -16,28 +16,28 @@
 Dog::Dog(void): Animal() {
 
     _type = "Dog";
-    std::cout << "Dog created" << std::endl;
+    std::cout << B <<"Dog" << RES << " created" << std::endl;
 }
 
 Dog::Dog(const Dog &copy): Animal() {
 
     _type = copy._type;
-    std::cout << "Dog created" << std::endl;
+    std::cout << B <<"Dog" << RES << " created" << std::endl;
 }
 
 Dog &Dog::operator=(const Dog &copy) {
 
     _type = copy._type;
-    std::cout << "Dog created" << std::endl;
+    std::cout << B <<"Dog" << RES << " created" << std::endl;
     return (*this);
 }
 
 Dog::~Dog(void) {
 
-    std::cout << "Dog destroyed" << std::endl;
+    std::cout << B << "Dog" << R << " destroyed" << RES << std::endl;
 }
 
 void    Dog::makeSound(void) {
 
-    std::cout << "Wooof Wooof" << std::endl;
+    std::cout << B << "Wooof Wooof" << std::endl;
 }

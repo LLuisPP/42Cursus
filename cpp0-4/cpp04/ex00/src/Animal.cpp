@@ -14,29 +14,29 @@
 
 Animal::Animal(void) {
 
-	std::cout << "Animal" << G << " created !" << RES << std::endl;
+	std::cout << W << "Animal" << G << " created !" << RES << std::endl;
 }
 
 Animal::Animal(const Animal &copy) {
 
 	_type = copy._type;
-	std::cout << W << "Animal Created" << RES << std::endl;
+	std::cout << W << "Animal" << G << " created !" << RES << std::endl;
 }
 
 Animal	&Animal::operator=(const Animal &copy) {
 
 	_type = copy._type;
-	std::cout << "Animal created !" << std::endl;
+	std::cout << W << "Animal" << G << " created !" << RES << std::endl;
 	return (*this);
 }
 
 Animal::~Animal() {
 
-	std::cout << "Animal " << R << " destroyed" << RES << std::endl;
+	std::cout << W << "Animal " << R << " destroyed" << RES << std::endl;
 }
 
 void	Animal::makeSound() {
 
-	std::cout << B << "* Silence *" << RES << std::endl;
+	std::cout << Y << "* Silence *" << RES << std::endl;
 }
 

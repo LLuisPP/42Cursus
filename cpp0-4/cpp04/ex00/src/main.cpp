@@ -22,9 +22,14 @@ int	main(void)
 	WrongAnimal	*wrongAnimal = new WrongAnimal();
 	WrongAnimal	*wrongCat = new WrongCat();
 
+
+   std::cout << "\n - - - [Polymorphism] - - -\n";
+
 	animal->makeSound();
 	dog->makeSound();
 	cat->makeSound();
+
+   std::cout << "\n x x x [Wrong hierarchy] x x x\n";
 	wrongAnimal->makeSound();
 	wrongCat->makeSound();
 

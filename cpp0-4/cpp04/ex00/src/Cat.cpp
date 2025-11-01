@@ -15,28 +15,28 @@
 Cat::Cat(void): Animal() {
 
     _type = "Cat";
-    std::cout << "Cat created" << std::endl;
+    std::cout << PP << "Cat" << G << " created" << RES << std::endl;
 }
 
 Cat::Cat(const Cat &copy): Animal() {
 
     _type = copy._type;
-    std::cout << "Cat created" << std::endl;
+    std::cout << PP << "Cat" << G << " created" << RES << std::endl;
 }
 
 Cat &Cat::operator=(const Cat &copy) {
 
     _type = copy._type;
-    std::cout << "Cat created" << std::endl;
+    std::cout << PP << "Cat" << G << " created" << RES << std::endl;
     return (*this);
 }
 
 Cat::~Cat(void) {
 
-    std::cout << "Cat destroyed" << std::endl;
+    std::cout << PP << "Cat" << R << " destroyed" << RES << std::endl;
 }
 
 void    Cat::makeSound(void) {
 
-    std::cout << "meeeeeeeew" << std::endl;
+    std::cout << PP << "meeeeeeeew" << RES << std::endl;
 }
