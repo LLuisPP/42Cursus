@@ -94,12 +94,260 @@
 
 <div>
 
-| Módulo    | Objetivo principal                                 | Conceptos nuevos que enseña                                                                                                                                                                                   | Ejercicios / Clases principales                                                                                 | Qué se evalúa                                                                                                                      |
-| :-------- | :------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
-| **CPP00** | Primer contacto con C++                            | - Sintaxis básica (namespace `std`)  <br>- I/O (`std::cout`, `std::cin`)  <br>- Clases, métodos y atributos  <br>- Makefile y compilación  <br>- Estructura `.hpp/.cpp`                                       | `megaphone.cpp`, `PhoneBook` (`Contact`), etc.                                                                  | Estructura de proyecto en C++98, encapsulación básica, compilar sin warnings, naming y normas de estilo.                           |
-| **CPP01** | Gestión de memoria y composición de objetos        | - Constructores / destructores  <br>- `new` / `delete` y diferencias stack/heap  <br>- Punteros y referencias  <br>- Composición de clases (`HumanA`, `Weapon`, etc.)  <br>- Métodos `const`                  | `Zombie`, `ZombieHorde`, `Weapon`, `HumanA/B`, `Harl`                                                           | Ciclo de vida de los objetos, ownership, paso por referencia, fugas de memoria, comportamiento de objetos interrelacionados.       |
-| **CPP02** | Tipos numéricos propios y sobrecarga de operadores | - Sobrecarga (`operator+ - * /`, `operator==`...)  <br>- Copy constructor y `operator=` (Regla de 3)  <br>- Miembros `const` y `static`  <br>- Encapsulación fina                                             | Clase `Fixed` (número de punto fijo)                                                                            | Correcta implementación de operadores, comprensión de copia/asignación, const-correctness, encapsulación.                          |
-| **CPP03** | Herencia y especialización                         | - Herencia simple (`: public`)  <br>- Reutilización de código base  <br>- Sobrescritura de métodos  <br>- Llamadas a constructores base  <br>- Comportamiento distinto por clase                              | `ClapTrap` (base) → `ScavTrap` (ex01) → `FragTrap` (ex02)                                                       | Comprensión de jerarquías de clases, especialización de comportamiento, encadenado ctor/dtor, distinción base-derivada.            |
-| **CPP04** | Polimorfismo y clases abstractas                   | - Funciones **virtuales** y **sobrescritura dinámica**  <br>- Destructores virtuales  <br>- Clases abstractas (`= 0`)  <br>- Composición (`Brain` en ex01) y deep copy  <br>- **Interfaces y clone()** (ex03) | `Animal`, `Dog`, `Cat`, `Brain` (ex00–ex02) <br>`AMateria`, `Ice`, `Cure`, `ICharacter`, `MateriaSource` (ex03) | Polimorfismo real en C++ (tiempo de ejecución), abstracción, gestión de memoria dinámica, deep copy, implementación de interfaces. |
+| Module | Main target | Concepts to achieve | Evaluation keys |
+| :- | - | - | - |
+| **CPP00** | C++ <br> First contact | - Basic syntax (namespace `std`)  <br>- I/O (`std::cout`, `std::cin`)  <br>- Class, methods & atributes  <br>- Makefile & compilation  <br>- Structure `.hpp/.cpp` | Project strcture C++98, <br>basic encapsulation, <br>cpp compile warnings, <br>naming & style norms. | 
 
+<div align="center">
+  
+```mermaid
+classDiagram
+    class PhoneBook {
+        -Contact contacts[8]
+        +addContact()
+        +searchContact()
+    }
+
+    class Contact {
+        -string firstName
+        -string lastName
+        -string nickname
+        -string phoneNumber
+        -string darkestSecret
+        +getters()
+    }
+
+    class Account {
+        +makeDeposit()
+        +makeWithdrawal()
+        +displayStatus()
+    }
+
+    PhoneBook *-- Contact
+
+```
+</div> 
+
+</div>
+
+
+<div align="center">
+  
+
+</div>
+
+| Module | Main target | Concepts to achieve | Evaluation keys |
+| :- | - | - | - |
+| **CPP01** | Memory management and object composition | - Constructors / destructors  <br>- `new` / `delete` stack/heap diferencies <br>- Pointers and referencies <br>- Class composition (`HumanA`, `Weapon`, etc.)  <br>- Methodos `const`| Object life cycle, ownership, passing by reference, memory leaks, interrelated objects behavior |
+
+<div align="center">
+  
+```mermaid
+classDiagram
+    class Zombie {
+        -string name
+        +announce()
+    }
+
+    class Weapon {
+        -string type
+        +getType() const
+        +setType(string)
+    }
+
+    class HumanA {
+        -string name
+        -Weapon& weapon
+        +attack()
+    }
+
+    class HumanB {
+        -string name
+        -Weapon* weapon
+        +setWeapon(Weapon)
+        +attack()
+    }
+
+    class Harl {
+        +complain(string)
+    }
+
+    HumanA --> Weapon
+    HumanB --> Weapon
+
+
+```
+
+| Module | Main target | Concepts to achieve | Evaluation keys |
+| :- | - | - | - |
+| **CPP02** | Numerical types and overload operators | - Overload (`operator+ - * /`, `operator==`...)  <br>- Copy constructor & `operator=` (Rule of 3)  <br>- Members `const` y `static`  <br>- Encapsulation |  Correct operator implementation, comprehension of copy/assign, const-correctness, encapsulation |
+
+<div align="center">
+  
+```mermaid
+classDiagram
+    class Fixed {
+        -int _value
+        -static const int _fractionalBits = 8
+        +getRawBits() const
+        +setRawBits(int)
+        +toInt() const
+        +toFloat() const
+        +operator+(Fixed)
+        +operator-(Fixed)
+        +operator*(Fixed)
+        +operator/(Fixed)
+        +operator++()
+        +operator--()
+        +static min()
+        +static max()
+    }
+
+    class Point {
+        -const Fixed x
+        -const Fixed y
+        +getX() const
+        +getY() const
+    }
+
+    Point *-- Fixed
+
+
+```
+</div>
+
+| Module | Main target | Concepts to achieve | Evaluation keys |
+| :- | - | - | - |
+| **CPP03** | Inerhit and specialization | - Simple inerhit (`: public`)  <br>- Reuse of base codigo <br>- Methods overwrite <br>- Base constructir calls <br>- Different class behavior | Class hierarchy comprehension, behavior specialization, ctor/dtor chain, base-derivate distinction |
+
+
+<div align="center">
+  
+```mermaid
+classDiagram
+    class ClapTrap {
+        -string name
+        -int hitPoints
+        -int energyPoints
+        -int attackDamage
+        +attack(string)
+        +takeDamage(uint)
+        +beRepaired(uint)
+    }
+
+    class ScavTrap {
+        +guardGate()
+    }
+
+    class FragTrap {
+        +highFivesGuys()
+    }
+
+    class DiamondTrap {
+        -string name
+        +whoAmI()
+    }
+
+    ClapTrap <|-- ScavTrap
+    ClapTrap <|-- FragTrap
+    ScavTrap <|-- DiamondTrap
+    FragTrap <|-- DiamondTrap
+
+
+```
+</div>
+</div>
+
+| Module | Main target | Concepts to achieve | Evaluation keys |
+| :- | - | - | - |
+| **CPP04** | Polimorfism and abstract classes | - **Virtual** functions and **dynamic overwrite**  <br>- Virtual destructores <br>- Abstract clases (`= 0`)  <br>- Composition (`Brain` in ex01) & deep copy  <br>- **Interfaces and clone()** (ex03) | `Animal`, `Dog`, `Cat`, `Brain` (ex00–ex02) <br>`AMateria`, `Ice`, `Cure`, `ICharacter`, `MateriaSource` (ex03) | Real polimorfism in C++ (execution time), abstraction, dynamic memory management, deep copy, interface implementation |
+
+
+<div align="center">
+  
+```mermaid
+classDiagram
+    class Animal {
+        #string type
+        +getType() const
+        +makeSound()*
+    }
+
+    class Dog {
+        +makeSound()
+    }
+
+    class Cat {
+        +makeSound()
+    }
+
+    class WrongAnimal {
+        +makeSound()
+    }
+
+    class WrongCat {
+        +makeSound()
+    }
+
+    class Brain {
+        -string ideas[100]
+    }
+
+    class AMateria {
+        #string _type
+        +getType() const
+        +clone()* 
+        +use(ICharacter)
+    }
+
+    class Ice {
+        +clone()
+        +use(ICharacter)
+    }
+
+    class Cure {
+        +clone()
+        +use(ICharacter)
+    }
+
+    class ICharacter {
+        <<interface>>
+        +getName() const
+        +equip(AMateria*)
+        +unequip(int)
+        +use(int, ICharacter)
+    }
+
+    class Character {
+        -string name
+        -AMateria* inventory[4]
+    }
+
+    class IMateriaSource {
+        <<interface>>
+        +learnMateria(AMateria*)
+        +createMateria(string)
+    }
+
+    class MateriaSource {
+        -AMateria* learned[4]
+    }
+
+    Animal <|-- Dog
+    Animal <|-- Cat
+    WrongAnimal <|-- WrongCat
+    Dog *-- Brain
+    Cat *-- Brain
+
+    AMateria <|-- Ice
+    AMateria <|-- Cure
+
+    ICharacter <|.. Character
+    Character o-- AMateria
+
+    IMateriaSource <|.. MateriaSource
+    MateriaSource o-- AMateria
+
+
+```
 </div>
