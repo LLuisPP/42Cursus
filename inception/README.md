@@ -95,6 +95,31 @@
 </div>
 
 <div text-align="left">
+
+```mermaid
+
+flowchart LR
+    A[Cliente<br/>lprieto-.42.fr] --> NGINX[NGINX<br/>443/TLS]
+
+    NGINX --> WP[WordPress<br/>php-fpm]
+    WP --> DB[MariaDB]
+
+    subgraph inception[docker network: inception]
+        NGINX
+        WP
+        DB
+    end
+
+    WP --- VWP[( /home/lprieto-/data/wordpress )]
+    DB --- VDB[( /home/lprieto-/data/mariadb )]
+
+    ENV[(srcs/.env)] --> WP
+    ENV --> DB
+
+
+
+```
   
 </div>
+
 
