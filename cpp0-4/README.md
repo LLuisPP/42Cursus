@@ -138,7 +138,7 @@ classDiagram
 
 | Module | Main target | Concepts to achieve | Evaluation keys |
 | :- | - | - | - |
-| **CPP01** | Memory management and object composition | - Constructors / destructors  <br>- `new` / `delete` stack/heap diferencies <br>- Pointers and referencies <br>- Class composition (`HumanA`, `Weapon`, etc.)  <br>- Methodos `const`| Object life cycle, ownership, passing by reference, memory leaks, interrelated objects behavior |
+| **CPP01** | Memory management and object composition | - Constructors/destructors  <br>- `new`/`delete` stack/heap diferencies <br>- Pointers and referencies <br>- Class composition (`HumanA`, `Weapon`, etc.)  <br>- Methodos `const`| Object life cycle, ownership, passing by reference, memory leaks, interrelated objects behavior |
 
 <div align="center">
   
@@ -180,7 +180,7 @@ classDiagram
 
 | Module | Main target | Concepts to achieve | Evaluation keys |
 | :- | - | - | - |
-| **CPP02** | Numerical types and overload operators | - Overload (`operator+ - * /`, `operator==`...)  <br>- Copy constructor & `operator=` (Rule of 3)  <br>- Members `const` y `static`  <br>- Encapsulation |  Correct operator implementation, comprehension of copy/assign, const-correctness, encapsulation |
+| **CPP02** | Numerical types and overload operators | - Overload (`operator+ - * /`, `operator==`...)  <br>- Copy constructor and `operator=` (Rule of 3)  <br>- Members `const` and `static`  <br>- Encapsulation |  Correct operator implementation, comprehension of copy/assign, const-correctness, encapsulation |
 
 <div align="center">
   
@@ -218,7 +218,7 @@ classDiagram
 
 | Module | Main target | Concepts to achieve | Evaluation keys |
 | :- | - | - | - |
-| **CPP03** | Inerhit and specialization | - Simple inerhit (`: public`)  <br>- Reuse of base codigo <br>- Methods overwrite <br>- Base constructir calls <br>- Different class behavior | Class hierarchy comprehension, behavior specialization, ctor/dtor chain, base-derivate distinction |
+| **CPP03** | Inerhit and specialization | - Simple inerhit (`: public`)  <br>- Base code reuse <br>- Methods overwrite <br>- Base constructor calls <br>- Different class behavior | Class hierarchy comprehension, behavior specialization, ctor/dtor chain, base-derivate distinction |
 
 
 <div align="center">
@@ -260,7 +260,7 @@ classDiagram
 
 | Module | Main target | Concepts to achieve | Evaluation keys |
 | :- | - | - | - |
-| **CPP04** | Polimorfism and abstract classes | - **Virtual** functions and **dynamic overwrite**  <br>- Virtual destructores <br>- Abstract clases (`= 0`)  <br>- Composition (`Brain` in ex01) & deep copy  <br>- **Interfaces and clone()** (ex03) | `Animal`, `Dog`, `Cat`, `Brain` (ex00–ex02) <br>`AMateria`, `Ice`, `Cure`, `ICharacter`, `MateriaSource` (ex03) | Real polimorfism in C++ (execution time), abstraction, dynamic memory management, deep copy, interface implementation |
+| **CPP04** | Polimorfism and abstract classes | - **Virtual** functions and **dynamic overwrite**  <br>- Virtual destructors <br>- Abstract clases (`= 0`)  <br>- Composition (`Brain` in ex01) & deep copy  <br>- **Interfaces and clone()** (ex03) | `Animal`, `Dog`, `Cat`, `Brain` (ex00–ex02) <br>`AMateria`, `Ice`, `Cure`, `ICharacter`, `MateriaSource` (ex03) | Real polimorfism in C++ (execution time), abstraction, dynamic memory management, deep copy, interface implementation |
 
 
 <div align="center">
@@ -351,3 +351,4 @@ classDiagram
 
 ```
 </div>
+
