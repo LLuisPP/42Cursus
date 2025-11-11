@@ -97,7 +97,6 @@
 <div text-align="left">
 
 ```mermaid
-
 flowchart LR
     A[Cliente<br/>lprieto-.42.fr] --> NGINX[NGINX<br/>443/TLS]
 
@@ -115,11 +114,33 @@ flowchart LR
 
     ENV[(srcs/.env)] --> WP
     ENV --> DB
+```
+  
+</div>
+
+<div text-align="left">
+
+```mermaid
+
+flowchart TD
+    Client[Cliente] --> NGINX[NGINX]
+    NGINX --> WORDPRESS[WordPress]
+    WORDPRESS --> MARIADB[MariaDB]
+
+    MARIADB --> ERR_DB["🚨 MariaDB caído → WordPress no puede usar la base de datos"]
+    ERR_DB --> NGINX
+    NGINX --> Client
+
+    WORDPRESS --> ERR_WP["🚨 WordPress caído → NGINX responde pero sin contenido dinámico"]
+    ERR_WP --> Client
+
+    Client --> ERR_NGX["🚨 NGINX caído → no hay entrada al sistema"]
 
 
 
 ```
   
 </div>
+
 
 
