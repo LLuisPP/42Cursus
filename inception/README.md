@@ -83,10 +83,10 @@
   <tr>
     <td align="center">Project</td>
     <td align="center">Bonus</td>
-    <td rowspan="2" align="center"><a href="#"><img width="250" src=""></a></td>
+    <td rowspan="2" align="center"><a href="#"><img width="250" src="https://github.com/user-attachments/assets/0aa1e7d0-9f23-4059-afac-399ad9dbd0fd"></a></td>
   </tr>
   <tr>
-    <td><a href="#"><img width="100" src="https://github.com/user-attachments/assets/cad19f8d-3b88-4ff6-b7bc-6c1608833a38"></a></td>
+    <td><a href="#"><img width="100" src="https://github.com/user-attachments/assets/cdefe52d-0b54-4e75-b7f9-3d5f189185a9"></a></td>
     <td><a href="#"><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/0df7dd81-56fb-4929-a023-67c7386906dc"></a></td>
   </tr>
 </table>
@@ -141,6 +141,7 @@ flowchart TD
 ```
   
 </div>
+
 
 
 
