@@ -142,7 +142,7 @@ flowchart TD
   
 </div>
 
-<div align=center>
+<div>
 
 *This project has been created as part of the 42 curriculum by lprieto-.*
 
@@ -563,6 +563,7 @@ WP_USER_EMAIL=luis@example.com
 
   
 </div>
+
 
 
 
