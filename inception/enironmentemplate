@@ -1,0 +1,17 @@
+MYSQL_HOST=mariadb
+MYSQL_DATABASE=wordpress
+MYSQL_ROOT_PASSWORD=rootsql
+MYSQL_USER=wpuser
+MYSQL_PASSWORD=wppass
+
+DOMAIN_NAME=lprieto-.42.fr
+WP_TITLE=Inception
+
+WP_ADMIN=lprieto-42
+WP_ADMIN_PASSWORD=luispass123
+WP_ADMIN_EMAIL=luisadmin@example.com
+
+WP_USER=luis
+WP_USER_PASSWORD=luispass123
+WP_USER_EMAIL=luis@example.com
+
