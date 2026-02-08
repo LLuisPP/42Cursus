@@ -42,7 +42,7 @@
     </td>
     <td>
 
-[**`ft_irc`**]()<br>
+[**`ft_irc`**](https://github.com/LLuisPP/42Cursus/tree/main/ft_irc)<br>
 [**`inception`**](https://github.com/LLuisPP/42Cursus/tree/main/inception)<br>
 [**`cpp5-9`**]()
     </td>
