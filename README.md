@@ -108,12 +108,12 @@ The 42 Common Core is an intensive, self-taught, project-based curriculum focuse
 |`🏗️`|[**cpp's 0-4**](https://github.com/LLuisPP/42Cursus/tree/main/cpp0-4)| Basics of C++ and its fundamental features |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|<a href="#"><img src="https://img.shields.io/badge/80-darkgreen"></a>|--|`Nov'25`|
 ||`milestone 4`||||||
 |`🧩`|[**inception**](https://github.com/LLuisPP/42Cursus/tree/main/inception)| Contain multiple Docker containers |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|<a href="#"><img src="https://img.shields.io/badge/100-darkgreen"></a>|--|`Mar'26`|
-|`💬`|[**ft_irc**](https://github.com/LLuisPP/42Cursus/tree/main/ft_irc)| Implement a functional IRC server |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|<a href="#"><img src="https://img.shields.io/badge/100-darkgreen"></a>|--|`Jan'25`|
-|`🏗️`|[**cpp's 5-9**]()| Explore advanced C++ and STL |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|`▶️`|--|`'25`|
-|`🔖`|[**rank 05 exam**]()| Assessment of skills in C and C++ |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--||`'25`|
+|`💬`|[**ft_irc**](https://github.com/LLuisPP/42Cursus/tree/main/ft_irc)| Implement a functional IRC server |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|<a href="#"><img src="https://img.shields.io/badge/100-darkgreen"></a>|--|`Jan'26`|
+|`🏗️`|[**cpp's 5-9**]()| Explore advanced C++ and STL |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|`▶️`|--|`'26`|
+|`🔖`|[**rank 05 exam**]()| Assessment of skills in C and C++ |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|`▶️`|--|`'26`|
 ||`milestone 5`||||||
-|`🕹️`|[**trascendence**]()| Create a 2D online game with diverse mechanics |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'25`|
-|`🔖`|[**rank 06 exam**]()| Advanced level exam in C/C++ |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--||`'25`|
+|`🕹️`|[**trascendence**]()| Create a 2D online game with diverse mechanics |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--|--|`'26`|
+|`🔖`|[**rank 06 exam**]()| Advanced level exam in C/C++ |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|--||`'26`|
 
 </div>
 
