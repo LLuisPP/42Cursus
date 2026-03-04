@@ -45,22 +45,6 @@ fi
 
 wp option update siteurl "$SITE_URL" --allow-root
 wp option update home "$SITE_URL" --allow-root
-#wp option update siteurl "https://$DOMAIN_NAME" --allow-root
-#wp option update home "https://$DOMAIN_NAME" --allow-root
-
-#if [ ! -f wp-config.php ]; then
-#    echo "Downloading WordPress..."
-#    wp core download --allow-root
-
-#    echo "Creating wp-config..."
-#    wp config create --allow-root \
-#        --dbname="$MYSQL_DATABASE" \
-#        --dbuser="$MYSQL_USER" \
-#        --dbpass="$MYSQL_PASSWORD" \
-#        --dbhost="$MYSQL_HOST"
-
-#    echo "WordPress files ready. Installation will be done via browser."
-#fi
 
 echo "Starting php-fpm..."
 mkdir -p /run/php
