@@ -261,6 +261,7 @@ as required by the subject.
 ```
 
 ├── Makefile
+├── README.md
 ├── USER_DOC.md
 ├── DEV_DOC.md
 ├── srcs/
@@ -556,12 +557,14 @@ WP_ADMIN_EMAIL=luisadmin@example.com
 WP_USER=luis
 WP_USER_PASSWORD=luispass123
 WP_USER_EMAIL=luis@example.com
+NGINX_PORT=443
 
 `````
 
 
   
 </div>
+
 
 
 
