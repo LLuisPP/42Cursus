@@ -73,6 +73,24 @@
 
 </div>
 
+<div align="center">
+
+<table>
+  <tr>
+    <td colspan="4" align="center">💬 ft_irc 💬</td>
+  </tr>
+  <tr>
+    <td align="center">Project</td>
+    <td align="center">Bonus</td>
+    <td rowspan="2" align="center"><a href="#"><img width="250" src="https://github.com/user-attachments/assets/87410d9b-071c-4895-8ef2-ebc0909aadb4"></a></td>
+  </tr>
+  <tr>
+    <td><a href="#"><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/504507eb-65b0-4814-9525-a2c22100dab1"></a></td>
+    <td><a href="#"><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/0df7dd81-56fb-4929-a023-67c7386906dc"></a></td>
+  </tr>
+</table>
+</div>
+
 ---
 
 *This project has been created as part of the 42 curriculum by flperez-, lgracia- and lprieto-.*
