@@ -82,10 +82,10 @@
   <tr>
     <td align="center">Project</td>
     <td align="center">Bonus</td>
-    <td rowspan="2" align="center"><a href="#"><img width="250" src=""></a></td>
+    <td rowspan="2" align="center"><a href="#"><img width="200" src="https://github.com/user-attachments/assets/e2d89fea-98e5-459f-ae1a-c96f095f7107"></a></td>
   </tr>
   <tr>
-    <td><a href="#"><img width="95" src="https://github.com/user-attachments/assets/862ed238-2624-453a-a5cd-c3a8ce3617d3"></a></td>
+    <td><a href="#"><img width="95" src="https://github.com/LLuisPP/42Cursus/assets/116104082/504507eb-65b0-4814-9525-a2c22100dab1"></a></td>
     <td><a href="#"><img width="100" src="https://github.com/LLuisPP/42Cursus/assets/116104082/0df7dd81-56fb-4929-a023-67c7386906dc"></a></td>
   </tr>
 </table>
@@ -108,6 +108,7 @@
 
 
 </div>
+
 
 
 
