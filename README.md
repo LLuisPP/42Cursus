@@ -50,7 +50,7 @@ The 42 Common Core is an intensive, self-taught, project-based curriculum focuse
 
 [**`ft_irc`**](https://github.com/LLuisPP/42Cursus/tree/main/ft_irc)<br>
 [**`inception`**](https://github.com/LLuisPP/42Cursus/tree/main/inception)<br>
-[**`cpp5-9`**]()
+[**`cpp5-9`**](https://github.com/LLuisPP/42Cursus/tree/main/cpp5-9)
     </td>
     <td>
 
@@ -71,7 +71,7 @@ The 42 Common Core is an intensive, self-taught, project-based curriculum focuse
 [**`rank04`**](https://github.com/LLuisPP/42-exams-rank04)</td>
 <td>
       
-[**`rank05`**]()</td>
+[**`rank05`**](https://github.com/LLuisPP/42-exams-rank05)</td>
 <td>
   
 [**`rank06`**]()</td>
