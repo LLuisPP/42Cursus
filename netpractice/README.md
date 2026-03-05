@@ -107,9 +107,11 @@
 |`/24`| `255.255.255.0` | `254` <br>hosts| MASK<br> 256 - 0 = 256 - 2 = `254` <br>CIDR<br> 32 - 24 = 8 <br>2^8 = 256 - 2 = `254` |24 - 24 = 0 <br> 2^0 = `1`|256 IPs|network: `192.168.1.0`<br>`192.168.1.1`<br>`192.168.1.254`<br>broadcast: `192.168.1.255`|
 
 
+<img width="1435" height="422" alt="CIDR" src="https://github.com/user-attachments/assets/d65e58fa-b4d1-46d3-91ac-5facd82e780f" />
 
 
 </div>
+
 
 
 
