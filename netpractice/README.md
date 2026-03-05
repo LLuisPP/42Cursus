@@ -92,6 +92,8 @@
 
 </div>
 
+---
+
 <div align=center>
 
 |CIDR|Hosts|Mask|Calculations<br>(brcst+net)|Possible subnets|Subnet size|Valid IPs range<br> without brc/net|
@@ -108,6 +110,7 @@
 
 
 </div>
+
 
 
 
