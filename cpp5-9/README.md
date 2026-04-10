@@ -77,7 +77,7 @@
 <div align="center">
 <table>
   <tr>
-    <td colspan="5" align="center">🏗️ C++ 0-4 🏗️</td>
+    <td colspan="5" align="center">🏗️ C++ 5-9 🏗️</td>
   </tr>
   <tr>
     <td align="center">Project</td>
@@ -102,28 +102,30 @@
   
 ```mermaid
 classDiagram
-    class PhoneBook {
-        -Contact contacts[8]
-        +addContact()
-        +searchContact()
+    class Bureaucrat {
+        -string name
+        -int grade
+        +incrementGrade()
+        +decrementGrade()
+        +signForm()
     }
-
-    class Contact {
-        -string firstName
-        -string lastName
-        -string nickname
-        -string phoneNumber
-        -string darkestSecret
-        +getters()
+    class AForm {
+        <<abstract>>
+        -string name
+        -bool signed
+        +beSigned(Bureaucrat)
+        +execute(Bureaucrat)*
     }
-
-    class Account {
-        +makeDeposit()
-        +makeWithdrawal()
-        +displayStatus()
+    class Exceptions {
+        <<interface>>
+        +what() const
     }
-
-    PhoneBook *-- Contact
+    Bureaucrat ..> AForm : interacts
+    AForm <|-- ShrubberyCreationForm
+    AForm <|-- RobotomyRequestForm
+    AForm <|-- PresidentialPardonForm
+    AForm ..> Exceptions : throws
+    Bureaucrat ..> Exceptions : throws
 
 ```
 </div> 
