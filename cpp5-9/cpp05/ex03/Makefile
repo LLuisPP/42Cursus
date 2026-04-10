@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Bureaucrat
+NAME = Intern
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g
@@ -19,7 +19,7 @@ RM = rm -rf
 
 # **************************************************************************** #
 
-SRC = main.cpp Bureaucrat.cpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 
 SRCS = $(addprefix src/, $(SRC))
 
@@ -94,18 +94,18 @@ TOTAL_ITEMS := $(words $(OBJS))
 
 define show_progress
 	@echo; \
-	printf " 8eeee8 \n \
-8    8   e   e eeeee  eeee eeeee e   e eeee eeeee  eeeee eeeee \n \
-8eeee8ee 8   8 8   8  8    8   8 8   8 8  8 8   8  8   8   8   \n \
-88     8 8e  8 8eee8e 8eee 8eee8 8e  8 8e   8eee8e 8eee8   8e  \n \
-88     8 88  8 88   8 88   88  8 88  8 88   88   8 88  8   88  \n \
-88eeeee8 88ee8 88   8 88ee 88  8 88ee8 88e8 88   8 88  8   88  \n\n"; \
+	printf " 8 \n \
+8  eeeee eeeee eeee eeeee  eeeee \n \
+8e 8   8   8   8    8   8  8   8 \n \
+88 8e  8   8e  8eee 8eee8e 8e  8 \n \
+88 88  8   88  88   88   8 88  8 \n \
+88 88  8   88  88ee 88   8 88  8 \n\n"; \
 
 	printf " $(W)▄▄▄▄▄▄▄               eeeeee 88888 \n \
 $(W)█                     e    8 8        $(Y)▄████▄              $(BB)▄█████▄ $(RES)\n \
 █          █     █    8    8 8eee8   $(Y)████▄███  $(BW)lprieto-   $(BB)██${PHA}▄${RES}$(BB)█$(PHA)▄${RES}$(BB)██ ${RES}\n \
-█▄       ▀▀█▀▀ ▀▀█▀▀  e    8     8   $(Y)████▄    $(G)$(BD)$(NAME)  $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
-██         ▀     ▀    88   8    88   $(Y) ▀████▀     ex00     $(BB)█▀█▀█▀█ $(RES)\n \
+█▄       ▀▀█▀▀ ▀▀█▀▀  e    8     8   $(Y)████▄      $(G)$(BD)$(NAME)    $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
+██         ▀     ▀    88   8    88   $(Y) ▀████▀     ex03     $(BB)█▀█▀█▀█ $(RES)\n \
 ███████               888888 88888 \n\n"; \
 
 	total_ticks=$$((PROG_DURAT * 10));
