@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/10 21:50:29 by lprieto-          #+#    #+#             */
-/*   Updated: 2026/04/10 21:50:30 by lprieto-         ###   ########.fr       */
+/*   Created: 2026/04/10 22:37:08 by lprieto-          #+#    #+#             */
+/*   Updated: 2026/04/10 22:37:09 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
-#include <iostream>
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 
-int main(int argc, char **argv) {
-	if (argc != 2) {
-		std::cerr << "Usage: " << argv[0] << " <literal>" << std::endl;
-		return (1);
-	}
-	ScalarConverter::convert(argv[1]);
-	return (0);
+template <typename T>
+void	swap(T &a, T &b) {
+	T	tmp;
+
+	tmp = a;
+	a = b;
+	b = tmp;
 }
+
+template <typename T>
+T const &	min(T const &a, T const &b) {
+	return ((a < b) ? a : b);
+}
+
+template <typename T>
+T const &	max(T const &a, T const &b) {
+	return ((a > b) ? a : b);
+}
+
+#endif

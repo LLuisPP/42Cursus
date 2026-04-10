@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   B.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 18:53:41 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/22 19:37:52 by lprieto-         ###   ########.fr       */
+/*   Created: 2026/04/10 22:00:00 by lprieto-          #+#    #+#             */
+/*   Updated: 2026/04/10 22:00:00 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_HPP
-# define HUMANA_HPP
+#include "B.hpp"
 
-#include "Weapon.hpp"
+B::B() {}
 
-class	HumanA {
+B::B(const B &src) : Base(src) { *this = src; }
 
-	private:
-		std::string _name;
-		Weapon		&_weapon;
-	public:
-		HumanA(std::string name, Weapon &weapon);
-		~HumanA(void);
-		void	attack(void);
-};
+B &B::operator=(const B &rhs) { (void)rhs; return (*this); }
 
-#endif
+B::~B() {}

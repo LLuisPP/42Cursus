@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 18:54:42 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/22 19:38:38 by lprieto-         ###   ########.fr       */
+/*   Created: 2026/04/10 21:51:42 by lprieto-          #+#    #+#             */
+/*   Updated: 2026/04/10 22:00:00 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-# define HUMANB_HPP
+#ifndef DATA_HPP
+#define DATA_HPP
 
-#include "Weapon.hpp"
+#include <string>
 
-class	HumanB {
+struct Data {
+	std::string stringValue;
+	int intValue;
 
-	private:
-		std::string	_name;
-		Weapon		*_weapon;
-	public:
-		HumanB(std::string name);
-		~HumanB(void);
-		void	attack(void);
-		void	setWeapon(Weapon *weapon);
+	Data();
+	Data(const Data &src);
+	Data &operator=(const Data &rhs);
+	~Data();
 };
 
 #endif

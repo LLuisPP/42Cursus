@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   A.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/10 21:50:29 by lprieto-          #+#    #+#             */
-/*   Updated: 2026/04/10 21:50:30 by lprieto-         ###   ########.fr       */
+/*   Created: 2026/04/10 22:00:00 by lprieto-          #+#    #+#             */
+/*   Updated: 2026/04/10 22:00:00 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
-#include <iostream>
+#include "A.hpp"
 
-int main(int argc, char **argv) {
-	if (argc != 2) {
-		std::cerr << "Usage: " << argv[0] << " <literal>" << std::endl;
-		return (1);
-	}
-	ScalarConverter::convert(argv[1]);
-	return (0);
-}
+A::A() {}
+
+A::A(const A &src) : Base(src) { *this = src; }
+
+A &A::operator=(const A &rhs) { (void)rhs; return (*this); }
+
+A::~A() {}

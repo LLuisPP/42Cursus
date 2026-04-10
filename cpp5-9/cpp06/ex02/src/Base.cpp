@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcelon      +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/23 08:49:39 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/23 18:40:32 by lprieto-         ###   ########.fr       */
+/*   Created: 2026/04/10 21:53:39 by lprieto-          #+#    #+#             */
+/*   Updated: 2026/04/10 22:00:00 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#include "Base.hpp"
 
-int	main(int argc, char **argv) {
+Base::Base() {}
 
-	Harl	harl;
-	
-	if (argc != 2) {
-		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-		return (1);
-	}
+Base::Base(const Base &src) { *this = src; }
 
-	harl.complain(argv[1]);
-	return (0);
-}
+Base &Base::operator=(const Base &rhs) { (void)rhs; return (*this); }
+
+Base::~Base() {}

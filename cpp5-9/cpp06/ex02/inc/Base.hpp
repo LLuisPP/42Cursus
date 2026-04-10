@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/19 20:11:23 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/19 20:13:43 by lprieto-         ###   ########.fr       */
+/*   Created: 2026/04/10 21:53:32 by lprieto-          #+#    #+#             */
+/*   Updated: 2026/04/10 22:00:00 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef BASE_HPP
+#define BASE_HPP
 
-Zombie	*zombieHorde(int n, std::string name) {
+class Base {
+ public:
+	Base();
+	Base(const Base &src);
+	Base &operator=(const Base &rhs);
+	virtual ~Base();
+};
 
-	Zombie	*horde;
-
-	horde = new Zombie[n];
-	for(int i = 0; i < n; i++) {
-		horde[i].setName(name);
-	}
-	return (horde);
-}
+#endif

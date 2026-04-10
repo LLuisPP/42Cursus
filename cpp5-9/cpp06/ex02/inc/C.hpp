@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   C.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/19 07:49:26 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/19 08:19:58 by lprieto-         ###   ########.fr       */
+/*   Created: 2026/04/10 21:53:35 by lprieto-          #+#    #+#             */
+/*   Updated: 2026/04/10 22:00:00 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef C_HPP
+#define C_HPP
 
-void	randomChump(std::string name) {
+#include "Base.hpp"
 
-	Zombie	zombie(name);
-	zombie.announce();
-}
+class C : public Base {
+ public:
+	C();
+	C(const C &src);
+	C &operator=(const C &rhs);
+	~C();
+};
+
+#endif

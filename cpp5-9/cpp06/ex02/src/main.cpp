@@ -3,38 +3,70 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 17:38:04 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/22 17:51:01 by lprieto-         ###   ########.fr       */
+/*   Created: 2026/04/10 21:53:59 by lprieto-          #+#    #+#             */
+/*   Updated: 2026/04/10 21:54:01 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
+#include <cstdlib>
+#include <ctime>
+#include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 
-int	main(int argc, char **argv) {
+Base * generate(void) {
+	int random = std::rand() % 3;
+	if (random == 0) return (new A());
+	else if (random == 1) return (new B());
+	else return (new C());
+}
 
-	std::string string = "HI THIS IS BRAIN";
-	std::string *stringPTR = &string;
-	std::string &stringREF = string;
+void identify(Base* p) {
+	if (dynamic_cast<A*>(p)) std::cout << "A" << std::endl;
+	else if (dynamic_cast<B*>(p)) std::cout << "B" << std::endl;
+	else if (dynamic_cast<C*>(p)) std::cout << "C" << std::endl;
+	else std::cout << "Unknown" << std::endl;
+}
 
-	if (argc != 1) {
-		std::cout << "No arguments required !" << std::endl;
-		return (1);
+void identify(Base& p) {
+	try {
+		(void)dynamic_cast<A&>(p);
+		std::cout << "A" << std::endl;
+		return;
+	} catch (std::exception& e) {}
+	
+	try {
+		(void)dynamic_cast<B&>(p);
+		std::cout << "B" << std::endl;
+		return;
+	} catch (std::exception& e) {}
+
+	try {
+		(void)dynamic_cast<C&>(p);
+		std::cout << "C" << std::endl;
+		return;
+	} catch (std::exception& e) {}
+
+	std::cout << "Unknown" << std::endl;
+}
+
+int main() {
+	std::srand(static_cast<unsigned int>(std::time(NULL)));
+
+	for (int i = 0; i < 10; ++i) {
+		Base *ptr = generate();
+		std::cout << "Test " << i + 1 << ":\n";
+		std::cout << "  Identify via pointer:   ";
+		identify(ptr);
+		std::cout << "  Identify via reference: ";
+		identify(*ptr);
+		std::cout << "-----------------------" << std::endl;
+		delete ptr;
 	}
-	(void)argv;
 
-	std::cout << "String:\t\t" << &string << std::endl;
-
-	std::cout << "StringPTR:\t" << stringPTR << std::endl;
-
-	std::cout << "StringREF:\t" << &stringREF << std::endl << std::endl;
-	std::cout << "(pointer var):\t" << (const void*)&stringPTR << std::endl;
-	std::cout << std::endl;
-
-	std::cout << "String:\t\t" << string << std::endl;
-	std::cout << "StringPTR:\t" << *stringPTR << std::endl;
-	std::cout << "StringREF:\t" << stringREF << std::endl;
 	return (0);
 }

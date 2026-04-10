@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 18:49:03 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/22 19:30:08 by lprieto-         ###   ########.fr       */
+/*   Created: 2026/04/10 22:37:19 by lprieto-          #+#    #+#             */
+/*   Updated: 2026/04/10 22:37:20 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#ifndef ITER_HPP
+# define ITER_HPP
 
-HumanA::HumanA(std::string name, Weapon &weapon): _name(name), _weapon(weapon) {
+# include <cstddef>
+
+template <typename T, typename F>
+void	iter(T *array, size_t length, F func) {
+	for (size_t i = 0; i < length; i++) {
+		func(array[i]);
+	}
 }
 
-HumanA::~HumanA(void) {}
-
-void	HumanA::attack(void) {
-
-	std::cout << _name << " attacks with their " << _weapon.getType() << std::endl;
-}
+#endif

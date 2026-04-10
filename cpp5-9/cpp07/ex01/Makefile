@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
+#    By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/13 20:38:28 by lprieto-          #+#    #+#              #
-#    Updated: 2025/10/23 11:33:31 by lprieto-         ###   ########.fr        #
+#    Created: 2026/03/25 12:24:51 by lprieto-          #+#    #+#              #
+#    Updated: 2026/03/25 12:55:25 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fixed1
+NAME = iter
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g
@@ -19,7 +19,7 @@ RM = rm -rf
 
 # **************************************************************************** #
 
-SRC = main.cpp Fixed1.cpp
+SRC = main.cpp
 
 SRCS = $(addprefix src/, $(SRC))
 
@@ -94,17 +94,18 @@ TOTAL_ITEMS := $(words $(OBJS))
 
 define show_progress
 	@echo; \
-	printf " eeee e  e    e eeee eeeee    e  eeeee eeeee    eeee e     eeeee eeeee eeeee\n \
-8    8   8  8  8    8   8    8  8   8   8      8    8     8  88 8   8   8 \n \
-8eee 8e   ee   8eee 8e  8    8e 8e  8   8e     8eee 8e    8   8 8eee8   8e \n \
-88   88  8  8  88   88  8    88 88  8   88     88   88    8   8 88  8   88 \n \
-88   88 88   8 88ee 88ee8    88 88  8   88     88   88eee 8eee8 88  8   88 \n\n"; \
+	printf " 8eeee \n \
+8     eeeeee eeeee  eeeeeee \n \
+8eeee 8   88 8   8  8  8  8 \n \
+88    8    e 8eee8e 8e 8  8 \n \
+88    8    8 8    8 88 8  8 \n \
+88    8eeee8 8    8 88 8  8 \n\n"; \
 
 	printf " $(W)▄▄▄▄▄▄▄               eeeeee 88888 \n \
-$(W)█                     e    8     8    $(Y)▄████▄              $(BB)▄█████▄ $(RES)\n \
-█          █     █    8    8     8   $(Y)████▄███  $(BW)lprieto-   $(BB)██${PHA}▄${RES}$(BB)█$(PHA)▄${RES}$(BB)██ ${RES}\n \
-█▄       ▀▀█▀▀ ▀▀█▀▀  e    8 8eee8   $(Y)████▄      $(G)$(BD)$(NAME)    $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
-██         ▀     ▀    88   8 88      $(Y) ▀████▀     ex01     $(BB)█▀█▀█▀█ $(RES)\n \
+$(W)█                     e    8 8        $(Y)▄████▄              $(BB)▄█████▄ $(RES)\n \
+█          █     █    8    8 8eee8   $(Y)████▄███  $(BW)lprieto-   $(BB)██${PHA}▄${RES}$(BB)█$(PHA)▄${RES}$(BB)██ ${RES}\n \
+█▄       ▀▀█▀▀ ▀▀█▀▀  e    8     8   $(Y)████▄ $(G)$(BD)$(NAME) $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
+██         ▀     ▀    88   8    88   $(Y) ▀████▀     ex01     $(BB)█▀█▀█▀█ $(RES)\n \
 ███████               888888 88888 \n\n"; \
 
 	total_ticks=$$((PROG_DURAT * 10));
@@ -123,3 +124,4 @@ $(W)█                     e    8     8    $(Y)▄████▄              
 	printf "\n $(RES)\n"; \
 
 endef
+

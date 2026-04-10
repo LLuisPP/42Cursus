@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   C.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/19 07:47:43 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/19 07:48:51 by lprieto-         ###   ########.fr       */
+/*   Created: 2026/04/10 22:00:00 by lprieto-          #+#    #+#             */
+/*   Updated: 2026/04/10 22:00:00 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "C.hpp"
 
-Zombie *newZombie(std::string name) {
+C::C() {}
 
-	return new Zombie(name);
-}
+C::C(const C &src) : Base(src) { *this = src; }
+
+C &C::operator=(const C &rhs) { (void)rhs; return (*this); }
+
+C::~C() {}

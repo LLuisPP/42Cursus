@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/19 07:37:24 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/23 09:34:13 by lprieto-         ###   ########.fr       */
+/*   Created: 2026/04/10 21:53:28 by lprieto-          #+#    #+#             */
+/*   Updated: 2026/04/10 22:00:00 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef B_HPP
+#define B_HPP
 
-# include <iostream>
+#include "Base.hpp"
 
-class Zombie {
-
-	private:
-		std::string name;
-
-	public:
-		Zombie(std::string);
-		~Zombie(void);
-		void	announce(void);
+class B : public Base {
+ public:
+	B();
+	B(const B &src);
+	B &operator=(const B &rhs);
+	~B();
 };
-
-Zombie	*newZombie(std::string);
-void	randomChump(std::string);
 
 #endif
