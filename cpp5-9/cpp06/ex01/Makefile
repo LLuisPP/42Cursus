@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+         #
+#    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/25 12:24:51 by lprieto-          #+#    #+#              #
-#    Updated: 2026/03/25 12:55:25 by lprieto-         ###   ########.fr        #
+#    Updated: 2026/04/11 21:51:04 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = serialization
+NAME = serializer
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g
@@ -93,18 +93,18 @@ PROG_DURAT := 1
 TOTAL_ITEMS := $(words $(OBJS))
 
 define show_progress
-	@echo; \
-	printf " 8eeee \n \
-8     eeeeee eeeee  eeeeeee \n \
-8eeee 8   88 8   8  8  8  8 \n \
-88    8    e 8eee8e 8e 8  8 \n \
-88    8    8 8    8 88 8  8 \n \
-88    8eeee8 8    8 88 8  8 \n\n"; \
+@echo; \
+printf " 8eeee8 \n\
+8      eeee eeeee  e  eeeee e     e  eeeee eeeee eeeee  \n \
+8eeeee 8    8   8  8  8   8 8     8      8 8     8   8  \n \
+.   88 8eee 8eee8e 8e 8eee8 8e    8e eeee8 8eee8 8eee8e \n \
+e   88 88   88   8 88 88  8 88    88 88    88    88   8 \n \
+8eee88 88ee 88   8 88 88  8 88eee 88 88ee8 88ee8 88   8 \n\n" \;
 
 	printf " $(W)▄▄▄▄▄▄▄               eeeeee 88888 \n \
 $(W)█                     e    8 8        $(Y)▄████▄              $(BB)▄█████▄ $(RES)\n \
 █          █     █    8    8 8eee8   $(Y)████▄███  $(BW)lprieto-   $(BB)██${PHA}▄${RES}$(BB)█$(PHA)▄${RES}$(BB)██ ${RES}\n \
-█▄       ▀▀█▀▀ ▀▀█▀▀  e    8     8   $(Y)████▄ $(G)$(BD)$(NAME) $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
+█▄       ▀▀█▀▀ ▀▀█▀▀  e    8     8   $(Y)████▄    $(G)$(BD)$(NAME)  $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
 ██         ▀     ▀    88   8    88   $(Y) ▀████▀     ex01     $(BB)█▀█▀█▀█ $(RES)\n \
 ███████               888888 88888 \n\n"; \
 

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+         #
+#    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/25 12:24:51 by lprieto-          #+#    #+#              #
-#    Updated: 2026/03/25 12:55:25 by lprieto-         ###   ########.fr        #
+#    Updated: 2026/04/11 21:43:22 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,13 +93,13 @@ PROG_DURAT := 1
 TOTAL_ITEMS := $(words $(OBJS))
 
 define show_progress
-	@echo; \
-	printf " 8eeee                          eeee  eeeee  8eeee8 \n \
-8     eeeeee eeeee  eeeeeee       8  8   8  8    8 \n \
-8eeee 8   88 8   8  8  8  8       8  8eee8  8eeee8ee \n \
-88    8    e 8eee8e 8e 8  8    eee8 88   88 88     8 \n \
-88    8    8 8    8 88 8  8    8    88   88 88     8 \n \
-88    8eeee8 8    8 88 8  8    8eee 88eee88 88eeeee8 \n\n"; \
+@echo; \
+printf " 8 \n\
+8  eeeee eeee eeeee eeeee e  eeee e    e \n \
+8e 8   8 8    8   8   8   8  8    8    8 \n \
+88 8e  8 8eee 8e  8   8e  8e 8eee 8eeee8 \n \
+88 88  8 88   88  8   88  88 88     88   \n \
+88 88ee8 88ee 88  8   88  88 88     88   \n\n"; \
 
 	printf " $(W)▄▄▄▄▄▄▄               eeeeee 88888 \n \
 $(W)█                     e    8 8        $(Y)▄████▄              $(BB)▄█████▄ $(RES)\n \
