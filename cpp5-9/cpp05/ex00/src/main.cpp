@@ -6,17 +6,12 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 12:34:16 by lprieto-          #+#    #+#             */
-/*   Updated: 2026/04/11 18:29:28 by lprieto-         ###   ########.fr       */
+/*   Updated: 2026/04/11 18:46:20 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include <iostream>
-
-#define RESET   "\033[0m"
-#define RED     "\033[31m"
-#define GREEN   "\033[32m"
-#define YELLOW  "\033[33m"
 
 int main(void) {
     // --- Test 1: Standard bureaucrat ---

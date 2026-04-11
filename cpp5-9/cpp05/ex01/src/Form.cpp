@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 20:12:24 by lprieto-          #+#    #+#             */
-/*   Updated: 2026/04/10 20:12:25 by lprieto-         ###   ########.fr       */
+/*   Updated: 2026/04/11 19:05:11 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ const char *Form::GradeTooHighException::what() const throw() {
 }
 
 std::ostream &operator<<(std::ostream &o, const Form &f) {
-	o << "- Form: " << f.getName() << "\n"
-      << "  Signed: " << (f.isSigned() ? "Yes" : "No") << "\n"
-      << "  Grade required to sign: " << f.getGradeToSign() << "\n"
-      << "  Grade required to execute: " << f.getGradeToExecute();
+	o << "  - Form: " << f.getName() << "\n"
+      << "  - Signed: " << (f.isSigned() ? "\033[32mYes\033[0m" : "\033[31mNo\033[0m") << "\n"
+      << "  - Grade required to sign: " << f.getGradeToSign() << "\n"
+      << "  - Grade required to execute: " << f.getGradeToExecute();
 	return o;
 }

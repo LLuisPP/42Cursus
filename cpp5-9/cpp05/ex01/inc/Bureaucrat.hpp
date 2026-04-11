@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 20:11:58 by lprieto-          #+#    #+#             */
-/*   Updated: 2026/04/10 20:12:01 by lprieto-         ###   ########.fr       */
+/*   Updated: 2026/04/11 18:45:26 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 #include <exception>
 #include <iostream>
 #include <string>
+
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
 
 class Form; // Forward declaration
 
