@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+         #
+#    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/25 12:24:51 by lprieto-          #+#    #+#              #
-#    Updated: 2026/03/25 12:55:25 by lprieto-         ###   ########.fr        #
+#    Updated: 2026/04/11 19:34:08 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Intern
+NAME = intern
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g

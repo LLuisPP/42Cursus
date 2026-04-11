@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 20:13:36 by lprieto-          #+#    #+#             */
-/*   Updated: 2026/04/10 20:13:37 by lprieto-         ###   ########.fr       */
+/*   Updated: 2026/04/11 19:51:00 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 #include <iostream>
 #include <exception>
 #include "AForm.hpp"
+
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define MAGENTA "\033[35m"
 
 class AForm;
 

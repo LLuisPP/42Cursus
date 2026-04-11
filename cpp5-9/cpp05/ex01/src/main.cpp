@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 20:12:29 by lprieto-          #+#    #+#             */
-/*   Updated: 2026/04/11 19:07:15 by lprieto-         ###   ########.fr       */
+/*   Updated: 2026/04/11 19:44:45 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int main(void) {
         std::cout << "  " << f4 << std::endl;
         
         std::cout << "> Action:" << std::endl;
-        b1.signForm(f4); // This calls f4.beSigned(b1) [cite: 178]
+        b1.signForm(f4); // This calls f4.beSigned(b1)
         
         std::cout << "> Result:" << std::endl;
         std::cout << f4 << std::endl;
@@ -105,12 +105,12 @@ int main(void) {
     └───────────────────────────┘
 
 - Form attributes are private, not protected.
-- A Form is not signed upon construction[cite: 164].
-- Grades follow the same logic: 1 (highest) to 150 (lowest)[cite: 168].
+- A Form is not signed upon construction.
+- Grades follow the same logic: 1 (highest) to 150 (lowest).
 - beSigned(): Changes status to signed if Bureaucrat's grade is high 
-  enough (grade <= _gradeToSign), otherwise throws GradeTooLowException[cite: 175, 176].
+  enough (grade <= _gradeToSign), otherwise throws GradeTooLowException.
 - Bureaucrat::signForm(): Attempts to sign and prints the result:
-    Success: "<bureaucrat> signed <form>"[cite: 179, 180].
-    Failure: "<bureaucrat> couldn't sign <form> because <reason>"[cite: 181, 182].
-- operator<< prints all form information[cite: 170].
+    Success: "<bureaucrat> signed <form>".
+    Failure: "<bureaucrat> couldn't sign <form> because <reason>".
+- operator<< prints all form information.
 */
