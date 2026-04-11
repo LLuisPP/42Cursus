@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+         #
+#    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/25 12:24:51 by lprieto-          #+#    #+#              #
-#    Updated: 2026/03/25 12:55:25 by lprieto-         ###   ########.fr        #
+#    Updated: 2026/04/11 22:13:32 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,10 @@ re :
 	make fclean --silent
 	make all --silent
 
-.PHONY: all clean fclean re
+leaks:
+	valgrind -s --error-limit=no --tool=memcheck --leak-check=full --show-leak-kinds=all ./$(NAME)
+
+.PHONY: all clean fclean re leaks
 
 .SILENT:
 
@@ -94,17 +97,17 @@ TOTAL_ITEMS := $(words $(OBJS))
 
 define show_progress
 	@echo; \
-	printf " 8eeee                          eeee  eeeee  8eeee8 \n \
-8     eeeeee eeeee  eeeeeee       8  8   8  8    8 \n \
-8eeee 8   88 8   8  8  8  8       8  8eee8  8eeee8ee \n \
-88    8    e 8eee8e 8e 8  8    eee8 88   88 88     8 \n \
-88    8    8 8    8 88 8  8    8    88   88 88     8 \n \
-88    8eeee8 8    8 88 8  8    8eee 88eee88 88eeeee8 \n\n"; \
+printf " 8eeee8 \n \
+8    8 eeeee  eeeee  eeeee e    e \n \
+8eeee8 8   8  8   8  8   8 8    8 \n \
+88   8 8eee8e 8eee8e 8eee8 8eeee8 \n \
+88   8 88   8 88   8 88  8   88   \n \
+88   8 88   8 88   8 88  8   88   \n\n"; \
 
 	printf " $(W)▄▄▄▄▄▄▄               eeeeee 88888 \n \
 $(W)█                     e    8 8        $(Y)▄████▄              $(BB)▄█████▄ $(RES)\n \
 █          █     █    8    8 8eee8   $(Y)████▄███  $(BW)lprieto-   $(BB)██${PHA}▄${RES}$(BB)█$(PHA)▄${RES}$(BB)██ ${RES}\n \
-█▄       ▀▀█▀▀ ▀▀█▀▀  e    8     8   $(Y)████▄     $(G)$(BD)$(NAME)   $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
+█▄       ▀▀█▀▀ ▀▀█▀▀  e    8     8   $(Y)████▄      $(G)$(BD)$(NAME)     $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
 ██         ▀     ▀    88   8    88   $(Y) ▀████▀     ex02     $(BB)█▀█▀█▀█ $(RES)\n \
 ███████               888888 88888 \n\n"; \
 

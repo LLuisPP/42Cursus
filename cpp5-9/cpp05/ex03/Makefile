@@ -6,7 +6,7 @@
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/25 12:24:51 by lprieto-          #+#    #+#              #
-#    Updated: 2026/04/11 19:34:08 by lprieto-         ###   ########.fr        #
+#    Updated: 2026/04/11 22:00:28 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,10 @@ re :
 	make fclean --silent
 	make all --silent
 
-.PHONY: all clean fclean re
+leaks:
+	valgrind -s --error-limit=no --tool=memcheck --leak-check=full --show-leak-kinds=all ./$(NAME)
+
+.PHONY: all clean fclean re leaks
 
 .SILENT:
 
