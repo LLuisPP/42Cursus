@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 20:13:00 by lprieto-          #+#    #+#             */
-/*   Updated: 2026/04/10 20:13:01 by lprieto-         ###   ########.fr       */
+/*   Updated: 2026/04/11 19:28:40 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,21 +71,21 @@ int AForm::getGradeToExecute() const {
 }
 
 const char *AForm::GradeTooLowException::what() const throw() {
-    return "Grade is too low!";
+    return "\033[31mGrade is too low!\033[0m";
 }
 
 const char *AForm::GradeTooHighException::what() const throw() {
-    return "Grade is too high!";
+    return "\033[31mGrade is too high!\033[0m";
 }
 
 const char *AForm::NotSignedException::what() const throw() {
-    return "Form is not signed!";
+    return "\033[31mForm is not signed!\033[0m";
 }
 
 std::ostream &operator<<(std::ostream &o, const AForm &f) {
 	o << "- AForm: " << f.getName() << "\n"
-      << "  Signed: " << (f.isSigned() ? "Yes" : "No") << "\n"
-      << "  Grade required to sign: " << f.getGradeToSign() << "\n"
-      << "  Grade required to execute: " << f.getGradeToExecute();
+      << "- Signed: " << (f.isSigned() ? "Yes" : "No") << "\n"
+      << "- Grade required to sign: " << f.getGradeToSign() << "\n"
+      << "- Grade required to execute: " << f.getGradeToExecute();
 	return o;
 }

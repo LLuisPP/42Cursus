@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 20:13:21 by lprieto-          #+#    #+#             */
-/*   Updated: 2026/04/10 20:13:22 by lprieto-         ###   ########.fr       */
+/*   Updated: 2026/04/11 19:23:25 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
     this->checkRequirements(executor);
     
-    std::cout << "* BZZZZZT... DRILLING INTENSIFIES... VZZZZZZ... *" << std::endl;
+    std::cout << "*" << YELLOW << " BZZZZZT... DRILLING INTENSIFIES... VZZZZZZ... " << RESET << "*" << std::endl;
     
     if (std::rand() % 2 == 0) {
-        std::cout << this->_target << " has been robotomized successfully!" << std::endl;
+        std::cout << this->_target << GREEN << " has been robotomized successfully!" << RESET << std::endl;
     } else {
-        std::cout << "Robotomy failed on " << this->_target << "!" << std::endl;
+        std::cout << RED << "Robotomy failed on " << this->_target << RESET << "!" << std::endl;
     }
 }

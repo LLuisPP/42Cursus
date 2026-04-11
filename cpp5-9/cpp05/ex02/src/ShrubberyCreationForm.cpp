@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 20:13:26 by lprieto-          #+#    #+#             */
-/*   Updated: 2026/04/10 20:15:18 by lprieto-         ###   ########.fr       */
+/*   Updated: 2026/04/11 19:24:44 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
     outfile << "       _-_" << std::endl;
     outfile << "    /~~   ~~\\" << std::endl;
     outfile << " /~~         ~~\\" << std::endl;
-    outfile << "{               }" << std::endl;
+    outfile << "{      tree     }" << std::endl;
     outfile << " \\  _-     -_  /" << std::endl;
     outfile << "   ~  \\\\ //  ~" << std::endl;
     outfile << "_- -   | | _- _" << std::endl;

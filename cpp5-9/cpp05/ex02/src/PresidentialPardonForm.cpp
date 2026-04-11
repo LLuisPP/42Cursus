@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 20:13:17 by lprieto-          #+#    #+#             */
-/*   Updated: 2026/04/10 20:13:18 by lprieto-         ###   ########.fr       */
+/*   Updated: 2026/04/11 19:26:05 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ PresidentialPardonForm::~PresidentialPardonForm() {
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const {
     this->checkRequirements(executor);
     
-    std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+    std::cout << this->_target << GREEN << " has been pardoned by Zaphod Beeblebrox." << RESET << std::endl;
 }
