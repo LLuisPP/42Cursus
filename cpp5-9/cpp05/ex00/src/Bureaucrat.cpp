@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 16:59:44 by lprieto-          #+#    #+#             */
-/*   Updated: 2026/04/09 18:47:09 by lprieto-         ###   ########.fr       */
+/*   Updated: 2026/04/11 21:05:44 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ const std::string Bureaucrat::getName(void) const {
 int Bureaucrat::getGrade(void) const {
     return this->_grade;
 }
-
-
 
 const char *Bureaucrat::GradeTooLowException::what() const throw() {
     return "Grade is too low!";

@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 20:14:00 by lprieto-          #+#    #+#             */
-/*   Updated: 2026/04/11 20:04:25 by lprieto-         ###   ########.fr       */
+/*   Updated: 2026/04/11 21:25:33 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ const char *AForm::NotSignedException::what() const throw() {
 
 std::ostream &operator<<(std::ostream &o, const AForm &f) {
 	o << "- AForm: " << f.getName() << "\n"
-    << "- Signed: " << (f.isSigned() ? "Yes" : "No") << "\n"
+    << "- Signed: " << (f.isSigned() ? "\033[32mYes\033[0m" : "\033[31mNo\033[0m") << "\n"
     << "- Grade required to sign: " << f.getGradeToSign() << "\n"
     << "- Grade required to execute: " << f.getGradeToExecute();
 	return o;

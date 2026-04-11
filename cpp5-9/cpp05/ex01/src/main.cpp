@@ -6,7 +6,7 @@
 /*   By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 20:12:29 by lprieto-          #+#    #+#             */
-/*   Updated: 2026/04/11 19:44:45 by lprieto-         ###   ########.fr       */
+/*   Updated: 2026/04/11 21:22:31 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main(void) {
         Form f2("Top Secret", 0, 50);
         std::cout << f2 << std::endl;
     } catch (std::exception &e) {
-        std::cout << RED << "Exception: " << e.what() << RESET << std::endl;
+        std::cout << "Exception: " << e.what() << std::endl;
     }
 
     // --- Test 3: Invalid Form (Grade too Low) ---
@@ -39,7 +39,7 @@ int main(void) {
         Form f3("Garbage Form", 151, 50);
         std::cout << f3 << std::endl;
     } catch (std::exception &e) {
-        std::cout << RED << "Exception: " << e.what() << RESET << std::endl;
+        std::cout << "Exception: " << e.what() << std::endl;
     }
 
     // --- Test 4: Successful Signing ---
@@ -58,7 +58,7 @@ int main(void) {
         std::cout << "> Result:" << std::endl;
         std::cout << f4 << std::endl;
     } catch (std::exception &e) {
-        std::cout << RED << "Exception: " << e.what() << RESET << std::endl;
+        std::cout << "Exception: " << e.what() << std::endl;
     }
 
     // --- Test 5: Failed Signing ---
