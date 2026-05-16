@@ -94,17 +94,17 @@ TOTAL_ITEMS := $(words $(OBJS))
 
 define show_progress
 	@echo; \
-	printf " eeee  eeeee  eeeee eeeee eeeee e  e  eeeee \n \
-8    8   8  8     8   8 8     8  8  8   8 \n \
-8eee 8eee8  8eeee 8eee8 8eeee 8ee8  8eee8 \n \
-88   88  8      8 88    88    88  8  88  8 \n \
-88ee 88  8  8ee88 88    88    88  8  88  8 \n\n"; \
+	printf " eeee eeeee eeeee e    e eeee e  eeeee eeee \n \
+8    8   8 8   e 8    8 8    8  8   8 8   8 \n \
+8eee 8eee8 8eeee 8eeee8 8eee 8e 8e  8 8e  8 \n \
+88   88  8    88   88   88   88 88  8 88  8 \n \
+88ee 88  8 8ee88   88   88   88 88  8 88ee \n\n"; \
 
 	printf " $(W)▄▄▄▄▄▄▄               eeeeee 88888 \n \
-$(W)█                     e    8     8    $(Y)▄████▄              $(BB)▄█████▄ $(RES)\n \
-█          █     █    8    8     8   $(Y)████▄███  $(BW)lprieto-   $(BB)██${PHA}▄${RES}$(BB)█$(PHA)▄${RES}$(BB)██ ${RES}\n \
+$(W)█                     e    8 8   8    $(Y)▄████▄              $(BB)▄█████▄ $(RES)\n \
+█          █     █    8    8 8   8   $(Y)████▄███  $(BW)lprieto-   $(BB)██${PHA}▄${RES}$(BB)█$(PHA)▄${RES}$(BB)██ ${RES}\n \
 █▄       ▀▀█▀▀ ▀▀█▀▀  e    8 8eee8   $(Y)████▄     $(G)$(BD)$(NAME)   $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
-██         ▀     ▀    88   8    88   $(Y) ▀████▀     ex00     $(BB)█▀█▀█▀█ $(RES)\n \
+██         ▀     ▀    88   8 88  8   $(Y) ▀████▀     ex00     $(BB)█▀█▀█▀█ $(RES)\n \
 ███████               888888 88888 \n\n"; \
 
 	total_ticks=$$((PROG_DURAT * 10));
