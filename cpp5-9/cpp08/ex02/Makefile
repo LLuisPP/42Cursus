@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/13 20:38:28 by lprieto-          #+#    #+#              #
-#    Updated: 2025/10/29 11:13:00 by lprieto-         ###   ########.fr        #
+#    Created: 2025/11/10 10:00:00 by lprieto-          #+#    #+#              #
+#    Updated: 2025/11/10 10:00:00 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = claptrap3
+NAME = mutantstack
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g
@@ -19,7 +19,7 @@ RM = rm -rf
 
 # **************************************************************************** #
 
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRC = main.cpp
 
 SRCS = $(addprefix src/, $(SRC))
 
@@ -94,16 +94,16 @@ TOTAL_ITEMS := $(words $(OBJS))
 
 define show_progress
 	@echo; \
-	printf " eeee e     eeeee eeeee eeeee eeeee  eeeee eeeee eeeee eeee eeeee ee   e eeee eeeee  eeeee eeeee \n \
-8  8 8     8   8 8   8   8   8   8  8   8 8   8 8     8  8 8   8 88   8 8    8   8  8   8 8     \n \
-8e   8e    8eee8 8eee8   8e  8eee8e 8eee8 8eee8 8eeee 8e   8eee8 88  e8 8eee 8eee8e 8eee8 8e ee\n \
-88   88    88  8 88      88  88   8 88  8 88       88 88   88  8  8  8  88   88   8 88  8 88  8 \n \
-88e8 88eee 88  8 88      88  88   8 88  8 88    8ee88 88e8 88  8  8ee8  88   88   8 88  8 88ee8 \n\n"; \
+	printf " eeeeeee eeeee eeeee e   e eeeee \n \
+8  8  8 8   8   8   8   8 8   8 \n \
+8e 8  8 8e  8   8e  8eee8 8e  8 \n \
+88 8  8 88  8   88  88  8 88  8 \n \
+88 8  8 88ee8   88  88  8 88  8 \n\n"; \
 
 	printf " $(W)▄▄▄▄▄▄▄               eeeeee 88888 \n \
 $(W)█                     e    8     8    $(Y)▄████▄              $(BB)▄█████▄ $(RES)\n \
 █          █     █    8    8     8   $(Y)████▄███  $(BW)lprieto-   $(BB)██${PHA}▄${RES}$(BB)█$(PHA)▄${RES}$(BB)██ ${RES}\n \
-█▄       ▀▀█▀▀ ▀▀█▀▀  e    8 8eee8   $(Y)████▄     $(G)$(BD)$(NAME)  $(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
+█▄       ▀▀█▀▀ ▀▀█▀▀  e    8 8eee8   $(Y)████▄     $(G)$(BD)$(NAME)$(BB)█${PHA}▀▄▀▄▀${RES}${BB}█ $(RES)\n \
 ██         ▀     ▀    88   8    88   $(Y) ▀████▀     ex02     $(BB)█▀█▀█▀█ $(RES)\n \
 ███████               888888 88888 \n\n"; \
 

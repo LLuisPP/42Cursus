@@ -5,103 +5,147 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 08:31:15 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/10/28 09:04:11 by lprieto-         ###   ########.fr       */
+/*   Created: 2025/11/10 10:00:00 by lprieto-          #+#    #+#             */
+/*   Updated: 2025/11/10 10:00:00 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
+#include "MutantStack.hpp"
+#include <iostream>
+#include <list>
 
-int	main(void) {
+static void	testSubject(void)
+{
+	std::cout << BY << "\n--- Subject test (MutantStack) ---" << RES
+		<< std::endl;
 
-	ClapTrap	clap("Okto");
-    ScavTrap	trap("Link");   // <- ScavTrap (ex01)
-	FragTrap	frag("Zelda");  // <- FragTrap (ex02)
+	MutantStack<int>	mstack;
 
-    clap.beRepaired(6);
-    trap.beRepaired(7);
-
-    clap.attack("Link");
-    trap.takeDamage(20);
-
-    // ScavTrap attacks with his stats (HP=100, EN=50, ATK=20)
-    trap.attack("Okto");
-    clap.takeDamage(20);
-
-    // Guard mode activated: Can't attack while active
-    trap.guardGate();
-    trap.attack("Okto");
-    trap.guardGate();
-    trap.attack("Okto");
-	
-	// ---- ex02: FragTrap ----
-	frag.highFiveGuys();          // FragTrap own method
-	frag.attack("Link");           // shows Link inherits: attack
-	trap.takeDamage(30);           // FragTrap damage (ATK=30)
-	// ----------------------------------
-
-
-	// Rest of the combat cycle from ex00
-	clap.attack("Link");
-	trap.takeDamage(20);
-	
-	trap.attack("Okto");
-	clap.takeDamage(20);
-	
-	clap.attack("Link");
-	trap.takeDamage(20);
-	
-	trap.attack("Okto");
-	clap.takeDamage(20);
-
-	clap.attack("Link");
-	trap.takeDamage(20);
-	
-	trap.attack("Okto");
-	clap.takeDamage(20);
-
-	clap.attack("Link");
-	trap.takeDamage(50);
-	clap.beRepaired(5000);
-	trap.attack("Okto");
-
-	clap.takeDamage(5);
-	trap.beRepaired(5000);
-	
-	clap.attack("Link");
-	trap.attack("Okto");
-
-	return (0);
+	mstack.push(5);
+	mstack.push(17);
+	std::cout << mstack.top() << std::endl;
+	mstack.pop();
+	std::cout << mstack.size() << std::endl;
+	mstack.push(3);
+	mstack.push(5);
+	mstack.push(737);
+	//[...]
+	mstack.push(0);
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
+	++it;
+	--it;
+	while (it != ite)
+	{
+		std::cout << *it << std::endl;
+		++it;
+	}
+	std::stack<int> s(mstack);
 }
 
+static void	testSubjectList(void)
+{
+	std::cout << BY << "\n--- Subject test (std::list) ---" << RES
+		<< std::endl;
 
+	std::list<int>	mlist;
 
+	mlist.push_back(5);
+	mlist.push_back(17);
+	std::cout << mlist.back() << std::endl;
+	mlist.pop_back();
+	std::cout << mlist.size() << std::endl;
+	mlist.push_back(3);
+	mlist.push_back(5);
+	mlist.push_back(737);
+	//[...]
+	mlist.push_back(0);
+	std::list<int>::iterator it = mlist.begin();
+	std::list<int>::iterator ite = mlist.end();
+	++it;
+	--it;
+	while (it != ite)
+	{
+		std::cout << *it << std::endl;
+		++it;
+	}
+}
 
+static void	testReverseIterator(void)
+{
+	std::cout << BY << "\n--- Reverse iterator test ---" << RES << std::endl;
+	MutantStack<int>	mstack;
 
-/*
+	for (int i = 1; i <= 5; i++)
+		mstack.push(i * 10);
 
-CLASES
-┌───────────────────────────────────┐
-│        ClapTrap                   │  (base)
-│  _name, _health, _energy, _attack |
-│  attack / takeDamage / beRepaired |
-│  ctors / dtor / copy / assign     |
-└───────────▲───────▲───────────────┘
-            │       │  public inherit
-┌───────────┴───┐   └───────────────┐  
-│    ScavTrap   │         ┌─────────┴────────────────┐ 
-│  (derivate)   │         |  FragTrap                |
-│  + guardGate  │         |  (derivate)              | 
-│  + attack(OVR)│         |  + highFiveGuys          |
-│  HP=100 EN=50 │         |  (uses attack inherited) |
-│  ATK=20       │         |  HP=100 EN=100 ATK=30    |
-└───────────────┘         └──────────────────────────┘
+	std::cout << GY << "Forward:  ";
+	for (MutantStack<int>::iterator it = mstack.begin();
+		it != mstack.end(); ++it)
+		std::cout << *it << " ";
+	std::cout << RES << std::endl;
 
-OBJECTS in main()
-clap : ClapTrap("Okto")
-trap : ScavTrap("Link")
-frag : FragTrap("Zelda")
+	std::cout << GY << "Reverse:  ";
+	for (MutantStack<int>::reverse_iterator rit = mstack.rbegin();
+		rit != mstack.rend(); ++rit)
+		std::cout << *rit << " ";
+	std::cout << RES << std::endl;
+}
 
-*/
+static void	testCopyAssign(void)
+{
+	std::cout << BY << "\n--- Copy & assignment test ---" << RES << std::endl;
+	MutantStack<int>	original;
+	original.push(42);
+	original.push(21);
+	original.push(84);
+
+	MutantStack<int>	copied(original);
+	std::cout << GY << "Copied stack: ";
+	for (MutantStack<int>::iterator it = copied.begin();
+		it != copied.end(); ++it)
+		std::cout << *it << " ";
+	std::cout << RES << std::endl;
+
+	MutantStack<int>	assigned;
+	assigned = original;
+	std::cout << GY << "Assigned stack: ";
+	for (MutantStack<int>::iterator it = assigned.begin();
+		it != assigned.end(); ++it)
+		std::cout << *it << " ";
+	std::cout << RES << std::endl;
+
+	original.push(999);
+	std::cout << GY << "Original after push (copy unaffected): ";
+	for (MutantStack<int>::iterator it = copied.begin();
+		it != copied.end(); ++it)
+		std::cout << *it << " ";
+	std::cout << RES << std::endl;
+}
+
+static void	testStringStack(void)
+{
+	std::cout << BY << "\n--- String MutantStack test ---" << RES << std::endl;
+	MutantStack<std::string>	sstack;
+	sstack.push("Hello");
+	sstack.push("World");
+	sstack.push("42");
+	sstack.push("Barcelona");
+
+	for (MutantStack<std::string>::iterator it = sstack.begin();
+		it != sstack.end(); ++it)
+		std::cout << BGR << *it << " " << RES;
+	std::cout << std::endl;
+}
+
+int	main(void)
+{
+	std::cout << BB << BD << "=== MUTANTSTACK TESTS ===" << RES << std::endl;
+	testSubject();
+	testSubjectList();
+	testReverseIterator();
+	testCopyAssign();
+	testStringStack();
+	std::cout << std::endl;
+	return (0);
+}

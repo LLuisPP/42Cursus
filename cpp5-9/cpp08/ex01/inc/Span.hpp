@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/01 12:45:29 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/11/01 12:48:48 by lprieto-         ###   ########.fr       */
+/*   Created: 2025/11/10 10:00:00 by lprieto-          #+#    #+#             */
+/*   Updated: 2025/11/10 10:00:00 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef SPAN_HPP
+# define SPAN_HPP
 
 // Color macros:
 #define RES	"\033[0m"
@@ -34,21 +34,39 @@
 #define OR	"\033[38;5;214m"
 // macros
 
-#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <stdexcept>
+#include <iterator>
+#include <climits>
 
-class WrongAnimal {
+class Span {
 
-	protected:
-		std::string _type;
+	private:
+		unsigned int		_maxSize;
+		std::vector<int>	_numbers;
+
 	public:
-		WrongAnimal(void);
-		WrongAnimal(const WrongAnimal &copy);
-		WrongAnimal &operator=(const WrongAnimal &copy);
+		Span(void);
+		explicit Span(unsigned int n);
+		Span(const Span &copy);
+		~Span(void);
 
-		virtual ~WrongAnimal(void);
-		
-		std::string getType(void);
-		void	makeSound(void);
+		Span &operator=(const Span &copy);
+
+		void	addNumber(int number);
+
+		template <typename InputIterator>
+		void	addRange(InputIterator begin, InputIterator end)
+		{
+			unsigned int dist = static_cast<unsigned int>(std::distance(begin, end));
+			if (_numbers.size() + dist > _maxSize)
+				throw std::overflow_error("Cannot add range: exceeds maximum capacity");
+			_numbers.insert(_numbers.end(), begin, end);
+		}
+
+		int		shortestSpan(void) const;
+		int		longestSpan(void) const;
 };
 
 #endif

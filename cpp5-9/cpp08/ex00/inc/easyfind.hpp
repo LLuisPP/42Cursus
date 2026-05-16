@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprieto- <lprieto-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/01 12:45:29 by lprieto-          #+#    #+#             */
-/*   Updated: 2025/11/01 12:48:48 by lprieto-         ###   ########.fr       */
+/*   Created: 2025/11/10 10:00:00 by lprieto-          #+#    #+#             */
+/*   Updated: 2025/11/10 10:00:00 by lprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef EASYFIND_HPP
+# define EASYFIND_HPP
 
 // Color macros:
 #define RES	"\033[0m"
@@ -34,21 +34,17 @@
 #define OR	"\033[38;5;214m"
 // macros
 
-#include <iostream>
+#include <algorithm>
+#include <iterator>
+#include <stdexcept>
 
-class WrongAnimal {
-
-	protected:
-		std::string _type;
-	public:
-		WrongAnimal(void);
-		WrongAnimal(const WrongAnimal &copy);
-		WrongAnimal &operator=(const WrongAnimal &copy);
-
-		virtual ~WrongAnimal(void);
-		
-		std::string getType(void);
-		void	makeSound(void);
-};
+template <typename T>
+typename T::iterator	easyfind(T &container, int value)
+{
+	typename T::iterator it = std::find(container.begin(), container.end(), value);
+	if (it == container.end())
+		throw std::runtime_error("Value not found in container");
+	return (it);
+}
 
 #endif

@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lprieto- <lprieto-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/13 20:38:28 by lprieto-          #+#    #+#              #
-#    Updated: 2025/10/23 11:33:31 by lprieto-         ###   ########.fr        #
+#    Created: 2025/11/10 10:00:00 by lprieto-          #+#    #+#              #
+#    Updated: 2025/11/10 10:00:00 by lprieto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = claptrap
+NAME = easyfind
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g
@@ -19,7 +19,7 @@ RM = rm -rf
 
 # **************************************************************************** #
 
-SRC = main.cpp ClapTrap.cpp
+SRC = main.cpp
 
 SRCS = $(addprefix src/, $(SRC))
 
@@ -94,11 +94,11 @@ TOTAL_ITEMS := $(words $(OBJS))
 
 define show_progress
 	@echo; \
-	printf " eeee e     eeeee eeeee       eeeee eeeee  eeeee eeeee \n \
-8  8 8     8   8 8   8         8   8   8  8   8 8   8 \n \
-8e   8e    8eee8 8eee8  eee    8e  8eee8e 8eee8 8eee8 \n \
-88   88    88  8 88            88  88   8 88  8 88 \n \
-88e8 88eee 88  8 88            88  88   8 88  8 88 \n\n"; \
+	printf " eeee  eeeee  eeeee eeeee eeeee e  e  eeeee \n \
+8    8   8  8     8   8 8     8  8  8   8 \n \
+8eee 8eee8  8eeee 8eee8 8eeee 8ee8  8eee8 \n \
+88   88  8      8 88    88    88  8  88  8 \n \
+88ee 88  8  8ee88 88    88    88  8  88  8 \n\n"; \
 
 	printf " $(W)▄▄▄▄▄▄▄               eeeeee 88888 \n \
 $(W)█                     e    8     8    $(Y)▄████▄              $(BB)▄█████▄ $(RES)\n \
