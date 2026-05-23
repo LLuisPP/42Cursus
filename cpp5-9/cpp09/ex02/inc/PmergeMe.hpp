@@ -52,7 +52,8 @@ class PmergeMe {
 		std::deque<int>		_deq;
 
 		// Jacobsthal number generation
-		static std::vector<size_t>	_getJacobsthalSeq(size_t n);
+		static std::vector<size_t>	_getJacobsthalVec(size_t n);
+		static std::deque<size_t>	_getJacobsthalDeq(size_t n);
 
 		// Ford-Johnson for vector
 		void	_sortVector(std::vector<int> &arr);

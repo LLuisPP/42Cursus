@@ -32,43 +32,26 @@ int	main(int argc, char **argv)
 			std::cout << unsorted[i] << " ";
 		std::cout << std::endl;
 
-		// Time vector sort
-		clock_t	startVec = clock();
-		std::vector<int>	vecCopy = sorter.getVector();
-		// Sort is done internally, we just measure
-		clock_t	endVec = clock();
-
-		// Time deque sort
-		clock_t	startDeq = clock();
-		std::deque<int>		deqCopy = sorter.getDeque();
-		clock_t	endDeq = clock();
-
-		// Perform actual sort
-		clock_t	sortStart = clock();
-		sorter.sort();
-		clock_t	sortEnd = clock();
-
-		double	totalTime = static_cast<double>(sortEnd - sortStart)
-			/ CLOCKS_PER_SEC * 1000000.0;
-		double	vecTime = totalTime / 2.0;
-		double	deqTime = totalTime / 2.0;
-
-		// For proper individual timing, re-parse and sort separately
+		// Sort and time vector
 		PmergeMe	vecSorter;
 		vecSorter.parseInput(argc, argv);
-		startVec = clock();
+		clock_t	startVec = clock();
 		vecSorter.sort();
-		endVec = clock();
-		vecTime = static_cast<double>(endVec - startVec)
+		clock_t	endVec = clock();
+		double	vecTime = static_cast<double>(endVec - startVec)
 			/ CLOCKS_PER_SEC * 1000000.0;
 
+		// Sort and time deque
 		PmergeMe	deqSorter;
 		deqSorter.parseInput(argc, argv);
-		startDeq = clock();
+		clock_t	startDeq = clock();
 		deqSorter.sort();
-		endDeq = clock();
-		deqTime = static_cast<double>(endDeq - startDeq)
+		clock_t	endDeq = clock();
+		double	deqTime = static_cast<double>(endDeq - startDeq)
 			/ CLOCKS_PER_SEC * 1000000.0;
+
+		// Use vecSorter for display (it's already sorted)
+		sorter.sort();
 
 		sorter.displayResults(vecTime, deqTime);
 	}

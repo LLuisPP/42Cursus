@@ -53,9 +53,29 @@ void	PmergeMe::parseInput(int argc, char **argv)
 
 // ─── Jacobsthal sequence generation ─────────────────────────────────────────
 
-std::vector<size_t>	PmergeMe::_getJacobsthalSeq(size_t n)
+std::vector<size_t>	PmergeMe::_getJacobsthalVec(size_t n)
 {
 	std::vector<size_t>	seq;
+
+	if (n == 0)
+		return (seq);
+	seq.push_back(0);
+	if (n == 1)
+		return (seq);
+	seq.push_back(1);
+	while (true)
+	{
+		size_t	next = seq.back() + 2 * seq[seq.size() - 2];
+		if (next >= n)
+			break ;
+		seq.push_back(next);
+	}
+	return (seq);
+}
+
+std::deque<size_t>	PmergeMe::_getJacobsthalDeq(size_t n)
+{
+	std::deque<size_t>	seq;
 
 	if (n == 0)
 		return (seq);
@@ -134,7 +154,7 @@ void	PmergeMe::_sortVector(std::vector<int> &arr)
 		sorted.insert(sorted.begin(), pend[0]);
 
 	// Step 5: Use Jacobsthal sequence for insertion order
-	std::vector<size_t>	jacobsthal = _getJacobsthalSeq(pend.size());
+	std::vector<size_t>	jacobsthal = _getJacobsthalVec(pend.size());
 	std::vector<bool>	inserted(pend.size(), false);
 	inserted[0] = true;
 
@@ -187,7 +207,7 @@ void	PmergeMe::_sortDeque(std::deque<int> &arr)
 		return ;
 
 	// Step 1: Create pairs and determine larger/smaller elements
-	std::vector<std::pair<int, int> >	pairs;
+	std::deque<std::pair<int, int> >	pairs;
 	bool	hasStraggler = (size % 2 != 0);
 	int		straggler = 0;
 
@@ -232,8 +252,8 @@ void	PmergeMe::_sortDeque(std::deque<int> &arr)
 		sorted.insert(sorted.begin(), pend[0]);
 
 	// Step 5: Use Jacobsthal sequence for insertion order
-	std::vector<size_t>	jacobsthal = _getJacobsthalSeq(pend.size());
-	std::vector<bool>	inserted(pend.size(), false);
+	std::deque<size_t>	jacobsthal = _getJacobsthalDeq(pend.size());
+	std::deque<bool>	inserted(pend.size(), false);
 	inserted[0] = true;
 
 	for (size_t i = 1; i < jacobsthal.size(); i++)
