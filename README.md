@@ -112,13 +112,13 @@ The 42 Common Core is an intensive, self-taught, project-based curriculum focuse
 |`🏗️`|[**cpp's 5-9**](https://github.com/LLuisPP/42Cursus/tree/main/cpp4-9)| Explore advanced C++ and STL |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|<a href="#"><img src="https://img.shields.io/badge/80-darkgreen"></a>|<a href="#"><img src="https://img.shields.io/badge/100-darkgreen"></a>|`May'26`|
 |`🔖`|[**rank 05 exam**](https://github.com/LLuisPP/42-exams-rank05)| Assessment of skills in C and C++ |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|<a href="#"><img src="https://img.shields.io/badge/50-darkgreen"></a>|<a href="#"><img src="https://img.shields.io/badge/Bhole-darkred"></a>|`Jun'26`|
 ||`milestone 5`||||||
-|`🕹️`|[**trascendence**]()| Create a 2D online game with diverse mechanics |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|<a href="#"><img src="https://img.shields.io/badge/XX-darkred"></a>|<a href="#"><img src="https://img.shields.io/badge/XX-darkred"></a>|`'XX`|
-|`🔖`|[**rank 06 exam**]()| Advanced level exam in C/C++ |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|<a href="#"><img src="https://img.shields.io/badge/XX-darkred"></a>|<a href="#"><img src="https://img.shields.io/badge/XX-darkred"></a>|`'XX`|
+|`🕹️`|[**trascendence**]()| Create a 2D online game with diverse mechanics |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|<a href="#"><img src="https://img.shields.io/badge/Bhole-darkred"></a>|<a href="#"><img src="https://img.shields.io/badge/Bhole-darkred"></a>|`'XX`|
+|`🔖`|[**rank 06 exam**]()| Advanced level exam in C/C++ |<div align="center"><a href="#"><img width="20" src="https://github.com/user-attachments/assets/a8c3a3ed-deb0-48a8-a12e-7ecdb5b7d164"></a></div>|<a href="#"><img src="https://img.shields.io/badge/Bhole-darkred"></a>|<a href="#"><img src="https://img.shields.io/badge/Bhole-darkred"></a>|`'XX`|
 
 </div>
 
 <div align="left">
-When I finish everything, it will be:
+Job wasn't finished but i've learned a lot, then... in any case it's:
 </div>
 <br>
 <div align="center">
